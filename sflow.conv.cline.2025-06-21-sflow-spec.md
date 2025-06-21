@@ -2,7 +2,7 @@
 id: 8ry3qldaqi2j7b0emoomqdz
 title: 2025 06 21 Sflow Spec
 desc: ''
-updated: 1750530646892
+updated: 1750531903451
 created: 1750528125174
 ---
 
@@ -33,22 +33,22 @@ created: 1750528125174
 
 ## Elements
 
-"SFlow" solves graph data publishing and evolution problems with three weavable elements:
+"SFlow" solves graph data evolutionand publishing problems with four weavable elements:
 
-- **Autonomous Namespacing**: organize your data in familiar URL-based hierarchies
 - **Stable Identifiers**: Permanent IRIs for things (people, concepts, namespaces) are essential to public data in general, and especially the Semantic Web
 - **Versioned Datasets**: Versioned datasets with immutable, checkpointed history
+- **Autonomous Namespacing**: organize your data in familiar URL-based hierarchies
+- **Web Assets**: pictures, templates, audio, etc.
 
 ###  URL Schema (from recent conversations)
 
-The framework uses a **recursive three-way namespace division** at every level. 
+The framework produces websites where the familiar tree structure is composed with nested namespace "branches" and three kinds of leaves:
 
-1. **Thing identifiers** - terminal elements that refer to things in the world. Or fictional things. Or concepts
-2. **Datasets**- terminal folders that conttthere are many different kinds
-sflow-rdf-datasets can be thought of as RDF files
-3. **Namespaces** - organizational containers that can contain any number of 
+1. **Thing identifiers** - simple terminal folders that refer to things in the world. Or fictional things. Or concepts, etc.
+2. **Datasets**- terminal folders that contain the actual data and metadata
+3. **Assets**
 
-Because only namespaces can contain other elements, but dataset directories do contain sub-directories for metadata and the different versions.
+Only namespaces can contain (sub-)elements, but dataset directories do contain a few sub-directories for metadata and previous versions.
 
 
 ### Key Architectural Decisions
