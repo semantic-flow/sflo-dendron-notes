@@ -1,9 +1,14 @@
 ---
 id: ynqxgf8uv2bgbdi81wlz29g
-title: SF Site
+title: sf-site
 desc: ''
-updated: 1730223616209
+updated: 1750487443355
 created: 1730222882826
 ---
 
-- The output of the [[sflow.metalsmith-sflo]], suitable for hosting on github or other static site hosting services
+Semantic Flow sites provide two main services:
+
+- hosting persistent, namespaced [[URLs|sflow.concepts.url]] for use in the semantic web
+- hosting versioned RDF datasets, and their histories
+
+
