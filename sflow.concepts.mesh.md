@@ -2,7 +2,7 @@
 id: h6ssv16gdyf56gg235dxv85
 title: semantic mesh
 desc: ''
-updated: 1750707425667
+updated: 1750715874953
 created: 1750624002110
 ---
 
@@ -80,7 +80,7 @@ Any folder that directly contains a file that matches its name is considered a *
    The “current” `<name>.trig` in a versioned dataset **always** reflects the latest `_v-series/vN/<…>.trig`. Automate or lock this write step to avoid drift.
 
 5. **Backlinks & provenance**
-   All cross‐resource backlinks go into the `_id/` graphs so that you can traverse your mesh by reading only `_id` files.
+   Any cross‐resource backlinks go into the `_id/` graphs so that you can traverse your mesh by reading only `_id` files.
 
 ---
 

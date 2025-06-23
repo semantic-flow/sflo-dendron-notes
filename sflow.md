@@ -2,7 +2,7 @@
 id: ggw3ek46ptgebsgxgihr1dh
 title: Semantic Flow
 desc: 'ontology, tooling, and workflow for publishing semantic data'
-updated: 1750657617661
+updated: 1750720661030
 created: 1716959415785
 ---
 
@@ -13,16 +13,24 @@ A **dereferenceable, versioned semantic mesh** will be the foundation for a new 
 
 **Semantic Flow** is a framework for managing and publishing knowledge graphs and other semantic data by leveraging GitHub, Gitlab, and other free static hosting services. It enables a **dereferenceable Semantic Web** where every HTTP IRI returns meaningful content.
 
-## Features
+## Benefits
 
-- own your own data
+- own your own data and data schemas
 - complete version history when you want it
 - reliable persistence
+
+## Features
+
 - seamlessly integrate other data sources anywhere in your mesh
+- generate and customize mini-sites for piece of your mesh
 
-## Elements
+## Mesh Organization
 
-[[Semantic meshes|sflow.concepts.mesh]] provide data management  and [[semantic sites|sflow.concepts.site]] solve data publishing with four types of weavable elements:
+### Folders
+
+### Elements
+
+[[Semantic meshes|sflow.concepts.mesh]] provide data management and [[semantic sites|sflow.concepts.site]] solve data publishing with four types of weavable elements:
 
 - **Datasets**: bundles of data, with optional immutable, checkpointed history
 - **Namespaces**: organize your data in familiar URL-based hierarchies
@@ -66,8 +74,7 @@ Files and folders that are present in aren't consistent with these elements are 
 ## Key Constraints & Rules
 
 ### Semantic Mesh Organization
-- **Things**: Refer to any entity you might need to talk about, real or conceptual, but function as mini-sites with their own catalog and assets templates, no versioning, no datasets
-- **DSSs**: Data files must match folder names (`people-data.trig` in `people-data/`)
+- - **DSSs**: Data files must match folder names (`people-data.trig` in `people-data/`)
 - **Assets**: Immutable once published (explicit versioning in filenames)
 - **Metadata**: Separate `.meta.yml` files for DSS descriptions
 - **Templates**: Flexible (Markdown, JSX, Vento, etc.)
