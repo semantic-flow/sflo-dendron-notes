@@ -2,7 +2,7 @@
 id: h6ssv16gdyf56gg235dxv85
 title: semantic mesh
 desc: ''
-updated: 1750648695392
+updated: 1750707425667
 created: 1750624002110
 ---
 
@@ -19,6 +19,8 @@ A semantic mesh can be highly useful by itself, even as just some local files. B
 ### Organization
 
 A semantic mesh is made up of folders and files like a website, but file naming and folder organization are constrained by carefully chosen conventions. 
+
+
 
 #### Composability and Depth
 
@@ -38,28 +40,13 @@ Although a mesh can be published to the web, and so be given a fully-qualified d
 
 #### Identifier Folders
 
-In turns out that every folder in a semantic mesh is an identifier folder. Even 
+It turns out that every element in a semantic mesh has an identifier sub-folder. Even _assets elements, which are terminal, have them. 
 
-#### SFlow System Subfolders
+#### SFlow Elements Folders
 
-At every level in the mesh you’ll see one (or more) of these special subfolders:
+![[sflow.concepts.mesh.folder#folder-types]]
 
-* **`_id/`**
-  Holds an RDF file `<name>_id.trig` describing the **IRI itself** (including backlinks, provenance, and a type triple).
-
-* **`_ref/`**
-  Holds an RDF/JSON-LD file `<name>_ref.jsonld` describing the **referent** (labels, comments, series‐level metadata).
-
-* **`_v/`**
-  Present only under **system‐versioned** datasets. Contains numbered version folders (`name-v1/`, `name-v2/`, …) each carrying its own `<name>_vN.trig` metadata distribution.
-
-* **`_assets/`**
-  Arbitrary sub-folders and files, to be included verbatim when publishing to a [[sflow.concepts.site]]. Typically, they will supplement or complement the semantic content in the mesh. 
-
-* **`x/`**
-  Arbitrary sub-folders and files; eXcluded from publishing to a [[sflow.concepts.site]]. Good for build recommendations, pipeline extensions, etc.
-
-Any folder that contains one or more `.trig` files at its root is considered a **dataset**; folders without root‐level distributions are treated as “things” or “namespaces.”
+Any folder that directly contains a file that matches its name is considered a **dataset**; folders without root‐level distributions are treated as “things” or “namespaces.”
 
 ### Example Mesh Hierarchy
 
