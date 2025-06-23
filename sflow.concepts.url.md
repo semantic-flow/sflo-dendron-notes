@@ -2,22 +2,23 @@
 id: eo43ueh0viren1xkjcjregc
 title: Semantic Flow URLs
 desc: ''
-updated: 1750514962527
+updated: 1750541763603
 created: 1750368774797
 ---
 
 ## Types of URLs in Semantic Flow
 
-| sflow URL type    | sense      | example                                                  | catalog             | versioned |
-|-------------------|------------|----------------------------------------------------------|---------------------|-----------|
-| namespace         | reference  | `https://ex.org/ns/people/`                              | catalog.namespace   | ❌         |
-| thing             | reference  | `https://ex.org/ns/people/dave`                          | thing catalog       | ❌         |
-| reference-page    | content    | `https://ex.org/ns/people/dave/index.html`               | ❌                  | ❌         |
-| dataset           | reference  | `https://ex.org/ns/_data/dave-bio/`                      | dataset catalog     | ✅         |
-| v-series          | reference  | `https://ex.org/ns/_data/dave-bio/_v-series/`            | with dataset        | ❌         |
-| distribution      | content    | `https://ex.org/ns/_data/dave-bio/_v1/dave-bio_v1.trig`  | ❌                  | ❌         |
-| asset             | content    | `https://ex.org/ns/assets/logo.svg`                      | ❌                  | ❌         |
-| catalog           | reference  | `https://ex.org/ns/_data/dave-bio/_catalog`              | catalog.catalog     | ✅         |
+| sflow URL type   | sense     | example                                            | catalog            | versioned |
+|------------------|-----------|----------------------------------------------------|--------------------|-----------|
+| namespace        | reference | `https://ex.org/ns/people/`                        | catalog.namespace  | ❌        |
+| thing            | reference | `https://ex.org/ns/people/dave`                    | thing catalog      | ❌        |
+| reference-page   | content   | `https://ex.org/ns/people/dave/index.html`         | ❌                  | ❌        |
+| dataset          | reference | `https://ex.org/ns/dave-bio/`                      | dataset catalog    | ✅        |
+| v-series         | reference | `https://ex.org/ns/dave-bio/_v-series/`            | with dataset       | ❌        |
+| distribution     | content   | `https://ex.org/ns/dave-bio/_v1/dave-bio_v1.trig`  | ❌                  | ❌        |
+| catalog          | reference | `https://ex.org/ns/dave-bio/_catalog`              | with dataset       | ✅        |
+| asset            | content   | `https://ex.org/ns/assets/logo.svg`                | ❌                  | ❌        |
+
 
 Example:
 - `ns/people/` = namespace containing people-related things

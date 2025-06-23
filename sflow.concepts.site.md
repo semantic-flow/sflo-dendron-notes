@@ -1,8 +1,8 @@
 ---
 id: ynqxgf8uv2bgbdi81wlz29g
-title: sf-site
+title: Semantic Site
 desc: ''
-updated: 1750487443355
+updated: 1750626732200
 created: 1730222882826
 ---
 
