@@ -1,6 +1,6 @@
 ---
 id: 17l23vl7sqg997hr773dh23
-title: Identifiers
+title: Identifier
 desc: ''
 updated: 1750658325301
 created: 1750654763700
@@ -13,7 +13,7 @@ created: 1750654763700
 
 ## Identifier Name Limitations
 
-- initial underscores prefix all [[sflow.concepts.identifiers.system]] and should be avoided in general
+- initial underscores prefix all [[sflow.concepts.identifier.system]] and should be avoided in general
 
 
 ![[sflow#^pnoqpr3ff4za]] 

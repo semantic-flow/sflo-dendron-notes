@@ -1,8 +1,8 @@
 ---
 id: h6ssv16gdyf56gg235dxv85
-title: semantic mesh
+title: sflow-mesh
 desc: ''
-updated: 1750715874953
+updated: 1750745983403
 created: 1750624002110
 ---
 
@@ -20,7 +20,7 @@ A semantic mesh can be highly useful by itself, even as just some local files. B
 
 A semantic mesh is made up of folders and files like a website, but file naming and folder organization are constrained by carefully chosen conventions. 
 
-
+### Constraints
 
 #### Composability and Depth
 
@@ -32,11 +32,13 @@ Each namespace acts as a holon — a self-contained whole that is simultaneously
 
 This holonic organization enables modularity, reusability, and localized control at each level of the semantic mesh.
 
-#### Namespace Folders
+#### Namespace Resources
 
-At the root of any semantic mesh is a namespace.
+At the root of any semantic mesh is a namespace resource. 
 
-Although a mesh can be published to the web, and so be given a fully-qualified domain name, for composability purposes the root of a namespace should be a single-term folder. Because every contained element shares this root, the fewer character the better. "ns/" is a good choice.
+When a mesh is published to the web, these folder become fully-qualified domain names 
+
+for composability purposes the root of a namespace should be a single-term folder. Because every contained element shares this root, the fewer character the better. "ns/" is a good choice.
 
 #### Identifier Folders
 

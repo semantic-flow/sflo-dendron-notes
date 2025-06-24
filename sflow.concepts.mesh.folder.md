@@ -2,14 +2,15 @@
 id: p3mbdrze0qe8uvko4i16t1s
 title: mesh folder
 desc: ''
-updated: 1750711332307
+updated: 1750726334183
 created: 1750659145476
 ---
 
 - a mesh is structured with mesh folders, which correspond to RDF resources. When a mesh gets published, the folders also correspond to URL paths.
 
+## Folder = storage, Resource = identity
 
-
+## Types
 
 ### 
 * **`_assets/`**

@@ -2,7 +2,7 @@
 id: ggw3ek46ptgebsgxgihr1dh
 title: Semantic Flow
 desc: 'ontology, tooling, and workflow for publishing semantic data'
-updated: 1750720661030
+updated: 1750746399106
 created: 1716959415785
 ---
 
@@ -13,6 +13,8 @@ A **dereferenceable, versioned semantic mesh** will be the foundation for a new 
 
 **Semantic Flow** is a framework for managing and publishing knowledge graphs and other semantic data by leveraging GitHub, Gitlab, and other free static hosting services. It enables a **dereferenceable Semantic Web** where every HTTP IRI returns meaningful content.
 
+[[Sflow-meshes|sflow.concepts.mesh]] provide data management and publishing, and [[semantic sites|sflow.concepts.site]] support data discovery and explainability.
+
 ## Benefits
 
 - own your own data and data schemas
@@ -22,24 +24,26 @@ A **dereferenceable, versioned semantic mesh** will be the foundation for a new 
 ## Features
 
 - seamlessly integrate other data sources anywhere in your mesh
-- generate and customize mini-sites for piece of your mesh
+- generate and customize mini-sites or single-page applications for nodes in your mesh
 
 ## Mesh Organization
 
-### Folders
 
 ### Elements
 
-[[Semantic meshes|sflow.concepts.mesh]] provide data management and [[semantic sites|sflow.concepts.site]] solve data publishing with four types of weavable elements:
+ with four types of weavable [[sflow.concepts.elements]]:
 
 - **Datasets**: bundles of data, with optional immutable, checkpointed history
 - **Namespaces**: organize your data in familiar URL-based hierarchies
 - **Identifiers**: Persistent URLs which refer to namespaces, datasets, and other things (like people, concepts, whatever). Good identifiers are useful for public data in general, and essential the Semantic Web
+
+Files and folders that are present but aren't consistent with these elements are ignored in the weaving process, 
+
+### Folders
+
+
 - **Asset Bundles**: every identifier-folder can contain two file trees:
     - **Web Assets (the _assets folder)**: URL-addressable pictures, templates, audio, etc.
-    - **Excluded Assets (the _x folder)**: things that don't go on the web, but which help 
-
-Files and folders that are present in aren't consistent with these elements are ignored in the weaving process, 
 
 
 ## Workflow
@@ -73,29 +77,18 @@ Files and folders that are present in aren't consistent with these elements are 
 
 ## Key Constraints & Rules
 
-### Semantic Mesh Organization
-- - **DSSs**: Data files must match folder names (`people-data.trig` in `people-data/`)
-- **Assets**: Immutable once published (explicit versioning in filenames)
-- **Metadata**: Separate `.meta.yml` files for DSS descriptions
-- **Templates**: Flexible (Markdown, JSX, Vento, etc.)
+### Mesh Constraints
 
-### Output Organization
-- **Thing folders**: Only `index.html`, `index_v*.html`, and `_catalog/`
-- **Series folders**: Only `v*`, `_current`, `_catalog/`
-- **RDF files**: Only exist in `v*` and `_current` version folders
-- **Every namespace and thing**: Gets a `_catalog/` DSS (namespace catalog or thing catalog respectively)
-- **Every DSS**: Gets a `_catalog/` DSS (series catalog) for series-level metadata
-
-### File Naming Rules
+- **Datasets**: Data files must match containing folder names (`people-data.trig` in `people-data/`)
 - **Case sensitivity**: Preserved - file capitalization must match folder
-- **Consistency**: Dataset files must match containing folder name
-- **Import validation**: External data must be renamed to match target structure
-- **Asset versioning**: Explicit versioning in filenames (e.g., `headshot-2024.jpg`)
+- **Single distribution**: only one "working" distribution per dataset, although the site can have other distribution generated
+
+
 
 ### Content & Format Handling
-- **HTML**: Generated from templates, served by GitHub Pages
+- **Reference pages**: Usually generated from templates, but could be overridden by putting an index.html in a resource folder
 - **RDF formats**: Multiple distributions per version (`.trig`, `.jsonld`, etc.)
-- **Assets**: Absolute paths (`/assets/images/...`) for portability
+- **Assets**: relative paths (`./_assets/images/...`) for portability
 - **Machine discovery**: Catalog datasets specify available formats and series info
 - **Things vs Data**: Clear separation - things are presentation, DSSs are data
 
@@ -174,10 +167,7 @@ Files and folders that are present in aren't consistent with these elements are 
 
 ## Features
 
-- RDF dataset-series oriented for semantic versioning and provenance
-- every named entity can have a catalog series, which describes facilitates discovery by describing entity-related resources (including the default dataset series)
-- use github or gitlab to manage namespaces using [[sflow.concepts.sf-root-repo]] and mint IRIs
-- an [[sflow.concepts.sf-data-repo]] could have files/distributions for more than one namespace, so it should have each of those namespaces segregated by a top-level folder
+- an [[sflow.concepts.sf-repo]] could have files/distributions for more than one namespace, so it should have each of those namespaces segregated by a top-level folder
 
 
 
