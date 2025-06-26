@@ -2,14 +2,20 @@
 id: m24m2p2s7iom3rwzvp28kvy
 title: Versioning
 desc: ''
-updated: 1750601461043
+updated: 1750918256407
 created: 1730373700120
 ---
+
+## issues
+
+- when there's only been one version of a dataset, do you create the v-series
+  system elements?
 
 ## monotonic version numbers
 
 - they're easy
-- you don't have to worry about what semantic versioning means in the context of data
+- you don't have to worry about what semantic versioning means in the context of
+  data
 
 ## example versioned dataset
 
@@ -29,5 +35,5 @@ dataset-name/
 │   └── v2/ …                       ← Further versions…  
 └── _assets/                        ← User‐facing assets  
     ├── index.html                  ← Assets reference page  
-    └── logo.svg  
+    └── logo.svg
 ```

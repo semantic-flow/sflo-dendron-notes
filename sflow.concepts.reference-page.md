@@ -1,16 +1,14 @@
 ---
 id: wvzsqsdcvkd1d2adyeqw996
-title: Reference Page
+title: Dereference Page
 desc: >-
   If you want to know more about the thing referenced by an IRI, dereference
   pages can help
-updated: 1750720101809
+updated: 1750831315530
 created: 1729880396813
 ---
 
 - primarily for humans
-
-
 
 ## References
 
