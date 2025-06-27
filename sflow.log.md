@@ -27,7 +27,7 @@ created: 1727801720160
 
 ## t.2024.10.29.09
 
-- renamed to [[sflow.concepts.sf-repo]]
+- renamed to [[sflow.concepts.sflow-repo]]
 - instead of duplicating highlights in a NI's index.trig, just define the _default datasets as "highlights" and use owl:imports
 
 ## t.2024.10.29.11

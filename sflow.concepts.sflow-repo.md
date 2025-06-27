@@ -1,12 +1,12 @@
 ---
 id: c4wo7mdjzcit2bmvqr5sx4u
-title: sf-repo
+title: sflow-repo
 desc: ''
-updated: 1750721637986
+updated: 1750999120513
 created: 1729878955236
 ---
 
-A Semantic Flow repository (or sf-repo for short) is a git repository that collects of one or more [[semantic meshes|sflow.concepts.mesh]] at the root, along with supporting files:
+A Semantic Flow repository (or sflow-repo for short) is a git repository that collects of one or more [[semantic meshes|sflow.concepts.semantic-mesh]]. 
   - sflow configuration data
   - [[static site generators|sflow.concepts.site.generation]] and configuration
   - assets, including images, templates and template mappings to apply to src items

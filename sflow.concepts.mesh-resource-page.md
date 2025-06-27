@@ -1,10 +1,9 @@
 ---
 id: wvzsqsdcvkd1d2adyeqw996
-title: Dereference Page
+title: mesh resource page
 desc: >-
-  If you want to know more about the thing referenced by an IRI, dereference
-  pages can help
-updated: 1750831315530
+  If you want to know more about the thing referenced by an identifier, resource pages can help
+updated: 1751001132141
 created: 1729880396813
 ---
 

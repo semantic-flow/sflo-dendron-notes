@@ -2,7 +2,7 @@
 id: xmdevh3s6gvp93m3nyc6683
 title: sf-resource
 desc: ''
-updated: 1750855807564
+updated: 1750999168454
 created: 1750709094321
 ---
 
@@ -11,7 +11,7 @@ created: 1750709094321
 -
 
 In RDF-land, a resource is any node in an RDF graph that can be represented with
-an IRI.
+an IRI. 
 
 (The other kinds of RDF graph nodes are literals and blank nodes)
 
@@ -19,10 +19,10 @@ In the Semantic Flow, there are several [[kinds of
 sf-resources|sflow.concepts.resource.type]].
 
 - [[sflow.concepts.resource.namespace]]
-- [[sflow.concepts.resource.thing]]
-- [[sflow.concepts.resource.dataset]]
-  - [[sflow.concepts.resource.dataset.versioned]]
-- [[sflow.concepts.resource.asset-tree]]
+- [[sflow.concepts.resource.compound.reference]]
+- [[sflow.concepts.resource.compound.dataset]]
+  - [[sflow.concepts.node.dataset.versioned]]
+- [[sflow.concepts.mesh-node.assets]]
 
 ```file
 Resource                (hasId)  [abstract]

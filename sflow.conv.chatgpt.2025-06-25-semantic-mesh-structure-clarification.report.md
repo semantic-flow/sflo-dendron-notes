@@ -1,35 +1,28 @@
 ---
 id: 3sqb645ltdzav06xxy9qdww
 title: Report
-desc: ''
-updated: 1750924642542
+desc: Semantic Compounds in the Knowledge Mesh Structure
+updated: 1750959159283
 created: 1750924640093
 ---
-
-Great. I’ll create a structured summary and diagram of your semantic mesh
-terminology—highlighting how compounds, system-resources, and distribution files
-relate within the mesh/site distinction. I’ll clarify how names, locators, and
-indicators interact with those structures and extract insights from your table
-to ensure system filenames and IRIs are properly aligned.
-
-I’ll let you know when everything is ready for review.
 
 # Semantic Compounds in the Knowledge Mesh Structure
 
 ## Introduction
 
-In the context of the knowledge “mesh” (a structured collection of linked
-resources), the term **“node”** is being replaced by **“semantic compound”** (or
-simply **“compound”**). A compound is a user-defined container that groups
-related content and can itself participate as a unit within larger structures.
-This document clarifies the semantic mesh structure, distinguishing **compound
-containers** from **system resources**, and explains how names, locators, and
-indicators function within this framework. We also illustrate these concepts
-with an example hierarchy and discuss the naming scheme for distribution files.
+In the context of the a [[sflow.concepts.semantic-mesh]] (a structured collection of
+linked resources), the term **“node”** is being replaced by **“semantic
+compound”** (or simply **“compound”**). A compound is a user-defined container
+that groups related content and can itself participate as a unit within larger
+structures. This document clarifies the semantic mesh structure, distinguishing
+**compound containers** from **system resources**, and explains how names,
+locators, and indicators function within this framework. We also illustrate
+these concepts with an example hierarchy and discuss the naming scheme for
+distribution files.
 
 ## The Concept of “Compound”
 
-A **compound** is a holistic resource container that encapsulates multiple
+A **compound** is a holonic resource container that encapsulates multiple
 elements (datasets, files, and even other compounds) within the mesh. Each
 compound is a part of a larger whole (e.g. the site or a parent compound) while
 also being a self-contained whole with its own content – much like a **holon**,
@@ -43,7 +36,7 @@ to many things. Thus, _semantic compounds_ are the fundamental units of
 user-defined content in the mesh.
 
 Each compound corresponds to a directory (folder) in the content structure that
-is **not** a reserved system folder (system folders are prefixed with an
+is **not** a reserved system folder (reserved folder names are prefixed with an
 underscore, as discussed below). Compounds serve as **containers** for content:
 they may contain data files (like dataset distributions), special metadata
 subfolders, and even other compounds. Importantly, a compound often represents a
