@@ -17,7 +17,7 @@ and other semantic data by leveraging GitHub, Gitlab, and other free static
 hosting services. It enables a **dereferenceable Semantic Web** where every HTTP
 IRI returns meaningful content.
 
-[[Sflow-meshes|sflow.concepts.semantic-mesh]] provide data management and publishing, and
+[[Sflow-meshes|sflow.concepts.mesh]] provide data management and publishing, and
 [[semantic sites|sflow.concepts.site]] support data discovery and
 explainability.
 
@@ -38,7 +38,7 @@ explainability.
 
 ### Elements
 
-with four types of weavable [[sflow.concepts.element]]:
+with four types of weavable [[sflow.concepts.flow.element]]:
 
 - **Datasets**: bundles of data, with optional immutable, checkpointed history
 - **Namespaces**: organize your data in familiar URL-based hierarchies
@@ -76,7 +76,7 @@ ignored in the weaving process,
 
 - creates support system files as needed
 - checks mesh consistency and reports issues
-- "bumps" versions of [[versioned datasets|sflow.concepts.sflow-dataset.versioned]]
+- "bumps" versions of [[versioned datasets|sflow.concepts.mesh.dataset.versioned]]
 - you can weave a part of your semantic mesh, or the whole thing
 
 ### Publishing
@@ -216,7 +216,7 @@ Everything else gets index.html for GitHub Pages compatibility.
 
 ## Features
 
-- an [[sflow.concepts.sflow-repo]] could have files/distributions for more than one
+- an [[sflow.concepts.flow.repo]] could have files/distributions for more than one
   namespace, so it should have each of those namespaces segregated by a
   top-level folder
 

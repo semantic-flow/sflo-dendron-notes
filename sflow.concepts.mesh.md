@@ -2,16 +2,14 @@
 id: h6ssv16gdyf56gg235dxv85
 title: semantic mesh
 desc: ''
-updated: 1750973575670
+updated: 1751132318515
 created: 1750624002110
 ---
 
-So, for a mesh definition:
-
-- every thing in a mesh (mesh-nodes, mesh-elements, anything else?) is a   mesh-resource
-  - mesh-resources correspond physically with either mesh-folders, distributions
-    contained in datasets, resource pages (index.html files), or README.md and CHANGELOG.md files
-  - resource-pages, README.md, and CHANGELOG.md may be contained in any mesh-folder, and provide context for whatever folder contains them
+- every thing in a mesh ( [[sflow.concepts.mesh.node]], [[sflow.concepts.flow.element]], [[sflow.concepts.flow.resource.page]], [[sflow.concepts.flow.resource.changelog]], and [[sflow.concepts.flow.resource.readme]] ) is an addressable [[sflow.concepts.mesh.resource]]
+  - mesh resources correspond physically with either [[sflow.concepts.flow.folder]], distributions contained in [[datasets|sflow.concepts.flow.resource.dataset]], resource pages (index.html files), or README.md and CHANGELOG.md files
+  - resource pages should be present in every [[sflow.concepts.flow.folder]], at least after a [[sflow.concepts.weave]]
+  - README.md, and CHANGELOG.md may be contained in any folder, and provide context for whatever folder contains them
   - assets-catalogs are considered "in" or part of the mesh
   - other than assets-catalogs, the files and folders contained in assets-nodes are "attached" to a mesh, but not part of it.
 - mesh-nodes are represented physically as folders where the (local) name of the  node is the same as the folder name

@@ -1,17 +1,26 @@
 ---
 id: m24m2p2s7iom3rwzvp28kvy
-title: Sflow Dataset Versioning
+title: Dataset Versioning
 desc: ''
-updated: 1751040929231
+updated: 1751138597765
 created: 1730373700120
 ---
 
+As a dataset gets updated, it might make sense keep previous versions of it, i.e., with a versioned dataset.
+
+
+To avoid an infinite loop with versioned datasets of versioned dataset, [[sflow.concepts.flow.element.version-dataset]] (_v1, _v2, etc) and their [[sflow.concepts.flow.element.v-series-dataset-series]] (_v-series) 
+
+As always with datasets, metadata dataset versioning is configurable. By default, it should be off.
 
 
 ## issues
 
-- when there's only been one version of a dataset, do you create the v-series
-  system elements?
+- ~~when there's only been one version of a dataset, do you create the v-series  system elements?~~
+  - if versioning is turned on
+- where do you specify that a dataset shouldn't be versioned? 
+  - ~~maybe the presence of absence of a _v-series folder is the marker? So you can turn off versioning at any time, but you lose all accumulated versions. Hmm... another argument for keeping the versions under the versioned dataset.~~
+  - needs to be somewhere common to element and node datasets
 
 ## monotonic version numbers
 

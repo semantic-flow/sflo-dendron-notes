@@ -1,14 +1,14 @@
 ---
 id: c4wo7mdjzcit2bmvqr5sx4u
-title: sflow-repo
+title: flow repo
 desc: ''
-updated: 1750999120513
+updated: 1751128405932
 created: 1729878955236
 ---
 
-A Semantic Flow repository (or sflow-repo for short) is a git repository that collects of one or more [[semantic meshes|sflow.concepts.semantic-mesh]]. 
+A Semantic Flow repository (or sflow-repo for short) is a git repository that contains a single [[sflow.concepts.flow.repo.page]], and a [[sflow.concepts.flow.repo.dataset]], and a collection of [[semantic meshes|sflow.concepts.mesh]]
   - sflow configuration data
-  - [[static site generators|sflow.concepts.site.generation]] and configuration
+  - [[static site generators|sflow.concepts.flow.page-generation]] and configuration
   - assets, including images, templates and template mappings to apply to src items
   - an optional output directory containing a [[sflow.concepts.site]], (e.g. "docs" for some GitHub pages workflows)
 
@@ -27,3 +27,6 @@ A Semantic Flow repository (or sflow-repo for short) is a git repository that co
 - can you include a mesh in an existing repo?
   - not ideally? for composability (i.e., linking a repo into an existing mesh) you need an unbroken chain.
   - maybe with symbolic links
+
+
+(or, for short, a "semantic repo")

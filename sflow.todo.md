@@ -2,14 +2,13 @@
 id: l59hvxem2488war5j981yca
 title: SF Todo
 desc: ''
-updated: 1750746549000
+updated: 1751119791708
 created: 1731041743071
 ---
 
 ## Immediately
 
-- replace "resource" with node. It's a mesh, it has nodes. Resource was l
-
+// reintroduce "_id" for a consistent way of referring to the IRI/identifier. 
 
 ## Eventually
 

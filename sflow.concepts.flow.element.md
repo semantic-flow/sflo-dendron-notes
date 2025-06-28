@@ -2,21 +2,19 @@
 id: 9c27yly4ed3ju7msf8luhge
 title: sflow element
 desc: ''
-updated: 1751002086961
+updated: 1751138728749
 created: 1750706813437
 ---
 
 ## Elements Types
 
-### Compounds
+### User Datasets
 
-### System
+[[sflow.concepts.flow.element.reference-dataset]] are the only user-modifiable [[sflow.concepts.flow.element]] datasets. They contain data about their [[sflow.concepts.mesh.node.reference]]'s referent.
 
-### Dataset Elements
+### System Datasets
 
-- **`_id/`** Holds an RDF file `<name>_id.trig` describing the **identifier
-  itself** (including backlinks, what type of resource it represents, and
-  perhaps identifier provenance).
+- **[[sflow.concepts.flow.element.catalog-dataset]]** hold metadata about their parent dataset, possibly including backlinks, provenance and anything else that should be versioned.
 
 - **`_ref/`** Holds an RDF/JSON-LD file `<name>_ref.jsonld` describing the
   **referent** (names, labels, comments, for datasets: dataset metadata, for
@@ -26,8 +24,3 @@ created: 1750706813437
   version folders (`name-v1/`, `name-v2/`, …) each carrying its own
   `<name>_vN.trig` metadata distribution.
 
-### Distribution Elements
-
-- **_name_.trig/jsonld/** These are the content of datasets, i.e., "resources
-  that are". There should be only one distribution in the mesh, but alternate
-  serializations might be generated on publish.
