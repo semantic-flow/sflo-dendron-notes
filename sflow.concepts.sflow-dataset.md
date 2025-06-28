@@ -18,7 +18,7 @@ Some [[sflow.concepts.element]] are also sflow-datasets:
 - [[sflow.concepts.element.catalog-dataset]]
 - [[sflow.concepts.element.reference-dataset]]
 - [[sflow.concepts.sflow-dataset.versioned]]
-- [[sflow.concepts.element.v-series-dataset]]
+- [[sflow.concepts.element.v-series-dataset-series]]
 
 
 
