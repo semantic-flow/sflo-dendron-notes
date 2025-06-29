@@ -10,4 +10,4 @@ created: 1751001012190
 - used for attaching data to a [[sflow.concepts.mesh.node.reference]]
 - physically represented as a [[sflow.concepts.flow.folder._ref]]
 - logically represented as a [[sflow.concepts.mesh.dataset]] or [[related-topics.dcat.dataset-series]]
-- not a [[sflow.concepts.mesh.node]], so doesn't have a [[sflow.concepts.flow.element.catalog-dataset]]
+- not a [[sflow.concepts.mesh.node]], so doesn't have a [[sflow.concepts.flow.element.mesh-dataset]]

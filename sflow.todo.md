@@ -2,13 +2,13 @@
 id: l59hvxem2488war5j981yca
 title: SF Todo
 desc: ''
-updated: 1751119791708
+updated: 1751165087904
 created: 1731041743071
 ---
 
 ## Immediately
 
-// reintroduce "_id" for a consistent way of referring to the IRI/identifier. 
+- re-situate "mesh" inside of flow? / merge resource trees?
 
 ## Eventually
 

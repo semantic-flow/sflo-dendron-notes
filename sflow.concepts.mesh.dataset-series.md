@@ -10,4 +10,4 @@ created: 1751003183255
 
 **sflow-dataset-series** are not generally distinguished from **[[sflow.concepts.mesh.dataset]]s** in terms of file structure, but their metadata should identify them as [[related-topics.dcat.dataset-series]].
 
-[[sflow.concepts.mesh.dataset.versioned]] are not necessarily sflow-dataset-series, but they contain [[sflow.concepts.flow.element.v-series-dataset-series]] which are. (And [[sflow.concepts.flow.element.version-dataset]] that are not.) 
+[[sflow.concepts.flow.resource.dataset.versioned]] are not necessarily sflow-dataset-series, but they contain [[sflow.concepts.flow.element.v-series-dataset-series]] which are. (And [[sflow.concepts.flow.element.version-dataset]] that are not.) 

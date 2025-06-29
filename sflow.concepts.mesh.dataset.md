@@ -10,14 +10,14 @@ In the RDF universe, a dataset is a collection of one or more graphs.
 
 A **semantic flow dataset** (sflow-dataset for short) is represented by a [[sflow.concepts.flow.folder]] that must contain at least one [[distribution files|related-topics.dataset.distribution]]. All distribution files should contain the same data, and must be named the dataset's [[sflow.concepts.namespace.segment]]. E.g., a dataset folder named "monsters" could contain distributions named "monsters.jsonld" and "monsters.ttl". 
 
-[[Dataset nodes|sflow.concepts.mesh-node.dataset]] are a kind of semantic flow dataset that have a [[sflow.concepts.flow.element.catalog-dataset]] and may contain other [[mesh nodes|sflow.concepts.mesh.node]].
+[[Dataset nodes|sflow.concepts.mesh-node.dataset]] are a kind of semantic flow dataset that have a [[sflow.concepts.flow.element.mesh-dataset]] and may contain other [[mesh nodes|sflow.concepts.mesh.node]].
 
 Consistent with [[DCAT v3|related-topics.dcat.vocabulary]], [[sflow.concepts.mesh.dataset-series]] are also [[sflow.concepts.mesh.dataset]] themselves.
 
 Some [[sflow.concepts.flow.element]] are also sflow-datasets: 
-- [[sflow.concepts.flow.element.catalog-dataset]]
+- [[sflow.concepts.flow.element.mesh-dataset]]
 - [[sflow.concepts.flow.element.reference-dataset]]
-- [[sflow.concepts.mesh.dataset.versioned]]
+- [[sflow.concepts.flow.resource.dataset.versioned]]
 - [[sflow.concepts.flow.element.v-series-dataset-series]]
 
 
