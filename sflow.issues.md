@@ -2,10 +2,10 @@
 id: 0av0b5ztblofuz3fhkg22y4
 title: Issues
 desc: ''
-updated: 1750295023445
+updated: 1751208163141
 created: 1730224462139
 ---
 
-- use index.ttl/.jsonld or something more descriptive
-  - only for series and dataset (including namespace) distributions?
-
+- the [[sflow.mesh.resource.file.resource-page]] gets returned for two different URLs, (the folder and the full index.html). Maybe could have some client-side path detection that alters the content:
+  - if "index.html" this URL refers to the resource page presented below
+  - if not, "this URL refers to to djradon the person"

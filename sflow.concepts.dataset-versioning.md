@@ -9,7 +9,7 @@ created: 1730373700120
 As a dataset gets updated, it might make sense keep previous versions of it, i.e., with a versioned dataset.
 
 
-To avoid an infinite loop with versioned datasets of versioned dataset, [[sflow.concepts.flow.element.version-dataset]] (_v1, _v2, etc) and their [[sflow.concepts.flow.element.v-series-dataset-series]] (_v-series) 
+To avoid an infinite loop with versioned datasets of versioned dataset, [[sflow.mesh.resource.element.version-dataset]] (_v1, _v2, etc) and their [[sflow.mesh.resource.element.v-series-dataset-series]] (_v-series) 
 
 As always with datasets, metadata dataset versioning is configurable. By default, it should be off.
 
