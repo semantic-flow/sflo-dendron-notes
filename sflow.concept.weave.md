@@ -6,13 +6,13 @@ updated: 1751237912902
 created: 1751128698638
 ---
 
-- checks for required [[sflow.mesh.resource-type.system]] and creates them if missing
+- checks for required [[sflow.concept.mesh.resource-type.system]] and creates them if missing
 - optionally removes extraneous files, interactively if requested
 - for changed datasets (i.e., a distribution has changed)
-  - creates a new [[sflow.mesh.resource.element.version-dataset]] 
+  - creates a new [[sflow.concept.mesh.resource.element.version-dataset]] 
   - updates version metadata
   - generates 
-- regenerates affected [[sflow.mesh.resource.file.resource-page]]
+- regenerates affected [[sflow.concept.mesh.resource.file.resource-page]]
 
 ## Best Practices
 

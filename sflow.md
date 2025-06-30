@@ -7,7 +7,7 @@ created: 1716959415785
 ---
 
 - requirements: [[sflow.requirements]]
-- issues: [[sflow.issues]]
+- issues: [[sflow.issue]]
 
 A **dereferenceable, versioned semantic mesh** will be the foundation for a new
 era of knowledge graphs.
@@ -17,7 +17,7 @@ and other semantic data by leveraging GitHub, Gitlab, and other free static
 hosting services. It enables a **dereferenceable Semantic Web** where every HTTP
 IRI returns meaningful content.
 
-[[Sflow-meshes|sflow.mesh]] provide data management and publishing, and
+[[Sflow-meshes|sflow.concept.mesh]] provide data management and publishing, and
 [[semantic sites|sflow.concept.semantic-site]] support data discovery and
 explainability.
 
@@ -38,7 +38,7 @@ explainability.
 
 ### Elements
 
-with four types of weavable [[sflow.mesh.resource.element]]:
+with four types of weavable [[sflow.concept.mesh.resource.element]]:
 
 - **Datasets**: bundles of data, with optional immutable, checkpointed history
 - **Namespaces**: organize your data in familiar URL-based hierarchies

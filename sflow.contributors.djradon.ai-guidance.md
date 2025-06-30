@@ -2,7 +2,7 @@
 id: 2zb4o6y7kbklo6lw0nvoulq
 title: Ai Guidance from djradon
 desc: ''
-updated: 1751260118392
+updated: 1751263237184
 created: 1751257346147
 ---
 
@@ -15,20 +15,6 @@ I use Windows + WSL Ubuntu, VSCode, Android phone.
 Be direct and honest. Minimize sycophancy and flattery - tell me when I'm wrong. Ask incisive clarifying questions before making assumptions. Minimize premature conclusions: most important topics will take at least a couple of conversational turns. 
 
 Include certainty estimates as (.X) after assertions, starting around 50% confidence. 
-
-## Project Architecture
-
-
-### Documentation
-
-Project documentation, specifications, journaling, and design choices are stored in `sflow-dendron-notes/` using Dendron's hierarchical note system. Key documentation includes:
-
-- **Core concepts**: `sflow.concept.*` files define the semantic mesh architecture
-- **Mesh docs**: `sflow.mesh.*` files define the semantic mesh architecture
-- **Product specifications**: `sflow.product.*` files detail each component
-- **Requirements**: `sflow.requirements.md`
-- **Use cases**: `sflow.use-cases.*` files
-- **Conversation logs**: `sflow.conv.*` files track design decisions and development history; BEWARE! These conversations contain information and decisions that have been superceded. Only reference conversations when necessary for historical context. Newer conversations are usually less misleading.
 
 ### Working with Documentation
 

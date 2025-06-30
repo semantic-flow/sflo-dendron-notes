@@ -6,6 +6,6 @@ updated: 1751139517772
 created: 1751004245415
 ---
 
-Unversioned datasets don't get any new [[sflow.mesh.resource.element.version-dataset]] created, but there might be some old ones lying around.
+Unversioned datasets don't get any new [[sflow.concept.mesh.resource.element.version-dataset]] created, but there might be some old ones lying around.
 
-[[sflow.mesh.resource.node.dataset]], [[sflow.mesh.resource.element.reference-dataset]]s, and [[sflow.mesh.resource.element.flow-dataset]] start their life unversioned, 
+[[sflow.concept.mesh.resource.node.dataset]], [[sflow.concept.mesh.resource.element.reference-dataset]]s, and [[sflow.concept.mesh.resource.element.flow-dataset]] start their life unversioned, 

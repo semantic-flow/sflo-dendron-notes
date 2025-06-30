@@ -6,4 +6,4 @@ updated: 1751238695265
 created: 1751238539745
 ---
 
-Physical manifestation of [[sflow.mesh.resource.element.next-dataset]]
+Physical manifestation of [[sflow.concept.mesh.resource.element.next-dataset]]

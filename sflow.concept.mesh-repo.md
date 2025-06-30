@@ -6,7 +6,7 @@ updated: 1751207912512
 created: 1729878955236
 ---
 
-A Semantic Flow mesh repository (or mesh repo for short) is a git repository that contains a , and a collection of [[semantic meshes|sflow.mesh]]
+A Semantic Flow mesh repository (or mesh repo for short) is a git repository that contains a , and a collection of [[semantic meshes|sflow.concept.mesh]]
   - sflow configuration data
   - [[static site generators|sflow.concept.flow.page-generation]] and configuration
   - assets, including images, templates and template mappings to apply to src items

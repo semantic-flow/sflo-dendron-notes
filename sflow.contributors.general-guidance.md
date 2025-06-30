@@ -2,11 +2,11 @@
 id: xebek3dtv2zgs9ah0vbv57g
 title: Semantic Flow General Guidance
 desc: ''
-updated: 1751261831335
+updated: 1751263411101
 created: 1751259888479
 ---
 
-**Semantic Flow** is a framework for managing knowledge graphs and other Semantic Web resources in publish-ready [[semantic meshes|sflow.mesh]]
+**Semantic Flow** is a framework for managing knowledge graphs and other Semantic Web resources in publish-ready [[semantic meshes|sflow.concept.mesh]]
 
 ## Workspace Components
 
@@ -25,7 +25,7 @@ The workspace contains multiple interconnected components:
 
 A dereferenceable, versioned collection of semantic data and other resources, where every HTTP URI returns meaningful content.
 
-### Core Components
+#### Core Components
 
 - **Mesh Resources**: 
   - **Nodes**: Semantic Atoms
@@ -36,11 +36,11 @@ A dereferenceable, versioned collection of semantic data and other resources, wh
   - **Handles**: things that let you refer to a node as a node instead of its referent
   - **Asset Trees**: elements that allow you to attach arbitrary collections of files and folders to a mesh; in a sense, these things are "outside" the mesh, and other than the top-level "_mesh" folder, they don't contain any other mesh resources
 
-## Semantic Flow Workflow**: 
+### Semantic Flow Workflow**: 
 
 - In General: Mesh resource addition & editing → Weaving → Publishing using GitHub Pages 
 
-## Semantic Site
+### Semantic Site
 
 - The repo IS the site:
   - can be served locally
@@ -48,13 +48,30 @@ A dereferenceable, versioned collection of semantic data and other resources, wh
     - but static resource page generation should happen on every weave as necessary
   - after push, you should be able to see the changed mesh at the corresponding github pages URL
 
+## Documentation
 
-
-## Documentation First
+### Documentation First
 
 - unclear or anemic documentation should be called out
 - when assisting with writing documentation, it should be kept concise and specific to the topic at hand
 - whenever documentation is updated, any corresponding LLM conversation context should be updated too   
 - to encourage documentation-driven software engineering, code comments should refer to corresponding documentation by filename, and the documentation and code should be cross-checked for consistency whenever possible 
 
+### Documentation Architecture
+
+Project documentation, specifications, journaling, and design choices are stored in `sflow-dendron-notes/` using Dendron's hierarchical note system. Key documentation includes:
+
+- **Core concepts**: `sflow.concept.*` files define the semantic mesh architecture
+- **Mesh docs**: `sflow.mesh.*` files define the semantic mesh architecture
+- **Product specifications**: `sflow.product.*` files detail each component
+- **Requirements**: `sflow.requirements.md`
+- **Use cases**: `sflow.use-cases.*` files
+- **Conversation logs**: `sflow.conv.*` files track design decisions and development history; BEWARE! These conversations contain information and decisions that have been superceded. Only reference conversations when necessary for historical context. Newer conversations are usually less misleading.
+
+## Project Architecture
+
+TBD
+
 ## Coding Standards
+
+//TODO

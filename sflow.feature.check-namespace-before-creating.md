@@ -11,4 +11,4 @@ created: 1750467289008
 
 ## References
 
-- [[sflow.issues.github-bare-namespace-can-overlap-with-repo-namespaces]]
+- [[sflow.issue.github-bare-namespace-can-overlap-with-repo-namespaces]]

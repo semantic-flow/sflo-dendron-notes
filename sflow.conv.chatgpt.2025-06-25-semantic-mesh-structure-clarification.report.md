@@ -10,7 +10,7 @@ created: 1750924640093
 
 ## Introduction
 
-In the context of the a [[sflow.mesh]] (a structured collection of
+In the context of the a [[sflow.concept.mesh]] (a structured collection of
 linked resources), the term **“node”** is being replaced by **“semantic
 compound”** (or simply **“compound”**). A compound is a user-defined container
 that groups related content and can itself participate as a unit within larger

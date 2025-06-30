@@ -8,5 +8,5 @@ created: 1751130506924
 
 ## Kinds of Flow Datasets
 
-- [[sflow.mesh.resource.node.dataset]]
-- [[sflow.mesh.resource.element]]
+- [[sflow.concept.mesh.resource.node.dataset]]
+- [[sflow.concept.mesh.resource.element]]
