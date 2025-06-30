@@ -2,7 +2,7 @@
 id: xebek3dtv2zgs9ah0vbv57g
 title: Semantic Flow General Guidance
 desc: ''
-updated: 1751263411101
+updated: 1751264341397
 created: 1751259888479
 ---
 
@@ -48,7 +48,17 @@ A dereferenceable, versioned collection of semantic data and other resources, wh
     - but static resource page generation should happen on every weave as necessary
   - after push, you should be able to see the changed mesh at the corresponding github pages URL
 
+## RDF and Semantic Web
+
+- meshes support multiple RDF formats (.trig, .jsonld, etc.)
+- be mindful of RDF terminology and concepts
+- Uses DCAT for dataset catalogs
+- When referring to IRIs or URIs that are part of a semantic mesh, use the term URLs instead of IRI or URI
+
 ## Documentation
+
+- All specifications and design docs are in `sflow-dendron-notes/`
+- Check conversation logs in `sflow.conv.*` for context on design decisions if necessary, but beware of superseded info 
 
 ### Documentation First
 
@@ -67,6 +77,11 @@ Project documentation, specifications, journaling, and design choices are stored
 - **Requirements**: `sflow.requirements.md`
 - **Use cases**: `sflow.use-cases.*` files
 - **Conversation logs**: `sflow.conv.*` files track design decisions and development history; BEWARE! These conversations contain information and decisions that have been superceded. Only reference conversations when necessary for historical context. Newer conversations are usually less misleading.
+
+### Component Development with Docs
+
+- Each component (sf-api, sf-cli, sf-service) should follow the architecture defined in the documentation
+- Refer to `sflow.products.*` files for component-specifc descriptions, requirements, etc
 
 ## Project Architecture
 

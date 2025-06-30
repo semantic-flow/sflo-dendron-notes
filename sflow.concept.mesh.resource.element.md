@@ -10,13 +10,13 @@ created: 1750706813437
 
 ### User Datasets
 
-[[sflow.concept.mesh.resource.element.reference-dataset]] and [[sflow.concept.mesh.resource.element.flow-dataset]] are the only user-modifiable [[sflow.concept.mesh.resource.element]] datasets. 
+[[sflow.concept.mesh.resource.element.reference-dataset]] and [[sflow.concept.mesh.resource.element.catalog-dataset]] are the only user-modifiable [[sflow.concept.mesh.resource.element]] datasets. 
   - Reference datasets contain data about their [[sflow.concept.mesh.resource.node.reference]]'s referent.
   - Catalog datasets contain metadata about their parent "as a [[sflow.concept.mesh.resource]]"
 
 ### System Datasets
 
-- **[[sflow.concept.mesh.resource.element.flow-dataset]]** hold metadata about their parent dataset, possibly including backlinks, provenance and anything else that should be versioned.
+- **[[sflow.concept.mesh.resource.element.catalog-dataset]]** hold metadata about their parent dataset, possibly including backlinks, provenance and anything else that should be versioned.
 
 - **`_ref/`** Holds an RDF/JSON-LD file `<name>_ref.jsonld` describing the
   **referent** (names, labels, comments, for datasets: dataset metadata, for

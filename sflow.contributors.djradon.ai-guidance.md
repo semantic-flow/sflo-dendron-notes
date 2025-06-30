@@ -2,7 +2,7 @@
 id: 2zb4o6y7kbklo6lw0nvoulq
 title: Ai Guidance from djradon
 desc: ''
-updated: 1751263237184
+updated: 1751264131392
 created: 1751257346147
 ---
 
@@ -18,29 +18,9 @@ Include certainty estimates as (.X) after assertions, starting around 50% confid
 
 ### Working with Documentation
 
-- All specifications and design docs are in `sflow-dendron-notes/`
 - Leverage terms from Dendron's hierarchical naming when you're being specific, e.g.:
   - when you're talking datasets as a concept, use `concept.dataset`
   - when you're talking about dataset nodes, use `node.dataset`
-
-### Component Development
-
-- Each component (sf-api, sf-cli, sf-service) should follow the architecture defined in the documentation
-- Refer to `sflow.products.*` files for component specifications
-- Check conversation logs in `sflow.conv.*` for context on design decisions if necessary, but beware of superseded info 
-
-### Versioning and Git
-
-- Source content lives in `src/` folders within components
-- Git commits track both source changes and successful generation
-
-### RDF and Semantic Web
-
-- Supports multiple RDF formats (.trig, .jsonld, etc.)
-- Uses DCAT for dataset catalogs
-- Implements schema:sameAs for aliasing
-- Maintains backwards compatibility for all published URLs
-- When referring to IRIs or URIs that are part of a semantic mesh, use the term URLs instead of IRI or URI
 
 ## Prompt Instructions
 

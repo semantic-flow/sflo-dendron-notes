@@ -6,7 +6,7 @@ updated: 1751129259080
 created: 1750729092262
 ---
 
-This element contains a [[sflow.concept.mesh.resource.element.flow-dataset]] (with it's catalog [[sflow.concept.mesh.resource.folder._v-series]]), but otherwise contains no [[sflow-resources|sflow.concept.mesh.resource]]. 
+This element contains a [[sflow.concept.mesh.resource.element.catalog-dataset]] (with it's catalog [[sflow.concept.mesh.resource.folder._v-series]]), but otherwise contains no [[sflow-resources|sflow.concept.mesh.resource]]. 
 
 It can be contained in a [[sflow.concept.mesh-repo]] or a [[sflow.concept.mesh.resource.node]]
 

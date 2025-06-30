@@ -1,14 +1,14 @@
 ---
 id: 0y6p8e594peoult03gobm94
-title: flow dataset
+title: catalog dataset
 desc: ''
-updated: 1751263463273
+updated: 1751264541154
 created: 1730660543063
 ---
 
-A **flow dataset** contains system-related administrative and structural metadata for every [[sflow.concept.mesh.resource.node]]. 
+A **catalog dataset** contains system-related administrative and structural metadata for every [[sflow.concept.mesh.resource.node]]. 
 
-Physically, it exists as a [[sflow.concept.mesh.resource.folder._flow]] in a [[sflow.concept.mesh.resource.folder.node]].
+Physically, it exists as a [[sflow.concept.mesh.resource.folder._catalog]] in a [[sflow.concept.mesh.resource.folder.node]].
 
 Mesh-specific metadata about a node's [[sflow.concept.mesh.resource.element.v-series-dataset-series]] and corresponding [[sflow.concept.mesh.resource.element.version-dataset]] mostly lives here too, eliminating the need to keep separate metadata in the element. 
 
