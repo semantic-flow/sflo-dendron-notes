@@ -18,7 +18,7 @@ hosting services. It enables a **dereferenceable Semantic Web** where every HTTP
 IRI returns meaningful content.
 
 [[Sflow-meshes|sflow.mesh]] provide data management and publishing, and
-[[semantic sites|sflow.concept.site]] support data discovery and
+[[semantic sites|sflow.concept.semantic-site]] support data discovery and
 explainability.
 
 ## Benefits

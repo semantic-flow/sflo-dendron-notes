@@ -10,7 +10,7 @@ A Semantic Flow mesh repository (or mesh repo for short) is a git repository tha
   - sflow configuration data
   - [[static site generators|sflow.concept.flow.page-generation]] and configuration
   - assets, including images, templates and template mappings to apply to src items
-  - an optional output directory containing a [[sflow.concept.site]], (e.g. "docs" for some GitHub pages workflows)
+  - an optional output directory containing a [[sflow.concept.semantic-site]], (e.g. "docs" for some GitHub pages workflows)
 
  
 
