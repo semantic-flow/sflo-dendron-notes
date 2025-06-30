@@ -2,16 +2,21 @@
 id: m24m2p2s7iom3rwzvp28kvy
 title: Dataset Versioning
 desc: ''
-updated: 1751138597765
+updated: 1751296199310
 created: 1730373700120
 ---
 
-As a dataset gets updated, it might make sense keep previous versions of it, i.e., with a versioned dataset.
+As a dataset gets updated, it might make sense keep previous versions of it, i.e., a [[sflow.concept.mesh.resource.element.version-dataset]].
 
+This is especially useful with published data on the Semantic Web that other people and services might be referring to.
 
-To avoid an infinite loop with versioned datasets of versioned dataset, [[sflow.concept.mesh.resource.element.version-dataset]] (_v1, _v2, etc) and their [[sflow.concept.mesh.resource.element.v-series-dataset-series]] (_v-series) 
+## Restrictions 
+
+To avoid infinite loops with versioned datasets of versioned dataset, only 
 
 As always with datasets, metadata dataset versioning is configurable. By default, it should be off.
+
+**Dataset versions** are created "upon [[sflow.concept.weave]]" and correspond to a [[sflow.concept.mesh.resource.element.version-dataset]]. Versioning is sequential, (i.e., no major.minor.patch) and correspond to "_vN" [[sflow.concept.mesh.resource.folder._vN]]
 
 
 ## issues

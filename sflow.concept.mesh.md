@@ -2,12 +2,12 @@
 id: h6ssv16gdyf56gg235dxv85
 title: semantic mesh
 desc: ''
-updated: 1751268662460
+updated: 1751300556618
 created: 1750624002110
 ---
 
-- every thing in a mesh ( [[sflow.concept.mesh.resource.node]], [[sflow.concept.mesh.resource.element]], [[sflow.concept.mesh.resource.file.resource-page]], [[sflow.concept.mesh.resource.file.changelog]], and [[sflow.concept.mesh.resource.file.readme]] ) is an addressable [[sflow.concept.mesh.resource]]
-  - mesh resources correspond physically with either [[sflow.concept.mesh.resource.folder]], distributions contained in [[datasets|sflow.concept.dataset]], resource pages (index.html files), or README.md and CHANGELOG.md files
+- every thing in a mesh ( [[sflow.concept.mesh.resource.node]], [[sflow.concept.mesh.resource.element]], [[sflow.concept.mesh.resource.file]] ) is an addressable [[sflow.concept.mesh.resource]]
+  - mesh resources correspond physically with either [[sflow.concept.mesh.resource.folder]], distributions contained in [[datasets|sflow.concept.mesh.dataset]], resource pages (index.html files), or README.md and CHANGELOG.md files
   - resource pages should be present in every [[sflow.concept.mesh.resource.folder]], at least after a [[sflow.concept.weave]]
   - README.md, and CHANGELOG.md may be contained in any [[sflow.concept.mesh.resource-type.user]], and provide introductory and historical context respectively for whatever folder contains them
   - [[sflow.concept.mesh.resource.asset-tree]] catalogs are considered "in" or part of the mesh
