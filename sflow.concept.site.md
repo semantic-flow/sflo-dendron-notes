@@ -8,7 +8,7 @@ created: 1730222882826
 
 Semantic Flow sites provide two main services:
 
-- hosting persistent, namespaced [[URLs|sflow.concepts.url]] for use in the semantic web
+- hosting persistent, namespaced [[URLs|sflow.concept.url]] for use in the semantic web
 - hosting versioned RDF datasets, and their histories
 
 

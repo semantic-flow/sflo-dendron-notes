@@ -56,7 +56,7 @@ created: 1750659145476
 ### 
 
 - **`_assets/`** Arbitrary sub-folders and files, to be included verbatim when
-  publishing to a [[sflow.concepts.site]].
+  publishing to a [[sflow.concept.site]].
   - Typically, they will supplement or complement the semantic content in the
     mesh.
   - **terminal**: i.e., they can't contain other mesh folders

@@ -10,7 +10,7 @@ created: 1750654763700
 
 ### Node Identifier Semantics
 
-[[sflow.concepts.identifier.node]] refer to something at-least-partially abstract:
+[[sflow.concept.identifier.node]] refer to something at-least-partially abstract:
 
 - /ns/djradon ([[sflow.mesh.resource.node.reference]]) refers to a person
 - /ns/djradon/bio-dataset ([[sflow.mesh.resource.node.dataset]]) refers to a dataset in general

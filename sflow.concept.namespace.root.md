@@ -7,7 +7,7 @@ created: 1750486049862
 ---
 
 
-The "[[root namespace|sflow.concepts.namespace.root]]" is first part of the URL under which all of [[sflow.concepts.site]]'s identifiers live. It is determined by the publishing platform.
+The "[[root namespace|sflow.concept.namespace.root]]" is first part of the URL under which all of [[sflow.concept.site]]'s identifiers live. It is determined by the publishing platform.
 
 Github pages presents two options:
 

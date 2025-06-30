@@ -6,9 +6,9 @@ updated: 1750960216614
 created: 1750960024104
 ---
 
-The folders in a [[sflow.mesh]] or [[sflow.concepts.site]] have names,
+The folders in a [[sflow.mesh]] or [[sflow.concept.site]] have names,
 and we refer to those names as **namespace segments** when we are talking about
-them in the context of a[[sflow.concepts.namespace]].
+them in the context of a[[sflow.concept.namespace]].
 
 ## Example
 

@@ -6,4 +6,4 @@ updated: 1751128186380
 created: 1751040700805
 ---
 
-- this folder is present in [[sflow.concepts.dataset]], including [[sflow.mesh.resource.node.dataset]].
+- this folder is present in [[sflow.concept.dataset]], including [[sflow.mesh.resource.node.dataset]].

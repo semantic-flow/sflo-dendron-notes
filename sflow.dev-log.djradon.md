@@ -2,7 +2,7 @@
 id: fd1whkyvoagggk6ubysjl50
 title: Semantic Flow Log
 desc: ''
-updated: 1731606849103
+updated: 1751255397811
 created: 1727801720160
 ---
 
@@ -27,7 +27,7 @@ created: 1727801720160
 
 ## t.2024.10.29.09
 
-- renamed to [[sflow.mesh-repo]]
+- renamed to [[sflow.concept.mesh-repo]]
 - instead of duplicating highlights in a NI's index.trig, just define the _default datasets as "highlights" and use owl:imports
 
 ## t.2024.10.29.11
@@ -47,6 +47,14 @@ from [[t.cs.ai.assistant.memory-hygiene]]:
 ![[daily.journal.2024.10.31#^rx7vbtp5gar1]]
  
 
- # t.2024.11.11.06
+## t.2024.11.11.06
 
  - I was ready to abandon Cliffy and Deno (probably for Gluegun), but the security and dynamicness seem important enough. Turns out Cliffy is great. Lume seems good too.
+
+## t.2025.06.29.20
+
+Lume is great. 
+
+Also, the idea of letting contributors keep a devlop in-repo... Someone must've thought of that.
+
+I think I've basically figure out the mesh design. Straightening out the docs, ready to partner with Cline (or maybe RooCode) to start my SDLC. Although it'll be more like a random star walk where you can transition to any point, docs ^ ontology ^ test-repo ^ api ^ service ^ client ^ qa ^ etc

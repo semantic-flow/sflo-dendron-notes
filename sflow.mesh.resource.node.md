@@ -6,7 +6,7 @@ updated: 1751088025073
 created: 1750999795528
 ---
 
-The primary constituents of a semantic-mesh are **mesh nodes**. They are physically represented with [[sflow.mesh.resource.folder]] and they correspond to [[namespace segments|sflow.concepts.namespace.segment]].
+The primary constituents of a semantic-mesh are **mesh nodes**. They are physically represented with [[sflow.mesh.resource.folder]] and they correspond to [[namespace segments|sflow.concept.namespace.segment]].
 
 ## Types
 

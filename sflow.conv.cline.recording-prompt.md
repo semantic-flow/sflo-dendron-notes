@@ -2,7 +2,7 @@
 id: xl30o450qiefi8eu87zvhyj
 title: Recording Promp
 desc: ''
-updated: 1750614504893
+updated: 1751255569457
 created: 1750528271042
 ---
 
@@ -11,8 +11,8 @@ created: 1750528271042
 **Recording Guidelines:**
 - Capture actual exchanges as faithfully as possible
 - Compress verbose tool-focused responses into readable narrative
-- Focus on execution over excessive clarification if the task is extremely clear, like "record this conversation"
-- Avoid conversational loops - when corrected, reset context immediately
+- The correct response to "record this conversation to @filename" is "Recording."
+- Avoid conversational loops
 - Continue recording throughout the session without asking "what next" or "ready for your next instruction"
 
 **Expected Behavior:**

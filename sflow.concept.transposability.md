@@ -25,11 +25,11 @@ Semantic Flow never hardcodes BASE URIs in RDF distribution files. Instead, it r
 
 ### 2. URI Reference Strategies
 
-- see [[sflow.concepts.url.reference-path-choices]]
+- see [[sflow.concept.url.reference-path-choices]]
 
 ### 3. Publication History Tracking
 
-- see [[sflow.concepts.publication]]
+- see [[sflow.concept.publication]]
 
 ## Transposition Scenarios
 

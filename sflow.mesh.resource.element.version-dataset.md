@@ -6,7 +6,7 @@ updated: 1751238771837
 created: 1751087645111
 ---
 
-A snapshot or checkpoint of a dataset "on [[weave|sflow.concepts.weave]]"
+A snapshot or checkpoint of a dataset "on [[weave|sflow.concept.weave]]"
 
 ## Containment Rules
 

@@ -8,7 +8,7 @@ updated: 1751208105755
 created: 1729880396813
 ---
 
-To make every folder-based resource more discoverable, they each have an index.html page that gets generate "on [[sflow.concepts.weave]]"
+To make every folder-based resource more discoverable, they each have an index.html page that gets generate "on [[sflow.concept.weave]]"
 
 
 - primarily for humans

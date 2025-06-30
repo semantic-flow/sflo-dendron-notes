@@ -21,7 +21,7 @@ created: 1751128698638
 This ensures that:
 
 - broken references are cleaned up
-- [[sflow.concepts.dataset.current]] is identical to the latest version
+- [[sflow.concept.dataset.current]] is identical to the latest version
 - if you need to be able to work on a draft changes, 
 
 ## Features

@@ -18,7 +18,7 @@ hosting services. It enables a **dereferenceable Semantic Web** where every HTTP
 IRI returns meaningful content.
 
 [[Sflow-meshes|sflow.mesh]] provide data management and publishing, and
-[[semantic sites|sflow.concepts.site]] support data discovery and
+[[semantic sites|sflow.concept.site]] support data discovery and
 explainability.
 
 ## Benefits
@@ -216,7 +216,7 @@ Everything else gets index.html for GitHub Pages compatibility.
 
 ## Features
 
-- an [[sflow.mesh-repo]] could have files/distributions for more than one
+- an [[sflow.concept.mesh-repo]] could have files/distributions for more than one
   namespace, so it should have each of those namespaces segregated by a
   top-level folder
 

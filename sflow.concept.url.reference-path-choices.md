@@ -34,7 +34,7 @@ RDF supports different approaches for resource referencing, each with tradeoffs:
 
 **Fully qualified URIs** 
 
-- explicit but limits [[sflow.concepts.transposability]] and [[sflow.concepts.composability]]
+- explicit but limits [[sflow.concept.transposability]] and [[sflow.concept.composability]]
 
 ```turtle
 # In ns/djradon/_ref/djradon_ref.trig

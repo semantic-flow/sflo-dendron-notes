@@ -8,7 +8,7 @@ created: 1750624002110
 
 - every thing in a mesh ( [[sflow.mesh.resource.node]], [[sflow.mesh.resource.element]], [[sflow.mesh.resource.file.resource-page]], [[sflow.mesh.resource.file.changelog]], and [[sflow.mesh.resource.file.readme]] ) is an addressable [[sflow.mesh.resource]]
   - mesh resources correspond physically with either [[sflow.mesh.resource.folder]], distributions contained in [[datasets|sflow.concept.dataset]], resource pages (index.html files), or README.md and CHANGELOG.md files
-  - resource pages should be present in every [[sflow.mesh.resource.folder]], at least after a [[sflow.concepts.weave]]
+  - resource pages should be present in every [[sflow.mesh.resource.folder]], at least after a [[sflow.concept.weave]]
   - README.md, and CHANGELOG.md may be contained in any folder, and provide introductory and historical context respectively for whatever folder contains them
   - [[sflow.mesh.resource.asset-tree]] catalogs are considered "in" or part of the mesh
   - other than asset-tre catalogs, the files and folders contained in assets-trees are "attached" to a mesh, but not part of its structure.

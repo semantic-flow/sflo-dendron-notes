@@ -6,7 +6,7 @@ updated: 1751140543664
 created: 1751140280916
 ---
 
-- a kind of folder that corresponds to a [[sflow.concepts.dataset]]
+- a kind of folder that corresponds to a [[sflow.concept.dataset]]
 
 ## Types
 

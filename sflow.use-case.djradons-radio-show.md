@@ -1,7 +1,7 @@
 ---
 id: kawddwi1dx4qqbhdyip4896
 title: 'Use Case: Radio Show Websiste'
-desc: 'a simple user story'
+desc: a simple user story
 updated: 1750645410973
 created: 1750645191521
 ---

@@ -26,7 +26,7 @@ There are
 
 - the structure of the mesh is built on [[sflow.mesh.resource.node]] and [[sflow.mesh.resource.element]]
   - but note that [[sflow.mesh.resource.asset-tree]] are "mesh terminal": other than their [[sflow.mesh.resource.element.flow-dataset]], their other files and folders are attached to but not contained in a mesh 
-- with its path and (locally unique) name, every resource has an [[sflow.concepts.identifier]]
+- with its path and (locally unique) name, every resource has an [[sflow.concept.identifier]]
 
 In RDF-land, a resource is any node in an RDF graph that can be represented with
 an IRI. (The other kinds of RDF graph nodes are literals and blank nodes)
