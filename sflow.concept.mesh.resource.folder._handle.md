@@ -6,4 +6,4 @@ updated: 1751239913482
 created: 1751140668163
 ---
 
-Every [[sflow.concept.mesh.resource.node]] contains a **_handle folder** which corresponds to its [[sflow.concept.mesh.resource.node-handle]].
+Every [[sflow.concept.mesh.resource.node]] contains a **_handle folder** which corresponds to its [[sflow.concept.mesh.resource.element.node-handle]].

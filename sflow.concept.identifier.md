@@ -18,7 +18,7 @@ created: 1750654763700
 - /ns ([[sflow.concept.mesh.resource.node.namespace]]) refers to an addressable (virtual) place
   - at some point in the future, the content could change, but the address is still out there
 
-Occasionally you'll want to refer to the nodes as "mesh-parts" instead of the things they refer to. To preserve the [[sflow.principle.single-referent]], we use the [[sflow.concept.mesh.resource.node-handle]]
+Occasionally you'll want to refer to the nodes as "mesh-parts" instead of the things they refer to. To preserve the [[sflow.principle.single-referent]], we use the [[sflow.concept.mesh.resource.element.node-handle]]
 
 ### Element and other Resource Identifier Semantics
 

@@ -12,7 +12,7 @@ It collects [[version dataset|sflow.concept.mesh.resource.element.version-datase
 
 Whether it can be included in the collection refers to is a matter of debate.
 
-In addition to its role in [[sflow.concepts.mesh.node.dataset.versioned]] versioning, it can play the same role for [[sflow.concept.mesh.resource.element.catalog-dataset]], [[sflow.concept.mesh.resource.node-handle]], and [[sflow.concept.mesh.resource.element.reference-dataset]], making it the only element that can contained in other elements.
+In addition to its role in [[sflow.concepts.mesh.node.dataset.versioned]] versioning, it can play the same role for [[sflow.concept.mesh.resource.element.catalog-dataset]], [[sflow.concept.mesh.resource.element.node-handle]], and [[sflow.concept.mesh.resource.element.reference-dataset]], making it the only element that can contained in other elements.
 
 ## Containment Rules
 
@@ -22,7 +22,7 @@ In addition to its role in [[sflow.concepts.mesh.node.dataset.versioned]] versio
   - [[sflow.concept.mesh.resource.element.reference-dataset]]
 
 - cannot-be-contained-in:
-  - [[sflow.concept.mesh.resource.node-handle]] (too small and static to justify versioning)
+  - [[sflow.concept.mesh.resource.element.node-handle]] (too small and static to justify versioning)
   - [[sflow.concept.mesh.resource.asset-tree]] (no dataset to version)
   - [[sflow.concept.mesh.resource.node.namespace]] : (no dataset to version)
   - [[sflow.concept.mesh.resource.node.reference]] : (no direct dataset to version, but can be contained in a reference node's  [[sflow.concept.mesh.resource.element.reference-dataset]])

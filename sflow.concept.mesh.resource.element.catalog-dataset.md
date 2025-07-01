@@ -20,4 +20,4 @@ The exception is the // TODO: should v-series catalog live under v-series (unver
 
 ## Use of _handle in _mesh
 
-When () refer to nodes, they'll usually be talking about "the-node-as-mesh-constituent", so they'll use the node's [[sflow.concept.mesh.resource.node-handle]] identifier
+When () refer to nodes, they'll usually be talking about "the-node-as-mesh-constituent", so they'll use the node's [[sflow.concept.mesh.resource.element.node-handle]] identifier

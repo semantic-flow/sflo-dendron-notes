@@ -10,7 +10,7 @@ Element identifiers don't have an obvious referent other than themselves. e.g., 
 
 But because the [[sflow.concept.identifier]] for a 
 
-A **node handle** is a very simple folder with a corresponding [[sflow.concept.mesh.resource.node-handle.page]]
+A **node handle** is a very simple folder with a corresponding [[sflow.concept.mesh.resource.element.node-handle.page]]
 
 Unlike all other resource, which should be connoted to refer to themselves, an **ID dataset** refers to the [[sflow.concept.identifier]] used by its parent. It's 
 
@@ -21,4 +21,4 @@ Unlike all other resource, which should be connoted to refer to themselves, an *
 - must-be-contained-in: [[sflow.concept.mesh.resource.node]]
 - cannot-be-contained-in: 
   - [[sflow.concept.mesh.resource.element]]
-  - [[sflow.concept.mesh.resource.node-handle]]
+  - [[sflow.concept.mesh.resource.element.node-handle]]
