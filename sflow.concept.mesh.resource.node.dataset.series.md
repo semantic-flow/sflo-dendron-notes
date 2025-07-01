@@ -12,4 +12,4 @@ A **mesh dataset-series node** is not generally distinguished from **[[sflow.con
 
 The contained datasets don't need to physically live inside the series' folder, but that can be an intuitive design pattern.
 
-[[sflow.concept.mesh.dataset-type.versioned]] are not mesh dataset-series themselves, but they contain [[sflow.concept.mesh.resource.element.v-series-dataset-series]] which are. (And [[sflow.concept.mesh.resource.element.version-dataset]] that are not.) 
+[[sflow.concept.mesh.resource-facet.dataset.versioned]] are not mesh dataset-series themselves, but they contain [[sflow.concept.mesh.resource.element.v-series-dataset-series]] which are. (And [[sflow.concept.mesh.resource.element.version-dataset]] that are not.) 

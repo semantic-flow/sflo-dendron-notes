@@ -76,7 +76,7 @@ ignored in the weaving process,
 
 - creates support system files as needed
 - checks mesh consistency and reports issues
-- "bumps" versions of [[versioned datasets|sflow.concept.mesh.dataset-type.versioned]]
+- "bumps" versions of [[versioned datasets|sflow.concept.mesh.resource-facet.dataset.versioned]]
 - you can weave a part of your semantic mesh, or the whole thing
 
 ### Publishing

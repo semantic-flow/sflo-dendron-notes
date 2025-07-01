@@ -8,7 +8,7 @@ created: 1751296215159
 
 **User datasets** are datasets primarily created and maintained by users. 
 
-Like all [[sflow.concept.mesh.resource-type.user]], they represent the substance of the mesh: domain knowledge rather than system knowledge
+Like all [[sflow.concept.mesh.resource-facet.user]], they represent the substance of the mesh: domain knowledge rather than system knowledge
 
 ## Kinds of User Datasets
 

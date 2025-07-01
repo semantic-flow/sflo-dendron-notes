@@ -2,7 +2,7 @@
 id: 0y6p8e594peoult03gobm94
 title: catalog dataset
 desc: ''
-updated: 1751264541154
+updated: 1751332897607
 created: 1730660543063
 ---
 
@@ -10,14 +10,9 @@ A **catalog dataset** contains system-related administrative and structural meta
 
 Physically, it exists as a [[sflow.concept.mesh.resource.folder._catalog]] in a [[sflow.concept.mesh.resource.folder.node]].
 
-Mesh-specific metadata about a node's [[sflow.concept.mesh.resource.element.v-series-dataset-series]] and corresponding [[sflow.concept.mesh.resource.element.version-dataset]] mostly lives here too, eliminating the need to keep separate metadata in the element. 
-
-// TODO: in named graphs?
+Mesh-specific metadata about a node's [[sflow.concept.mesh.resource.element.v-series-dataset-series]] and corresponding [[sflow.concept.mesh.resource.element.version-dataset]] mostly lives here too, eliminating the need to keep separate metadata in the element. The exception is the [[sflow.concept.mesh.resource.element.v-series-dataset-series]], which is a simple 
 
 
-The exception is the // TODO: should v-series catalog live under v-series (unversioned); it's append-only, very limited, seems apropriate. It's a dataset in need of a purpose anyhow
-
-
-## Use of _handle in _mesh
+## Use of _handle in catalog datasets
 
 When () refer to nodes, they'll usually be talking about "the-node-as-mesh-constituent", so they'll use the node's [[sflow.concept.mesh.resource.element.node-handle]] identifier
