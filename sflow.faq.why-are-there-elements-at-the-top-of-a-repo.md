@@ -2,7 +2,7 @@
 id: faq002
 title: Why are there elements at the top of a repo?
 desc: ''
-updated: 1751351383000
+updated: 1751385422745
 created: 1751351383000
 ---
 
@@ -12,14 +12,14 @@ Why are there [[mesh elements|sflow.concept.mesh.resource.element]] like `_catal
 
 ## Answer
 
-Elements at the repository root exist because **the repository root itself is a [[mesh node|sflow.concept.mesh.resource.node]]** - specifically, it's the [[root node|sflow.concept.mesh.resource-type.root-node]] of the mesh.
+Elements at the repository root exist because **the repository root itself is a [[mesh node|sflow.concept.mesh.resource.node]]** - specifically, it's the [[root node|sflow.concept.mesh.resource-facet.root-node]] of the mesh.
 
 ### Repository Root = Mesh Root Node
 
 Every semantic mesh has a root node, and in a repository-based mesh, the repository root **is** that root node. It's a "nameless" node locally (represented as "/") that can be any type of mesh node:
 
 - **Namespace node**: If the repo organizes other nodes
-- **Dataset node**: If the repo represents a single dataset  
+- **data node**: If the repo represents a single dataset  
 - **Reference node**: If the repo represents an external entity
 
 ### Elements Belong to Nodes

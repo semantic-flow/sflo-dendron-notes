@@ -2,7 +2,7 @@
 id: 9c27yly4ed3ju7msf8luhge
 title: sflow element
 desc: ''
-updated: 1751347525878
+updated: 1751385422742
 created: 1750706813437
 ---
 
@@ -59,5 +59,5 @@ System elements are usually created or altered by the [[weave|sflow.concept.weav
 Elements work in conjunction with mesh nodes to create the complete mesh structure:
 - Every mesh node contains system elements (catalog datasets, node handles)
 - Reference nodes contain reference datasets (user elements)
-- Dataset nodes may contain versioning elements (system elements)
+- data nodes may contain versioning elements (system elements)
 - Any node may contain asset trees (user elements) for file attachments

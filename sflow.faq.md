@@ -2,7 +2,7 @@
 id: faq000
 title: Semantic Flow FAQ
 desc: ''
-updated: 1751349903278
+updated: 1751385422746
 created: 1751351477000
 ---
 
@@ -12,7 +12,7 @@ This section addresses common questions about Semantic Flow design principles an
 
 ## Design Principles
 
-### [[Why don't namespace nodes and dataset nodes have reference datasets?|sflow.faq.why-dont-namespace-nodes-and-dataset-nodes-have-reference-datasets]]
+### [[Why don't namespace nodes and data nodes have reference datasets?|sflow.faq.why-dont-namespace-nodes-and-dataset-nodes-have-reference-datasets]]
 Explains the fundamental difference between reference nodes (which refer to external entities) and other node types (which refer to themselves).
 
 ### [[Why are there elements at the top of a repo?|sflow.faq.why-are-there-elements-at-the-top-of-a-repo]]

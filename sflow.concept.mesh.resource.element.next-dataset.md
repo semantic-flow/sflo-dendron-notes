@@ -15,4 +15,4 @@ This allows continuous development and version control commits without requiring
 
 ## Containment Rules
 
-- must-be-contained-in: [[sflow.concept.mesh.resource.node.dataset]], [[sflow.concept.mesh.resource.element.reference-dataset]]
+- must-be-contained-in: [[sflow.concept.mesh.resource.node.data]], [[sflow.concept.mesh.resource.element.reference-dataset]]

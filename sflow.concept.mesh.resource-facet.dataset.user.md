@@ -12,7 +12,7 @@ Like all [[sflow.concept.mesh.resource-facet.user]], they represent the substanc
 
 ## Kinds of User Datasets
 
-- [[sflow.concept.mesh.resource.node.dataset]]
-  - [[sflow.concept.mesh.resource.node.dataset.series]]
+- [[sflow.concept.mesh.resource.node.data]]
+  - [[sflow.concept.mesh.resource.node.data.series]]
 - [[sflow.concept.mesh.resource.element.reference-dataset]]
 

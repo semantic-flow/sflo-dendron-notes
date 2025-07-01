@@ -2,7 +2,7 @@
 id: xmdevh3s6gvp93m3nyc6683
 title: mesh resource
 desc: ''
-updated: 1751336357520
+updated: 1751385422739
 created: 1750709094321
 ---
 
@@ -24,7 +24,7 @@ The structure of a semantic mesh is built on a fundamental distinction between *
 **Types of mesh nodes:**
 - **[[Namespace nodes|sflow.concept.mesh.resource.node.namespace]]**: Empty containers for organizing other mesh nodes
 - **[[Reference nodes|sflow.concept.mesh.resource.node.reference]]**: Nodes that refer to external entities and contain reference datasets
-- **[[Dataset nodes|sflow.concept.mesh.resource.node.dataset]]**: Nodes containing data distributions with optional versioning (includes [[dataset series|sflow.concept.mesh.resource.node.dataset.series]] which are dataset nodes whose metadata identifies them as DCAT dataset series)
+- **[[data nodes|sflow.concept.mesh.resource.node.data]]**: Nodes containing data distributions with optional versioning (includes [[dataset series|sflow.concept.mesh.resource.node.data.series]] which are data nodes whose metadata identifies them as DCAT dataset series)
 
 ### Mesh Elements
 **[[Mesh elements|sflow.concept.mesh.resource.element]]** are terminal mesh resources:

@@ -2,7 +2,7 @@
 id: h6ssv16gdyf56gg235dxv85
 title: semantic mesh
 desc: ''
-updated: 1751330767423
+updated: 1751385422747
 created: 1750624002110
 ---
 
@@ -27,8 +27,8 @@ Every component in a semantic mesh is an addressable [[mesh resource|sflow.conce
 
 - **[[Namespace nodes|sflow.concept.mesh.resource.node.namespace]]**: Empty containers for organizing other mesh nodes
 - **[[Semantic nodes|sflow.concept.mesh.resource.node.reference]]**: Nodes that refer to external entities (people, concepts, relationships) and contain [[reference datasets|sflow.concept.mesh.resource.element.reference-dataset]]
-- **[[Dataset nodes|sflow.concept.mesh.resource.node.dataset]]**: Nodes containing data distributions with optional versioning
-- **[[Dataset series nodes|sflow.concept.mesh.resource.node.dataset.series]]**: User-defined collections that organize related datasets as [[DCAT dataset series|related-topics.dcat.dataset-series]]
+- **[[data nodes|sflow.concept.mesh.resource.node.data]]**: Nodes containing data distributions with optional versioning
+- **[[Dataset series nodes|sflow.concept.mesh.resource.node.data.series]]**: User-defined collections that organize related datasets as [[DCAT dataset series|related-topics.dcat.dataset-series]]
 
 #### Elements
 [[Mesh elements|sflow.concept.mesh.resource.element]] are supporting components that define and systematize nodes:
@@ -78,11 +78,11 @@ Terminal [[mesh resources|sflow.concept.mesh.resource]] that cannot contain othe
 
 ### Containment Rules
 - **Mesh nodes** are always containers (or potential containers) of other nodes and elements
-- **Namespace nodes**: Can contain any other mesh nodes
-- **Semantic nodes**: Must have reference datasets; can contain other nodes except asset nodes
-- **Dataset nodes**: Can only contain a catalog, an optional asset node, and required distributions
-- **Dataset series nodes**: Can contain version series elements and system elements
-- **Asset nodes**: Cannot contain other mesh nodes (except for their catalog dataset)
+  - **Namespace nodes**: Can contain any other mesh nodes
+  - **Semantic nodes**: Must have reference datasets; can contain other nodes except asset nodes
+  - **data nodes**: Can only contain a catalog, an optional asset node, and required distributions
+  - **Dataset series nodes**: Can contain version series elements and system elements
+- **Assets tree elements**: Cannot contain other mesh nodes (except for their catalog dataset)
 
 ## Rules & Constraints
 

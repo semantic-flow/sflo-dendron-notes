@@ -10,5 +10,5 @@ created: 1751140280916
 
 ## Types
 
-- [[sflow.concept.mesh.resource.node.dataset]]
+- [[sflow.concept.mesh.resource.node.data]]
 - [[sflow.mesh.resource.element]]

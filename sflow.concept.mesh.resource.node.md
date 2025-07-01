@@ -2,7 +2,7 @@
 id: 8hmkiyjtsey7z8y5oi5xdxm
 title: mesh node
 desc: ''
-updated: 1751340520955
+updated: 1751385422741
 created: 1750999795528
 ---
 
@@ -28,12 +28,12 @@ There are three types of mesh nodes:
 - Physically represented with folders that contain a [[reference dataset|sflow.concept.mesh.resource.element.reference-dataset]]
 - Can contain other mesh nodes in addition to their reference dataset
 
-### Dataset Nodes
-**[[Dataset nodes|sflow.concept.mesh.resource.node.dataset]]** contain data distributions:
+### data nodes
+**[[data nodes|sflow.concept.mesh.resource.node.data]]** contain data distributions:
 - Have distributions and optional versioning capabilities
 - Include a [[catalog dataset|sflow.concept.mesh.resource.element.catalog-dataset]] for metadata
 - May contain other mesh nodes
-- Can be configured as [[dataset series|sflow.concept.mesh.resource.node.dataset.series]] through their metadata
+- Can be configured as [[dataset series|sflow.concept.mesh.resource.node.data.series]] through their metadata
 
 ## Physical Structure
 

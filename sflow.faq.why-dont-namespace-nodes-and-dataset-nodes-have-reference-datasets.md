@@ -1,14 +1,14 @@
 ---
 id: faq001
-title: Why don't namespace nodes and dataset nodes have reference datasets?
+title: Why don't namespace nodes and data nodes have reference datasets?
 desc: ''
-updated: 1751351297000
+updated: 1751385453122
 created: 1751351297000
 ---
 
 ## Question
 
-Why don't [[namespace nodes|sflow.concept.mesh.resource.node.namespace]] and [[dataset nodes|sflow.concept.mesh.resource.node.dataset]] have [[reference datasets|sflow.concept.mesh.resource.element.reference-dataset]] like [[reference nodes|sflow.concept.mesh.resource.node.reference]] do?
+Why don't [[namespace nodes|sflow.concept.mesh.resource.node.namespace]] and [[data nodes|sflow.concept.mesh.resource.node.data]] have [[reference datasets|sflow.concept.mesh.resource.element.reference-dataset]] like [[reference nodes|sflow.concept.mesh.resource.node.reference]] do?
 
 ## Answer
 
@@ -17,8 +17,8 @@ Only [[reference nodes|sflow.concept.mesh.resource.node.reference]] have referen
 ### Reference Nodes
 Reference nodes exist specifically to refer to external entities - people, concepts, relationships, or things that exist outside the mesh. Their [[reference datasets|sflow.concept.mesh.resource.element.reference-dataset]] contain data **about their referent** - the external thing they point to.
 
-### Dataset Nodes  
-Dataset nodes represent **the dataset itself**. The dataset identifier should refer directly to "this dataset" as a concrete data resource, not to some external abstract concept. If you need to reference an external dataset that this one is related to, the proper approach is to:
+### data nodes  
+data nodes represent **the dataset itself**. The dataset identifier should refer directly to "this dataset" as a concrete data resource, not to some external abstract concept. If you need to reference an external dataset that this one is related to, the proper approach is to:
 
 1. Create a separate [[reference node|sflow.concept.mesh.resource.node.reference]] for that external dataset
 2. Use the reference node's [[reference dataset|sflow.concept.mesh.resource.element.reference-dataset]] to describe the external dataset
