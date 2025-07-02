@@ -2,7 +2,7 @@
 id: xebek3dtv2zgs9ah0vbv57g
 title: Semantic Flow General Guidance
 desc: ''
-updated: 1751268937016
+updated: 1751387807241
 created: 1751259888479
 ---
 
@@ -72,7 +72,7 @@ A dereferenceable, versioned collection of semantic data and other resources, wh
 
 Project documentation, specifications, journaling, and design choices are stored in `sflow-dendron-notes/` using Dendron's hierarchical note system. Key documentation includes:
 
-- **Core concepts**: `sflow.concept.*` files define the semantic mesh architecture
+- **Core concepts**: `sflow.concept.*` files talk about general Semantic Flow concepts
 - **Mesh docs**: `sflow.concept.mesh.*` files define the semantic mesh architecture
 - **Product specifications**: `sflow.product.*` files detail each component
 - **Requirements**: `sflow.requirements.md`
