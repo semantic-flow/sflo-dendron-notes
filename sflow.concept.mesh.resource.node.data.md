@@ -2,7 +2,7 @@
 id: 8hmkiyjtsey7z8y5oi5xdxx
 title: data node
 desc: ''
-updated: 1751386785334
+updated: 1751435070653
 created: 1750999795528
 ---
 
@@ -40,7 +40,7 @@ These elements contain:
 Every data node must contain:
 
 ### System Elements (Required)
-- **[[Catalog dataset|sflow.concept.mesh.resource.element.catalog-dataset]]** (`_catalog/`): Administrative metadata about the data concept
+- **[[meta dataset|sflow.concept.mesh.resource.element.meta-dataset]]** (`_catalog/`): Administrative metadata about the data concept
 - **[[Node handle|sflow.concept.mesh.resource.element.node-handle]]** (`_handle/`): Referential indirection for the node
 - **[[Current dataset|sflow.concept.mesh.resource.element.current-dataset]]** (`_current/`): The current concrete data instance
 

@@ -2,7 +2,7 @@
 id: xebek3dtv2zgs9ah0vbv57g
 title: Semantic Flow General Guidance
 desc: ''
-updated: 1751387807241
+updated: 1751438050759
 created: 1751259888479
 ---
 
@@ -34,7 +34,7 @@ A dereferenceable, versioned collection of semantic data and other resources, wh
     - **Reference Nodes**: Refer to "things that exist" like people, or songs, or ideas
   - **Elements**: things that help define and systematize the nodes
   - **Handles**: things that let you refer to a node as a node instead of its referent
-  - **Asset Trees**: elements that allow you to attach arbitrary collections of files and folders to a mesh; in a sense, these things are "outside" the mesh, and other than the top-level "_mesh" folder, they don't contain any other mesh resources
+  - **Asset Trees**: elements that allow you to attach arbitrary collections of files and folders to a mesh; in a sense, these things are "outside" the mesh, and other than the top-level "_meta" folder, they don't contain any other mesh resources
 
 ### Semantic Flow Workflow: 
 

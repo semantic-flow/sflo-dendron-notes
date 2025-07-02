@@ -2,7 +2,7 @@
 id: osqi7xn4mw3j9v0kvsoc5uo
 title: Why Dont Data Nodes Contain Distributions Directly
 desc: ''
-updated: 1751387212243
+updated: 1751435070654
 created: 1751387201637
 ---
 
@@ -40,7 +40,7 @@ This mirrors how [[reference nodes|sflow.concept.mesh.resource.node.reference]] 
 
 ### Metadata Separation
 
-The data node's [[catalog dataset|sflow.concept.mesh.resource.element.catalog-dataset]] contains metadata about the data concept itself, while each temporal dataset element contains metadata about that specific data instance.
+The data node's [[meta dataset|sflow.concept.mesh.resource.element.meta-dataset]] contains metadata about the data concept itself, while each temporal dataset element contains metadata about that specific data instance.
 
 ## Analogy
 

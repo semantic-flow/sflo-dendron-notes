@@ -2,7 +2,7 @@
 id: p3mbdrze0qe8uvko4i16t1s
 title: mesh folder
 desc: ''
-updated: 1750823850473
+updated: 1751438050757
 created: 1750659145476
 ---
 
@@ -16,11 +16,11 @@ created: 1750659145476
 
 ### System Mesh Folders
 
-- **`_mesh/`**
+- **`_meta/`**
 
   - Marks its parent folder as a **branch** mesh-node (namespace,
     reference-node, or SF-dataset).
-  - **Branch-only**—only folders with `_mesh/` get recursed into when
+  - **Branch-only**—only folders with `_meta/` get recursed into when
     discovering nested user-nodes.
   - **Mutually exclusive** with all other system folders in the same directory.
 

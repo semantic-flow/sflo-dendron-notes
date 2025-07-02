@@ -26,7 +26,7 @@ Every semantic mesh has a root node, and in a repository-based mesh, the reposit
 
 Since the repository root is a mesh node, it follows the same rules as any other node:
 
-- **`_catalog/`**: Contains the [[catalog dataset|sflow.concept.mesh.resource.element.catalog-dataset]] with administrative metadata for the root node
+- **`_catalog/`**: Contains the [[catalog dataset|sflow.concept.mesh.resource.element.meta-dataset]] with administrative metadata for the root node
 - **`_handle/`**: Contains the [[node handle|sflow.concept.mesh.resource.element.node-handle]] for referential indirection
 - **`_assets/`**: May contain an [[asset tree|sflow.concept.mesh.resource.element.asset-tree]] for file attachments
 - **Other elements**: Depending on the root node type (e.g., `_ref/` for reference nodes, `_next/` for versioned datasets)

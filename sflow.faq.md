@@ -2,7 +2,7 @@
 id: faq000
 title: Semantic Flow FAQ
 desc: ''
-updated: 1751387817302
+updated: 1751435559705
 created: 1751351477000
 ---
 
@@ -16,7 +16,7 @@ This section addresses common questions about Semantic Flow design principles an
 Explains the fundamental difference between reference nodes (which refer to external entities) and other node types (which refer to themselves).
 
 ### [[Why are there elements at the top of a repo?|sflow.faq.why-are-there-elements-at-the-top-of-a-repo]]
-Clarifies that the repository root is itself a mesh node, explaining why elements like `_catalog/` and `_handle/` appear at the top level.
+The repository root is itself a mesh node, explaining why elements like `_meta/` and `_handle/` appear at the top level. `_assets` might be there too; in fact it's a good place for mesh-wide assets.
 
 ## Architecture Questions
 

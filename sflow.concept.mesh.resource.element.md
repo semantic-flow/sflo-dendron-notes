@@ -2,7 +2,7 @@
 id: 9c27yly4ed3ju7msf8luhge
 title: sflow element
 desc: ''
-updated: 1751385422742
+updated: 1751435679230
 created: 1750706813437
 ---
 
@@ -31,7 +31,7 @@ User elements are primarily created and maintained by users, representing domain
 System elements are usually created or altered by the [[weave|sflow.concept.weave]] process rather than direct user modification:
 
 **Folder-based system elements:**
-- **[[Catalog datasets|sflow.concept.mesh.resource.element.catalog-dataset]]**: Administrative and structural metadata for mesh nodes (in `_catalog/` folders)
+- **[[Meta datasets|sflow.concept.mesh.resource.element.meta-dataset]]**: Administrative and structural metadata for mesh nodes (in `_meta/` folders)
 - **[[Version datasets|sflow.concept.mesh.resource.element.version-dataset]]**: Versioned snapshots of datasets (in `_vN/` folders)
 - **[[V-series dataset series|sflow.concept.mesh.resource.element.v-series-dataset-series]]**: Collections of version datasets that track historical checkpoints (in `_v-series/` folders)
 - **[[Next datasets|sflow.concept.mesh.resource.element.next-dataset]]**: Draft workspaces for ongoing changes to versioned datasets (in `_next/` folders)
@@ -45,7 +45,7 @@ System elements are usually created or altered by the [[weave|sflow.concept.weav
 ## Physical vs Logical Structure
 
 **Physical Representation:**
-- Folder-based elements are represented as folders with underscore prefixes (like `_catalog/`, `_ref/`, `_assets/`)
+- Folder-based elements are represented as folders with underscore prefixes (like `_meta/`, `_ref/`, `_assets/`)
 - File-based elements are individual files within mesh nodes or other elements
 - Element folders contain all files and folders that belong to that element
 
@@ -57,7 +57,7 @@ System elements are usually created or altered by the [[weave|sflow.concept.weav
 ## Integration with Nodes
 
 Elements work in conjunction with mesh nodes to create the complete mesh structure:
-- Every mesh node contains system elements (catalog datasets, node handles)
+- Every mesh node contains system elements (meta datasets, node handles)
 - Reference nodes contain reference datasets (user elements)
 - data nodes may contain versioning elements (system elements)
 - Any node may contain asset trees (user elements) for file attachments
