@@ -2,7 +2,7 @@
 id: 8hmkiyjtsey7z8y5oi5xdxx
 title: data node
 desc: ''
-updated: 1751435070653
+updated: 1751565550573
 created: 1750999795528
 ---
 
@@ -26,7 +26,7 @@ The data node provides:
 - **Organizational structure**: A place to organize temporal dataset elements
 
 ### Concrete Data Instance (Dataset Elements)
-[[Temporal dataset elements|sflow.concept.mesh.resource.element.temporal-dataset]] contain the actual data:
+[[Temporal dataset elements|sflo.concept.mesh.resource.element.temporal-dataset]] contain the actual data:
 - `/ns/monsters/_current/` = "the current monster data files"
 - `/ns/census/_current/` = "the current census data files"  
 - `/ns/weather-stations/_v3/` = "version 3 of weather station data"
@@ -42,7 +42,7 @@ Every data node must contain:
 ### System Elements (Required)
 - **[[meta dataset|sflo.concept.mesh.resource.element.meta-dataset]]** (`_catalog/`): Administrative metadata about the data concept
 - **[[Node handle|sflo.concept.mesh.resource.element.node-handle]]** (`_handle/`): Referential indirection for the node
-- **[[Current dataset|sflow.concept.mesh.resource.element.current-dataset]]** (`_current/`): The current concrete data instance
+- **[[Current dataset|sflo.concept.mesh.resource.element.current-dataset]]** (`_current/`): The current concrete data instance
 
 ### Optional Elements
 - **[[Next dataset|sflo.concept.mesh.resource.element.next-dataset]]** (`_next/`): Draft workspace for changes

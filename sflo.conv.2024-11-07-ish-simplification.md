@@ -2,7 +2,7 @@
 id: hldgjwpzez9v1rft4cod7x7
 title: 2024 11 07-ish Simplification
 desc: ''
-updated: 1731281186230
+updated: 1751565550562
 created: 1731281166672
 ---
 
@@ -763,7 +763,7 @@ Your decision to include these external references will certainly strengthen the
               - index.ttl
               - index.jsonld
 - ssg
-- sflow.config
+- sflo.config
 
 ## index vs matched filename (dave)
 

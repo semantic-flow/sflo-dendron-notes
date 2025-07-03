@@ -2,7 +2,7 @@
 id: mxbg4m7op0w6ktxcvc7y3ny
 title: 2025 06 25 Sflow Concepts Documentation
 desc: ''
-updated: 1751260644241
+updated: 1751565550564
 created: 1751260616695
 ---
 
@@ -22,7 +22,7 @@ If you have files to share, I can analyze them and suggest improvements. If you'
 
 
 
-Check the djradon mesh tab on https://docs.google.com/spreadsheets/d/1hPQ5V0_veBgAK73KUgxj36tT_jwLj5TUQuP1nr6ivQQ/edit?gid=1903019124#gid=1903019124 and then look at my sflow markdown notes in \\wsl.localhost\Ubuntu\home\djradon\hub\semantic-flow\sf-workspace\sflo-dendron-notes -- but beware of the sflow.conv.* part of the hierarchy, it's filled with outdated, inaccurate, and confusing stuff. Maybe best to ignore it altogether.
+Check the djradon mesh tab on https://docs.google.com/spreadsheets/d/1hPQ5V0_veBgAK73KUgxj36tT_jwLj5TUQuP1nr6ivQQ/edit?gid=1903019124#gid=1903019124 and then look at my sflow markdown notes in \\wsl.localhost\Ubuntu\home\djradon\hub\semantic-flow\sf-workspace\sflo-dendron-notes -- but beware of the sflo.conv.* part of the hierarchy, it's filled with outdated, inaccurate, and confusing stuff. Maybe best to ignore it altogether.
 
 Edit
 I'll help you with your sflow documentation. Let me start by examining the Google Sheets tab you mentioned, then look at your markdown notes.
@@ -66,7 +66,7 @@ F
 search_files
 
 
-Perfect! I can see your sflow documentation. Let me read the key concept files first, avoiding the sflow.conv.* files as you suggested (.85):
+Perfect! I can see your sflow documentation. Let me read the key concept files first, avoiding the sflo.conv.* files as you suggested (.85):
 
 
 F
@@ -828,13 +828,13 @@ This could work really well for your semantic mesh - people could clone just the
 
 
 
-I was initially thinking that the root of a repo would not be a mesh, it would be a collection of meshes: From @sflow.concepts.flow.repo.md:
+I was initially thinking that the root of a repo would not be a mesh, it would be a collection of meshes: From @sflo.concepts.flow.repo.md:
 
-A Semantic Flow repository (or sflow-repo for short) is a git repository that contains a single [[sflow.concepts.flow.repo.page]], and a [[sflow.concepts.flow.repo.dataset]], and a collection of [[semantic meshes|sflow.concepts.mesh]]
+A Semantic Flow repository (or sflow-repo for short) is a git repository that contains a single [[sflo.concepts.flow.repo.page]], and a [[sflo.concepts.flow.repo.dataset]], and a collection of [[semantic meshes|sflo.concepts.mesh]]
   - sflow configuration data
-  - [[static site generators|sflow.concepts.flow.page-generation]] and configuration
+  - [[static site generators|sflo.concepts.flow.page-generation]] and configuration
   - assets, including images, templates and template mappings to apply to src items
-  - an optional output directory containing a [[sflow.concepts.site]], (e.g. "docs" for some GitHub pages workflows)
+  - an optional output directory containing a [[sflo.concepts.site]], (e.g. "docs" for some GitHub pages workflows)
 
 ---
 

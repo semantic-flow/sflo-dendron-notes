@@ -2,13 +2,13 @@
 id: 8ry3qldaqi2j7b0emoomqdz
 title: 2025 06 21 Sflow Spec
 desc: ''
-updated: 1750614632993
+updated: 1751565550567
 created: 1750528125174
 ---
 
 ## 10:55 AM - Recording Setup
 
-**User:** read 'sflo-dendron-notes/sflow.conv.cline.recording-prompt.md' (see below for file content) and record to sflow.conv.cline.2025-06-21-sflow-spec
+**User:** read 'sflo-dendron-notes/sflo.conv.cline.recording-prompt.md' (see below for file content) and record to sflo.conv.cline.2025-06-21-sflow-spec
 
 [User provided the recording prompt file content with guidelines for conversation recording]
 
@@ -16,7 +16,7 @@ created: 1750528125174
 
 ## 11:05 AM - Getting Up to Speed on Sflow Framework
 
-**User:** Get up to speed on the sflow framework by reading 'public-notes/sflow.md' and some concepts files. Beware as there is outdated/incorrect information everywhere. Past conversations with LLMs are in sflow.conv.* If you can treat everything skeptically until it's confirmed, especially from old conversations.
+**User:** Get up to speed on the sflow framework by reading 'public-notes/sflo.md' and some concepts files. Beware as there is outdated/incorrect information everywhere. Past conversations with LLMs are in sflo.conv.* If you can treat everything skeptically until it's confirmed, especially from old conversations.
 
 **Cline:** I explored the sflow framework documentation and recent conversations. Here's what I learned about the current state:
 
@@ -91,9 +91,9 @@ I noted the warning about outdated information in older conversations and focuse
 
 ## 12:49 PM - Refining Architecture in Main Documentation
 
-**User:** I copied your "Core Sflow Architecture" into the top-level 'public-notes/sflow.md', we can work on it there. I was formerly going to put all datasets in a top-level _data folder but now that we have top-level "repo" namespaces determined by which repos are present, I think it's better to be able to scatter datasets through the namespace. The exception is thing-identifiers. They can't contain anything they refer to objects "out there", so we treat them specially. Stable Identifiers are scattered about... indeed every folder everywhere is a stable identifier. For assets...
+**User:** I copied your "Core Sflow Architecture" into the top-level 'public-notes/sflo.md', we can work on it there. I was formerly going to put all datasets in a top-level _data folder but now that we have top-level "repo" namespaces determined by which repos are present, I think it's better to be able to scatter datasets through the namespace. The exception is thing-identifiers. They can't contain anything they refer to objects "out there", so we treat them specially. Stable Identifiers are scattered about... indeed every folder everywhere is a stable identifier. For assets...
 
-**Cline:** The user moved our architectural summary to the main sflow.md documentation and provided key clarifications:
+**Cline:** The user moved our architectural summary to the main sflo.md documentation and provided key clarifications:
 
 - **Dataset Distribution**: Datasets can be scattered throughout namespaces rather than centralized in _data folder, leveraging repo-based namespace organization
 - **Thing-Identifier Constraint**: Thing-identifiers are special - they refer to external objects and can't contain the things they refer to

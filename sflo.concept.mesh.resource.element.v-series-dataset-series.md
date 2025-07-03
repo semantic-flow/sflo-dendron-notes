@@ -2,7 +2,7 @@
 id: j15tveot7ja8tmxy7vvmpjz
 title: v-series dataset
 desc: ''
-updated: 1751206726884
+updated: 1751565550559
 created: 1730660597230
 ---
 
@@ -12,7 +12,7 @@ It collects [[version dataset|sflo.concept.mesh.resource.element.version-dataset
 
 Whether it can be included in the collection refers to is a matter of debate.
 
-In addition to its role in [[sflow.concepts.mesh.node.dataset.versioned]] versioning, it can play the same role for [[sflo.concept.mesh.resource.element.meta-dataset]], [[sflo.concept.mesh.resource.element.node-handle]], and [[sflo.concept.mesh.resource.element.reference-dataset]], making it the only element that can contained in other elements.
+In addition to its role in [[sflo.concepts.mesh.node.dataset.versioned]] versioning, it can play the same role for [[sflo.concept.mesh.resource.element.meta-dataset]], [[sflo.concept.mesh.resource.element.node-handle]], and [[sflo.concept.mesh.resource.element.reference-dataset]], making it the only element that can contained in other elements.
 
 ## Containment Rules
 

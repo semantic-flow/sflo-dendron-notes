@@ -2,7 +2,7 @@
 id: ggw3ek46ptgebsgxgihr1dh
 title: Semantic Flow
 desc: 'ontology, tooling, and workflow for publishing semantic data'
-updated: 1750952259265
+updated: 1751565550607
 created: 1716959415785
 ---
 
@@ -69,7 +69,7 @@ ignored in the weaving process,
 
 ### Editing
 
-- add new identifiers, namespaces, datasets or [[sflow.concepts.asset-bundle]],
+- add new identifiers, namespaces, datasets or [[sflo.concepts.asset-bundle]],
   or modify existing ones
 
 ### Weaving

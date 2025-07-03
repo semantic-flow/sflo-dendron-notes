@@ -2,7 +2,7 @@
 id: 9uno7eaz6cxzqc6olf3vkow
 title: 2025 06 23 Namespace to Thing Mutation
 desc: ''
-updated: 1750855837059
+updated: 1751565550611
 created: 1750777391258
 ---
 
@@ -833,7 +833,7 @@ Cons:
 
 3. Project-wide manifest (declare the mesh explicitly)
 
-Idea: Have a single YAML/JSON/TOML file at the root—sflow.json—listing all the
+Idea: Have a single YAML/JSON/TOML file at the root—sflo.json—listing all the
 resource paths you want Weave to include. Any folder not listed gets skipped.
 
 { "resources": [ "ontology", "characters/nixx", "devices", "devices/reader123" ]
@@ -881,7 +881,7 @@ _sflow └─ … ← nested resource follows the same pattern
 
     _sflow is a zero‐byte (or minimal) file you commit alongside your metadata.
 
-    Any folder without _sflow is ignored by Weave, unless it lives under another resource and has its own _sflow.
+    Any folder without _sflow is ignored by Weave, unless it lives under another resource and has its own _sflo.
 
 2 Detection logic (pseudo‐code)
 
@@ -900,7 +900,7 @@ function processResource(dir) { const facets = []; if
 (fs.existsSync(path.join(dir, '_id'))) facets.push('hasId'); // ...etc.
 console.log(dir, '→', facets); }
 
-    Inclusion test: simply look for _sflow.
+    Inclusion test: simply look for _sflo.
 
     Facets: derive as before once you know it’s a resource.
 
@@ -919,7 +919,7 @@ mesh.
 
 4 Next steps
 
-    CLI integration: Update your “discover” phase to look for _sflow.
+    CLI integration: Update your “discover” phase to look for _sflo.
 
     Docs update: Note in your Markdown spec that _sflow is the new inclusion marker.
 
@@ -927,7 +927,7 @@ mesh.
 
 Does this layout and logic align with what you had in mind? If so, I can help
 you draft the exact Weave scanner update or add a quick SHACL shape to validate
-that every semantic resource has _sflow. You said: you could make _sflow a
+that every semantic resource has _sflo. You said: you could make _sflow a
 config file and keep sf-specific configuration and template maps in there. It's
 a better place to store sflow data than in the user's _assets which is optional
 and also needs some re-thinking. ChatGPT said:
@@ -985,7 +985,7 @@ versioningPolicy: auto # auto | manual | none
 How this improves things
 
     Single source of truth
-    Everything SF-related—marking, facet tweaks, template maps, policies, ACL hints—lives in _sflow.
+    Everything SF-related—marking, facet tweaks, template maps, policies, ACL hints—lives in _sflo.
 
     Keeps _assets purely for user content
     No more shoehorning config into _assets (which is optional and often reworked).
@@ -994,7 +994,7 @@ How this improves things
     When you add future roles (catalogs, redirects, embed flags), just drop them in here—no new files or DSL needed.
 
     Declarative overrides
-    If you ever need to override auto-detection (e.g. force isContainer: false on a data-heavy Thing), you can list exact facets in _sflow.
+    If you ever need to override auto-detection (e.g. force isContainer: false on a data-heavy Thing), you can list exact facets in _sflo.
 
     Tool-friendly
     Your scanner becomes:
@@ -1589,14 +1589,14 @@ Why this makes sense
 Does this align with how you want to structure your mesh? You said: So now that
 we don't need a marker for sf-folders (because of _sflow/) we can dispense with
 _id. Any provenance data about the identifier itself could go in, say,
-/ns/djradon/_sflow/djradon_sflow.trig which makes _sflow look like an
+/ns/djradon/_sflow/djradon_sflo.trig which makes _sflow look like an
 unversioned dataset.
 
 Wait, we could differentiate between regular datasets, and sf-datasets. regular
 datasets are unversioned, and kinda like assets and, gulp, they don't need any
 system folders.
 
-sf-datasets don't need _id or _ref, just _v and _sflow. BUT maybe they can
+sf-datasets don't need _id or _ref, just _v and _sflo. BUT maybe they can
 contain any sf-nodes.
 
 THis is another radical redesign. terminal-nodes (_assets, _sflow, and

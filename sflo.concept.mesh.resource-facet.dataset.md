@@ -2,7 +2,7 @@
 id: 6ki4upsdymjb9vy82oec2cf
 title: dataset
 desc: ''
-updated: 1751434988529
+updated: 1751565550579
 created: 1750655553990
 ---
 
@@ -17,7 +17,7 @@ Consistent with [[DCAT v3|related-topics.dcat.vocabulary]], [[sflo.concept.mesh.
 Some [[sflo.concept.mesh.resource.element]] are also mesh datasets: 
 - [[sflo.concept.mesh.resource.element.meta-dataset]]
 - [[sflo.concept.mesh.resource.element.reference-dataset]]
-- [[sflow.concept.mesh.dataset.versioned]]
+- [[sflo.concept.mesh.dataset.versioned]]
 - [[sflo.concept.mesh.resource.element.v-series-dataset-series]]
 
 ## Kinds of Mesh Datasets

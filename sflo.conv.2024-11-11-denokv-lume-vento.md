@@ -2,7 +2,7 @@
 id: 1a5srwjbsiu43ixsehk15nw
 title: 2024 11 11 Denokv Lume Vento
 desc: ''
-updated: 1731345182089
+updated: 1751565550595
 created: 1731344619034
 ---
 
@@ -202,7 +202,7 @@ Here’s how you can start setting up **Lume** for **sflow-cli**:
    - lume.config.js  # Lume configuration
    - templates/  # Custom Lume templates for NamedIndividuals, catalogs, etc.
    - ssg/  # Your static site generator folder containing configurations and scripts
-   - sflow.config  # Custom sflow-cli config file
+   - sflo.config  # Custom sflow-cli config file
    ```
 
 4. **Configure Lume for RDF Integration**

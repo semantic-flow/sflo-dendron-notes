@@ -2,7 +2,7 @@
 id: idskfqctfpjria2byki92pt
 title: 2025 06 30 Finalizing Design and Concept Docs
 desc: ''
-updated: 1751267801257
+updated: 1751565550599
 created: 1751267731956
 ---
 
@@ -13,8 +13,8 @@ created: 1751267731956
 **djradon**: I'm finalizing my design and concept documentation and my prompts. Can you digest '.ai-guidance.md' and the files it mentions and let me know if anything stands out as counter-productive, confusing, or otherwise lame.
 
 The `.ai-guidance.md` file was a simple pointer to two other files:
-- `sflo-dendron-notes/sflow.contributors.general-guidance.md` 
-- `sflo-dendron-notes/sflow.contributors.djradon.ai-guidance.md`
+- `sflo-dendron-notes/sflo.contributors.general-guidance.md` 
+- `sflo-dendron-notes/sflo.contributors.djradon.ai-guidance.md`
 
 ## Documentation Review Analysis
 

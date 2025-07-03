@@ -2,7 +2,7 @@
 id: xebek3dtv2zgs9ah0vbv57g
 title: Semantic Flow General Guidance
 desc: ''
-updated: 1751438050759
+updated: 1751565550576
 created: 1751259888479
 ---
 
@@ -59,7 +59,7 @@ A dereferenceable, versioned collection of semantic data and other resources, wh
 ## Documentation
 
 - All specifications and design docs are in `sflo-dendron-notes/`
-- Check conversation logs in `sflow.conv.*` for context on design decisions if necessary, but beware of superseded info 
+- Check conversation logs in `sflo.conv.*` for context on design decisions if necessary, but beware of superseded info 
 
 ### Documentation First
 
@@ -72,12 +72,12 @@ A dereferenceable, versioned collection of semantic data and other resources, wh
 
 Project documentation, specifications, journaling, and design choices are stored in `sflo-dendron-notes/` using Dendron's hierarchical note system. Key documentation includes:
 
-- **Core concepts**: `sflow.concept.*` files talk about general Semantic Flow concepts
-- **Mesh docs**: `sflow.concept.mesh.*` files define the semantic mesh architecture
-- **Product specifications**: `sflow.product.*` files detail each component
-- **Requirements**: `sflow.requirements.md`
-- **Use cases**: `sflow.use-cases.*` files
-- **Conversation logs**: `sflow.conv.*` files track design decisions and development history; BEWARE! These conversations contain information and decisions that have been superceded. Only reference conversations when necessary for historical context. Newer conversations are usually less misleading.
+- **Core concepts**: `sflo.concept.*` files talk about general Semantic Flow concepts
+- **Mesh docs**: `sflo.concept.mesh.*` files define the semantic mesh architecture
+- **Product specifications**: `sflo.product.*` files detail each component
+- **Requirements**: `sflo.requirements.md`
+- **Use cases**: `sflo.use-cases.*` files
+- **Conversation logs**: `sflo.conv.*` files track design decisions and development history; BEWARE! These conversations contain information and decisions that have been superceded. Only reference conversations when necessary for historical context. Newer conversations are usually less misleading.
 
 ### Documentation Standards
 
@@ -86,7 +86,7 @@ Project documentation, specifications, journaling, and design choices are stored
 ### Component Development with Docs
 
 - Each component (sf-api, sf-cli, sf-service) should follow the architecture defined in the documentation
-- Refer to `sflow.products.*` files for component-specifc descriptions, requirements, etc
+- Refer to `sflo.products.*` files for component-specifc descriptions, requirements, etc
 
 ## Project Architecture
 
@@ -105,19 +105,19 @@ TBD
 - **Primary Format**: .trig files for RDF data storage and processing
 - **Secondary Format**: Full JSON-LD support required
 - **RDF Libraries**: Use RDF.js ecosystem libraries consistently across components
-- **Namespace Management**: Follow URL-based identifier patterns as defined in `sflow.concept.identifier.md`
-- **Reserved Names**: Validate against underscore-prefixed reserved identifiers per `sflow.concept.identifier.md`
+- **Namespace Management**: Follow URL-based identifier patterns as defined in `sflo.concept.identifier.md`
+- **Reserved Names**: Validate against underscore-prefixed reserved identifiers per `sflo.concept.identifier.md`
 
 ### Semantic Mesh Architecture
 
-- **Resource Types**: Maintain clear distinction between Nodes, Elements, and Resources as defined in `sflow.concept.mesh.md`
+- **Resource Types**: Maintain clear distinction between Nodes, Elements, and Resources as defined in `sflo.concept.mesh.md`
 - **Folder Structure**: Validate mesh folder structures (dataset nodes, namespace nodes, etc.)
 - **System Elements**: Distinguish between system-generated and user-modifiable elements
-- **Weave Integration**: Code must support weave operations as defined in `sflow.concept.weave.md`
+- **Weave Integration**: Code must support weave operations as defined in `sflo.concept.weave.md`
 
 ### Documentation-Driven Development
 
-- **Code Comments**: Must reference corresponding documentation by filename (e.g., `// See sflow.concept.mesh.resource.node.md`)
+- **Code Comments**: Must reference corresponding documentation by filename (e.g., `// See sflo.concept.mesh.resource.node.md`)
 - **Interface Definitions**: Link to concept documentation in TSDoc comments
 - **Cross-Reference Validation**: Ensure consistency between code and documentation
 - **API Documentation**: Generate from TSDoc comments

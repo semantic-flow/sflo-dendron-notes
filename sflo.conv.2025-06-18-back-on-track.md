@@ -2,7 +2,7 @@
 id: e5x7ootqffz4cpmwrnc0goa
 title: 2025 06 18 Back on Track
 desc: ''
-updated: 1750440998977
+updated: 1751565550569
 created: 1750295731902
 tags:
   - user.claude.4.sonnet
@@ -1350,7 +1350,7 @@ But I'd rather see your actual design than guess at it (.8).
 
 
 
-Sorry, check my dendron notes, especially ko., sflow., and kosmion.*
+Sorry, check my dendron notes, especially ko., sflo., and kosmion.*
 
 Edit
 I don't have access to your Dendron notes (.9). Earlier in our conversation, I could only access the C:\Users\drich\hub\djradon directory, and when you tried to add your Google Drive path to the MCP config, it didn't show up in my allowed directories.
@@ -1358,7 +1358,7 @@ I don't have access to your Dendron notes (.9). Earlier in our conversation, I c
 To review your aliasing notes, I'd need you to either:
 
 Restart the Claude desktop client to pick up the updated filesystem config with your Google Drive path
-Copy the relevant ko.*, sflow.*, and kosmion.* notes into this chat
+Copy the relevant ko.*, sflo.*, and kosmion.* notes into this chat
 Save the notes to the accessible directory (C:\Users\drich\hub\djradon)
 I'm definitely interested to see how you've designed the aliasing system - it's a crucial piece for making the IRI scheme practical (.8). Which approach works best for you to share those notes?
 

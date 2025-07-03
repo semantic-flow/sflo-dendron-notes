@@ -2874,8 +2874,8 @@ Let me know if you'd like a validator or config flag in Semantic Flow to enforce
 You said:
 In my current (old) sflow note, I have:
 
-- use github or gitlab to manage namespaces using [[sflow.concepts.sf-root-repo]] and mint IRIs
-- an [[sflow.concepts.sf-data-repo]] could have files/distributions for more than one namespace, so it should have each of those namespaces segregated by a top-level folder
+- use github or gitlab to manage namespaces using [[sflo.concepts.sf-root-repo]] and mint IRIs
+- an [[sflo.concepts.sf-data-repo]] could have files/distributions for more than one namespace, so it should have each of those namespaces segregated by a top-level folder
 
 Should I continue to make that distinction? 
 ChatGPT said:
@@ -4698,7 +4698,7 @@ But IRI Kind with sense / content is probably your cleanest bet if you’re goin
 You said:
 Can you put this in a markdown table:
 
-1. **IRIs that refer to namespaces** - organizational containers, **has [[sflow.concepts.catalog.namespace]]**
+1. **IRIs that refer to namespaces** - organizational containers, **has [[sflo.concepts.catalog.namespace]]**
 2. **IRIs that refer to non-datasets** (things) - not versioned, **has thing catalog**
 3. **IRIs that refer to v-series** - versioning systems for datasets, **catalog lives with dataset**
 4. **IRIs that refer to datasets** - can be versioned or general, **has unified catalog** (includes v-series metadata)
@@ -4713,15 +4713,15 @@ ChatGPT said:
 
 Here’s your content reformatted as a Markdown table:
 
-| sflow IRI type           | IRI kind       | catalog              | versioned |
-|--------------------------|----------------|----------------------|-----------|
-| Namespace IRIs           | sense          | ✅ `catalog.namespace` | ❌         |
-| Non-dataset IRIs (things)| sense          | ✅ thing catalog      | ❌         |
-| v-series IRIs            | sense          | ✅ (with dataset)     | ✅         |
-| Dataset IRIs             | sense          | ✅ unified catalog    | ✅ / ❌    |
-| HTML page IRIs           | content        | ❌                   | ❌         |
-| Distribution IRIs        | content        | ❌                   | ✅         |
-| Asset IRIs               | content        | ❌                   | ❌         |
+| sflow IRI type            | IRI kind | catalog               | versioned |
+| ------------------------- | -------- | --------------------- | --------- |
+| Namespace IRIs            | sense    | ✅ `catalog.namespace` | ❌         |
+| Non-dataset IRIs (things) | sense    | ✅ thing catalog       | ❌         |
+| v-series IRIs             | sense    | ✅ (with dataset)      | ✅         |
+| Dataset IRIs              | sense    | ✅ unified catalog     | ✅ / ❌     |
+| HTML page IRIs            | content  | ❌                     | ❌         |
+| Distribution IRIs         | content  | ❌                     | ✅         |
+| Asset IRIs                | content  | ❌                     | ❌         |
 
 Let me know if you want to include example IRIs or add a "description" column.
 You said:
@@ -4730,15 +4730,15 @@ ChatGPT said:
 
 Here’s the updated Markdown table with an example column and simplified catalog values:
 
-| sflow IRI type           | IRI kind | catalog            | versioned | example                                      |
-|--------------------------|----------|--------------------|-----------|----------------------------------------------|
-| Namespace IRIs           | sense    | catalog.namespace  | ❌         | `https://example.org/ns/foo/`               |
-| Non-dataset IRIs (things)| sense    | thing catalog      | ❌         | `https://example.org/ns/foo/bar`            |
-| v-series IRIs            | sense    | with dataset       | ✅         | `https://example.org/ns/_data/foo/_series/v1/` |
-| Dataset IRIs             | sense    | unified catalog    | ✅ / ❌    | `https://example.org/ns/_data/foo/`         |
-| HTML page IRIs           | content  | ❌                 | ❌         | `https://example.org/ns/foo/index.html`     |
-| Distribution IRIs        | content  | ❌                 | ✅         | `https://example.org/ns/_data/foo/v1/foo.trig` |
-| Asset IRIs               | content  | ❌                 | ❌         | `https://example.org/ns/assets/logo.svg`    |
+| sflow IRI type            | IRI kind | catalog           | versioned | example                                        |
+| ------------------------- | -------- | ----------------- | --------- | ---------------------------------------------- |
+| Namespace IRIs            | sense    | catalog.namespace | ❌         | `https://example.org/ns/foo/`                  |
+| Non-dataset IRIs (things) | sense    | thing catalog     | ❌         | `https://example.org/ns/foo/bar`               |
+| v-series IRIs             | sense    | with dataset      | ✅         | `https://example.org/ns/_data/foo/_series/v1/` |
+| Dataset IRIs              | sense    | unified catalog   | ✅ / ❌     | `https://example.org/ns/_data/foo/`            |
+| HTML page IRIs            | content  | ❌                 | ❌         | `https://example.org/ns/foo/index.html`        |
+| Distribution IRIs         | content  | ❌                 | ✅         | `https://example.org/ns/_data/foo/v1/foo.trig` |
+| Asset IRIs                | content  | ❌                 | ❌         | `https://example.org/ns/assets/logo.svg`       |
 
 Let me know if you’d like to split unified/catalog distinctions further or link these to actual concepts like sflo:DatasetCatalog.
 You said:
@@ -4755,15 +4755,15 @@ Thanks! Here's the revised table with your requested fixes:
 
     Set distribution IRIs to ❌ (they correspond to a version but are not versioned themselves)
 
-| sflow IRI type            | IRI kind | example                                          | catalog            | versioned |
-|---------------------------|----------|--------------------------------------------------|--------------------|-----------|
-| Namespace IRIs            | sense    | `https://example.org/ns/foo/`                    | catalog.namespace  | ❌         |
-| Non-dataset IRIs (things) | sense    | `https://example.org/ns/foo/bar`                 | thing catalog      | ❌         |
-| v-series IRIs             | sense    | `https://example.org/ns/_data/foo/_series/v1/`   | with dataset       | ❌         |
-| Dataset IRIs              | sense    | `https://example.org/ns/_data/foo/`              | unified catalog    | ✅         |
-| HTML page IRIs            | content  | `https://example.org/ns/foo/index.html`          | ❌                 | ❌         |
-| Distribution IRIs         | content  | `https://example.org/ns/_data/foo/v1/foo.trig`   | ❌                 | ❌         |
-| Asset IRIs                | content  | `https://example.org/ns/assets/logo.svg`         | ❌                 | ❌         |
+| sflow IRI type            | IRI kind | example                                        | catalog           | versioned |
+| ------------------------- | -------- | ---------------------------------------------- | ----------------- | --------- |
+| Namespace IRIs            | sense    | `https://example.org/ns/foo/`                  | catalog.namespace | ❌         |
+| Non-dataset IRIs (things) | sense    | `https://example.org/ns/foo/bar`               | thing catalog     | ❌         |
+| v-series IRIs             | sense    | `https://example.org/ns/_data/foo/_series/v1/` | with dataset      | ❌         |
+| Dataset IRIs              | sense    | `https://example.org/ns/_data/foo/`            | unified catalog   | ✅         |
+| HTML page IRIs            | content  | `https://example.org/ns/foo/index.html`        | ❌                 | ❌         |
+| Distribution IRIs         | content  | `https://example.org/ns/_data/foo/v1/foo.trig` | ❌                 | ❌         |
+| Asset IRIs                | content  | `https://example.org/ns/assets/logo.svg`       | ❌                 | ❌         |
 
 Let me know if you’d like to annotate the dataset IRIs row with conditional notes like “✅ if versioned dataset” or split it further.
 You said:
@@ -5075,10 +5075,10 @@ That feels right—“Reference URL” and “Content URL” lean into familiar 
 
 Quick lookup table
 
-| URL Type       | Ends with…       | Refers to…                         | Example                                      |
-|----------------|------------------|------------------------------------|----------------------------------------------|
-| Reference URL  | `/`              | Real-world or conceptual entity    | `https://example.org/ns/foo/`                |
-| Content URL    | `.<extension>`   | File or document (HTML, RDF, asset)| `https://example.org/ns/foo/index.html`      |
+| URL Type      | Ends with…     | Refers to…                          | Example                                 |
+| ------------- | -------------- | ----------------------------------- | --------------------------------------- |
+| Reference URL | `/`            | Real-world or conceptual entity     | `https://example.org/ns/foo/`           |
+| Content URL   | `.<extension>` | File or document (HTML, RDF, asset) | `https://example.org/ns/foo/index.html` |
 
 With these two terms, your docs and tooling stay both clear to end users and precise for your namespace logic.
 You said:
@@ -5087,10 +5087,10 @@ ChatGPT said:
 
 Here’s an updated table that uses only the trailing slash to distinguish the two types:
 
-| URL Type      | Trailing Slash? | Refers to…                         | Example                                 |
-|---------------|-----------------|------------------------------------|-----------------------------------------|
-| Reference URL | Yes (`/`)       | A real-world or conceptual entity  | `https://example.org/ns/foo/`           |
-| Content URL   | No              | A fetchable document or asset      | `https://example.org/ns/foo/index`      |
+| URL Type      | Trailing Slash? | Refers to…                        | Example                            |
+| ------------- | --------------- | --------------------------------- | ---------------------------------- |
+| Reference URL | Yes (`/`)       | A real-world or conceptual entity | `https://example.org/ns/foo/`      |
+| Content URL   | No              | A fetchable document or asset     | `https://example.org/ns/foo/index` |
 
     Reference URLs always end in /, so they denote the entity itself (dataset, namespace, person, etc.).
 
@@ -5255,7 +5255,7 @@ Since “namespace” is already an accepted informal term in RDF for that share
 
 In practice, just document “namespace” clearly in your own context (e.g. “In Semantic Flow, a namespace IRI is the path-root under which entities and datasets live”) and you’ll avoid confusion with RDF’s serialization convenience.
 You said:
-fill in the blank: The "[[root namespace|sflow.concepts.namespace.root]]" is ___ and is determined by the publishing platform.
+fill in the blank: The "[[root namespace|sflo.concepts.namespace.root]]" is ___ and is determined by the publishing platform.
 
 Github pages presents two options:
 
@@ -5263,7 +5263,7 @@ Github pages presents two options:
 - a root namespace that corresponds to a repository of an org/usr, e.g. https://semantic-flow.github.io/weave/
 ChatGPT said:
 
-The “[[root namespace|sflow.concepts.namespace.root]]” is the base IRI under which all of your Semantic Flow identifiers live and is determined by the publishing platform.
+The “[[root namespace|sflo.concepts.namespace.root]]” is the base IRI under which all of your Semantic Flow identifiers live and is determined by the publishing platform.
 
 GitHub Pages presents two options:
 
@@ -5326,7 +5326,7 @@ That model could give you much more flexibility and resilience to renames—here
 
     In each data-repo
 
-// sflow.config.json
+// sflo.config.json
 {
   "basePath": "/",          // during local dev
   "buckets": ["id", "data", "assets"]
@@ -5476,7 +5476,7 @@ You can support a merge step:
 This lets people edit JSON-LD or TTL directly but still keeps everything converged. It’s a bit more complex (you need a merge policy and maybe round-trip testing), but it’s doable.
 4. Configuration
 
-In your sflow.config.json or CLI flags, let the user declare:
+In your sflo.config.json or CLI flags, let the user declare:
 
 {
   "canonicalFormat": "trig",
@@ -5598,28 +5598,28 @@ That way your same Turtle/JSON-LD files work unchanged whether served locally, f
 You said:
 Reformat this markdown table so the columns line up:
 
-| sflow URL type            | sense | example                                          | catalog            | versioned |
-|---------------------------|----------|--------------------------------------------------|--------------------|-----------|
-| namespace      | reference    | https://ex.org/ns/people/                    | catalog.namespace  | ❌         |
-| thing | reference    | https://ex.org/ns/people/dave                 | thing catalog      | ❌         |
-| reference-page       | content  | https://ex.org/ns/people/dave/index.html          | ❌                 | ❌         |
-| dataset              | reference    | https://ex.org/ns/_data/dave-bio/              | dataset catalog    |          |
-| v-series             | reference    | https://ex.org/ns/_data/dave-bio/_v-series/   | with dataset       | ❌         |
-| distribution         | content  | https://ex.org/ns/_data/dave-bio/_v1/dave-bio_v1.trig   | ❌                 | ❌         |
-| asset               | content  | https://ex.org/ns/assets/logo.svg         | ❌                 | ❌         |
-| catalog             | reference | https://ex.org/ns/_data/dave-bio/ | ❌ | ✅ |
+| sflow URL type | sense     | example                                               | catalog           | versioned |
+| -------------- | --------- | ----------------------------------------------------- | ----------------- | --------- |
+| namespace      | reference | https://ex.org/ns/people/                             | catalog.namespace | ❌         |
+| thing          | reference | https://ex.org/ns/people/dave                         | thing catalog     | ❌         |
+| reference-page | content   | https://ex.org/ns/people/dave/index.html              | ❌                 | ❌         |
+| dataset        | reference | https://ex.org/ns/_data/dave-bio/                     | dataset catalog   |           |
+| v-series       | reference | https://ex.org/ns/_data/dave-bio/_v-series/           | with dataset      | ❌         |
+| distribution   | content   | https://ex.org/ns/_data/dave-bio/_v1/dave-bio_v1.trig | ❌                 | ❌         |
+| asset          | content   | https://ex.org/ns/assets/logo.svg                     | ❌                 | ❌         |
+| catalog        | reference | https://ex.org/ns/_data/dave-bio/                     | ❌                 | ✅         |
 ChatGPT said:
 
-| sflow URL type    | sense      | example                                                  | catalog             | versioned |
-|-------------------|------------|----------------------------------------------------------|---------------------|-----------|
-| namespace         | reference  | `https://ex.org/ns/people/`                              | catalog.namespace   | ❌         |
-| thing             | reference  | `https://ex.org/ns/people/dave`                          | thing catalog       | ❌         |
-| reference-page    | content    | `https://ex.org/ns/people/dave/index.html`               | ❌                   | ❌         |
-| dataset           | reference  | `https://ex.org/ns/_data/dave-bio/`                      | dataset catalog     | ✅         |
-| v-series          | reference  | `https://ex.org/ns/_data/dave-bio/_v-series/`            | with dataset        | ❌         |
-| distribution      | content    | `https://ex.org/ns/_data/dave-bio/_v1/dave-bio_v1.trig`  | ❌                   | ❌         |
-| asset             | content    | `https://ex.org/ns/assets/logo.svg`                      | ❌                   | ❌         |
-| catalog           | reference  | `https://ex.org/ns/_data/dave-bio/`                      | ❌                   | ✅         |
+| sflow URL type | sense     | example                                                 | catalog           | versioned |
+| -------------- | --------- | ------------------------------------------------------- | ----------------- | --------- |
+| namespace      | reference | `https://ex.org/ns/people/`                             | catalog.namespace | ❌         |
+| thing          | reference | `https://ex.org/ns/people/dave`                         | thing catalog     | ❌         |
+| reference-page | content   | `https://ex.org/ns/people/dave/index.html`              | ❌                 | ❌         |
+| dataset        | reference | `https://ex.org/ns/_data/dave-bio/`                     | dataset catalog   | ✅         |
+| v-series       | reference | `https://ex.org/ns/_data/dave-bio/_v-series/`           | with dataset      | ❌         |
+| distribution   | content   | `https://ex.org/ns/_data/dave-bio/_v1/dave-bio_v1.trig` | ❌                 | ❌         |
+| asset          | content   | `https://ex.org/ns/assets/logo.svg`                     | ❌                 | ❌         |
+| catalog        | reference | `https://ex.org/ns/_data/dave-bio/`                     | ❌                 | ✅         |
 
 You said:
 my google sheet is giving a double slash ("//") with this formula: =CONCATENATE("https://",C7,"/",D7,TEXTJOIN("/",TRUE,D7:H7),IF(ISBLANK(H7),"/", ""))
@@ -6442,28 +6442,28 @@ So do we agree that asset-trees (whose folders aren't technically namespaces) ..
 
 I changed the table so catalogs' catalogs are in the dataset catalog. Can you fix formatting:
 
-| sflow URL type    | sense      | example                                                  | catalog             | versioned |
-|-------------------|------------|----------------------------------------------------------|---------------------|-----------|
-| namespace         | reference  | https://ex.org/ns/people/                              | catalog.namespace   | ❌         |
-| thing             | reference  | https://ex.org/ns/people/dave                          | thing catalog       | ❌         |
-| reference-page    | content    | https://ex.org/ns/people/dave/index.html               | ❌                  | ❌         |
-| dataset           | reference  | https://ex.org/ns/dave-bio/                      | ✅     | ✅         |
-| v-series          | reference  | https://ex.org/ns/dave-bio/_v-series/            | with dataset        | ❌         |
-| distribution      | content    | https://ex.org/ns/dave-bio/_v1/dave-bio_v1.trig  | ❌                  | ❌         |
-| catalog           | reference  | https://ex.org/ns/dave-bio/_catalog              |  with dataset     | ✅         |
-| asset             | content    | https://ex.org/ns/assets/logo.svg                      | ❌                  | ❌         |
+| sflow URL type | sense     | example                                         | catalog           | versioned |
+| -------------- | --------- | ----------------------------------------------- | ----------------- | --------- |
+| namespace      | reference | https://ex.org/ns/people/                       | catalog.namespace | ❌         |
+| thing          | reference | https://ex.org/ns/people/dave                   | thing catalog     | ❌         |
+| reference-page | content   | https://ex.org/ns/people/dave/index.html        | ❌                 | ❌         |
+| dataset        | reference | https://ex.org/ns/dave-bio/                     | ✅                 | ✅         |
+| v-series       | reference | https://ex.org/ns/dave-bio/_v-series/           | with dataset      | ❌         |
+| distribution   | content   | https://ex.org/ns/dave-bio/_v1/dave-bio_v1.trig | ❌                 | ❌         |
+| catalog        | reference | https://ex.org/ns/dave-bio/_catalog             | with dataset      | ✅         |
+| asset          | content   | https://ex.org/ns/assets/logo.svg               | ❌                 | ❌         |
 ChatGPT said:
 
-| sflow URL type   | sense     | example                                            | catalog            | versioned |
-|------------------|-----------|----------------------------------------------------|--------------------|-----------|
-| namespace        | reference | `https://ex.org/ns/people/`                        | catalog.namespace  | ❌        |
-| thing            | reference | `https://ex.org/ns/people/dave`                    | thing catalog      | ❌        |
-| reference-page   | content   | `https://ex.org/ns/people/dave/index.html`         | ❌                  | ❌        |
-| dataset          | reference | `https://ex.org/ns/dave-bio/`                      | dataset catalog    | ✅        |
-| v-series         | reference | `https://ex.org/ns/dave-bio/_v-series/`            | with dataset       | ❌        |
-| distribution     | content   | `https://ex.org/ns/dave-bio/_v1/dave-bio_v1.trig`  | ❌                  | ❌        |
-| catalog          | reference | `https://ex.org/ns/dave-bio/_catalog`              | with dataset       | ✅        |
-| asset            | content   | `https://ex.org/ns/assets/logo.svg`                | ❌                  | ❌        |
+| sflow URL type | sense     | example                                           | catalog           | versioned |
+| -------------- | --------- | ------------------------------------------------- | ----------------- | --------- |
+| namespace      | reference | `https://ex.org/ns/people/`                       | catalog.namespace | ❌         |
+| thing          | reference | `https://ex.org/ns/people/dave`                   | thing catalog     | ❌         |
+| reference-page | content   | `https://ex.org/ns/people/dave/index.html`        | ❌                 | ❌         |
+| dataset        | reference | `https://ex.org/ns/dave-bio/`                     | dataset catalog   | ✅         |
+| v-series       | reference | `https://ex.org/ns/dave-bio/_v-series/`           | with dataset      | ❌         |
+| distribution   | content   | `https://ex.org/ns/dave-bio/_v1/dave-bio_v1.trig` | ❌                 | ❌         |
+| catalog        | reference | `https://ex.org/ns/dave-bio/_catalog`             | with dataset      | ✅         |
+| asset          | content   | `https://ex.org/ns/assets/logo.svg`               | ❌                 | ❌         |
 
 You said:
 You can also mention backlinks in RDF if they're important/application-relevant. A complete list of backlinks to aid discoverability is okay outside the RDF world.
@@ -7526,7 +7526,7 @@ That way you never need a separate .sf-thing marker, and your datasets remain ti
 You said:
 I loved that you removed the v1 folders from under _v-series. Having two sets of v* folders is confusing. The trouble is you can't refer to a catalog version in the abstract, only by it's distribution. 
 
-I can't think of "other-system-files". Although I would argue that that .v1 should be hidden too. Just to see how it looks, use .v1 for both dataset versions and catalog version in folders and no .sflow.
+I can't think of "other-system-files". Although I would argue that that .v1 should be hidden too. Just to see how it looks, use .v1 for both dataset versions and catalog version in folders and no .sflo.
 ChatGPT said:
 
 dataset-name/
@@ -8392,12 +8392,12 @@ ChatGPT said:
 
 Here’s a summary of the four folder‐types, how to recognize them in your mesh, what they map to in your site, and which kinds of subfolders they may hold:
 
-| Folder Type    | Recognition in Mesh                               | Site Representation      | Allowed Semantic Children      | Notes                               |
-|----------------|----------------------------------------------------|--------------------------|--------------------------------|-------------------------------------|
-| **Namespace**  | Contains a `_namespace/` subfolder (holding `name_namespace.trig`), or is explicitly listed in your root index |   `/…/foo/` → Reference URL + `index.html`  | Namespaces, Things, Datasets, `_assets/` | Groups IRIs under a common base    |
-| **Dataset**    | Contains a file named exactly `<folder>.trig` or `<folder>.jsonld`, or a `_v-series/` subfolder |  `/…/bar/` → Reference URL + `index.html`  | Namespaces, Things, Datasets, `_assets/` | Holds versioned RDF distributions   |
-| **Thing**      | No distribution file (`.trig`/`.jsonld`), no `_namespace/`, no `_v-series/` |  `/…/baz/` → Reference URL + `index.html`  | Namespaces, Things, Datasets, `_assets/` | Pure “entity” IRIs, zero or more assets |
-| **Assets**     | Folder named `_assets/` (any subfolder names OK)   |  `/…/_assets/…` → Content URLs            | _assets/ subfolders only       | All images, CSS, JS, templates, etc. |
+| Folder Type   | Recognition in Mesh                                                                                            | Site Representation                      | Allowed Semantic Children                | Notes                                   |
+| ------------- | -------------------------------------------------------------------------------------------------------------- | ---------------------------------------- | ---------------------------------------- | --------------------------------------- |
+| **Namespace** | Contains a `_namespace/` subfolder (holding `name_namespace.trig`), or is explicitly listed in your root index | `/…/foo/` → Reference URL + `index.html` | Namespaces, Things, Datasets, `_assets/` | Groups IRIs under a common base         |
+| **Dataset**   | Contains a file named exactly `<folder>.trig` or `<folder>.jsonld`, or a `_v-series/` subfolder                | `/…/bar/` → Reference URL + `index.html` | Namespaces, Things, Datasets, `_assets/` | Holds versioned RDF distributions       |
+| **Thing**     | No distribution file (`.trig`/`.jsonld`), no `_namespace/`, no `_v-series/`                                    | `/…/baz/` → Reference URL + `index.html` | Namespaces, Things, Datasets, `_assets/` | Pure “entity” IRIs, zero or more assets |
+| **Assets**    | Folder named `_assets/` (any subfolder names OK)                                                               | `/…/_assets/…` → Content URLs            | _assets/ subfolders only                 | All images, CSS, JS, templates, etc.    |
 
 Key points
 

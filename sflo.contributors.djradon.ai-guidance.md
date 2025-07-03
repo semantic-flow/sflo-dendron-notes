@@ -2,7 +2,7 @@
 id: 2zb4o6y7kbklo6lw0nvoulq
 title: Ai Guidance from djradon
 desc: ''
-updated: 1751265301119
+updated: 1751565550605
 created: 1751257346147
 ---
 
@@ -35,7 +35,7 @@ Leverage terms from Dendron's hierarchical naming when you're being specific, e.
 
 ## Recording
 
-**When I request to record our conversations to [filename], "e.g. record to sflow.conv.cline.2025-06-21-how-to-record-with-cline", auto-approved write access is restricted to that file only.**
+**When I request to record our conversations to [filename], "e.g. record to sflo.conv.cline.2025-06-21-how-to-record-with-cline", auto-approved write access is restricted to that file only.**
 
 **Recording Guidelines:**
 - Compress verbose tool-focused responses into readable narrative

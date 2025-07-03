@@ -2,7 +2,7 @@
 id: y631axyhszj3xj4hbblr30u
 title: 2025 06 18 10 20s Schema Spreadsheet Analysis
 desc: ''
-updated: 1750958632284
+updated: 1751565550598
 created: 1750441185395
 ---
 
@@ -1694,7 +1694,7 @@ at several levels:
 
 But I'd rather see your actual design than guess at it (.8).
 
-**Human:** Sorry, check my dendron notes, especially ko._, sflow._, and
+**Human:** Sorry, check my dendron notes, especially ko._, sflo._, and
 kosmion.*
 
 **Claude:** I don't have access to your Dendron notes (.9). Earlier in our
@@ -1706,7 +1706,7 @@ To review your aliasing notes, I'd need you to either:
 
 1. **Restart the Claude desktop client** to pick up the updated filesystem
    config with your Google Drive path
-2. **Copy the relevant `ko.*`, `sflow.*`, and `kosmion.*` notes** into this chat
+2. **Copy the relevant `ko.*`, `sflo.*`, and `kosmion.*` notes** into this chat
 3. **Save the notes** to the accessible directory (`C:\Users\drich\hub\djradon`)
 
 I'm definitely interested to see how you've designed the aliasing system - it's
@@ -1723,11 +1723,11 @@ notes:
 
 Now let me look for files specifically about aliasing:
 
-[Searches for ko._, sflow._, and kosmion.* files and finds several]
+[Searches for ko._, sflo._, and kosmion.* files and finds several]
 
 Let me read some key files that might contain aliasing information:
 
-[Reads ko.md, sflow.md, kosmion.md, and alias-dereferencing files]
+[Reads ko.md, sflo.md, kosmion.md, and alias-dereferencing files]
 
 Based on reviewing your notes, I can see several references to concepts related
 to aliasing, but I don't see a comprehensive description of how aliasing
@@ -3960,7 +3960,7 @@ at several levels:
 
 But I'd rather see your actual design than guess at it (.8).
 
-**Human:** Sorry, check my dendron notes, especially ko._, sflow._, and
+**Human:** Sorry, check my dendron notes, especially ko._, sflo._, and
 kosmion.*
 
 [Dendron exploration and aliasing discussion continues...]
@@ -4024,7 +4024,7 @@ individual dataset versions (.9).
 **Human:** In my current (old) sflow note, I have:
 
 - use github or gitlab to manage namespaces using
-  [[sflow.concepts.sf-root-repo]] and mint IRIs
+  [[sflo.concepts.sf-root-repo]] and mint IRIs
 - an sflow-repo could have files/distributions for more than one namespace, so
   it should have each of those namespaces segregated by a top-level folder
 
@@ -4301,7 +4301,7 @@ sf-cli (thin wrapper) └── HTTP client → API calls This feels like the ri
 level of modularity (.9).
 
 Can you write this entire chat in markdown into
-public-notes/sflow.conv.2025-06-18-10-20s-schema-spreadsheet-analysis
+public-notes/sflo.conv.2025-06-18-10-20s-schema-spreadsheet-analysis
 
 Edit
 
@@ -4309,7 +4309,7 @@ Semantic Flow Conversation - June 18, 2025 Document
 
 Sorry, I meant use the filesystem MCP integration, write the entire chat into
 markdown into
-C:\Users\drich\hub\djradon\dendron-workspace\public-notes\sflow.conv.2025-06-18-10-20s-schema-spreadsheet-analysis.md
+C:\Users\drich\hub\djradon\dendron-workspace\public-notes\sflo.conv.2025-06-18-10-20s-schema-spreadsheet-analysis.md
 
 Edit
 
@@ -4324,7 +4324,7 @@ Complete Semantic Flow Conversation Code
 
 Soory, you're writing it into a canvas here and it's taking a long time. Just to
 test the connection, can you read the current contents of
-C:\Users\drich\hub\djradon\dendron-workspace\public-notes\sflow.conv.2025-06-18-10-20s-schema-spreadsheet-analysis.md
+C:\Users\drich\hub\djradon\dendron-workspace\public-notes\sflo.conv.2025-06-18-10-20s-schema-spreadsheet-analysis.md
 
 Edit
 
@@ -4345,7 +4345,7 @@ content to it. Would you like me to proceed with writing the full conversation
 content, or would you prefer a different approach given the length?
 
 OK, can you just create a summary and append it to
-C:\Users\drich\hub\djradon\dendron-workspace\public-notes\sflow.conv.2025-06-18-10-20s-schema-spreadsheet-analysis.summary.md
+C:\Users\drich\hub\djradon\dendron-workspace\public-notes\sflo.conv.2025-06-18-10-20s-schema-spreadsheet-analysis.summary.md
 ?
 
 The summary should be focused on the semantic flow project, not the side-topics
@@ -4383,7 +4383,7 @@ Since I can see the file exists with Dendron metadata, I'll create a complete
 version that preserves the frontmatter and adds our summary. The file is ready
 for your review at:
 
-C:\Users\drich\hub\djradon\dendron-workspace\public-notes\sflow.conv.2025-06-18-10-20s-schema-spreadsheet-analysis.summary.md
+C:\Users\drich\hub\djradon\dendron-workspace\public-notes\sflo.conv.2025-06-18-10-20s-schema-spreadsheet-analysis.summary.md
 
 The summary captures all the key architectural decisions we made, the
 terminology changes, unresolved issues, and implementation priorities. This
@@ -4500,8 +4500,8 @@ versions (.9).
 
 In my current (old) sflow note, I have:
 
-use github or gitlab to manage namespaces using [[sflow.concepts.sf-root-repo]]
-and mint IRIs an [[sflow.concepts.sf-data-repo]] could have files/distributions
+use github or gitlab to manage namespaces using [[sflo.concepts.sf-root-repo]]
+and mint IRIs an [[sflo.concepts.sf-data-repo]] could have files/distributions
 for more than one namespace, so it should have each of those namespaces
 segregated by a top-level folder Should I continue to make that distinction?
 
