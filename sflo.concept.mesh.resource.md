@@ -2,7 +2,7 @@
 id: xmdevh3s6gvp93m3nyc6683
 title: mesh resource
 desc: ''
-updated: 1751385422739
+updated: 1751565743160
 created: 1750709094321
 ---
 
@@ -33,7 +33,7 @@ The structure of a semantic mesh is built on a fundamental distinction between *
 - Can be physically represented as folders or files
 
 **Folder-based elements:**
-- **[[Catalog datasets|sflo.concept.mesh.resource.element.meta-dataset]]**: Administrative metadata (in `_catalog/` folders)
+- **[[Catalog datasets|sflo.concept.mesh.resource.element.meta-dataset]]**: Administrative metadata (in `_meta/` folders)
 - **[[Reference datasets|sflo.concept.mesh.resource.element.reference-dataset]]**: Referent data (in `_ref/` folders)
 - **[[Asset trees|sflo.concept.mesh.resource.element.asset-tree]]**: File collections (in `_assets/` folders)
 - **[[Version datasets|sflo.concept.mesh.resource.element.version-dataset]]**: Versioned snapshots

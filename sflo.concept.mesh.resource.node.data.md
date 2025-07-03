@@ -2,7 +2,7 @@
 id: 8hmkiyjtsey7z8y5oi5xdxx
 title: data node
 desc: ''
-updated: 1751565550573
+updated: 1751565743164
 created: 1750999795528
 ---
 
@@ -40,7 +40,7 @@ These elements contain:
 Every data node must contain:
 
 ### System Elements (Required)
-- **[[meta dataset|sflo.concept.mesh.resource.element.meta-dataset]]** (`_catalog/`): Administrative metadata about the data concept
+- **[[meta dataset|sflo.concept.mesh.resource.element.meta-dataset]]** (`_meta/`): Administrative metadata about the data concept
 - **[[Node handle|sflo.concept.mesh.resource.element.node-handle]]** (`_handle/`): Referential indirection for the node
 - **[[Current dataset|sflo.concept.mesh.resource.element.current-dataset]]** (`_current/`): The current concrete data instance
 
@@ -74,7 +74,7 @@ Like all mesh nodes, data nodes can contain other mesh nodes and elements, makin
 ### Simple Data Node
 ```
 ns/monsters/
-├── _catalog/           # metadata about "monsters as a data concept"
+├── _meta/           # metadata about "monsters as a data concept"
 ├── _handle/           # handle for the data node
 ├── _current/          # current monster data
 │   ├── monsters.jsonld
@@ -85,7 +85,7 @@ ns/monsters/
 ### Versioned Data Node
 ```
 ns/census/
-├── _catalog/          # metadata about "census as a data concept"
+├── _meta/          # metadata about "census as a data concept"
 ├── _handle/          # handle for the data node  
 ├── _current/         # current census data
 ├── _next/            # draft changes

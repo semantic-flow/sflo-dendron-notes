@@ -2,7 +2,7 @@
 id: m24m2p2s7iom3rwzvp28kvy
 title: Dataset Versioning
 desc: ''
-updated: 1751296199310
+updated: 1751565743163
 created: 1730373700120
 ---
 
@@ -42,9 +42,9 @@ dataset-name/
 ├── dataset-name.jsonld               ← Current distribution (working copy)  
 ├── _v-series/                      ← DatasetSeries IRI  
 │   ├── index.html                  ← Series reference page  
-│   ├── _catalog/                   ← Catalog of this series  
+│   ├── _meta/                   ← Catalog of this series  
 │   │   ├── index.html              ← Catalog reference page  
-│   │   └── dataset-name_catalog.trig ← Current series catalog  
+│   │   └── dataset-name_meta.trig ← Current series catalog  
 │   ├── v1/                         ← Version 1 IRI  
 │   │   ├── index.html              ← Version 1 reference page  
 │   │   └── dataset-name_v1.trig    ← Version 1 data snapshot  

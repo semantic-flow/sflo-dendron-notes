@@ -2,7 +2,7 @@
 id: 18luzn0r1qa44z4aet1h43j
 title: Capitalization
 desc: ''
-updated: 1750466823660
+updated: 1751565743161
 created: 1750465016511
 ---
 
@@ -15,4 +15,4 @@ created: 1750465016511
 ## Filenames
 
 - since filenames shadow identifier names, they should follow identifier rules
-- underscores are allowed for system-composed file or directory names like dave-richardson_v1.trig or _catalog
+- underscores are allowed for system-composed file or directory names like dave-richardson_v1.trig or _meta

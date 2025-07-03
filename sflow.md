@@ -2,7 +2,7 @@
 id: ggw3ek46ptgebsgxgihr1dh
 title: Semantic Flow
 desc: 'ontology, tooling, and workflow for publishing semantic data'
-updated: 1751565550607
+updated: 1751565743169
 created: 1716959415785
 ---
 
@@ -163,7 +163,7 @@ Everything else gets index.html for GitHub Pages compatibility.
 4. SSG compares source with last published versions
 5. Create new `v*` versions in `docs/` for changed datasets
 6. Generate updated `_current/` folders and `index.html` files
-7. Auto-generate all `_catalog/` metadata from source data and templates
+7. Auto-generate all `_meta/` metadata from source data and templates
 8. Copy immutable assets to `docs/assets/`
 9. Commit generated output to Git (rollback capability)
 10. Deploy `docs/` folder to GitHub Pages

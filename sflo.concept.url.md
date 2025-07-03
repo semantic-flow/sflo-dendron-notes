@@ -2,22 +2,22 @@
 id: eo43ueh0viren1xkjcjregc
 title: Semantic Flow URLs
 desc: ''
-updated: 1750541763603
+updated: 1751565743166
 created: 1750368774797
 ---
 
 ## Types of URLs in Semantic Flow
 
-| sflow URL type   | sense     | example                                            | catalog            | versioned |
-|------------------|-----------|----------------------------------------------------|--------------------|-----------|
-| namespace        | reference | `https://ex.org/ns/people/`                        | catalog.namespace  | ❌        |
-| thing            | reference | `https://ex.org/ns/people/dave`                    | thing catalog      | ❌        |
-| reference-page   | content   | `https://ex.org/ns/people/dave/index.html`         | ❌                  | ❌        |
-| dataset          | reference | `https://ex.org/ns/dave-bio/`                      | dataset catalog    | ✅        |
-| v-series         | reference | `https://ex.org/ns/dave-bio/_v-series/`            | with dataset       | ❌        |
-| distribution     | content   | `https://ex.org/ns/dave-bio/_v1/dave-bio_v1.trig`  | ❌                  | ❌        |
-| catalog          | reference | `https://ex.org/ns/dave-bio/_catalog`              | with dataset       | ✅        |
-| asset            | content   | `https://ex.org/ns/assets/logo.svg`                | ❌                  | ❌        |
+| sflow URL type | sense     | example                                           | catalog           | versioned |
+| -------------- | --------- | ------------------------------------------------- | ----------------- | --------- |
+| namespace      | reference | `https://ex.org/ns/people/`                       | catalog.namespace | ❌         |
+| thing          | reference | `https://ex.org/ns/people/dave`                   | thing catalog     | ❌         |
+| reference-page | content   | `https://ex.org/ns/people/dave/index.html`        | ❌                 | ❌         |
+| dataset        | reference | `https://ex.org/ns/dave-bio/`                     | dataset catalog   | ✅         |
+| v-series       | reference | `https://ex.org/ns/dave-bio/_v-series/`           | with dataset      | ❌         |
+| distribution   | content   | `https://ex.org/ns/dave-bio/_v1/dave-bio_v1.trig` | ❌                 | ❌         |
+| catalog        | reference | `https://ex.org/ns/dave-bio/_meta`                | with dataset      | ✅         |
+| asset          | content   | `https://ex.org/ns/assets/logo.svg`               | ❌                 | ❌         |
 
 
 Example:
@@ -55,10 +55,10 @@ URLs that refer to **non-retrievable things or conceptual entities**, including:
 
 ### URL Pattern Semantics
 
-| URL Type      | Trailing Slash? | Refers to…                                    | Example                                 |
-|---------------|-----------------|------------------------------------|-----------------------------------------|
-| Content URL   | No              | A fetchable document or asset                 | `https://example.org/ns/foo/index.html` |
-| Reference URL | Yes (`/`)       | A real-world, fictional, or conceptual thing  | `https://example.org/ns/foo/`           |
+| URL Type      | Trailing Slash? | Refers to…                                   | Example                                 |
+| ------------- | --------------- | -------------------------------------------- | --------------------------------------- |
+| Content URL   | No              | A fetchable document or asset                | `https://example.org/ns/foo/index.html` |
+| Reference URL | Yes (`/`)       | A real-world, fictional, or conceptual thing | `https://example.org/ns/foo/`           |
 
 Even though datasets live under `_data/`, their URLs refer to datasets **as abstract, non-retrievable entities**. Only Distribution URLs refer to concrete, downloadable data, i.e., dataset distributions.
 
