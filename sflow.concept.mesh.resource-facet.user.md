@@ -11,8 +11,8 @@ User resource, i.e., those that might be usually created or altered "outside the
 - [[sflow.concept.mesh.resource.node]]
 - [[sflow.concept.mesh.resource.element.reference-dataset]]
 - [[sflow.concept.mesh.resource.element.asset-tree]]
-- [[sflow.concept.mesh.resource.element.file.readme]]
-- [[sflow.concept.mesh.resource.element.file.changelog]]
+- [[sflow.concept.mesh.resource.element.readme]]
+- [[sflow.concept.mesh.resource.element.changelog]]
 
 ## Restrictions
 

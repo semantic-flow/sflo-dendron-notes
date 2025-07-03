@@ -38,8 +38,8 @@ System elements are usually created or altered by the [[weave|sflow.concept.weav
 - **[[Node handles|sflow.concept.mesh.resource.element.node-handle]]**: Elements providing referential indirection for nodes as mesh resources (in `_handle/` folders)
 
 **File-based system elements:**
-- **[[Resource pages|sflow.concept.mesh.resource.element.file.resource-page]]**: Generated index.html files for human-readable access
-- **[[__unversion files|sflow.concept.mesh.resource.element.file.__unversion]]**: Sentinel files that prevent version creation during weaving
+- **[[Resource pages|sflow.concept.mesh.resource.element.resource-page]]**: Generated index.html files for human-readable access
+- **[[__unversion files|sflow.concept.mesh.resource.element.__unversion]]**: Sentinel files that prevent version creation during weaving
 - **[[Distribution files|sflow.concept.mesh.resource-facet.distribution]]**: Data files in various RDF formats
 
 ## Physical vs Logical Structure

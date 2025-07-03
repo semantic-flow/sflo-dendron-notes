@@ -2,7 +2,7 @@
 id: 8hmkiyjtsey7z8y5oi5xdxm
 title: mesh node
 desc: ''
-updated: 1751437827659
+updated: 1751561440129
 created: 1750999795528
 ---
 
@@ -14,85 +14,71 @@ Mesh nodes are extensible namespace containers that can contain other mesh nodes
 
 ## Physical Structure
 
-All mesh nodes:
+When stored on disk, all mesh nodes:
 - Are physically represented as folders in the filesystem
 - Have folder names that become namespace segments
 - Extend the URL namespace with their folder name
 - Can be further extended by containing other mesh resources
-- 
-## Core Facets
 
-Every mesh node is built from these facets:
+## Mandatory Elements
 
-- **`_name/`** (mandatory): Contains the node's identity and naming information
-- **`_meta/`** (mandatory): Centralized metadata for the node
-- **`_ref/`** (optional): Reference data for external entity representation
-- **`_data/`** (optional): Dataset content and distributions
+Every mesh node has these elements:
+
+- **[[sflow.concept.mesh.resource.element.name-dataset]]** (`_name/`) : Contains the node's identity and naming information
+- **[[sflow.concept.mesh.resource.element.meta-dataset]]** (`_meta/`): Centralized metadata for the node
+- **[[sflow.concept.mesh.resource.element.node-handle]]** (`_handle/`): Universal marker folder that refers to the parent "as a mesh node", as opposed to "as the name, dataset, or other thing" to which it normally refers; a handle resource page should explain this distinction
+
+## Exclusive Elements
+
+A node may have one but not both of these:
+
+- **[[sflow.concept.mesh.resource.element.reference-dataset]]** (`_ref/`) : Reference data for external entity representation
+- **[[sflow.concept.mesh.resource.element.data-dataset]]** (`_data/`) : Dataset content and distributions
 
 ## Node Types
 
-### 1. Namespace Node
-**Defining Facets**: `_name/` + `_meta/`
+### 1. [[Namespace Node|sflow.concept.mesh.resource.node.namespace]]
+**Elements**: `_name/` + `_meta/` + `_handle/`
 - Functions as organizational containers
-- Contains only essential identity and metadata
-- Can contain other mesh nodes
+- Contains essential identity, metadata, and handle information
+- Node IRI refers to the namespace itself
+- Base level for all mesh nodes
 
-### 2. Reference Node
-**Defining Facets**: `_name/` + `_meta/` + `_ref/`
+### 2. [[Reference Node|sflow.concept.mesh.resource.node.reference]]
+**Elements**: `_name/` + `_meta/` + `_handle/` + `_ref/`
 - Represents external entities (people, concepts, relationships)
+- Node IRI refers to the external entity being referenced
 - Adds reference data capabilities to the namespace foundation
-- Can contain other mesh nodes in addition to reference data
-- Evolved from namespace nodes by adding the `_ref/` facet
+- Evolved from namespace nodes by adding the `_ref/` element
+- Maintains single referent principle - the node refers to the external entity
 
-### 3. Dataset Node
-**Defining Facets**: `_name/` + `_meta/` + `_data/`
+### 3. [[Data Node|sflow.concept.mesh.resource.node.data]]
+**Elements**: `_name/` + `_meta/` + `_handle/` + `_data/`
 - Contains data distributions and versioning capabilities
+- Node IRI refers to the abstract dataset
 - Adds dataset storage to the namespace foundation
-- May contain other mesh nodes
 - Can be configured as [[dataset series|sflow.concept.mesh.resource.node.data.series]]
-- Evolved from namespace nodes by adding the `_data/` facet
+- Evolved from namespace nodes by adding the `_data/` element
+- Maintains single referent principle - the node refers to the dataset
 
-### 4. Referencing Dataset Node
-**Defining Facets**: `_name/` + `_meta/` + `_ref/` + `_data/`
-- Combines all facets for maximum capability
-- Represents external entities while also containing datasets
-- The most complete form of mesh node
-- Can evolve from either reference nodes (by adding `_data/`) or dataset nodes (by adding `_ref/`)
-
-## Physical Structure
-
-All mesh nodes:
-- Are physically represented as folders in the filesystem
-- Have folder names that become namespace segments
-- Extend the URL namespace with their folder name
-- Can be further extended by containing other mesh resources
-- 
 ## Node Evolution Path
 
-Mesh nodes follow a four-facet evolutionary architecture where nodes progressively acquire capabilities through the addition of facets via corresponding datasets. All nodes begin with a basic foundation and can evolve by adding optional facets to support different use cases.
+Mesh nodes follow a simplified three-node evolutionary architecture that preserves the single referent principle. All nodes begin with a universal structure and can evolve by adding optional elements to support different use cases while maintaining a single, clear referent.
 
 ```mermaid
 graph TD
     A["`**Namespace Node**
-    _name/ + _meta/`"] --> B["`**Reference Node**
-    _name/ + _meta/ + _ref/`"]
-    A --> C["`**Dataset Node**
-    _name/ + _meta/ + _data/`"]
-    B --> D["`**Referencing Dataset Node**
-    _name/ + _meta/ + _ref/ + _data/`"]
-    C --> D
+    _name/ + _meta/ + _handle/
+    (refers to namespace)`"] --> B["`**Reference Node**
+    _name/ + _meta/ + _handle/ + _ref/
+    (refers to external entity)`"]
+    A --> C["`**Data Node**
+    _name/ + _meta/ + _handle/ + _data/
+    (refers to abstract dataset)`"]
     
     style A fill:#e1f5fe
     style B fill:#f3e5f5
     style C fill:#e8f5e8
-    style D fill:#fff3e0
 ```
 
 
-## Common Elements
-
-Every mesh node contains:
-- A [[node handle|sflow.concept.mesh.resource.element.node-handle]] at `_handle/index.html` for referential indirection
-- Centralized metadata in the `_meta/` facet for administrative information
-- Name data, including 
-- Optional additional facets (`_ref/`, `_data/`) depending on the node's evolutionary path

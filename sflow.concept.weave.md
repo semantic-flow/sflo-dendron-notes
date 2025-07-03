@@ -12,7 +12,7 @@ created: 1751128698638
   - creates a new [[sflow.concept.mesh.resource.element.version-dataset]] 
   - updates version metadata
   - generates 
-- regenerates affected [[sflow.concept.mesh.resource.element.file.resource-page]]
+- regenerates affected [[sflow.concept.mesh.resource.element.resource-page]]
 
 ## Best Practices
 

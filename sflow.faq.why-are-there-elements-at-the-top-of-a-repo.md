@@ -12,7 +12,7 @@ Why are there [[mesh elements|sflow.concept.mesh.resource.element]] like `_catal
 
 ## Answer
 
-Elements at the repository root exist because **the repository root itself is a [[mesh node|sflow.concept.mesh.resource.node]]** - specifically, it's the [[root node|sflow.concept.mesh.resource-facet.root-node]] of the mesh.
+Elements at the repository root exist because **the repository root itself is a [[mesh node|sflow.concept.mesh.resource.node]]** - specifically, it's the [[root node|sflow.concept.mesh.node-facet.root]] of the mesh.
 
 ### Repository Root = Mesh Root Node
 

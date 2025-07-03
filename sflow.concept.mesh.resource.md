@@ -40,8 +40,8 @@ The structure of a semantic mesh is built on a fundamental distinction between *
 - **[[Next datasets|sflow.concept.mesh.resource.element.next-dataset]]**: Draft workspaces
 
 **File-based elements:**
-- **[[Resource pages|sflow.concept.mesh.resource.element.file.resource-page]]**: Generated index.html files
-- **[[__unversion files|sflow.concept.mesh.resource.element.file.__unversion]]**: Version control sentinels
+- **[[Resource pages|sflow.concept.mesh.resource.element.resource-page]]**: Generated index.html files
+- **[[__unversion files|sflow.concept.mesh.resource.element.__unversion]]**: Version control sentinels
 - **README.md and CHANGELOG.md**: Documentation files
 - **[[Distribution files|sflow.concept.mesh.resource-facet.distribution]]**: Data files in RDF formats
 
