@@ -6,8 +6,8 @@ updated: 1750952259265
 created: 1716959415785
 ---
 
-- requirements: [[sflow.requirements]]
-- issues: [[sflow.issue]]
+- requirements: [[sflo.requirements]]
+- issues: [[sflo.issue]]
 
 A **dereferenceable, versioned semantic mesh** will be the foundation for a new
 era of knowledge graphs.
@@ -17,8 +17,8 @@ and other semantic data by leveraging GitHub, Gitlab, and other free static
 hosting services. It enables a **dereferenceable Semantic Web** where every HTTP
 IRI returns meaningful content.
 
-[[Sflow-meshes|sflow.concept.mesh]] provide data management and publishing, and
-[[semantic sites|sflow.concept.semantic-site]] support data discovery and
+[[Sflow-meshes|sflo.concept.mesh]] provide data management and publishing, and
+[[semantic sites|sflo.concept.semantic-site]] support data discovery and
 explainability.
 
 ## Benefits
@@ -38,7 +38,7 @@ explainability.
 
 ### Elements
 
-with four types of weavable [[sflow.concept.mesh.resource.element]]:
+with four types of weavable [[sflo.concept.mesh.resource.element]]:
 
 - **Datasets**: bundles of data, with optional immutable, checkpointed history
 - **Namespaces**: organize your data in familiar URL-based hierarchies
@@ -76,7 +76,7 @@ ignored in the weaving process,
 
 - creates support system files as needed
 - checks mesh consistency and reports issues
-- "bumps" versions of [[versioned datasets|sflow.concept.mesh.resource-facet.dataset.versioned]]
+- "bumps" versions of [[versioned datasets|sflo.concept.mesh.resource-facet.dataset.versioned]]
 - you can weave a part of your semantic mesh, or the whole thing
 
 ### Publishing
@@ -216,7 +216,7 @@ Everything else gets index.html for GitHub Pages compatibility.
 
 ## Features
 
-- an [[sflow.concept.mesh-repo]] could have files/distributions for more than one
+- an [[sflo.concept.mesh-repo]] could have files/distributions for more than one
   namespace, so it should have each of those namespaces segregated by a
   top-level folder
 
