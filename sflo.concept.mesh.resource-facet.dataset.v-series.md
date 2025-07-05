@@ -1,12 +1,12 @@
 ---
 id: j15tveot7ja8tmxy7vvmpjz
-title: v-series dataset
+title: v-series dataset facet
 desc: ''
-updated: 1751565550559
+updated: 1751690844510
 created: 1730660597230
 ---
 
-This [[sflo.concept.mesh.resource.node.data.series]] primarily describes the historical series of checkpoints of a [[sflo.concept.mesh.resource-facet.dataset.versioned]]. It is not itself versioned using the [[sflo.concept.dataset-versioning]] as that could cause an infinite recursion, but is the elemental linch-pin of it. 
+Datasets with the **v-series dataset facet** have a historical series of checkpoints. [[sflo.concept.mesh.resource-facet.dataset.versioned]]. It is not itself versioned using the [[sflo.concept.dataset-versioning]] as that could cause an infinite recursion, but is the elemental linch-pin of it. 
 
 It collects [[version dataset|sflo.concept.mesh.resource.element.version-dataset]], which are ordered. 
 

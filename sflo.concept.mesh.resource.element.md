@@ -2,7 +2,7 @@
 id: 9c27yly4ed3ju7msf8luhge
 title: sflow element
 desc: ''
-updated: 1751435679230
+updated: 1751651068522
 created: 1750706813437
 ---
 
@@ -28,18 +28,17 @@ User elements are primarily created and maintained by users, representing domain
 - **CHANGELOG.md files**: Version history documentation
 
 ### System Elements
-System elements are usually created or altered by the [[weave|sflo.concept.weave]] process rather than direct user modification:
+System elements are usually created or altered by the [[Weave Process|sflo.concept.weave-process]] process rather than direct user modification:
 
 **Folder-based system elements:**
 - **[[Meta datasets|sflo.concept.mesh.resource.element.meta-dataset]]**: Administrative and structural metadata for mesh nodes (in `_meta/` folders)
 - **[[Version datasets|sflo.concept.mesh.resource.element.version-dataset]]**: Versioned snapshots of datasets (in `_vN/` folders)
-- **[[V-series dataset series|sflo.concept.mesh.resource.element.v-series-dataset-series]]**: Collections of version datasets that track historical checkpoints (in `_v-series/` folders)
+- **[[V-series dataset series|sflo.concept.mesh.resource-facet.dataset.v-series]]**: Collections of version datasets that track historical checkpoints (in `_v-series/` folders)
 - **[[Next datasets|sflo.concept.mesh.resource.element.next-dataset]]**: Draft workspaces for ongoing changes to versioned datasets (in `_next/` folders)
 - **[[Node handles|sflo.concept.mesh.resource.element.node-handle]]**: Elements providing referential indirection for nodes as mesh resources (in `_handle/` folders)
 
 **File-based system elements:**
 - **[[Resource pages|sflo.concept.mesh.resource.element.resource-page]]**: Generated index.html files for human-readable access
-- **[[__unversion files|sflo.concept.mesh.resource.element.__unversion]]**: Sentinel files that prevent version creation during weaving
 - **[[Distribution files|sflo.concept.mesh.resource-facet.distribution]]**: Data files in various RDF formats
 
 ## Physical vs Logical Structure

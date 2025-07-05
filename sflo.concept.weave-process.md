@@ -1,0 +1,51 @@
+---
+id: rall4fbxm369okmy5383sf8
+title: Weave Process
+desc: ''
+updated: 1751648521540
+created: 1751128698638
+---
+
+- checks for required [[sflo.concept.mesh.resource-facet.system]] and creates them if missing
+- optionally removes extraneous files, interactively if requested
+- for changed datasets (i.e., distributions need re-generation)
+  - if versioning is on:
+    - creates a new [[sflo.concept.mesh.resource.element.version-dataset]] 
+    - updates version metadata
+  - regardless of whether versioning is on:
+    - copies _next to _current
+    - flags the unified dataset for regeneration 
+- regenerates affected [[sflo.concept.mesh.resource.element.resource-page]]
+
+```file
+/repo-root/
+├── _assets/
+│   ├── _templates/
+│   │   ├── default.html
+│   │   ├── ontology.html
+│   │   └── person.html
+│   └── _template-mappings.jsonld    ← Global template config
+└── my-ontology/
+    ├── _config.json              ← Node config (just syntax, etc.)
+    ├── _assets/                  ← Optional node-specific assets
+    │   ├── _templates/            ← Optional overrides
+    │   └── _template-mappings.jsonld ← Optional mapping overrides
+    └── _data/
+```
+
+
+## Best Practices
+
+### Weave Before Push
+
+This ensures that in published meshes and sites:
+
+- broken references are cleaned up
+- [[sflo.concept.mesh.resource.element.current-dataset]] is identical to the latest version
+
+## Features
+
+### Tombstoning
+
+If you know a sub-mesh is permanently moving to a new location (or even if a branch is being created somewhere else), you should be able to tell weave to insert references to the new location
+

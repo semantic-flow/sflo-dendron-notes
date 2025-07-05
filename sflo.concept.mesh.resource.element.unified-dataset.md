@@ -1,14 +1,14 @@
 ---
-id: unified-node-dataset
-title: Unified Node Dataset
-desc: Combined dataset files that aggregate current name + meta + (ref|data) datasets
-updated: 1751579449564
-created: 1751578594000
+id: sif626tmt3mw3nir5gv1s1a
+title: unified dataset
+desc: ''
+updated: 1751632059455
+created: 1751599398246
 ---
 
 ## Overview
 
-A **unified node dataset** would provide convenient aggregated access to a mesh node's current state by combining data from its component datasets (name, meta, and either ref or data) into single distribution files.
+A **unified node dataset** provides convenient aggregated access to a mesh node's current state by combining data from its component datasets (name, meta, and either ref or data) into a single "current" dataset with corresponding distribution files.
 
 ## Concept
 
@@ -20,7 +20,7 @@ For each mesh node (e.g., `ns/djradon/bio-dataset/`), generate combined distribu
 ## Architecture
 
 ### IRI Structure & Single Referent Compliance
-- **Node IRI** (`ns/djradon/bio-dataset/`) refers to its semantic entity (abstract dataset)
+- **Node IRI** (`ns/djradon/bio-dataset/`) refers to its semantic entity (abstract dataset or thing)
 - **Unified Dataset IRI** (`ns/djradon/bio-dataset/_unified/`) refers to the aggregated dataset
 - **Distribution files** are concrete serializations of the unified dataset
 - **No violation** of [[single referent principle|sflo.principle.single-referent]]
@@ -57,13 +57,12 @@ For each mesh node (e.g., `ns/djradon/bio-dataset/`), generate combined distribu
 ## Benefits
 
 ### Developer Experience
-- **Single file access**: Complete node state in one distribution_han
+- **Single file access**: Complete node state in one distribution
 - **Atomic consistency**: Guaranteed consistent snapshot of all components
 - **Simplified client code**: No need to understand internal node structure
 
 ### Performance
 - **Reduced HTTP requests**: One file instead of 3+ component requests
-- **Better caching**: Single resource to cache and invalidate
 - **Bandwidth efficiency**: Optimized for common "give me everything about this node" use case
 
 ### Provenance 
@@ -74,8 +73,7 @@ For each mesh node (e.g., `ns/djradon/bio-dataset/`), generate combined distribu
 ## Implementation Considerations
 
 ### Generation Strategy
-- **On-demand**: Generate when requested (with caching)
-- **Event-driven**: Regenerate when any component changes
+- **Event-driven**: Regenerate when any 
 - **Scheduled**: Periodic batch generation
 - **Hybrid**: Combination based on node importance/access patterns
 
@@ -156,6 +154,9 @@ This proposal raises questions about what data node IRIs actually refer to:
 
 ### Why Not Unified by Default?
 
+- by keeping versioning out of a unified dataset, you can track evolution more granularly
+- perhaps a single unified version would trigger an endless cascade as a metadata update (calculated after everything else is bumped) would cause a new unified version, which would trigger another metadata update, which would trigger another unified version
+
 **Current separation benefits**:
 - **Node type detection**: Folder existence (`_ref/` vs `_data/`) indicates node type without parsing
 - **Granular access**: Clients can request specific components (meta-only, data-only)
@@ -164,7 +165,6 @@ This proposal raises questions about what data node IRIs actually refer to:
 
 **Unified approach benefits**:
 - **Simplicity**: Single dataset per node reduces complexity
-- **Convenience**: Complete node state in one place
 - **Atomic consistency**: All components always synchronized
 
 ## Related Concepts

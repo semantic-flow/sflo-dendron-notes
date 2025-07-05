@@ -16,7 +16,7 @@ To avoid infinite loops with versioned datasets of versioned dataset, only
 
 As always with datasets, metadata dataset versioning is configurable. By default, it should be off.
 
-**Dataset versions** are created "upon [[sflo.concept.weave]]" and correspond to a [[sflo.concept.mesh.resource.element.version-dataset]]. Versioning is sequential, (i.e., no major.minor.patch) and correspond to "_vN" [[sflo.concept.mesh.resource.folder._vN]]
+**Dataset versions** are created "upon [[sflo.concept.weave-process]]" and correspond to a [[sflo.concept.mesh.resource.element.version-dataset]]. Versioning is sequential, (i.e., no major.minor.patch) and correspond to "_vN" [[sflo.concept.mesh.resource.folder._vN]]
 
 
 ## issues

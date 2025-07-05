@@ -2,7 +2,7 @@
 id: xmdevh3s6gvp93m3nyc6683
 title: mesh resource
 desc: ''
-updated: 1751565743160
+updated: 1751651043555
 created: 1750709094321
 ---
 
@@ -41,7 +41,6 @@ The structure of a semantic mesh is built on a fundamental distinction between *
 
 **File-based elements:**
 - **[[Resource pages|sflo.concept.mesh.resource.element.resource-page]]**: Generated index.html files
-- **[[__unversion files|sflo.concept.mesh.resource.element.__unversion]]**: Version control sentinels
 - **README.md and CHANGELOG.md**: Documentation files
 - **[[Distribution files|sflo.concept.mesh.resource-facet.distribution]]**: Data files in RDF formats
 

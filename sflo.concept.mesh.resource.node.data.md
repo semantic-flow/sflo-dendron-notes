@@ -2,33 +2,35 @@
 id: 8hmkiyjtsey7z8y5oi5xdxx
 title: data node
 desc: ''
-updated: 1751565743164
+updated: 1751670727720
 created: 1750999795528
 ---
 
 ## Overview
 
-**Data nodes** are [[mesh nodes|sflo.concept.mesh.resource.node]] that represent abstract data concepts. Unlike [[dataset elements|sflo.concept.mesh.resource.element]] which contain concrete data distributions, data nodes serve as conceptual containers that organize and provide identity for data without containing the data directly.
+**Data nodes** are [[mesh nodes|sflo.concept.mesh.resource.node]] that represent abstract data concepts. Unlike [[dataset elements|sflo.concept.mesh.resource.element]] which contain concrete data distributions, data nodes serve as conceptual containers that organize and provide identity for data without containing the data directly. I.e., they have a [[sflo.concept.mesh.resource.element.data-dataset]]
 
 Data nodes are physically represented as [[mesh folders|sflo.concept.mesh.resource.folder]] and correspond to [[namespace segments|sflo.concept.namespace.segment]].
 
 ## Abstract vs Concrete Data
 
 ### Abstract Data Concept (Data Node)
-A data node represents the **idea** or **concept** of a dataset:
-- `/ns/monsters/` = "the concept of monster data"
-- `/ns/census/` = "the concept of census data"
+A data node represents the **idea** or **concept** represented by a dataset:
+- `/ns/djradon-bio/` = biographical information about the person djradon
+- `/ns/census/` =  the results of a census
 - `/ns/weather-stations/` = "the concept of weather station data"
+This idea or concept is the referent of the data node's URL. 
 
 The data node provides:
 - **Stable identity**: The concept persists even as concrete data changes
-- **Metadata container**: Information about the data concept itself
+- **[[sflo.concept.mesh.resource-facet.reference]]
+- **Metadata container**: 
 - **Organizational structure**: A place to organize temporal dataset elements
 
 ### Concrete Data Instance (Dataset Elements)
 [[Temporal dataset elements|sflo.concept.mesh.resource.element.temporal-dataset]] contain the actual data:
-- `/ns/monsters/_current/` = "the current monster data files"
-- `/ns/census/_current/` = "the current census data files"  
+- `/ns/monsters/_data/_v4/` = "the current monster data dataset"
+- `/ns/census/_ref/_current` = "the current reference dataset which describes the referent", i.e., the particular census  
 - `/ns/weather-stations/_v3/` = "version 3 of weather station data"
 
 These elements contain:
@@ -46,7 +48,7 @@ Every data node must contain:
 
 ### Optional Elements
 - **[[Next dataset|sflo.concept.mesh.resource.element.next-dataset]]** (`_next/`): Draft workspace for changes
-- **[[V-series dataset series|sflo.concept.mesh.resource.element.v-series-dataset-series]]** (`_v-series/`): Version history management
+- **[[V-series dataset series|sflo.concept.mesh.resource-facet.dataset.v-series]]** (`_v-series/`): Version history management
 - **[[Version datasets|sflo.concept.mesh.resource.element.version-dataset]]** (`_v1/`, `_v2/`, etc.): Historical data instances
 - **[[Asset trees|sflo.concept.mesh.resource.element.asset-tree]]** (`_assets/`): Attached file collections
 

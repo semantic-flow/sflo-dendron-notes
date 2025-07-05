@@ -18,7 +18,7 @@ Some [[sflo.concept.mesh.resource.element]] are also mesh datasets:
 - [[sflo.concept.mesh.resource.element.meta-dataset]]
 - [[sflo.concept.mesh.resource.element.reference-dataset]]
 - [[sflo.concept.mesh.dataset.versioned]]
-- [[sflo.concept.mesh.resource.element.v-series-dataset-series]]
+- [[sflo.concept.mesh.resource-facet.dataset.v-series]]
 
 ## Kinds of Mesh Datasets
 

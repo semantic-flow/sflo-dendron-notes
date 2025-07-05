@@ -1,8 +1,8 @@
 ---
 id: k20qg2pdevcde1te7i3y2al
-title: Log
+title: sflo-cli log
 desc: ''
-updated: 1731507971415
+updated: 1751670892105
 created: 1730847056679
 ---
 
