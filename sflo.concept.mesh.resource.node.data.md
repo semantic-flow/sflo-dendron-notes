@@ -2,7 +2,7 @@
 id: 8hmkiyjtsey7z8y5oi5xdxx
 title: data node
 desc: ''
-updated: 1751699488771
+updated: 1751733605047
 created: 1750999795528
 ---
 
@@ -82,9 +82,8 @@ Like all mesh nodes, data nodes can contain other mesh nodes and elements, makin
 ns/monsters/
 ├── _meta/           # metadata about "monsters as a data concept"
 ├── _handle/           # handle for the data node
-├── _current/          # current monster data
-│   ├── monsters.jsonld
-│   └── monsters.ttl
-└── __unversion        # prevent versioning
+└── _current/          # current monster data
+    ├── monsters.jsonld
+    └── monsters.ttl
 ```
 
