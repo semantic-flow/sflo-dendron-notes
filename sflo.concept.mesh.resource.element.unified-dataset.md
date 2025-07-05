@@ -2,13 +2,13 @@
 id: sif626tmt3mw3nir5gv1s1a
 title: unified dataset
 desc: ''
-updated: 1751747148813
+updated: 1751756078034
 created: 1751599398246
 ---
 
 ## Overview
 
-A **unified dataset** provides convenient aggregated access to a mesh node's current state by combining data from its component datasets (name; meta; and possibly ref, or ref and data) into a single "current" dataset with corresponding distribution files.
+A **unified dataset** provides convenient aggregated access to a mesh node's current state by combining data from its [[sflo.concept.mesh.resource.element.abstract-dataset]] (meta; possibly ref, or ref and data) as named graphs into a single "current" [[sflo.concept.mesh.resource.element.concrete-dataset]] with corresponding distribution files.
 
 ## Concept
 
@@ -22,14 +22,14 @@ For each mesh node (e.g., `ns/djradon/bio-dataset/`), generate combined distribu
 
 ### IRI Structure & Single Referent Compliance
 - **Node IRI** (`ns/djradon/bio-dataset/`) refers to its semantic entity (abstract dataset or thing)
-- **Unified Dataset IRI** (`ns/djradon/bio-dataset/_unified/`) refers to the aggregated dataset
-- **Distribution files** are concrete serializations of the unified dataset
+- **Unified Dataset IRI** (`ns/djradon/bio-dataset/_unified/`) refers to the aggregated [[sflo.concept.mesh.resource.element.concrete-dataset]]
+- **Distribution files** are serializations of the unified dataset
 - **No violation** of [[single referent principle|sflo.principle.single-referent]]
 
 ### Content Composition
 ```turtle
 # Example unified dataset content
-@prefix sflo: <https://ns.sf.io/> .
+@prefix sflo: <https://semantic-flow.github.io/sflo-ontology/> .
 
 # Unified dataset describes its aggregation
 <ns/djradon/bio-dataset/_unified/> a dcat:Dataset ;

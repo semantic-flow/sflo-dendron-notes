@@ -2,7 +2,7 @@
 id: h6ssv16gdyf56gg235dxv85
 title: semantic mesh
 desc: ''
-updated: 1751747055615
+updated: 1751755414103
 created: 1750624002110
 ---
 
@@ -13,29 +13,29 @@ A **semantic mesh** is a dereferenceable, versioned collection of semantic data 
 Key characteristics:
 - **Addressable**: Every component has a unique URL-based identifier
 - **Dereferenceable**: All URLs return meaningful content when accessed
-- **Versioned**: Changes are tracked and managed through the [[Weave Process|sflo.concept.weave-process]] process
+- **Versioned**: Changes are managed through the [[Weave Process|sflo.concept.weave-process]] process, and [[sflo.concept.mesh.resource.element.abstract-dataset]] are versioned by default
 - **Publish-ready**: Can be served directly via GitHub Pages or similar static hosting; or via a local web server like live-server
 
 ## Core Components
 
 ### Mesh Resources
 
-Every component in a semantic mesh is an addressable [[mesh resource|sflo.concept.mesh.resource]]. There are three primary categories:
+Every component in a semantic mesh is an addressable [[mesh resource|sflo.concept.mesh.resource]]. There are two primary categories:
 
 #### Nodes
 [[Mesh nodes|sflo.concept.mesh.resource.node]] are the primary structural components, physically represented as [[mesh folders|sflo.concept.mesh.resource.folder]]. They extend namespaces and serve as containers:
 
 - **[[Namespace nodes|sflo.concept.mesh.resource.node.namespace]]**: Empty containers for organizing other mesh nodes
-- **[[Semantic nodes|sflo.concept.mesh.resource.node.reference]]**: Nodes that refer to external entities (people, concepts, relationships) and contain [[reference datasets|sflo.concept.mesh.resource.element.reference-dataset]]
-- **[[data nodes|sflo.concept.mesh.resource.node.data]]**: Nodes containing data distributions with optional versioning
-- **[[Dataset series nodes|sflo.concept.mesh.resource.node.data.series]]**: User-defined collections that organize related datasets as [[DCAT dataset series|related-topics.dcat.dataset-series]]
+- **[[Reference nodes|sflo.concept.mesh.resource.node.reference]]**: Nodes that refer to external entities (people, concepts, relationships) and contain [[reference datasets|sflo.concept.mesh.resource.element.reference-dataset]]
+- **[[Data nodes|sflo.concept.mesh.resource.node.data]]**: Nodes containing data distributions with optional versioning
+  - **[[Dataset series nodes|sflo.concept.mesh.resource.node.data.series]]**: User-defined collections that organize related datasets as [[DCAT dataset series|related-topics.dcat.dataset-series]]
 
 #### Elements
+
 [[Mesh elements|sflo.concept.mesh.resource.element]] are supporting components that define and systematize nodes:
 
-##### User Elements
-User elements are modifiable by users:
 - **[[Reference datasets|sflo.concept.mesh.resource.element.reference-dataset]]**: Data about a semantic node's referent
+- **[[sflo.concept.mesh.resource.element.data-dataset]]: consist of an [[sflo.concept.mesh.resource.element.abstract-dataset]] (which is really just a [[sflo.concept.mesh.resource-facet.dataset.v-series]]), and versioned [[sflo.concept.mesh.resource.element.concrete-dataset]]
 - **[[Asset trees|sflo.concept.mesh.resource.element.asset-tree]]**: Collections of arbitrary files and folders attached to the mesh
 
 ##### System Elements
