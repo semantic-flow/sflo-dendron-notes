@@ -2,13 +2,13 @@
 id: sif626tmt3mw3nir5gv1s1a
 title: unified dataset
 desc: ''
-updated: 1751632059455
+updated: 1751693285561
 created: 1751599398246
 ---
 
 ## Overview
 
-A **unified node dataset** provides convenient aggregated access to a mesh node's current state by combining data from its component datasets (name, meta, and either ref or data) into a single "current" dataset with corresponding distribution files.
+A **unified dataset** provides convenient aggregated access to a mesh node's current state by combining data from its component datasets (name; meta; and possibly ref, or ref and data) into a single "current" dataset with corresponding distribution files.
 
 ## Concept
 
@@ -16,6 +16,7 @@ For each mesh node (e.g., `ns/djradon/bio-dataset/`), generate combined distribu
 - `_unified/bio-dataset_unified.trig` - Combined dataset in TriG format
 - `_unified/bio-dataset_unified.jsonld` - Combined dataset in JSON-LD format
 - Additional formats as needed
+- unlike its sibling datasets, it is not a [[sflo.concept.mesh.resource-facet.dataset.v-series]] and is not considered [[sflo.concept.mesh.resource-facet.dataset.abstract]]
 
 ## Architecture
 

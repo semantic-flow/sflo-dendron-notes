@@ -2,7 +2,7 @@
 id: 8t3swuswoi81yuzo2bnecy9
 title: concrete dataset
 desc: ''
-updated: 1751689687965
+updated: 1751692277023
 created: 1751689346769
 ---
 
@@ -19,18 +19,18 @@ One abstract dataset may have multiple concrete datasets, e.g.:
 - Abstract dataset: "My ontology definitions" (`_data/`)
 - Concrete datasets: current working version (`_current/`), version 1.0 (`_v1/`), version 2.0 (`_v2/`)
 
-### Ontology Example
+### Ontology Data Node Example
 
 ```file
-/my-ontology/
-├── _ref/                    ← Abstract dataset (reference data about ontology)
+/my-ontology/               ← Abstract, data-oriented "thing"
+├── _ref/                   ← Abstract dataset (reference data about ontology)
 │   ├── _current/           ← Concrete dataset (current reference data)
 │   ├── _v1/                ← Concrete dataset (version 1 reference data)
 │   └── _v2/                ← Concrete dataset (version 2 reference data)
-└── _data/                  ← Abstract dataset (ontology definitions)
-    ├── _current/           ← Concrete dataset (current definitions)
+└── _data/                  ← Abstract dataset (ontology definition--by-dataset)
+    ├── _current/           ← Concrete dataset (current definition)
     ├── _next/              ← Concrete dataset (working draft)
-    └── _v1/                ← Concrete dataset (version 1 definitions)
+    └── _v1/                ← Concrete dataset (version 1 definition)
 ```
 
 In this example:
@@ -63,23 +63,13 @@ _current/
 
 ## Immutability
 
-**Historical concrete datasets** (versioned folders like `_v1/`, `_v2/`) are immutable once created:
-- Content cannot be modified after versioning
-- Provides reliable references for external systems
-- Maintains dataset provenance and history
+**[[sflo.concept.mesh.resource.element.version-dataset]]** (historical concrete datasets, i.e., versioned folders like `_v1/`, `_v2/`) should be treated as immutable once created. This provides reliable references for external systems and ensures accurate provenance and history.
 
-**Working concrete datasets** (`_current/`, `_next/`) are mutable:
+**[[sflo.concept.mesh.resource.element.current-dataset]]** (the latest "woven" concrete datasets, `_current`) should not be modified directly by users, but will be updated "on weave" if the [[sflo.concept.mesh.resource.element.next-dataset]] has evolved. 
+
+**[[sflo.concept.mesh.resource.element.next-dataset]]** (working concrete datasets, `_next/`) are mutable:
 - Can be edited and updated during development
 - Represent evolving state of the abstract dataset
-
-## WEMI Alignment
-
-In the Work/Expression/Manifestation/Item hierarchy:
-- **Expression** → Concrete dataset (`_current/`, `_v1/`)
-- **Manifestation** → Distribution files (`.ttl`, `.rdf`)
-- **Item** → Actual files on storage medium
-
-Concrete datasets represent specific expressions of the abstract work, realized through various manifestations (file formats).
 
 ## Creation and Lifecycle
 

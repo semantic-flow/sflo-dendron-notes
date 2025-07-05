@@ -2,19 +2,11 @@
 id: e6enrj5ztz3hz84ojujef0k
 title: Convenience Distribution
 desc: ''
-updated: 1751632665736
+updated: 1751699684042
 created: 1751631229565
 ---
 
----
-id: [generated-id]
-title: Convenience Distribution
-desc: 'Node-level convenience datasets for clean external URLs'
-updated: [timestamp]
-created: [timestamp]
----
-
-A **convenience distribution**, for [[sflo.concept.mesh.resource.node.data]] and [[sflo.concept.mesh.resource.node.reference]] only, is a hard copy of the relevant dataset's ([[sflo.concept.mesh.resource.element.data-dataset]] and [[sflo.concept.mesh.resource.element.reference-dataset]]) respective current distributions, placed directly at the node level to provide clean, standard URLs that external tools and users expect, without exposing mesh-specific structure.
+A **convenience distribution**, for [[sflo.concept.mesh.resource.node.data]] and [[sflo.concept.mesh.resource.node.reference]] only, is a hard copy of the relevant datasets' ([[sflo.concept.mesh.resource.element.reference-dataset]] and, if present, [[sflo.concept.mesh.resource.element.data-dataset]] )  current distributions, placed directly at the node level to provide clean, standard URLs that external tools and users expect, without exposing mesh-specific structure.
 
 ## Purpose
 

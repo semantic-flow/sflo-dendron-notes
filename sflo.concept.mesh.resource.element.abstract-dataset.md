@@ -2,15 +2,11 @@
 id: rregmt56znauz71qgypet6a
 title: abstract dataset
 desc: ''
-updated: 1751690361352
+updated: 1751697433703
 created: 1751688486456
 ---
 
-Abstract datasets represents the "dataset as concept", and exist through time, independent of any specific version, snapshot, or temporal realization.
-
-They are 
-
-## Relationship to Dataset Series
+Abstract datasets represents the "dataset as concepts", and exist through time, independent of any specific version, snapshot, or temporal realization.
 
 ## Relationship to Concrete Datasets
 
@@ -18,7 +14,9 @@ Abstract datasets are realized through [[concrete datasets|sflo.concept.mesh.res
 
 ### Relationship pattern:
 
-One abstract dataset may have multiple concrete datasets, e.g.:
+Every abstract dataset has at least two concrete datasets: [[sflo.concept.mesh.resource.element.current-dataset]] and [[sflo.concept.mesh.resource.element.next-dataset]].
+
+An abstract dataset, if versioned, is a [[related-topics.dcat.dataset-series]] and may have multiple concrete datasets, i.e., [[sflo.concept.mesh.resource.element.version-dataset]]s.
 
 - Abstract dataset: "My ontology definitions" (persistent concept)
 - Concrete datasets: v1.0, v1.1, current version, working draft of next version (specific realizations)
@@ -50,7 +48,3 @@ Abstract datasets provide conceptual continuity by:
 - Preserving references from external sources
 - Enabling evolution while keeping identity stable
 - Supporting versioning without losing conceptual coherence
-
-## WEMI Alignment
-
-Abstract datasets represent the intellectual or conceptual "work" that can be expressed in multiple concrete forms over time. Distributions of a concrete dataset correspond to manifestations, and the actual files on a particular storage medium would correspond to item.

@@ -2,7 +2,7 @@
 id: p3mbdrze0qe8uvko4i16t1s
 title: mesh folder
 desc: ''
-updated: 1751438050757
+updated: 1751698512561
 created: 1750659145476
 ---
 
@@ -14,52 +14,33 @@ created: 1750659145476
 
 ### User Mesh Folders
 
+- **`_current`** 
+
 ### System Mesh Folders
 
 - **`_meta/`**
+  - present in mesh nodes and [[sflo.concept.mesh.resource.element.asset-tree]]
 
-  - Marks its parent folder as a **branch** mesh-node (namespace,
-    reference-node, or SF-dataset).
-  - **Branch-only**—only folders with `_meta/` get recursed into when
-    discovering nested user-nodes.
-  - **Mutually exclusive** with all other system folders in the same directory.
+- **`_name/`**
+  - marks its parent folder as a mesh-node (i.e., all and only namespace, reference, and data nodes have _name folders).
+
+- **`_ref/`**
+
+  - Contains the **referent data** for [[reference-node|sflo.concept.mesh.resource.node.reference]] and [[sflo.concept.mesh.resource.node.data]] (i.e., triples that say things about the thing the node represents).
+
+- **`v1/`, `v2/`, …**
+
+  - Version snapshot folders that represent [[sflo.concept.mesh.resource.element.concrete-dataset]]
+  - each holds one or more distribution file (named `<node_ref_vN.ext`).
+  - **Fully terminal**—neither user-nodes nor system-folders may live inside.
+
+### User Mesh Folders
 
 - **`_assets/`**
 
   - Holds static user assets (images, CSS, binaries).
-  - **Always terminal**—never recursed into by either the user-node or dataset
-    walks.
-  - Fully ignored by the mesh scanner.
-
-- **`_ref/`**
-
-  - Contains the **referent-metadata** SF-dataset for a reference-node (e.g.
-    triples that say “this node proxies X”).
-  - **User-terminal**—no child user-nodes beneath it.
-  - **Recursed into** during the _dataset_ walk to pick up its distributions and
-    any `_v-series/`.
-
-- **`_v-series/`**
-
-  - The “history closet” for a versioned SF-dataset (or `_ref/` dataset), hiding
-    all `v1/`, `v2/`, … folders.
-  - **User-terminal**—you list its version folders but do **not** recurse
-    further.
-  - Ensures the parent folder stays uncluttered even with lots of versions.
-
-- **`v1/`, `v2/`, …**
-
-  - Version snapshot folders inside `_v-series/`, each holding exactly one
-    frozen distribution file (named `<BranchName>_vN.ext`).
-  - **Fully terminal**—neither user-nodes nor system-folders may live inside.
-
-### 
-
-- **`_assets/`** Arbitrary sub-folders and files, to be included verbatim when
-  publishing to a [[sflo.concept.semantic-site]].
-  - Typically, they will supplement or complement the semantic content in the
-    mesh.
-  - **terminal**: i.e., they can't contain other mesh folders
+  - **Always terminal** - never contains nodes
+  - Except for its `_meta` folder, is ignored by the mesh scanner.
 
 ## Rejected options
 
