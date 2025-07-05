@@ -2,7 +2,7 @@
 id: eo43ueh0viren1xkjcjregc
 title: Semantic Flow URLs
 desc: ''
-updated: 1751733532861
+updated: 1751747106164
 created: 1750368774797
 ---
 
@@ -11,8 +11,6 @@ created: 1750368774797
 | sflow URL type             | referent                               | example                                           | versionable |
 | -------------------------- | -------------------------------------- | ------------------------------------------------- | ----------- |
 | namespace node             | -none-                                 | `https://ex.org/ns/`                              | ❌           |
-| abstract name dataset      | name dataset (series)                  | `https://ex.org/ns/_name`                         | ✅           |
-| concrete name dataset      | name dataset                           | `https://ex.org/ns/_name`                         | ❌           |
 | reference node             | concept                                | `https://ex.org/ns/dave/`                         | ❌           |
 | abstract reference dataset | reference dataset                      | `https://ex.org/ns/dave/_ref/`                    | ✅           |
 | concrete reference dataset | reference dataset                      | `https://ex.org/ns/dave/_ref/_current`            | ❌           |

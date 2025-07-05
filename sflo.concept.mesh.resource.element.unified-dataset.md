@@ -2,7 +2,7 @@
 id: sif626tmt3mw3nir5gv1s1a
 title: unified dataset
 desc: ''
-updated: 1751693285561
+updated: 1751747148813
 created: 1751599398246
 ---
 
@@ -35,16 +35,10 @@ For each mesh node (e.g., `ns/djradon/bio-dataset/`), generate combined distribu
 <ns/djradon/bio-dataset/_unified/> a dcat:Dataset ;
   dct:title "Unified view of bio-dataset node" ;
   sflo:aggregatedFrom [
-    sflo:nameDataset <ns/djradon/bio-dataset/_name/_current/> ;
     sflo:metaDataset <ns/djradon/bio-dataset/_meta/_current/> ;
     sflo:dataDataset <ns/djradon/bio-dataset/_data/_current/> ;
     sflo:aggregatedAt "2025-01-03T19:06:34Z"^^xsd:dateTime
   ] .
-
-# Named graphs from component datasets
-<ns/djradon/bio-dataset/_name/_current/> {
-  # Current name dataset content
-}
 
 <ns/djradon/bio-dataset/_meta/_current/> {
   # Current meta dataset content

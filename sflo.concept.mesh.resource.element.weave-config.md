@@ -2,11 +2,11 @@
 id: 9el7ivz22xvt8exiz7tj23f
 title: Weave Config
 desc: ''
-updated: 1751652461046
+updated: 1751748254256
 created: 1751646537672
 ---
 
-Every [[sflo.concept.identifier.node]] can have a weave-config.jsonld file. 
+Every [[sflo.concept.mesh.resource.node]] can have a weave-config.jsonld file including the [[root node|sflo.concept.mesh.node-facet.root]]
 
 All configuration is optional. If part of the config data is not present, the [[sflo.concept.weave-process]] recurses up the tree until it has checked for inheritable config and composed it.
 

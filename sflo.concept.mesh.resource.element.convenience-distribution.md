@@ -2,22 +2,29 @@
 id: e6enrj5ztz3hz84ojujef0k
 title: Convenience Distribution
 desc: ''
-updated: 1751699684042
+updated: 1751750520692
 created: 1751631229565
 ---
 
-A **convenience distribution**, for [[sflo.concept.mesh.resource.node.data]] and [[sflo.concept.mesh.resource.node.reference]] only, is a hard copy of the relevant datasets' ([[sflo.concept.mesh.resource.element.reference-dataset]] and, if present, [[sflo.concept.mesh.resource.element.data-dataset]] )  current distributions, placed directly at the node level to provide clean, standard URLs that external tools and users expect, without exposing mesh-specific structure.
+A **convenience distribution** is a copy of the most germane dataset, situated directly under the node for easy access with an intuitive filename of "nodename.ext".
+
+[[sflo.concept.mesh.resource.node.reference]] serve the current [["_ref" dataset|sflo.concept.mesh.resource.element.reference-dataset]] distribution.
+
+[[sflo.concept.mesh.resource.node.data]] serve the current [[sflo.concept.mesh.resource.element.data-dataset]] distribution
+
+
+for [[sflo.concept.mesh.resource.node]] only, is a compilation of the relevant [[sflo.concept.mesh.resource.element.reference-dataset]] and, if present, [[sflo.concept.mesh.resource.element.data-dataset]] )  current distributions, placed directly at the node level to provide clean, standard URLs that external tools and users expect, without exposing mesh-specific structure.
 
 ## Purpose
 
 Convenience distributions solve the tension between:
-- **Mesh design requirements** - Structured folders like `_data/_current/` for internal consistency
+- **Mesh design requirements** - Structured folders like `_data/_current/` for internal consistency and versioning
 - **External expectations** - Clean URLs like `ontology.ttl` that follow semantic web conventions
 - **Static hosting constraints** - No server-side redirects or content negotiation
 
 ## Implementation
 
-Convenience distributions are **hard copies** created during [[sflo.concept.weave-process]] by copying content from canonical locations to node-level paths.
+Convenience distributions are **hard copies** created during [[sflo.concept.weave-process]] by copying (and renaming) distribution files from canonical locations to node-level paths.
 
 ### For Data Nodes
 ```

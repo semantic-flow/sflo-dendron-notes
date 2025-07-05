@@ -2,31 +2,20 @@
 id: faq001
 title: Why don't namespace nodes and data nodes have reference datasets?
 desc: ''
-updated: 1751385453122
+updated: 1751748113453
 created: 1751351297000
 ---
 
 ## Question
 
-Why don't [[namespace nodes|sflo.concept.mesh.resource.node.namespace]] and [[data nodes|sflo.concept.mesh.resource.node.data]] have [[reference datasets|sflo.concept.mesh.resource.element.reference-dataset]] like [[reference nodes|sflo.concept.mesh.resource.node.reference]] do?
+Why don't [[namespace nodes|sflo.concept.mesh.resource.node.namespace]]  have [[reference datasets|sflo.concept.mesh.resource.element.reference-dataset]] like [[reference nodes|sflo.concept.mesh.resource.node.reference]] and [[sflo.concept.mesh.resource.node.data]]do?
 
 ## Answer
 
-Only [[reference nodes|sflo.concept.mesh.resource.node.reference]] have reference datasets because they serve fundamentally different purposes:
+URLs that correspond to namespace nodes don't necessarily have a referent. If they do, give them a [[sflo.concept.mesh.resource.element.reference-dataset]] and make them reference nodes!
 
-### Reference Nodes
-Reference nodes exist specifically to refer to external entities - people, concepts, relationships, or things that exist outside the mesh. Their [[reference datasets|sflo.concept.mesh.resource.element.reference-dataset]] contain data **about their referent** - the external thing they point to.
+e.g.:
+- `ns/` : doesn't refer to anything
+- `ns/people` : refers to people, should probably be a reference node
 
-### data nodes  
-data nodes represent **the dataset itself**. The dataset identifier should refer directly to "this dataset" as a concrete data resource, not to some external abstract concept. If you need to reference an external dataset that this one is related to, the proper approach is to:
-
-1. Create a separate [[reference node|sflo.concept.mesh.resource.node.reference]] for that external dataset
-2. Use the reference node's [[reference dataset|sflo.concept.mesh.resource.element.reference-dataset]] to describe the external dataset
-3. Link the two datasets through appropriate RDF properties in either dataset
-
-### Namespace Nodes
-Namespace nodes are organizational containers that extend the URL namespace. They don't refer to external entities - they **are** the namespace segment. Adding reference datasets would create confusion about whether the namespace refers to itself or to some external concept.
-
-## Design Principle
-
-This maintains the [[single referent principle|sflo.principle.single-referent]]: each mesh resource has a clear, unambiguous referent. Reference nodes refer to external things, while dataset and namespace nodes refer to themselves as mesh resources.
+Since reference nodes can do everything namespace nodes can do (i.e., contain other nodes), there's no drawback to making namespace nodes into reference nodes.

@@ -2,7 +2,7 @@
 id: 8hmkiyjtsey7z8y5oi5xdxx
 title: data node
 desc: ''
-updated: 1751733605047
+updated: 1751747021629
 created: 1750999795528
 ---
 
@@ -25,7 +25,7 @@ This idea or concept is the referent of the data node's URL.
 
 The data node provides:
 - **Stable identity**: The concept persists even as concrete data changes
-- **[[sflo.concept.mesh.resource-facet.reference]]
+- **[[sflo.concept.mesh.node-facet.reference]]
 - **Metadata container**: 
 - **Organizational structure**: A place to organize temporal dataset elements
 
@@ -44,7 +44,6 @@ These elements contain:
 Every data node must contain:
 
 - **[[sflo.concept.mesh.resource.element.meta-dataset]]** (`_meta/`): Administrative metadata about the data concept
-- **[[sflo.concept.mesh.resource.element.name-dataset]]** (`_name/`): naming data
 - **[[sflo.concept.mesh.resource.element.reference-dataset]]** (`_ref/`): reference data
 - **[[sflo.concept.mesh.resource.element.data-dataset]]** (`_data/`): dataset data
 - **[[Node handle|sflo.concept.mesh.resource.element.node-handle]]** (`_handle/`): Referential indirection for the node
@@ -67,10 +66,10 @@ Every data node must contain:
 
 
 
-### Parallel to Reference Nodes
-Data nodes follow the same pattern as [[reference nodes|sflo.concept.mesh.resource.node.reference]]:
+### Overlap with Reference Nodes
+
+Data nodes function like [[reference nodes|sflo.concept.mesh.resource.node.reference]], just with assoicated data
 - **Reference nodes**: Contain required `_ref/` element for external entity data
-- **Data nodes**: Contain required `_current/` element for current data instance
 
 ### Extensible Container
 Like all mesh nodes, data nodes can contain other mesh nodes and elements, making them extensible namespace containers.

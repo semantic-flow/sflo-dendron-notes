@@ -2,7 +2,7 @@
 id: p3mbdrze0qe8uvko4i16t1s
 title: mesh folder
 desc: ''
-updated: 1751698512561
+updated: 1751747159603
 created: 1750659145476
 ---
 
@@ -20,9 +20,6 @@ created: 1750659145476
 
 - **`_meta/`**
   - present in mesh nodes and [[sflo.concept.mesh.resource.element.asset-tree]]
-
-- **`_name/`**
-  - marks its parent folder as a mesh-node (i.e., all and only namespace, reference, and data nodes have _name folders).
 
 - **`_ref/`**
 

@@ -2,7 +2,7 @@
 id: h6ssv16gdyf56gg235dxv85
 title: semantic mesh
 desc: ''
-updated: 1751696645011
+updated: 1751747055615
 created: 1750624002110
 ---
 
@@ -93,7 +93,6 @@ Terminal [[mesh resources|sflo.concept.mesh.resource]] that cannot contain other
 - The weave process maintains system elements and generates missing required components
 
 ### Versioning Requirements
-- Mesh nodes must have [[sflo.concept.mesh.resource.element.name-dataset]]
 - Dataset versioning is managed through the [[dataset versioning|sflo.concept.dataset-versioning]] system
 - Version history is stored in [[sflo.concept.mesh.resource.element.version-dataset]] with numbered version snapshots
 

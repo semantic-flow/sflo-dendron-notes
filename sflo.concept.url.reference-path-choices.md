@@ -2,7 +2,7 @@
 id: s1yduc399adt3ihvnwievrd
 title: Reference Path Choices
 desc: ''
-updated: 1751240618620
+updated: 1751750033096
 created: 1751240276585
 ---
 
@@ -16,7 +16,7 @@ RDF supports different approaches for resource referencing, each with tradeoffs:
 # In ns/djradon/_ref/djradon_ref.trig
 <> a foaf:Person ;                    # The document itself
    foaf:knows <../alice/> ;           # Another node in the mesh
-   rdfs:seeAlso <../bio/bio.html> .   # A resource page
+   rdfs:seeAlso <bio/bio.html> .   # A resource page
 ```
 
 ## Absolute paths

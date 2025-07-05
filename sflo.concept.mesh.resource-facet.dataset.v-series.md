@@ -2,7 +2,7 @@
 id: j15tveot7ja8tmxy7vvmpjz
 title: v-series dataset facet
 desc: ''
-updated: 1751690844510
+updated: 1751747499554
 created: 1730660597230
 ---
 
@@ -17,15 +17,11 @@ In addition to its role in [[sflo.concepts.mesh.node.dataset.versioned]] version
 ## Containment Rules
 
 - can-be-contained-in: 
-  - [[sflo.concept.mesh.resource.node.data]]
-  - [[sflo.concept.mesh.resource.element.meta-dataset]]
-  - [[sflo.concept.mesh.resource.element.reference-dataset]]
+  - [[sflo.concept.mesh.resource.element.abstract-dataset]], i.e.:
+    - [[sflo.concept.mesh.resource.element.reference-dataset]]
+    - [[sflo.concept.mesh.resource.element.data-dataset]]
+    - [[sflo.concept.mesh.resource.element.meta-dataset]]
 
-- cannot-be-contained-in:
-  - [[sflo.concept.mesh.resource.element.node-handle]] (too small and static to justify versioning)
-  - [[sflo.concept.mesh.resource.element.asset-tree]] (no dataset to version)
-  - [[sflo.concept.mesh.resource.node.namespace]] : (no dataset to version)
-  - [[sflo.concept.mesh.resource.node.reference]] : (no direct dataset to version, but can be contained in a reference node's  [[sflo.concept.mesh.resource.element.reference-dataset]])
-  - other [[sflo.concept.mesh.resource.element.version-dataset]] (preventing infinite recursion)
+- cannot-be-contained-in: everything else
 
 ^ezb4mmwk9rvl
