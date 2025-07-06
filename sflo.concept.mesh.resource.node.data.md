@@ -2,7 +2,7 @@
 id: 8hmkiyjtsey7z8y5oi5xdxx
 title: data node
 desc: ''
-updated: 1751747021629
+updated: 1751775986587
 created: 1750999795528
 ---
 
@@ -44,13 +44,13 @@ These elements contain:
 Every data node must contain:
 
 - **[[sflo.concept.mesh.resource.element.meta-dataset]]** (`_meta/`): Administrative metadata about the data concept
-- **[[sflo.concept.mesh.resource.element.reference-dataset]]** (`_ref/`): reference data
 - **[[sflo.concept.mesh.resource.element.data-dataset]]** (`_data/`): dataset data
 - **[[Node handle|sflo.concept.mesh.resource.element.node-handle]]** (`_handle/`): Referential indirection for the node
 
 
 ## Optional Structure
 
+- **[[sflo.concept.mesh.resource.element.reference-dataset]]** (`_ref/`): reference data
 - **[[Asset trees|sflo.concept.mesh.resource.element.asset-tree]]** (`_assets/`): Attached file collections
 - [[sflo.concept.mesh.resource.element.changelog]] and [[sflo.concept.mesh.resource.element.readme]]
 - [[sflo.concept.mesh.resource.element.weave-config]]

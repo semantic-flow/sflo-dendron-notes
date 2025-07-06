@@ -2,7 +2,7 @@
 id: e6enrj5ztz3hz84ojujef0k
 title: Aggregated Distribution
 desc: ''
-updated: 1751757583603
+updated: 1751769861493
 created: 1751631229565
 ---
 
@@ -18,7 +18,7 @@ Aggregated distributions enable **composable semantic data** by:
 
 ## Generation Process
 
-During [[sflo.concept.weave]], aggregated distributions are created by:
+During [[sflo.concept.weave-process]], aggregated distributions are created by:
 1. **Scanning contained data nodes** recursively within the mesh structure
 2. **Collecting `_data/_current/` distributions** from each component
 3. **Merging content** with proper URI resolution and prefix handling
@@ -57,7 +57,7 @@ During [[sflo.concept.weave]], aggregated distributions are created by:
 **Merging logic handles:**
 - **Relative path resolution** - Converting component-relative URIs to absolute
 - **Prefix consolidation** - Deduplicating namespace declarations
-- **Graph merging** - Combining RDF graphs from multiple sources
+- **Graph merging** - Combining RDF graphs from multiple sources; de-dupingz
 - **Base URI handling** - Ensuring consistent URI resolution
 
 ## Use Cases

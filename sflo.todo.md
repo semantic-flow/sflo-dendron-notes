@@ -2,7 +2,7 @@
 id: l59hvxem2488war5j981yca
 title: SF Todo
 desc: ''
-updated: 1751755010427
+updated: 1751762948318
 created: 1731041743071
 ---
 
@@ -13,6 +13,8 @@ created: 1731041743071
 ## Eventually
 
 - late answer on https://stackoverflow.com/questions/46705136/how-to-make-an-ontology-public-accessible
+
+
 Task: Develop the Semantic Flow Ontology (sflo-ontology) as a Self-Hosting Mesh Repository
 
 Context:
@@ -32,9 +34,7 @@ Starting Points:
 Review the @/.ai-guidance.md and its two linked docs
 Review [[sflo.concept.mesh-repo]] to understand the self-hosting approach
 Consider how the ontology's own structure demonstrates mesh principles
-Figure out how the ontology IRI (https://semantic-flow.github.io/sflo-ontology ) 
-
-Define core classes for Node, Element, Dataset, and their relationships
+Define core classes for MeshNode, Element, Dataset, and their relationships
 Establish properties for versioning, handles, and metadata relationships
 Create examples showing how real mesh instances would use the ontology
 Success Criteria:

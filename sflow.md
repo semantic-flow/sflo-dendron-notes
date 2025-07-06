@@ -2,7 +2,7 @@
 id: ggw3ek46ptgebsgxgihr1dh
 title: Semantic Flow
 desc: 'ontology, tooling, and workflow for publishing semantic data'
-updated: 1751565743169
+updated: 1751776150650
 created: 1716959415785
 ---
 
@@ -106,7 +106,7 @@ Everything else gets index.html for GitHub Pages compatibility.
   by putting an index.html in a resource folder
 - **RDF formats**: Multiple distributions per version (`.trig`, `.jsonld`, etc.)
 - **Assets**: relative paths (`./_assets/images/...`) for portability
-- **Machine discovery**: Catalog datasets specify available formats and series
+- **Machine discovery**: [[sflo.concept.mesh.resource.element.meta-dataset]] specify available formats and series
   info
 - **Things vs Data**: Clear separation - things are presentation, DSSs are data
 
@@ -119,16 +119,12 @@ Everything else gets index.html for GitHub Pages compatibility.
 - **Permanence checking**: Validates no historical IRIs lost, no immutable data
   changed
 
-### Catalog Content & Purpose
+### Meta Dataset Content & Purpose
 
-- **Namespace catalogs**: Directory of contained things and datasets within the
-  namespace
-- **Thing catalogs**: Discovery metadata - what dataset series reference this
+- **cataloging**: Directory of contained nodes and elements, including distributions, based on DCAT
+- **discovery**: Discovery metadata - what dataset series reference this
   thing, basic identification
-- **Dataset catalogs**: Unified metadata covering both dataset content AND
-  v-series versioning information
-- **Individual distributions**: Metadata lives within the dataset version
-  itself, not in separate catalogs
+- **provenance**: based on PROV
 
 ## Import & External Data
 
@@ -199,18 +195,6 @@ Everything else gets index.html for GitHub Pages compatibility.
 - **Next steps**: SSG tooling implementation, template system, import tools
 - **Integration**: LLM-assisted import for ambiguous dataset situating
 
-## Terminology
-
-- **V-series**: Versioning system for a dataset (references dataset versions,
-  1:1 relationship)
-- **Thing**: General term for entities/concepts (mini-sites, not datasets)
-- **Distribution**: Individual RDF files within a dataset version
-- **Catalog**: DCAT-compatible discovery metadata, unified for datasets and
-  their v-series
-- **Assets**: Shared immutable resources (images, CSS, JS) in `assets/`
-  namespace
-- **Import**: Process of bringing external data into namespace-aware source
-  structure
 
 ---
 

@@ -2,7 +2,7 @@
 id: faq002
 title: Why are there elements at the top of a repo?
 desc: ''
-updated: 1751565743168
+updated: 1751775462085
 created: 1751351383000
 ---
 
@@ -22,14 +22,12 @@ Every semantic mesh has a root node, and in a repository-based mesh, the reposit
 - **data node**: If the repo represents a single dataset  
 - **Reference node**: If the repo represents an external entity
 
-### Elements Belong to Nodes
+Since the repository root is a mesh node, it follows the same rules as any other node and must contain:
 
-Since the repository root is a mesh node, it follows the same rules as any other node:
+- **`_meta/`**: corresponds to the [[sflo.concept.mesh.resource.element.meta-dataset]] with administrative metadata for the root node
+- **`_handle/`**: corresponds to [[node handle|sflo.concept.mesh.resource.element.node-handle]] for referential indirection
 
-- **`_meta/`**: Contains the [[catalog dataset|sflo.concept.mesh.resource.element.meta-dataset]] with administrative metadata for the root node
-- **`_handle/`**: Contains the [[node handle|sflo.concept.mesh.resource.element.node-handle]] for referential indirection
-- **`_assets/`**: May contain an [[asset tree|sflo.concept.mesh.resource.element.asset-tree]] for file attachments
-- **Other elements**: Depending on the root node type (e.g., `_ref/` for reference nodes, `_next/` for versioned datasets)
+The root node may contain **other elements**: Depending on the root node type (e.g., `_ref/` for reference nodes, `_data/` for versioned datasets)
 
 ### Consistency Principle
 

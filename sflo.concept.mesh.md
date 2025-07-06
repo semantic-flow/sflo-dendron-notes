@@ -2,7 +2,7 @@
 id: h6ssv16gdyf56gg235dxv85
 title: semantic mesh
 desc: ''
-updated: 1751755414103
+updated: 1751775282308
 created: 1750624002110
 ---
 
@@ -78,12 +78,12 @@ Terminal [[mesh resources|sflo.concept.mesh.resource]] that cannot contain other
 - Each resource has a unique [[identifier|sflo.concept.identifier]] based on its path and local name
 
 ### Containment Rules
-- **Mesh nodes** are always containers (or potential containers) of other nodes and elements
-  - **Namespace nodes**: Can contain any other mesh nodes
-  - **Semantic nodes**: Must have reference datasets; can contain other nodes except asset nodes
-  - **data nodes**: Can only contain a catalog, an optional asset node, and required distributions
-  - **Dataset series nodes**: Can contain version series elements and system elements
-- **Assets tree elements**: Cannot contain other mesh nodes (except for their meta dataset)
+- **Mesh nodes** are always containers of elements (i.e., at least [[sflo.concept.mesh.resource.element.meta-dataset]] and [[sflo.concept.mesh.resource.folder._handle]]) and potentially containers of other nodes 
+  - **namespace nodes**: no additional containment requirements
+  - **reference nodes**: must have [[sflo.concept.mesh.resource.element.reference-dataset]]
+  - **data nodes**: must have [[sflo.concept.mesh.resource.element.data-dataset]] with at least one distributions; and optionally, [[sflo.concept.mesh.resource.node.reference]]
+- **Assets tree elements**: Cannot contain nodes
+- all elements can contain 
 
 ## Rules & Constraints
 

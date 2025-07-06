@@ -2,7 +2,7 @@
 id: rregmt56znauz71qgypet6a
 title: abstract dataset
 desc: ''
-updated: 1751697433703
+updated: 1751774485091
 created: 1751688486456
 ---
 
@@ -10,7 +10,7 @@ Abstract datasets represents the "dataset as concepts", and exist through time, 
 
 ## Relationship to Concrete Datasets
 
-Abstract datasets are realized through [[concrete datasets|sflo.concept.mesh.resource.element.concrete-dataset]], which are specific temporal snapshots or versions of the abstract concept.
+Abstract datasets are realized through [[concrete datasets|sflo.concept.mesh.resource.element.concrete-dataset]], which are specific temporal snapshots or versions of the abstract concept. To borrow a phrase from the PROV model, we say that concrete dataset is a specialization of the abstract dataset."
 
 ### Relationship pattern:
 

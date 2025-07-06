@@ -2,7 +2,7 @@
 id: fd1whkyvoagggk6ubysjl50
 title: Semantic Flow Log
 desc: ''
-updated: 1751255397811
+updated: 1751777221792
 created: 1727801720160
 ---
 
@@ -55,6 +55,10 @@ from [[t.cs.ai.assistant.memory-hygiene]]:
 
 Lume is great. 
 
-Also, the idea of letting contributors keep a devlop in-repo... Someone must've thought of that.
+Also, the idea of letting contributors keep a devlog in-repo... Someone must've thought of that.
 
 I think I've basically figure out the mesh design. Straightening out the docs, ready to partner with Cline (or maybe RooCode) to start my SDLC. Although it'll be more like a random star walk where you can transition to any point, docs ^ ontology ^ test-repo ^ api ^ service ^ client ^ qa ^ etc
+
+## t.2025.07.05.22
+
+It's hard to imagine the design shifting significantly, but that's been true for days (weeks?) and yet the shifts continue. Ready to start on the ontology. 

@@ -2,7 +2,7 @@
 id: 8hmkiyjtsey7z8y5oi5xdxm
 title: mesh node
 desc: ''
-updated: 1751747346951
+updated: 1751776138019
 created: 1750999795528
 ---
 
@@ -27,13 +27,6 @@ Every mesh node has these elements:
 - **[[sflo.concept.mesh.resource.element.meta-dataset]]** (`_meta/`): Centralized metadata for the node
 - **[[sflo.concept.mesh.resource.element.node-handle]]** (`_handle/`): Universal marker folder that refers to the parent "as a mesh node", as opposed to "as the name, dataset, or other thing" to which it normally refers; a handle resource page should explain this distinction
 
-## Exclusive Elements
-
-A node may have one but not both of these:
-
-- **[[sflo.concept.mesh.resource.element.reference-dataset]]** (`_ref/`) : Reference data for external entity representation
-- **[[sflo.concept.mesh.resource.element.data-dataset]]** (`_data/`) : Dataset content and distributions
-
 ## Node Types
 
 ### 1. [[Namespace Node|sflo.concept.mesh.resource.node.namespace]]
@@ -52,38 +45,10 @@ A node may have one but not both of these:
 - Maintains single referent principle - the node refers to the external entity
 
 ### 3. [[Data Node|sflo.concept.mesh.resource.node.data]]
-**Elements**: `_meta/` + `_handle/` + `_data/`
+**Elements**: `_meta/` + `_handle/` + `_data/` ( + optional `_ref`)
 - Contains data distributions and versioning capabilities
 - Node IRI refers to the abstract dataset
 - Adds dataset storage to the namespace foundation
 - Can be configured as [[dataset series|sflo.concept.mesh.resource.node.data.series]]
 - Evolved from namespace nodes by adding the `_data/` element
 - Maintains single referent principle - the node refers to the dataset
-
-## Node Evolution Path
-
-Mesh nodes follow a simplified three-node evolutionary architecture that preserves the single referent principle. All nodes begin with a universal structure and can evolve by adding optional elements to support different use cases.
-
-Namespace nodes have no referent.
-
-Reference nodes refer to a concept.
-
-Data nodes refer to a concept that is associated with a single dataset, although that single dataset can be a dataset series or other collection of nameset, so a data node can indirectly refer to multiple datasets.
-
-```mermaid
-graph TD
-    A["`**Namespace Node**
-    _meta/ + _handle/
-    (refers to namespace)`"] --> B["`**Reference Node**
-    _meta/ + _handle/ + _ref/
-    (refers to external entity)`"]
-    B --> C["`**Data Node**
-    _meta/ + _handle/ + _ref/ +_data/
-    (refers to abstract dataset)`"]
-    
-    style A fill:#e1f5fe
-    style B fill:#f3e5f5
-    style C fill:#e8f5e8
-```
-
-

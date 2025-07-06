@@ -2,7 +2,7 @@
 id: xmdevh3s6gvp93m3nyc6683
 title: mesh resource
 desc: ''
-updated: 1751651043555
+updated: 1751815440882
 created: 1750709094321
 ---
 
@@ -33,15 +33,19 @@ The structure of a semantic mesh is built on a fundamental distinction between *
 - Can be physically represented as folders or files
 
 **Folder-based elements:**
-- **[[Catalog datasets|sflo.concept.mesh.resource.element.meta-dataset]]**: Administrative metadata (in `_meta/` folders)
+
+All folder-based elements should contain a [[sflo.concept.mesh.resource.element.resource-page]]
+
+- **[[Meta datasets|sflo.concept.mesh.resource.element.meta-dataset]]**: Administrative metadata (in `_meta/` folders)
 - **[[Reference datasets|sflo.concept.mesh.resource.element.reference-dataset]]**: Referent data (in `_ref/` folders)
 - **[[Asset trees|sflo.concept.mesh.resource.element.asset-tree]]**: File collections (in `_assets/` folders)
 - **[[Version datasets|sflo.concept.mesh.resource.element.version-dataset]]**: Versioned snapshots
 - **[[Next datasets|sflo.concept.mesh.resource.element.next-dataset]]**: Draft workspaces
 
 **File-based elements:**
-- **[[Resource pages|sflo.concept.mesh.resource.element.resource-page]]**: Generated index.html files
-- **README.md and CHANGELOG.md**: Documentation files
+- **Documentation files**: 
+  - [[Resource pages|sflo.concept.mesh.resource.element.resource-page]] are index.html files that provide de-referencability for their containing [[sflo.concept.identifier]] [[sflo.concept.mesh.resource.folder]]
+  - **README.md and CHANGELOG.md**: unstructured documentation
 - **[[Distribution files|sflo.concept.mesh.resource-facet.distribution]]**: Data files in RDF formats
 
 ## Physical vs Logical Structure
@@ -59,7 +63,7 @@ The structure of a semantic mesh is built on a fundamental distinction between *
 ## Asset Tree Special Case
 
 [[Asset trees|sflo.concept.mesh.resource.element.asset-tree]] represent a special category where:
-- The asset tree itself (with its [[catalog dataset|sflo.concept.mesh.resource.element.meta-dataset]]) is part of the mesh structure
+- The asset tree itself (with its [[sflo.concept.mesh.resource.element.meta-dataset]]) is part of the mesh structure
 - The files and folders contained within asset trees are "attached to" but not "contained in" the mesh
 - Asset tree contents are addressable but are not considered semantic flow resources
 
