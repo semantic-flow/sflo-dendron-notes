@@ -2,7 +2,7 @@
 id: l59hvxem2488war5j981yca
 title: SF Todo
 desc: ''
-updated: 1751762948318
+updated: 1751884439460
 created: 1731041743071
 ---
 
@@ -40,14 +40,9 @@ Create examples showing how real mesh instances would use the ontology
 Success Criteria:
 The ontology should serve as both the formal specification for Semantic Flow and a working example of a mesh repository, enabling others to understand and implement the architecture while providing the semantic foundation for tooling and validation.
 
-In Semantic Flow ontologies, all 
 
 I've documented @/sflo-dendron-notes/sflo.concept.mesh.resource.element.unified-node-distribution.md  which are different from @/sflo-dendron-notes/sflo.concept.mesh.resource.element.convenience-distribution.md 
 
 Using convenience distributions, the URL https://semantic-flow.github.io/sflo-ontology/sflo-ontology.trig would return a trig distribution of the relevant dataset (either ref or, in the case of ontologies, data).
 
-
-I've decided all data nodes are reference nodes, but unlike reference nodes, they have associated dataset.
-
-So as part of that, we don't need separate v-series folders. The _ref, _name, _data are "abstract-datasets" and their _v*, _current, and _next are "
  

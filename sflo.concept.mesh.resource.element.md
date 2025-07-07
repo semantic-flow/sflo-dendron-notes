@@ -18,7 +18,7 @@ Elements are categorized by their facets, including:
   - typical creation and maintenance patterns (user vs system)
   - verioning status
   - folder vs. file
-  - node role (name, reference, and data [[sflo.concept.mesh.resource.element.abstract-dataset]])
+  - node role (name, reference, and data [[sflo.concept.mesh.resource-facet.dataset.abstract]])
 
 ### User Elements
 
@@ -26,7 +26,7 @@ User elements are primarily created and maintained by users or their software ag
 
 **Folder-based user elements:**
 - **[[Asset trees|sflo.concept.mesh.resource.element.asset-tree]]**: Collections of arbitrary files attached to the mesh (in `_assets/` folders)
-- **[[Next datasets|sflo.concept.mesh.resource.element.next-dataset]]**: Draft workspaces for ongoing changes to [[sflo.concept.mesh.resource.element.abstract-dataset]] (in `_next/` folders)
+- **[[Next datasets|sflo.concept.mesh.resource.element.next-dataset]]**: Draft workspaces for ongoing changes to [[sflo.concept.mesh.resource-facet.dataset.abstract]] (in `_next/` folders)
 
 **File-based user elements:**
 - **README.md files**: User documentation providing context

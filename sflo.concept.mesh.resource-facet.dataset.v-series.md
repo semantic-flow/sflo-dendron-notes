@@ -17,7 +17,7 @@ In addition to its role in [[sflo.concepts.mesh.node.dataset.versioned]] version
 ## Containment Rules
 
 - can-be-contained-in: 
-  - [[sflo.concept.mesh.resource.element.abstract-dataset]], i.e.:
+  - [[sflo.concept.mesh.resource-facet.dataset.abstract]], i.e.:
     - [[sflo.concept.mesh.resource.element.reference-dataset]]
     - [[sflo.concept.mesh.resource.element.data-dataset]]
     - [[sflo.concept.mesh.resource.element.meta-dataset]]

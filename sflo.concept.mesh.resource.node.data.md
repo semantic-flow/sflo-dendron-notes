@@ -8,7 +8,7 @@ created: 1750999795528
 
 ## Overview
 
-**Data nodes** are [[mesh nodes|sflo.concept.mesh.resource.node]] that represent a data concept, have abstract associated datasets in the form of an [[sflo.concept.mesh.resource.element.data-dataset]] (an [[sflo.concept.mesh.resource.element.abstract-dataset]]). The abstract dataset is in turn instantiated by [[sflo.concept.mesh.resource.element.concrete-dataset]]s that represent the data's evolution and current state.
+**Data nodes** are [[mesh nodes|sflo.concept.mesh.resource.node]] that represent a data concept, have abstract associated datasets in the form of an [[sflo.concept.mesh.resource.element.data-dataset]] (an [[sflo.concept.mesh.resource-facet.dataset.abstract]]). The abstract dataset is in turn instantiated by [[sflo.concept.mesh.resource-facet.dataset.concrete]]s that represent the data's evolution and current state.
 
 Unlike [[dataset elements|sflo.concept.mesh.resource.element]] which contain concrete data distributions, data nodes serve as conceptual containers that organize and provide identity for data without containing the data directly.
 

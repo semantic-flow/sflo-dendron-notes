@@ -8,7 +8,7 @@ created: 1751599398246
 
 ## Overview
 
-A **unified dataset** provides convenient aggregated access to a mesh node's current state by combining data from its [[sflo.concept.mesh.resource.element.abstract-dataset]] (meta; possibly ref, or ref and data) as named graphs into a single "current" [[sflo.concept.mesh.resource.element.concrete-dataset]] with corresponding distribution files.
+A **unified dataset** provides convenient aggregated access to a mesh node's current state by combining data from its [[sflo.concept.mesh.resource-facet.dataset.abstract]] (meta; possibly ref, or ref and data) as named graphs into a single "current" [[sflo.concept.mesh.resource-facet.dataset.concrete]] with corresponding distribution files.
 
 ## Concept
 
@@ -22,7 +22,7 @@ For each mesh node (e.g., `ns/djradon/bio-dataset/`), generate combined distribu
 
 ### IRI Structure & Single Referent Compliance
 - **Node IRI** (`ns/djradon/bio-dataset/`) refers to its semantic entity (abstract dataset or thing)
-- **Unified Dataset IRI** (`ns/djradon/bio-dataset/_unified/`) refers to the aggregated [[sflo.concept.mesh.resource.element.concrete-dataset]]
+- **Unified Dataset IRI** (`ns/djradon/bio-dataset/_unified/`) refers to the aggregated [[sflo.concept.mesh.resource-facet.dataset.concrete]]
 - **Distribution files** are serializations of the unified dataset
 - **No violation** of [[single referent principle|sflo.principle.single-referent]]
 

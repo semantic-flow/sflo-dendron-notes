@@ -12,7 +12,7 @@ A **node handle** is a very simple folder. It has a very special semantic use: i
 
 ## Justification
 
-Element identifiers don't have an obvious referent other than themselves. e.g., ns/djradon/bio-dataset/_data refers only to a specific [[sflo.concept.mesh.resource.element.abstract-dataset]]. 
+Element identifiers don't have an obvious referent other than themselves. e.g., ns/djradon/bio-dataset/_data refers only to a specific [[sflo.concept.mesh.resource-facet.dataset.abstract]]. 
 
 So when they're mentioned in [[sflo.concept.mesh.resource.element.meta-dataset]], it's clear enough that their identifiers refer to them "as mesh resources."
 

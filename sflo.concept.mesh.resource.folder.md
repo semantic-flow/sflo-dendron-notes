@@ -2,7 +2,7 @@
 id: p3mbdrze0qe8uvko4i16t1s
 title: mesh folder
 desc: ''
-updated: 1751816004747
+updated: 1751816086428
 created: 1750659145476
 ---
 
@@ -40,14 +40,14 @@ When a mesh gets published, the folders also correspond to [[sflo.concept.url]].
 
 - **`_v1/`, `_v2/`, …**
 
-  - Version snapshot folders that represent [[sflo.concept.mesh.resource.element.concrete-dataset]]
+  - Version snapshot folders that represent [[sflo.concept.mesh.resource-facet.dataset.concrete]]
   - each holds one or more distribution file (named `<node_ref_vN.ext`).
   - **Fully terminal**—neither user-nodes nor system-folders may live inside.
 
 ### User Mesh Folders
 
 - **`_next`**
-  - Where edits get made to 
+  - Where edits get made to [[sflo.concept.mesh.resource-facet.dataset.versioned]]
 
 
 - **`_assets/`**

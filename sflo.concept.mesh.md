@@ -2,18 +2,18 @@
 id: h6ssv16gdyf56gg235dxv85
 title: semantic mesh
 desc: ''
-updated: 1751775282308
+updated: 1751822488646
 created: 1750624002110
 ---
 
 ## Overview
 
-A **semantic mesh** is a dereferenceable, versioned collection of semantic data and other resources where every HTTP URL returns meaningful content. It serves as the foundational structure for organizing and publishing semantic web resources through [[semantic sites|sflo.concept.semantic-site]].
+A **semantic mesh** is a dereferenceable, possibly-versioned, [[sflo.concept.immutability]] collection of semantic data and other resources where every HTTP URL returns meaningful content. It serves as the foundational structure for organizing and publishing semantic web resources through [[semantic sites|sflo.concept.semantic-site]].
 
 Key characteristics:
 - **Addressable**: Every component has a unique URL-based identifier
 - **Dereferenceable**: All URLs return meaningful content when accessed
-- **Versioned**: Changes are managed through the [[Weave Process|sflo.concept.weave-process]] process, and [[sflo.concept.mesh.resource.element.abstract-dataset]] are versioned by default
+- **Versioned**: Changes are managed through the [[Weave Process|sflo.concept.weave-process]] process, and [[sflo.concept.mesh.resource-facet.dataset.abstract]] are versioned by default
 - **Publish-ready**: Can be served directly via GitHub Pages or similar static hosting; or via a local web server like live-server
 
 ## Core Components
@@ -35,7 +35,7 @@ Every component in a semantic mesh is an addressable [[mesh resource|sflo.concep
 [[Mesh elements|sflo.concept.mesh.resource.element]] are supporting components that define and systematize nodes:
 
 - **[[Reference datasets|sflo.concept.mesh.resource.element.reference-dataset]]**: Data about a semantic node's referent
-- **[[sflo.concept.mesh.resource.element.data-dataset]]: consist of an [[sflo.concept.mesh.resource.element.abstract-dataset]] (which is really just a [[sflo.concept.mesh.resource-facet.dataset.v-series]]), and versioned [[sflo.concept.mesh.resource.element.concrete-dataset]]
+- **[[sflo.concept.mesh.resource.element.data-dataset]]: consist of an [[sflo.concept.mesh.resource-facet.dataset.abstract]] (which is really just a [[sflo.concept.mesh.resource-facet.dataset.v-series]]), and versioned [[sflo.concept.mesh.resource-facet.dataset.concrete]]
 - **[[Asset trees|sflo.concept.mesh.resource.element.asset-tree]]**: Collections of arbitrary files and folders attached to the mesh
 
 ##### System Elements
