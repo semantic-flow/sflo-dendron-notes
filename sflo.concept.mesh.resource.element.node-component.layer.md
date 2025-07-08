@@ -1,23 +1,27 @@
 ---
 id: 8t3swuswoi81yuzo2bnecy9
-title: concrete dataset
+title: component layer
 desc: ''
-updated: 1751692277023
+updated: 1751956074304
 created: 1751689346769
 ---
 
-Concrete datasets are mesh resource elements that represent specific instances of [[abstract datasets|sflo.concept.mesh.resource-facet.dataset.abstract]]. They have actual data distributions and correspond to different points in an dataset's evolution.
+**Component layers** are mesh elements that represent the evolutionary steps of [[sflo.concept.mesh.resource.element.node-component]], whether [[sflo.concept.mesh.resource.element.node-component.metadata]], [[sflo.concept.mesh.resource.element.node-component.reference]], or [[sflo.concept.mesh.resource.element.node-component.data]]. 
 
-## Relationship to Abstract Datasets
+Component layers have corresponding [[distributions|sflo.concept.mesh.resource-facet.distribution]] and are the connective tissue between nodes and their RDF-based representation.
 
-Concrete datasets are realizations of [[abstract datasets|sflo.concept.mesh.resource-facet.dataset.abstract]], which represent the persistent conceptual identity of a dataset through time.
+## Relationship to Node Components
+
+Component layers are the successive realizations of [[sflo.concept.mesh.resource.element.node-component]].
 
 ### Relationship pattern:
 
-One abstract dataset may have multiple concrete datasets, e.g.:
+Node components have at least two layers:
 
-- Abstract dataset: "My ontology definitions" (`_data/`)
-- Concrete datasets: current working version (`_current/`), version 1.0 (`_v1/`), version 2.0 (`_v2/`)
+- current version (`_current/`)
+- working version (`_next`)
+
+Versioned components 
 
 ### Ontology Data Node Example
 
@@ -63,11 +67,11 @@ _current/
 
 ## Immutability
 
-**[[sflo.concept.mesh.resource.element.version-dataset]]** (historical concrete datasets, i.e., versioned folders like `_v1/`, `_v2/`) should be treated as immutable once created. This provides reliable references for external systems and ensures accurate provenance and history.
+**[[sflo.concept.mesh.resource.element.node-component.layer.version]]** (historical concrete datasets, i.e., versioned folders like `_v1/`, `_v2/`) should be treated as immutable once created. This provides reliable references for external systems and ensures accurate provenance and history.
 
-**[[sflo.concept.mesh.resource.element.current-dataset]]** (the latest "woven" concrete datasets, `_current`) should not be modified directly by users, but will be updated "on weave" if the [[sflo.concept.mesh.resource.element.next-dataset]] has evolved. 
+**[[sflo.concept.mesh.resource.element.node-component.layer.current]]** (the latest "woven" concrete datasets, `_current`) should not be modified directly by users, but will be updated "on weave" if the [[sflo.concept.mesh.resource.element.node-component.layer.next]] has evolved. 
 
-**[[sflo.concept.mesh.resource.element.next-dataset]]** (working concrete datasets, `_next/`) are mutable:
+**[[sflo.concept.mesh.resource.element.node-component.layer.next]]** (working concrete datasets, `_next/`) are mutable:
 - Can be edited and updated during development
 - Represent evolving state of the abstract dataset
 
@@ -80,6 +84,6 @@ Concrete datasets are created through:
 
 ## Related Concepts
 
-- **[[sflo.concept.mesh.resource-facet.dataset.abstract]]** - Parent conceptual entities
+- **[[sflo.concept.mesh.resource.element.node-component]]** - Parent conceptual entities
 - **[[sflo.concept.dataset-versioning]]** - Process of creating versioned concrete datasets
 - **[[sflo.concept.weave-process]]** - Operation that manages concrete dataset lifecycle

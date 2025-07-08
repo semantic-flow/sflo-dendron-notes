@@ -6,4 +6,4 @@ updated: 1751687157506
 created: 1751671938591
 ---
 
-- an [[sflo.concept.mesh.resource-facet.dataset.concrete]]
+- an [[sflo.concept.mesh.resource.element.node-component.layer]]

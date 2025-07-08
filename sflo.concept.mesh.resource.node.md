@@ -1,14 +1,14 @@
 ---
 id: 8hmkiyjtsey7z8y5oi5xdxm
-title: mesh node
+title: MeshNode
 desc: ''
-updated: 1751776138019
+updated: 1751953255603
 created: 1750999795528
 ---
 
 ## Overview
 
-The primary constituents of a semantic mesh are **mesh nodes**. They are physically represented as [[mesh folders|sflo.concept.mesh.resource.folder]] and they correspond to [[namespace segments|sflo.concept.namespace.segment]].
+The primary constituents of a semantic mesh are **mesh nodes**. They are physically represented as [[mesh folders|sflo.concept.mesh.resource.folder]] and provide one type of [[namespace segments|sflo.concept.namespace.segment]].
 
 Mesh nodes are extensible namespace containers that can contain other mesh nodes and [[mesh elements|sflo.concept.mesh.resource.element]], distinguishing them from elements which are terminal within their own scope.
 
@@ -24,7 +24,7 @@ When stored on disk, all mesh nodes:
 
 Every mesh node has these elements:
 
-- **[[sflo.concept.mesh.resource.element.meta-dataset]]** (`_meta/`): Centralized metadata for the node
+- **[[sflo.concept.mesh.resource.element.node-component.metadata]]** (`_meta/`): Centralized metadata for the node
 - **[[sflo.concept.mesh.resource.element.node-handle]]** (`_handle/`): Universal marker folder that refers to the parent "as a mesh node", as opposed to "as the name, dataset, or other thing" to which it normally refers; a handle resource page should explain this distinction
 
 ## Node Types

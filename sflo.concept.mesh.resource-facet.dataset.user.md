@@ -14,5 +14,5 @@ Like all [[sflo.concept.mesh.resource-facet.user]], they represent the substance
 
 - [[sflo.concept.mesh.resource.node.data]]
   - [[sflo.concept.mesh.resource.node.data.series]]
-- [[sflo.concept.mesh.resource.element.reference-dataset]]
+- [[sflo.concept.mesh.resource.element.node-component.reference]]
 

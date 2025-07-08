@@ -6,7 +6,7 @@ updated: 1751734984828
 created: 1751138751433
 ---
 
-- [[sflo.concept.mesh.resource-facet.dataset.concrete]] should have one or more distributions.
+- [[sflo.concept.mesh.resource.element.node-component.layer]] should have one or more distributions.
 - a [[sflo.concept.dataset]]'s distributions should contain the same data, just in different syntaxes 
 
 ## RDF file extensions Support

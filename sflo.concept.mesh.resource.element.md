@@ -1,8 +1,8 @@
 ---
 id: 9c27yly4ed3ju7msf8luhge
-title: sflow element
+title: mesh element
 desc: ''
-updated: 1751697397021
+updated: 1751956472148
 created: 1750706813437
 ---
 
@@ -18,7 +18,7 @@ Elements are categorized by their facets, including:
   - typical creation and maintenance patterns (user vs system)
   - verioning status
   - folder vs. file
-  - node role (name, reference, and data [[sflo.concept.mesh.resource-facet.dataset.abstract]])
+  - node role (name, reference, and data [[sflo.concept.mesh.resource.element.node-component]])
 
 ### User Elements
 
@@ -26,7 +26,7 @@ User elements are primarily created and maintained by users or their software ag
 
 **Folder-based user elements:**
 - **[[Asset trees|sflo.concept.mesh.resource.element.asset-tree]]**: Collections of arbitrary files attached to the mesh (in `_assets/` folders)
-- **[[Next datasets|sflo.concept.mesh.resource.element.next-dataset]]**: Draft workspaces for ongoing changes to [[sflo.concept.mesh.resource-facet.dataset.abstract]] (in `_next/` folders)
+- **[[Next datasets|sflo.concept.mesh.resource.element.node-component.layer.next]]**: Draft workspaces for ongoing changes to [[sflo.concept.mesh.resource.element.node-component]] (in `_next/` folders)
 
 **File-based user elements:**
 - **README.md files**: User documentation providing context
@@ -37,12 +37,13 @@ User elements are primarily created and maintained by users or their software ag
 System elements are usually created or altered by the [[Weave Process|sflo.concept.weave-process]] process rather than direct user modification:
 
 **Folder-based system elements:**
-- **[[Meta datasets|sflo.concept.mesh.resource.element.meta-dataset]]**: Administrative and structural metadata for mesh nodes (in `_meta/` folders)
-- **[[Version datasets|sflo.concept.mesh.resource.element.version-dataset]]**: Versioned snapshots of datasets (in `_vN/` folders)
+- **[[Meta datasets|sflo.concept.mesh.resource.element.node-component.metadata]]**: Administrative and structural metadata for mesh nodes (in `_meta/` folders)
+- **[[Version layer|sflo.concept.mesh.resource.element.node-component.layer.version]]**: Versioned snapshots of datasets (in `_vN/` folders)
 - **[[Node handles|sflo.concept.mesh.resource.element.node-handle]]**: Elements providing referential indirection for nodes as mesh resources (in `_handle/` folders)
 - [[sflo.concept.mesh.resource.element.unified-dataset]]
 
 **File-based system elements:**
+- 
 - **[[Resource pages|sflo.concept.mesh.resource.element.resource-page]]**: Generated index.html files for human-readable access
 - **[[Distribution files|sflo.concept.mesh.resource-facet.distribution]]**: Data files in various RDF formats
 

@@ -8,7 +8,7 @@ created: 1751599398246
 
 ## Overview
 
-A **unified dataset** provides convenient aggregated access to a mesh node's current state by combining data from its [[sflo.concept.mesh.resource-facet.dataset.abstract]] (meta; possibly ref, or ref and data) as named graphs into a single "current" [[sflo.concept.mesh.resource-facet.dataset.concrete]] with corresponding distribution files.
+A **unified dataset** provides convenient aggregated access to a mesh node's current state by combining data from its [[sflo.concept.mesh.resource.element.node-component]] (meta; possibly ref, or ref and data) as named graphs into a single "current" [[sflo.concept.mesh.resource.element.node-component.layer]] with corresponding distribution files.
 
 ## Concept
 
@@ -16,13 +16,13 @@ For each mesh node (e.g., `ns/djradon/bio-dataset/`), generate combined distribu
 - `_unified/bio-dataset_unified.trig` - Combined dataset in TriG format
 - `_unified/bio-dataset_unified.jsonld` - Combined dataset in JSON-LD format
 - Additional formats as needed
-- unlike its sibling datasets, it is not a [[sflo.concept.mesh.resource-facet.dataset.v-series]] and is not considered [[sflo.concept.mesh.resource-facet.dataset.abstract]]
+- unlike its sibling datasets, it is not a [[sflo.concept.mesh.resource-facet.dataset.v-series]] and is not considered [[sflo.concept.mesh.resource.element.node-component]]
 
 ## Architecture
 
 ### IRI Structure & Single Referent Compliance
 - **Node IRI** (`ns/djradon/bio-dataset/`) refers to its semantic entity (abstract dataset or thing)
-- **Unified Dataset IRI** (`ns/djradon/bio-dataset/_unified/`) refers to the aggregated [[sflo.concept.mesh.resource-facet.dataset.concrete]]
+- **Unified Dataset IRI** (`ns/djradon/bio-dataset/_unified/`) refers to the aggregated [[sflo.concept.mesh.resource.element.node-component.layer]]
 - **Distribution files** are serializations of the unified dataset
 - **No violation** of [[single referent principle|sflo.principle.single-referent]]
 
@@ -165,7 +165,7 @@ This proposal raises questions about what data node IRIs actually refer to:
 ## Related Concepts
 
 - [[sflo.concept.mesh.resource.node]] - Base mesh node architecture
-- [[sflo.concept.mesh.resource.element.meta-dataset]] - Centralized metadata
+- [[sflo.concept.mesh.resource.element.node-component.metadata]] - Centralized metadata
 - [[sflo.concept.mesh.resource.element]] - Dataset element concepts
 - [[sflo.principle.single-referent]] - Architectural constraint this preserves
 - [[sflo.concept.mesh.resource-facet.distribution]] - Distribution file concepts

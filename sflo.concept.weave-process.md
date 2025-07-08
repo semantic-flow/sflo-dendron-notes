@@ -10,7 +10,7 @@ created: 1751128698638
 - optionally removes extraneous files, interactively if requested
 - for changed datasets (i.e., distributions need re-generation)
   - if versioning is on:
-    - creates a new [[sflo.concept.mesh.resource.element.version-dataset]] 
+    - creates a new [[sflo.concept.mesh.resource.element.node-component.layer.version]] 
     - updates version metadata
   - regardless of whether versioning is on:
     - copies _next to _current
@@ -45,7 +45,7 @@ created: 1751128698638
 This ensures that in published meshes and sites:
 
 - broken references are cleaned up
-- [[sflo.concept.mesh.resource.element.current-dataset]] is identical to the latest version
+- [[sflo.concept.mesh.resource.element.node-component.layer.current]] is identical to the latest version
 
 ## Features
 

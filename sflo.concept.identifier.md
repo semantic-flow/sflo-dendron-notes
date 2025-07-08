@@ -23,4 +23,4 @@ Identifiers have the same semantics as [[sflo.concept.url]]
 - initial underscores prefix all reserved dataset identifiers and should be avoided in general
 
 
-![[sflow#^pnoqpr3ff4za]] 
+![[sflo#^pnoqpr3ff4za]] 

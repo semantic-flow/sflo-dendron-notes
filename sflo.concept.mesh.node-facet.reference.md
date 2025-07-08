@@ -8,4 +8,4 @@ created: 1751669804940
 
 This is the facet that differentiates [[sflo.concept.mesh.resource.node.namespace]] from the other node types ( [[sflo.concept.mesh.resource.node.reference]] and  [[sflo.concept.mesh.resource.node.data]]). 
 
-It is manifested as a [[sflo.concept.mesh.resource.element.reference-dataset]] 
+It is manifested as a [[sflo.concept.mesh.resource.element.node-component.reference]] 

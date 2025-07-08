@@ -1,29 +1,23 @@
 ---
 id: ggw3ek46ptgebsgxgihr1dh
-title: Semantic Flow
+title: Semantic Flow framework
 desc: 'ontology, tooling, and workflow for publishing semantic data'
-updated: 1751776150650
+updated: 1751954108986
 created: 1716959415785
 ---
 
-- requirements: [[sflo.requirements]]
-- issues: [[sflo.issue]]
+[[sflo.issue]] | [[sflo.todo]] | [[sflo.contributors.djradon.dev-log]]
 
 A **dereferenceable, versioned semantic mesh** will be the foundation for a new
 era of knowledge graphs.
 
-**Semantic Flow** is a framework for managing and publishing knowledge graphs
-and other semantic data by leveraging GitHub, Gitlab, and other free static
-hosting services. It enables a **dereferenceable Semantic Web** where every HTTP
-IRI returns meaningful content.
+**Semantic Flow** is a framework for managing and publishing resource indicators, knowledge graphs and other semantic data by leveraging GitHub, Gitlab, and other free static hosting services. It enables a **dereferenceable Semantic Web** where every HTTP IRI returns meaningful content.
 
-[[Sflow-meshes|sflo.concept.mesh]] provide data management and publishing, and
-[[semantic sites|sflo.concept.semantic-site]] support data discovery and
-explainability.
+[[sflo.concept.mesh-repo]] provide storage, [[Semantic Meshes|sflo.concept.mesh]] provide resource management and publishing, and [[semantic sites|sflo.concept.semantic-site]] support data discovery and explainability.
 
 ## Benefits
 
-- own your own data and data schemas
+- own your own self-describing data and data schemas
 - complete version history when you want it
 - reliable persistence
 - truly FAIR (Findable, Accessible, Interoperable, and Reusable)
@@ -31,8 +25,7 @@ explainability.
 ## Features
 
 - seamlessly integrate other data sources anywhere in your mesh
-- generate and customize mini-sites or single-page applications for nodes in
-  your mesh
+- generate and customize mini-sites or single-page applications for nodes in your mesh
 
 ## Mesh Organization
 
@@ -76,28 +69,25 @@ ignored in the weaving process,
 
 - creates support system files as needed
 - checks mesh consistency and reports issues
-- "bumps" versions of [[versioned datasets|sflo.concept.mesh.resource-facet.dataset.versioned]]
+- "bumps" versions of [[versioned datasets|sflo.concept.mesh.resource.element.node-component.versioned]]
 - you can weave a part of your semantic mesh, or the whole thing
 
 ### Publishing
 
-**SSG Workflow**: Lume-based with plugins for RDF processing, automatic
-provenance generation, and version management.
+**Generator-free Workflow**: Semantic Meshes contain everything needed to function as sites "as-is", no build process required.  
 
-**Aliasing**: Uses schema:sameAs for IRI renaming while maintaining backwards
-compatibility.
+**Aliasing**: Uses skos:closeMatch for node migration with backwards IRI compatibility.
 
-**Content**: Only v* folders contain RDF files (index.trig, index.jsonld, etc.).
-Everything else gets index.html for GitHub Pages compatibility.
+**Content**: Every non-file URL gets an index.html for dereferencability. Only [[sflo.concept.mesh.resource.element.node-component.layer]] contain RDF files (index.trig, index.jsonld, etc.). 
 
 ## Key Constraints & Rules
 
 ### Mesh Constraints
 
-- **Datasets**: Data files must match containing folder names
+- **Datasets**: Distribution files have intuitive, descriptive names
   (`people-data.trig` in `people-data/`)
 - **Case sensitivity**: Preserved - file capitalization must match folder
-- **Single distribution**: only one "working" distribution per dataset, although
+- **Mult distribution**: only one "working" distribution per dataset, although
   the site can have other distribution generated
 
 ### Content & Format Handling
@@ -106,7 +96,7 @@ Everything else gets index.html for GitHub Pages compatibility.
   by putting an index.html in a resource folder
 - **RDF formats**: Multiple distributions per version (`.trig`, `.jsonld`, etc.)
 - **Assets**: relative paths (`./_assets/images/...`) for portability
-- **Machine discovery**: [[sflo.concept.mesh.resource.element.meta-dataset]] specify available formats and series
+- **Machine discovery**: [[sflo.concept.mesh.resource.element.node-component.metadata]] specify available formats and series
   info
 - **Things vs Data**: Clear separation - things are presentation, DSSs are data
 

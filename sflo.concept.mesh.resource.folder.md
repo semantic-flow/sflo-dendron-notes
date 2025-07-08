@@ -21,7 +21,7 @@ When a mesh gets published, the folders also correspond to [[sflo.concept.url]].
 #### Abstract Dataset Folders
 
 - **`_meta/`**
-  - correspond to [[sflo.concept.mesh.resource.element.meta-dataset]]
+  - correspond to [[sflo.concept.mesh.resource.element.node-component.metadata]]
   - present in mesh nodes and [[sflo.concept.mesh.resource.element.asset-tree]]
 
 - **`_ref/`**
@@ -31,7 +31,7 @@ When a mesh gets published, the folders also correspond to [[sflo.concept.url]].
 
 - **`_data/`**
 
-  - correspond to the [[sflo.concept.mesh.resource.element.data-dataset]]
+  - correspond to the [[sflo.concept.mesh.resource.element.node-component.data]]
   - contain the dataset associated with the [[sflo.concept.mesh.resource.node.data]]
 
 #### Concrete Dataset Folders
@@ -40,14 +40,14 @@ When a mesh gets published, the folders also correspond to [[sflo.concept.url]].
 
 - **`_v1/`, `_v2/`, …**
 
-  - Version snapshot folders that represent [[sflo.concept.mesh.resource-facet.dataset.concrete]]
+  - Version snapshot folders that represent [[sflo.concept.mesh.resource.element.node-component.layer]]
   - each holds one or more distribution file (named `<node_ref_vN.ext`).
   - **Fully terminal**—neither user-nodes nor system-folders may live inside.
 
 ### User Mesh Folders
 
 - **`_next`**
-  - Where edits get made to [[sflo.concept.mesh.resource-facet.dataset.versioned]]
+  - Where edits get made to [[sflo.concept.mesh.resource.element.node-component.versioned]]
 
 
 - **`_assets/`**

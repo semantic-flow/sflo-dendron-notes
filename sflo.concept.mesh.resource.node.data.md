@@ -8,7 +8,7 @@ created: 1750999795528
 
 ## Overview
 
-**Data nodes** are [[mesh nodes|sflo.concept.mesh.resource.node]] that represent a data concept, have abstract associated datasets in the form of an [[sflo.concept.mesh.resource.element.data-dataset]] (an [[sflo.concept.mesh.resource-facet.dataset.abstract]]). The abstract dataset is in turn instantiated by [[sflo.concept.mesh.resource-facet.dataset.concrete]]s that represent the data's evolution and current state.
+**Data nodes** are [[mesh nodes|sflo.concept.mesh.resource.node]] that represent a data concept, have abstract associated datasets in the form of an [[sflo.concept.mesh.resource.element.node-component.data]] (an [[sflo.concept.mesh.resource.element.node-component]]). The abstract dataset is in turn instantiated by [[sflo.concept.mesh.resource.element.node-component.layer]]s that represent the data's evolution and current state.
 
 Unlike [[dataset elements|sflo.concept.mesh.resource.element]] which contain concrete data distributions, data nodes serve as conceptual containers that organize and provide identity for data without containing the data directly.
 
@@ -43,14 +43,14 @@ These elements contain:
 
 Every data node must contain:
 
-- **[[sflo.concept.mesh.resource.element.meta-dataset]]** (`_meta/`): Administrative metadata about the data concept
-- **[[sflo.concept.mesh.resource.element.data-dataset]]** (`_data/`): dataset data
+- **[[sflo.concept.mesh.resource.element.node-component.metadata]]** (`_meta/`): Administrative metadata about the data concept
+- **[[sflo.concept.mesh.resource.element.node-component.data]]** (`_data/`): dataset data
 - **[[Node handle|sflo.concept.mesh.resource.element.node-handle]]** (`_handle/`): Referential indirection for the node
 
 
 ## Optional Structure
 
-- **[[sflo.concept.mesh.resource.element.reference-dataset]]** (`_ref/`): reference data
+- **[[sflo.concept.mesh.resource.element.node-component.reference]]** (`_ref/`): reference data
 - **[[Asset trees|sflo.concept.mesh.resource.element.asset-tree]]** (`_assets/`): Attached file collections
 - [[sflo.concept.mesh.resource.element.changelog]] and [[sflo.concept.mesh.resource.element.readme]]
 - [[sflo.concept.mesh.resource.element.weave-config]]

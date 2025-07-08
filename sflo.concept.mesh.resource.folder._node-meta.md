@@ -6,4 +6,4 @@ updated: 1751942744490
 created: 1751206968994
 ---
 
-The physical representation of the [[sflo.concept.mesh.resource.element.meta-dataset]]
+The physical representation of the [[sflo.concept.mesh.resource.element.node-component.metadata]]

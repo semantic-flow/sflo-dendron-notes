@@ -70,6 +70,6 @@ During [[sflo.concept.weave-process]], aggregated distributions are created by:
 
 ## Related Concepts
 
-- **[[sflo.concept.mesh.resource.element.data-dataset]]** - Source datasets for aggregation
+- **[[sflo.concept.mesh.resource.element.node-component.data]]** - Source datasets for aggregation
 - **[[sflo.concept.weave-process]]** - Process that generates aggregated distributions
-- **[[sflo.concept.mesh.resource-facet.dataset.concrete]]** - Contains the actual distributions being aggregated
+- **[[sflo.concept.mesh.resource.element.node-component.layer]]** - Contains the actual distributions being aggregated

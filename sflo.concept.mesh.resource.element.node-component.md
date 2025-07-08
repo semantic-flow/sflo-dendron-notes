@@ -1,22 +1,24 @@
 ---
 id: rregmt56znauz71qgypet6a
-title: abstract dataset
+title: node component
 desc: ''
-updated: 1751774485091
+updated: 1751953040770
 created: 1751688486456
 ---
 
-Abstract datasets represents the "dataset as concepts", and exist through time, independent of any specific version, snapshot, or temporal realization.
+There are three types of node components, and they are the most important parts of a node: 
 
-## Relationship to Concrete Datasets
+**Node components** are dcat:Catalog but their sense is of an abstract dataset that exists through time, independent of any specific version or realization. In a sense, they are "data cakes" made up of  
 
-Abstract datasets are realized through [[concrete datasets|sflo.concept.mesh.resource-facet.dataset.concrete]], which are specific temporal snapshots or versions of the abstract concept. To borrow a phrase from the PROV model, we say that concrete dataset is a specialization of the abstract dataset."
+## Relationship to Node Datasets
+
+As abstract datasets, node components are realized through [[sflo.concept.mesh.resource.element.node-component.layer]], which are specific temporal snapshots or versions of the abstract concept. To borrow a phrase from the PROV model, we say that a layer is a specialization of the abstract dataset.
 
 ### Relationship pattern:
 
-Every abstract dataset has at least two concrete datasets: [[sflo.concept.mesh.resource.element.current-dataset]] and [[sflo.concept.mesh.resource.element.next-dataset]].
+Every node component has at least two concrete layers: [[sflo.concept.mesh.resource.element.node-component.layer.current]] and [[sflo.concept.mesh.resource.element.node-component.layer.next]].
 
-An abstract dataset, if versioned, is a [[related-topics.dcat.dataset-series]] and may have multiple concrete datasets, i.e., [[sflo.concept.mesh.resource.element.version-dataset]]s.
+The abstract dataset, if versioned, is a [[related-topics.dcat.dataset-series]] and may have multiple concrete datasets, i.e., [[sflo.concept.mesh.resource.element.node-component.layer.version]]s.
 
 - Abstract dataset: "My ontology definitions" (persistent concept)
 - Concrete datasets: v1.0, v1.1, current version, working draft of next version (specific realizations)

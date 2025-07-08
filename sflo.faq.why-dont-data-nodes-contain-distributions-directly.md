@@ -40,7 +40,7 @@ This mirrors how [[reference nodes|sflo.concept.mesh.resource.node.reference]] w
 
 ### Metadata Separation
 
-The data node's [[meta dataset|sflo.concept.mesh.resource.element.meta-dataset]] contains metadata about the data concept itself, while each temporal dataset element contains metadata about that specific data instance.
+The data node's [[meta dataset|sflo.concept.mesh.resource.element.node-component.metadata]] contains metadata about the data concept itself, while each temporal dataset element contains metadata about that specific data instance.
 
 ## Analogy
 

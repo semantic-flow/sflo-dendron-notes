@@ -5,5 +5,3 @@ desc: ''
 updated: 1751942786283
 created: 1751942727185
 ---
-
-The physical representation of the [[sflo.concept.mesh.resource.element.data-dataset]]

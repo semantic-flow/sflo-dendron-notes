@@ -6,7 +6,7 @@ updated: 1751857654812
 created: 1751817577224
 ---
 
-In a filesystem-based structure like a [[sflo.concept.mesh]], you can't really prevent changes. But some things in a mesh should be treated as immutable, like [[sflo.concept.mesh.resource.element.version-dataset]] and [[sflo.concept.identifier]].
+In a filesystem-based structure like a [[sflo.concept.mesh]], you can't really prevent changes. But some things in a mesh should be treated as immutable, like [[sflo.concept.mesh.resource.element.node-component.layer.version]] and [[sflo.concept.identifier]].
 
 **Pseudo-immutability** acknowledges that things might be changed, for various reasons:
 
