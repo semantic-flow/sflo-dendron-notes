@@ -2,13 +2,13 @@
 id: 8t3swuswoi81yuzo2bnecy9
 title: component layer
 desc: ''
-updated: 1751956074304
+updated: 1751984696163
 created: 1751689346769
 ---
 
-**Component layers** are mesh elements that represent the evolutionary steps of [[sflo.concept.mesh.resource.element.node-component]], whether [[sflo.concept.mesh.resource.element.node-component.metadata]], [[sflo.concept.mesh.resource.element.node-component.reference]], or [[sflo.concept.mesh.resource.element.node-component.data]]. 
+**Component layers** are mesh elements that are datasets and represent the evolutionary steps of [[sflo.concept.mesh.resource.element.node-component]], whether [[sflo.concept.mesh.resource.element.node-component.metadata]], [[sflo.concept.mesh.resource.element.node-component.reference]], or [[sflo.concept.mesh.resource.element.node-component.data]]. 
 
-Component layers have corresponding [[distributions|sflo.concept.mesh.resource-facet.distribution]] and are the connective tissue between nodes and their RDF-based representation.
+Component layers have corresponding [[distributions|sflo.concept.mesh.resource.element.node-component.layer.distribution]] and are the connective tissue between nodes and their RDF-based representation.
 
 ## Relationship to Node Components
 
@@ -26,25 +26,31 @@ Versioned components
 ### Ontology Data Node Example
 
 ```file
-/my-ontology/               ← Abstract, data-oriented "thing"
-├── _ref/                   ← Abstract dataset (reference data about ontology)
-│   ├── _current/           ← Concrete dataset (current reference data)
-│   ├── _v1/                ← Concrete dataset (version 1 reference data)
-│   └── _v2/                ← Concrete dataset (version 2 reference data)
-└── _data/                  ← Abstract dataset (ontology definition--by-dataset)
-    ├── _current/           ← Concrete dataset (current definition)
-    ├── _next/              ← Concrete dataset (working draft)
-    └── _v1/                ← Concrete dataset (version 1 definition)
+/my-ontology/               ← Data Node: Conceptual, data-oriented "thing"
+├── _node-meta/                   ← Reference node component (reference data about ontology)
+│   ├── _current/           ← component layer (current reference data)
+│   ├── _next/              ← component layer (working draft)
+│   ├── _v1/                ← component layer (version 1 reference data)
+│   └── _v2/                ← component layer (version 2 reference data)
+├── _node-ref/                   ← Reference node component (reference data about ontology)
+│   ├── _current/           ← component layer (current reference data)
+│   ├── _next/              ← component layer (working draft)
+│   ├── _v1/                ← component layer (version 1 reference data)
+│   └── _v2/                ← component layer (version 2 reference data)
+└── _node-data/                  ← Data node component (ontology definition--by-dataset)
+    ├── _current/           ← component layer (current definition)
+    ├── _next/              ← component layer (working draft)
+    └── _v1/                ← component layer (version 1 definition)
 ```
 
 In this example:
-- `_current/`, `_v1/`, `_v2/`, `_next/` are all concrete datasets
+- `_current/`, `_v1/`, `_v2/`, `_next/` are all component layers
 - Each contains actual data files and distributions
-- They represent specific temporal states of their parent abstract datasets
+- They represent specific temporal states of their parent node components
 
 ## Temporal Nature
 
-Concrete datasets capture datasets at specific moments:
+component layers capture datasets at specific moments:
 
 - **Current versions** (`_current/`) - The active working state
 - **Next versions** (`_next/`) - Draft content for future release
@@ -52,7 +58,7 @@ Concrete datasets capture datasets at specific moments:
 
 ## Content Structure
 
-Concrete datasets contain:
+component layers contain:
 - **Data files** - The actual dataset content (`.ttl`, `.rdf`, `.jsonld`)
 - **Distributions** - Multiple format representations of the same data
 - **Metadata** - Information about the specific version/snapshot
@@ -67,17 +73,17 @@ _current/
 
 ## Immutability
 
-**[[sflo.concept.mesh.resource.element.node-component.layer.version]]** (historical concrete datasets, i.e., versioned folders like `_v1/`, `_v2/`) should be treated as immutable once created. This provides reliable references for external systems and ensures accurate provenance and history.
+**[[sflo.concept.mesh.resource.element.node-component.layer.version]]** (historical component layers, i.e., versioned folders like `_v1/`, `_v2/`) should be treated as immutable once created. This provides reliable references for external systems and ensures accurate provenance and history.
 
-**[[sflo.concept.mesh.resource.element.node-component.layer.current]]** (the latest "woven" concrete datasets, `_current`) should not be modified directly by users, but will be updated "on weave" if the [[sflo.concept.mesh.resource.element.node-component.layer.next]] has evolved. 
+**[[sflo.concept.mesh.resource.element.node-component.layer.current]]** (the latest "woven" component layers, `_current`) should not be modified directly by users, but will be updated "on weave" if the [[sflo.concept.mesh.resource.element.node-component.layer.next]] has evolved. 
 
-**[[sflo.concept.mesh.resource.element.node-component.layer.next]]** (working concrete datasets, `_next/`) are mutable:
+**[[sflo.concept.mesh.resource.element.node-component.layer.next]]** (working component layers, `_next/`) are mutable:
 - Can be edited and updated during development
-- Represent evolving state of the abstract dataset
+- Represent evolving state of the node component
 
 ## Creation and Lifecycle
 
-Concrete datasets are created through:
+component layers are created through:
 - **Initial authoring** - Creating `_current/` content
 - **Versioning** - Snapshotting `_current/` to `_v1/`, `_v2/` during [[sflo.concept.weave]]
 - **Draft preparation** - Working in `_next/` for future releases
@@ -85,5 +91,5 @@ Concrete datasets are created through:
 ## Related Concepts
 
 - **[[sflo.concept.mesh.resource.element.node-component]]** - Parent conceptual entities
-- **[[sflo.concept.dataset-versioning]]** - Process of creating versioned concrete datasets
-- **[[sflo.concept.weave-process]]** - Operation that manages concrete dataset lifecycle
+- **[[sflo.concept.versioning]]** - Process of creating versioned component layers
+- **[[sflo.concept.weave-process]]** - Operation that manages component layer lifecycle

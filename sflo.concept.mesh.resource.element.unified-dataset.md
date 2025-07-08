@@ -16,7 +16,7 @@ For each mesh node (e.g., `ns/djradon/bio-dataset/`), generate combined distribu
 - `_unified/bio-dataset_unified.trig` - Combined dataset in TriG format
 - `_unified/bio-dataset_unified.jsonld` - Combined dataset in JSON-LD format
 - Additional formats as needed
-- unlike its sibling datasets, it is not a [[sflo.concept.mesh.resource-facet.dataset.v-series]] and is not considered [[sflo.concept.mesh.resource.element.node-component]]
+- unlike its sibling datasets, it is not a [[sflo.concept.mesh.component-facet.v-series]] and is not considered [[sflo.concept.mesh.resource.element.node-component]]
 
 ## Architecture
 
@@ -168,4 +168,4 @@ This proposal raises questions about what data node IRIs actually refer to:
 - [[sflo.concept.mesh.resource.element.node-component.metadata]] - Centralized metadata
 - [[sflo.concept.mesh.resource.element]] - Dataset element concepts
 - [[sflo.principle.single-referent]] - Architectural constraint this preserves
-- [[sflo.concept.mesh.resource-facet.distribution]] - Distribution file concepts
+- [[sflo.concept.mesh.resource.element.node-component.layer.distribution]] - Distribution file concepts

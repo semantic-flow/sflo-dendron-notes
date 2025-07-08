@@ -2,7 +2,7 @@
 id: xmdevh3s6gvp93m3nyc6683
 title: mesh resource
 desc: ''
-updated: 1751957096826
+updated: 1751994035001
 created: 1750709094321
 ---
 
@@ -16,37 +16,29 @@ In RDF terms, a resource is any node in an RDF graph that can be represented wit
 
 The structure of a semantic mesh is built on a fundamental distinction between **extensible** and **terminal** resources:
 
-### Mesh Nodes
-**[[Mesh nodes|sflo.concept.mesh.resource.node]]** are extensible namespace containers:
-- Extend the namespace and can be further extended by containing other mesh resources
-- Always physically represented as folders
+- **[[Mesh nodes|sflo.concept.mesh.resource.node]]** are extensible namespace containers:
 
-**Types of mesh nodes:**
-- **[[Namespace nodes|sflo.concept.mesh.resource.node.namespace]]**: Empty containers for organizing other mesh nodes
-- **[[Reference nodes|sflo.concept.mesh.resource.node.reference]]**: Nodes that refer to external entities and contain reference datasets
-- **[[data nodes|sflo.concept.mesh.resource.node.data]]**: Nodes containing data distributions with optional versioning (includes [[dataset series|sflo.concept.mesh.resource.node.data.series]] which are data nodes whose metadata identifies them as DCAT dataset series)
 
-### Mesh Elements
-**[[Mesh elements|sflo.concept.mesh.resource.element]]** are terminal mesh resources:
-- Extend the namespace but cannot be extended beyond their own internal structure
-- All files and folders within an element folder are considerd to be part of the element
+
+- **[[Mesh elements|sflo.concept.mesh.resource.element]]** are terminal mesh resources:
 - Can be physically represented as folders or files
+  - Folder [[sflo.concept.identifier]] are part of the namespace but cannot be extended beyond their own internal structure
+- All files and folders within an element folder are considerd to be part of the parent node
 
 **Folder-based elements:**
 
-All folder-based elements should contain a [[sflo.concept.mesh.resource.element.documentation-resource.resource-page]]
 
-- **[[Meta datasets|sflo.concept.mesh.resource.element.node-component.metadata]]**: Administrative metadata (in `_meta/` folders)
-- **[[Reference datasets|sflo.concept.mesh.resource.element.node-component.reference]]**: Referent data (in `_ref/` folders)
+- **[[Metadata components|sflo.concept.mesh.resource.element.node-component.metadata]]**: Administrative metadata (in `_node-meta/` folders)
+- **[[Reference components|sflo.concept.mesh.resource.element.node-component.reference]]**: Referent data (in `_node-ref/` folders)
 - **[[Asset trees|sflo.concept.mesh.resource.element.asset-tree]]**: File collections (in `_assets/` folders)
 - **[[Version datasets|sflo.concept.mesh.resource.element.node-component.layer.version]]**: Versioned snapshots
 - **[[Next layers|sflo.concept.mesh.resource.element.node-component.layer.next]]**: Draft workspaces
 
 **File-based elements:**
 - **Documentation files**: 
-  - [[Resource pages|sflo.concept.mesh.resource.element.documentation-resource.resource-page]] are index.html files that provide de-referencability for their containing [[sflo.concept.identifier]] [[sflo.concept.mesh.resource.folder]]
+  - [[Resource pages|sflo.concept.mesh.resource.element.documentation-resource.resource-page]] are index.html files that provide de-referencability for their containing [[sflo.concept.identifier]] [[sflo.concept.mesh.resource-facet.folder]]
   - **README.md and CHANGELOG.md**: unstructured documentation
-- **[[Distribution files|sflo.concept.mesh.resource-facet.distribution]]**: Data files in RDF formats
+- **[[Layer distribution files|sflo.concept.mesh.resource.element.node-component.layer.distribution]]**: Data files in RDF formats
 
 ## Physical vs Logical Structure
 

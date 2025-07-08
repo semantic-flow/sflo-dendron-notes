@@ -2,13 +2,13 @@
 id: 9j8lhoyb0xkhg926nafgkai
 title: data component
 desc: ''
-updated: 1751955148508
+updated: 1751984971397
 created: 1751560483669
 ---
 
 ## Overview
 
-Data components (_data/) are [[node components|sflo.concept.mesh.resource.element.node-component]] that effectively associate a versioned dataset with a mesh node. They contain the actual content payload of data nodes and provide the primary data storage functionality within the semantic flow mesh architecture.
+Data components (_node-data/) are [[node components|sflo.concept.mesh.resource.element.node-component]] that effectively associate a versioned dataset with a mesh node. They contain the actual content payload of data nodes and provide the primary data storage functionality within the semantic flow mesh architecture.
 
 ## Purpose
 
@@ -27,7 +27,7 @@ Data components organize content through [[component layers|sflo.concept.mesh.re
 - `_next/` - Draft/work-in-progress version
 - `_v1/`, `_v2/`, etc. - Versioned snapshots for historical access
 
-Like all [[sflo.concept.mesh.resource.folder]], they should contain an `index.html` [[sflo.concept.mesh.resource.element.documentation-resource.resource-page]] -- a human-readable description for the component
+Like all [[sflo.concept.mesh.resource-facet.folder]], they should contain an `index.html` [[sflo.concept.mesh.resource.element.documentation-resource.resource-page]] -- a human-readable description for the component
 
 
 ## Relationship to Data Nodes

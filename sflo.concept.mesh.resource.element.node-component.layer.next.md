@@ -6,7 +6,7 @@ updated: 1751956257316
 created: 1751238695109
 ---
 
-The **next layer** serves as a draft workspace for ongoing changes to a [[sflo.concept.mesh.resource.element.node-component.versioned]]. 
+The **next layer** serves as a draft workspace for ongoing changes to a [[sflo.concept.mesh.component-facet.versioned]]. 
 
 After a version-bumping weave, a next layer starts identical to the current dataset but can be modified safely without affecting the stable current version. During weaving, _next content becomes the new current dataset and gets snapshotted as the latest version, while _next naturally remains ready for the next round of drafts.
 

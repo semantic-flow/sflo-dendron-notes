@@ -2,7 +2,7 @@
 id: h6ssv16gdyf56gg235dxv85
 title: semantic mesh
 desc: ''
-updated: 1751958131354
+updated: 1751993867375
 created: 1750624002110
 ---
 
@@ -16,19 +16,20 @@ Key characteristics:
 - **Versioned**: Changes are managed through the [[Weave Process|sflo.concept.weave-process]] process, and [[sflo.concept.mesh.resource.element.node-component]] are versioned by default
 - **Publish-ready**: Can be served directly via GitHub Pages or similar static hosting; or via a local web server like live-server
 
-## Core Components
+## Core Concepts
 
 ### Mesh Resources
 
 There are two primary categories:
 
-#### Nodes
-[[Mesh nodes|sflo.concept.mesh.resource.node]] are the primary structural components, physically represented as [[mesh folders|sflo.concept.mesh.resource.folder]]. They extend namespaces and serve as containers:
+#### Mesh Nodes
+
+[[Mesh nodes|sflo.concept.mesh.resource.node]] are the primary structural components, physically represented as [[mesh folders|sflo.concept.mesh.resource-facet.folder]]. They extend namespaces and serve as containers.
 
 - **[[Namespace nodes|sflo.concept.mesh.resource.node.namespace]]**: Empty containers for organizing other mesh nodes
-- **[[Reference nodes|sflo.concept.mesh.resource.node.reference]]**: Nodes that refer to external entities (people, concepts, relationships) and contain [[reference datasets|sflo.concept.mesh.resource.element.node-component.reference]]
+- **[[Reference nodes|sflo.concept.mesh.resource.node.reference]]**: Nodes that refer to external entities (people, concepts, relationships) and contain [[reference components|sflo.concept.mesh.resource.element.node-component.reference]]
 - **[[Data nodes|sflo.concept.mesh.resource.node.data]]**: Nodes containing data distributions with optional versioning
-  - **[[Dataset series nodes|sflo.concept.mesh.resource.node.data.series]]**: User-defined collections that organize related datasets as [[DCAT dataset series|related-topics.dcat.dataset-series]]
+
 
 #### Elements
 
@@ -36,28 +37,28 @@ There are two primary categories:
 
 ## Folder-based
 
-- **[[Asset trees|sflo.concept.mesh.resource.element.asset-tree]]**: Collections of arbitrary files and folders attached to the mesh
 - **[[sflo.concept.mesh.resource.element.node-component]]** and their [[sflo.concept.mesh.resource.element.node-component.layer]]
   - **[[sflo.concept.mesh.resource.element.node-component.metadata]]**: System-related administrative and structural metadata for mesh nodes
   - **[[Version datasets|sflo.concept.mesh.resource.element.node-component.layer.version]]**: Versioned snapshots of datasets
 - **[[Next layers|sflo.concept.mesh.resource.element.node-component.layer.next]]**: Draft workspaces for ongoing changes to versioned datasets
 - **[[Node handles|sflo.concept.mesh.resource.element.node-handle]]**: Elements that provide referential indirection, allowing references to nodes as mesh resources rather than their referents
+- **[[Asset trees|sflo.concept.mesh.resource.element.asset-tree]]**: Collections of arbitrary files and folders attached to the mesh
 
 #### Files
 
 Terminal [[mesh resources|sflo.concept.mesh.resource]] that cannot contain other resources:
 
 - **[[Resource pages|sflo.concept.mesh.resource.element.documentation-resource.resource-page]]**: index.html files present in every mesh folder after weaving
-- **[[Distribution files|sflo.concept.mesh.resource-facet.distribution]]**: Data files in various RDF formats
+- **[[Distribution files|sflo.concept.mesh.resource.element.node-component.layer.distribution]]**: Data files in various RDF formats
 - **README.md and CHANGELOG.md**: Documentation files providing context
 
 
 ## Physical Structure
 
 ### Folder Mapping
-- Mesh nodes correspond physically to [[mesh folders|sflo.concept.mesh.resource.folder]]
+- Mesh nodes correspond physically to [[mesh folders|sflo.concept.mesh.resource-facet.folder]]
 - Folder names become namespace segments and URL path components
-- The local name of a node matches its containing folder name
+- The local [[sflo.concept.identifier]] for a node matches its containing folder name
 
 ### File Organization
 - [[Datasets|sflo.concept.mesh.resource-facet.dataset]] are represented by folders containing at least one distribution file
@@ -65,8 +66,8 @@ Terminal [[mesh resources|sflo.concept.mesh.resource]] that cannot contain other
 - Resource pages (index.html) should be present in every mesh folder after [[weaving|sflo.concept.weave-process]]
 
 ### Reserved Names
-- All reserved resource names begin with an underscore (_)
-- Examples: `_meta/`, `_assets/`, `_ref/`, `_current`, `_next`
+- All reserved folder names begin with an underscore (_)
+- Examples: `_assets/`, `_node-meta/`, `_node-ref/`, `_current`, `_next`
 
 ## Logical Structure
 
@@ -87,17 +88,21 @@ Terminal [[mesh resources|sflo.concept.mesh.resource]] that cannot contain other
 
 ### System vs User Boundaries
 - **System elements**: Generated and managed by the weave process, not intended for user modification
-- **User elements**: Directly modifiable by users (reference datasets, meta datasets, README.md, CHANGELOG.md)
+- **User elements**: Directly modifiable by users ([[sflo.concept.mesh.resource.element.node-component.layer.current]], README.md, CHANGELOG.md)
 - The weave process maintains system elements and generates missing required components
 
 ### Versioning Requirements
-- Dataset versioning is managed through the [[dataset versioning|sflo.concept.dataset-versioning]] system
-- Version history is stored in [[sflo.concept.mesh.resource.element.node-component.layer.version]] with numbered version snapshots
+- Component versioning is managed through the [[Versioning|sflo.concept.versioning]] system
+  - turning versioning on and off is controlled in the [[sflo.concept.mesh.resource.element.weave-config]]
+  - Version history is realized in [[sflo.concept.mesh.resource.element.node-component.layer.version]] with numbered version snapshots
+  - Version history metadata is kept in the node's [[sflo.concept.mesh.resource.element.node-component.metadata]]
 
 ### Addressing Requirements
 - Every mesh resource must be addressable via its URL path
 - URLs must return meaningful content when dereferenced
-- Resource pages provide human-readable access to all mesh components
+  - [[sflo.concept.mesh.resource.element.documentation-resource.resource-page]] provide human-readable information for [[sflo.concept.mesh.resource-facet.folder]]-based resources
+    - resource pages are always index.html files generated by "on weave" from the [[sflo.concept.mesh.resource.element.documentation-resource.changelog]] and [[sflo.concept.mesh.resource.element.documentation-resource.readme]] [[sflo.concept.mesh.resource.element.documentation-resource]], templates in [[sflo.concept.mesh.resource.element.asset-tree]] and any scoped template mappings specified in [[sflo.concept.mesh.resource.element.weave-config]] files 
+  - [[sflo.concept.mesh.resource-facet.file]]
 
 ## Integration Points
 

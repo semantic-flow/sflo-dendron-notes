@@ -2,7 +2,7 @@
 id: ggw3ek46ptgebsgxgihr1dh
 title: Semantic Flow framework
 desc: 'ontology, tooling, and workflow for publishing semantic data'
-updated: 1751957698024
+updated: 1751984919156
 created: 1716959415785
 ---
 
@@ -69,7 +69,7 @@ ignored in the weaving process,
 
 - creates support system files as needed
 - checks mesh consistency and reports issues
-- "bumps" versions of [[versioned datasets|sflo.concept.mesh.resource.element.node-component.versioned]]
+- "bumps" versions of [[versioned datasets|sflo.concept.mesh.component-facet.versioned]]
 - you can weave a part of your semantic mesh, or the whole thing
 
 ### Publishing
@@ -149,7 +149,7 @@ ignored in the weaving process,
 4. SSG compares source with last published versions
 5. Create new `v*` versions in `docs/` for changed datasets
 6. Generate updated `_current/` folders and `index.html` files
-7. Auto-generate all `_meta/` metadata from source data and templates
+7. Auto-generate all `_node-meta/` metadata from source data and templates
 8. Copy immutable assets to `docs/assets/`
 9. Commit generated output to Git (rollback capability)
 10. Deploy `docs/` folder to GitHub Pages

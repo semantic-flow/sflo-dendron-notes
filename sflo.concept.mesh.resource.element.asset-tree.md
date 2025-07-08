@@ -8,7 +8,7 @@ created: 1750729092262
 
 This element is "mesh-terminal" and should contain no [[sflow-resources|sflo.concept.mesh.resource]]. 
 
-It can be contained in any [[sflo.concept.mesh.resource.folder]], including a [[sflo.concept.mesh.resource.node]].
+It can be contained in any [[sflo.concept.mesh.resource-facet.folder]], including a [[sflo.concept.mesh.resource.node]].
 
 It's metadata (if any) should be stored in the closest parent node.
 

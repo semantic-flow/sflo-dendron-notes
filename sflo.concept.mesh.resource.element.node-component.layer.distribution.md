@@ -1,13 +1,23 @@
 ---
 id: 0n1lq6aq1gskj46bpcx9h4h
-title: Distribution
+title: layer distribution
 desc: ''
-updated: 1751734984828
+updated: 1751992410510
 created: 1751138751433
 ---
 
 - [[sflo.concept.mesh.resource.element.node-component.layer]] should have one or more distributions.
-- a [[sflo.concept.dataset]]'s distributions should contain the same data, just in different syntaxes 
+- a layer's distributions should contain the same data, just in different syntaxes 
+
+## Naming
+
+- [[sflo.concept.mesh.resource.element.node-component.metadata]] and [[sflo.concept.mesh.resource.element.node-component.reference]] have their distributions named with "_meta" and "_ref" respectively, but
+- [[sflo.concept.mesh.resource.element.node-component.data]], being the "payload data", 
+
+
+## Issues
+
+- TODO: should we only support "named graph"-support formats
 
 ## RDF file extensions Support
 
