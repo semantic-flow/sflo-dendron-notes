@@ -2,11 +2,11 @@
 id: 0y6p8e594peoult03gobm94
 title: meta dataset
 desc: ''
-updated: 1751942855656
+updated: 1751943593063
 created: 1730660543063
 ---
 
-A **meta dataset** contains system-related administrative and structural metadata for every [[sflo.concept.mesh.resource.node]] and the  
+A **meta dataset** contains system-related administrative and structural metadata for every [[sflo.concept.mesh.resource.node]].
 
 Physically, it exists as a [[sflo.concept.mesh.resource.folder._node-meta]] in a [[sflo.concept.mesh.resource.folder.node]].
 
