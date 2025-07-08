@@ -27,7 +27,7 @@ Data components organize content through [[component layers|sflo.concept.mesh.re
 - `_next/` - Draft/work-in-progress version
 - `_v1/`, `_v2/`, etc. - Versioned snapshots for historical access
 
-Like all [[sflo.concept.mesh.resource.folder]], they should contain an `index.html` [[sflo.concept.mesh.resource.element.resource-page]] -- a human-readable description for the component
+Like all [[sflo.concept.mesh.resource.folder]], they should contain an `index.html` [[sflo.concept.mesh.resource.element.documentation-resource.resource-page]] -- a human-readable description for the component
 
 
 ## Relationship to Data Nodes

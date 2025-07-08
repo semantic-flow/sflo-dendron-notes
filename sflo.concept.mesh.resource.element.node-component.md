@@ -2,13 +2,13 @@
 id: rregmt56znauz71qgypet6a
 title: node component
 desc: ''
-updated: 1751953040770
+updated: 1751957646984
 created: 1751688486456
 ---
 
 There are three types of node components, and they are the most important parts of a node: 
 
-**Node components** are dcat:Catalog but their sense is of an abstract dataset that exists through time, independent of any specific version or realization. In a sense, they are "data cakes" made up of  
+**Node components** are dcat:DatasetSeries and their sense is of an abstract dataset that exists through time, independent of any specific version or realization. In a sense, they are "data cakes" made up of  
 
 ## Relationship to Node Datasets
 
@@ -18,7 +18,7 @@ As abstract datasets, node components are realized through [[sflo.concept.mesh.r
 
 Every node component has at least two concrete layers: [[sflo.concept.mesh.resource.element.node-component.layer.current]] and [[sflo.concept.mesh.resource.element.node-component.layer.next]].
 
-The abstract dataset, if versioned, is a [[related-topics.dcat.dataset-series]] and may have multiple concrete datasets, i.e., [[sflo.concept.mesh.resource.element.node-component.layer.version]]s.
+The abstract dataset is a [[related-topics.dcat.dataset-series]] and may have multiple concrete datasets, i.e., [[sflo.concept.mesh.resource.element.node-component.layer.version]]s.
 
 - Abstract dataset: "My ontology definitions" (persistent concept)
 - Concrete datasets: v1.0, v1.1, current version, working draft of next version (specific realizations)

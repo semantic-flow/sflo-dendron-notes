@@ -2,7 +2,7 @@
 id: 9c27yly4ed3ju7msf8luhge
 title: mesh element
 desc: ''
-updated: 1751956472148
+updated: 1751957168287
 created: 1750706813437
 ---
 
@@ -43,8 +43,7 @@ System elements are usually created or altered by the [[Weave Process|sflo.conce
 - [[sflo.concept.mesh.resource.element.unified-dataset]]
 
 **File-based system elements:**
-- 
-- **[[Resource pages|sflo.concept.mesh.resource.element.resource-page]]**: Generated index.html files for human-readable access
+- **[[Resource pages|sflo.concept.mesh.resource.element.documentation-resource.resource-page]]**: Generated index.html files for human-readable access
 - **[[Distribution files|sflo.concept.mesh.resource-facet.distribution]]**: Data files in various RDF formats
 
 ## Physical vs Logical Structure

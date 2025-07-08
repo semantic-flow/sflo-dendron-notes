@@ -11,8 +11,8 @@ User resource, i.e., those that might be usually created or altered "outside the
 - [[sflo.concept.mesh.resource.node]]
 - [[sflo.concept.mesh.resource.element.node-component.reference]]
 - [[sflo.concept.mesh.resource.element.asset-tree]]
-- [[sflo.concept.mesh.resource.element.readme]]
-- [[sflo.concept.mesh.resource.element.changelog]]
+- [[sflo.concept.mesh.resource.element.documentation-resource.readme]]
+- [[sflo.concept.mesh.resource.element.documentation-resource.changelog]]
 
 ## Restrictions
 

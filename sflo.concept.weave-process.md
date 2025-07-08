@@ -15,7 +15,7 @@ created: 1751128698638
   - regardless of whether versioning is on:
     - copies _next to _current
     - flags the unified dataset for regeneration 
-- regenerates affected [[sflo.concept.mesh.resource.element.resource-page]]
+- regenerates affected [[sflo.concept.mesh.resource.element.documentation-resource.resource-page]]
 
 ```file
 /repo-root/

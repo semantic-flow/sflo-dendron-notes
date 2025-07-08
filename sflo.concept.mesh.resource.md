@@ -2,7 +2,7 @@
 id: xmdevh3s6gvp93m3nyc6683
 title: mesh resource
 desc: ''
-updated: 1751815440882
+updated: 1751957096826
 created: 1750709094321
 ---
 
@@ -34,17 +34,17 @@ The structure of a semantic mesh is built on a fundamental distinction between *
 
 **Folder-based elements:**
 
-All folder-based elements should contain a [[sflo.concept.mesh.resource.element.resource-page]]
+All folder-based elements should contain a [[sflo.concept.mesh.resource.element.documentation-resource.resource-page]]
 
 - **[[Meta datasets|sflo.concept.mesh.resource.element.node-component.metadata]]**: Administrative metadata (in `_meta/` folders)
 - **[[Reference datasets|sflo.concept.mesh.resource.element.node-component.reference]]**: Referent data (in `_ref/` folders)
 - **[[Asset trees|sflo.concept.mesh.resource.element.asset-tree]]**: File collections (in `_assets/` folders)
 - **[[Version datasets|sflo.concept.mesh.resource.element.node-component.layer.version]]**: Versioned snapshots
-- **[[Next datasets|sflo.concept.mesh.resource.element.next-dataset]]**: Draft workspaces
+- **[[Next layers|sflo.concept.mesh.resource.element.node-component.layer.next]]**: Draft workspaces
 
 **File-based elements:**
 - **Documentation files**: 
-  - [[Resource pages|sflo.concept.mesh.resource.element.resource-page]] are index.html files that provide de-referencability for their containing [[sflo.concept.identifier]] [[sflo.concept.mesh.resource.folder]]
+  - [[Resource pages|sflo.concept.mesh.resource.element.documentation-resource.resource-page]] are index.html files that provide de-referencability for their containing [[sflo.concept.identifier]] [[sflo.concept.mesh.resource.folder]]
   - **README.md and CHANGELOG.md**: unstructured documentation
 - **[[Distribution files|sflo.concept.mesh.resource-facet.distribution]]**: Data files in RDF formats
 

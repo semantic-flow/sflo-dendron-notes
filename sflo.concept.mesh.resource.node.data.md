@@ -2,7 +2,7 @@
 id: 8hmkiyjtsey7z8y5oi5xdxx
 title: data node
 desc: ''
-updated: 1751775986587
+updated: 1751957812472
 created: 1750999795528
 ---
 
@@ -25,9 +25,7 @@ This idea or concept is the referent of the data node's URL.
 
 The data node provides:
 - **Stable identity**: The concept persists even as concrete data changes
-- **[[sflo.concept.mesh.node-facet.reference]]
-- **Metadata container**: 
-- **Organizational structure**: A place to organize temporal dataset elements
+- **Organizational structure**
 
 ### Concrete Data Instance (Dataset Elements)
 [[Temporal dataset elements|sflo.concept.mesh.resource.element.temporal-dataset]] contain the actual data:
@@ -52,7 +50,7 @@ Every data node must contain:
 
 - **[[sflo.concept.mesh.resource.element.node-component.reference]]** (`_ref/`): reference data
 - **[[Asset trees|sflo.concept.mesh.resource.element.asset-tree]]** (`_assets/`): Attached file collections
-- [[sflo.concept.mesh.resource.element.changelog]] and [[sflo.concept.mesh.resource.element.readme]]
+- [[sflo.concept.mesh.resource.element.documentation-resource.changelog]] and [[sflo.concept.mesh.resource.element.documentation-resource.readme]]
 - [[sflo.concept.mesh.resource.element.weave-config]]
 - [[sflo.concept.mesh.resource.element.unified-dataset]] 
 

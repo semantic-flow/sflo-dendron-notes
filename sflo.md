@@ -2,7 +2,7 @@
 id: ggw3ek46ptgebsgxgihr1dh
 title: Semantic Flow framework
 desc: 'ontology, tooling, and workflow for publishing semantic data'
-updated: 1751954108986
+updated: 1751957698024
 created: 1716959415785
 ---
 
@@ -111,7 +111,7 @@ ignored in the weaving process,
 
 ### Meta Dataset Content & Purpose
 
-- **cataloging**: Directory of contained nodes and elements, including distributions, based on DCAT
+- **cataloging**: Directory of contained elements, including distributions, based on DCAT
 - **discovery**: Discovery metadata - what dataset series reference this
   thing, basic identification
 - **provenance**: based on PROV
