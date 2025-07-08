@@ -12,7 +12,7 @@ Why are there [[mesh elements|sflo.concept.mesh.resource.element]] like `_meta/`
 
 ## Answer
 
-Elements at the repository root exist because **the repository root itself is a [[mesh node|sflo.concept.mesh.resource.node]]** - specifically, it's the [[root node|sflo.concept.mesh.node-facet.root]] of the mesh.
+Elements at the repository root exist because **the repository root itself is a [[mesh node|sflo.concept.mesh.resource.node]]** - specifically, it's the [[root node|sflo.concept.root-node]] of the mesh.
 
 ### Repository Root = Mesh Root Node
 

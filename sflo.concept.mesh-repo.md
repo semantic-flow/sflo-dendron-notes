@@ -6,7 +6,7 @@ updated: 1751758610214
 created: 1729878955236
 ---
 
-A Semantic Flow mesh repository (or mesh repo for short) is a git repository that contains a [[sflo.concept.mesh.node-facet.root]], and any number of additional, contained [[sflo.concept.mesh.resource.node]]
+A Semantic Flow mesh repository (or mesh repo for short) is a git repository that contains a [[sflo.concept.root-node]], and any number of additional, contained [[sflo.concept.mesh.resource.node]]
 
 
 ## Github Repos

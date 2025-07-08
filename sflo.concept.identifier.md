@@ -8,7 +8,7 @@ created: 1750654763700
 
 Mesh identifiers are like URLs (or URIs), but without the scheme (i.e., https:// or file://).
 
-if the identifier starts with a slash, its path is relative to the [[sflo.concept.mesh.node-facet.root]].
+if the identifier starts with a slash, its path is relative to the [[sflo.concept.root-node]].
 
 if it starts with a `../` it refers to the parent, `../../` refers to the grandparent, etc.
 

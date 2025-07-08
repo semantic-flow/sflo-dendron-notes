@@ -2,12 +2,12 @@
 id: s5ild34tbe4w2wt4m8ldllg
 title: Example Mesh Hierarchy
 desc: ''
-updated: 1751884613225
+updated: 1751897790005
 created: 1750640592487
 ---
 
 ```file
-/ns/                                             # namespace node
+/test-ns/                                        # namespace node
 ├── _meta/                                       # abstract dataset (metadata)
 │   ├── _current/                                # concrete dataset
 │   │   ├── ns_meta.trig                         # system metadata about the namespace node
@@ -30,7 +30,7 @@ created: 1750640592487
 │   └── index.html                               # resource page
 └── index.html                                   # resource page
 
-/ns/djradon/                                     # reference node  
+/test-ns/djradon/                                # reference node  
 ├── _handle/                                     # handle element
 │   └── index.html                               # mesh node handle page
 ├── _ref/                                        # abstract dataset (reference data)
@@ -63,7 +63,7 @@ created: 1750640592487
 ├── index.html                                   # resource page
 └── README.md                                    # resource documentation
 
-/ns/djradon-bio/                                 # data node (unversioned dataset)
+/test-ns/djradon-bio/                            # data node (unversioned dataset)
 ├── _data/                                       # abstract dataset (data)
 │   ├── _current/                                # concrete dataset
 │   │   ├── djradon-bio.ttl                      # biographical data distribution
@@ -94,7 +94,7 @@ created: 1750640592487
 ├── index.html                                   # resource page
 └── README.md                                    # resource documentation
 
-/ns/djradon-picks/                               # data node (versioned dataset)
+/test-ns/djradon/picks/                          # data node (versioned dataset)
 ├── _data/                                       # abstract dataset (data)
 │   ├── _current/                                # concrete dataset
 │   │   ├── djradon-picks.ttl                    # current picks data
@@ -131,7 +131,7 @@ created: 1750640592487
 ├── index.html                                   # resource page
 └── CHANGELOG.md                                 # resource documentation
 
-/ns/playlists/                                   # namespace node (container for playlist series)
+/test-ns/djraon/playlists/                              # namespace node (container for playlist series)
 ├── _meta/                                       # abstract dataset (metadata)
 │   ├── _current/                                # concrete dataset
 │   │   ├── playlists_meta.trig                  # metadata about playlist namespace

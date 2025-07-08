@@ -9,7 +9,7 @@ created: 1750486049862
 
 The "[[namespace base|sflo.concept.namespace.base]]" is first part of the URL under which all of a [[sflo.concept.semantic-site]]'s identifiers live. It is determined by the publishing platform.
 
-Only sites have [[sflo.concept.namespace.base]]. Meshes (and sites) have [[sflo.concept.mesh.node-facet.root]], which corresponds to the top level of othe mesh.
+Only sites have [[sflo.concept.namespace.base]]. Meshes (and sites) have [[sflo.concept.root-node]], which corresponds to the top level of othe mesh.
 
 ## Platform Options
 

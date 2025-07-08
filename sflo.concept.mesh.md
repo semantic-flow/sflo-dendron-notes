@@ -78,7 +78,7 @@ Terminal [[mesh resources|sflo.concept.mesh.resource]] that cannot contain other
 - Each resource has a unique [[identifier|sflo.concept.identifier]] based on its path and local name
 
 ### Containment Rules
-- **Mesh nodes** are always containers of elements (i.e., at least [[sflo.concept.mesh.resource.element.meta-dataset]] and [[sflo.concept.mesh.resource.folder._handle]]) and potentially containers of other nodes 
+- **Mesh nodes** are always containers of elements (i.e., at least [[sflo.concept.mesh.resource.element.meta-dataset]] and [[sflo.concept.mesh.resource.folder._node-handle]]) and potentially containers of other nodes 
   - **namespace nodes**: no additional containment requirements
   - **reference nodes**: must have [[sflo.concept.mesh.resource.element.reference-dataset]]
   - **data nodes**: must have [[sflo.concept.mesh.resource.element.data-dataset]] with at least one distributions; and optionally, [[sflo.concept.mesh.resource.node.reference]]

@@ -16,7 +16,7 @@ When a mesh gets published, the folders also correspond to [[sflo.concept.url]].
 
 #### Handle Folders
 
-- [[sflo.concept.mesh.resource.folder._handle]] correspond to the [[sflo.concept.mesh.resource.element.node-handle]]
+- [[sflo.concept.mesh.resource.folder._node-handle]] correspond to the [[sflo.concept.mesh.resource.element.node-handle]]
 
 #### Abstract Dataset Folders
 
