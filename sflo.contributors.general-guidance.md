@@ -2,7 +2,7 @@
 id: xebek3dtv2zgs9ah0vbv57g
 title: Semantic Flow General Guidance
 desc: ''
-updated: 1751565550576
+updated: 1752061607151
 created: 1751259888479
 ---
 
@@ -12,10 +12,11 @@ created: 1751259888479
 
 The workspace contains multiple interconnected components:
 
-- **sf-api/**: API component for creating, augmenting and maintaining [[sflo.concept.mesh-repo]] (currently empty structure)
-- **sf-cli/**: Command-line application that consumes the sf-api
-- **sf-service/**: Service component (currently empty structure)  
-- **sflo-ontology/**: Ontology definitions (currently empty)
+- **flow-api/**: API component for creating, augmenting and maintaining [[sflo.concept.mesh-repo]] (currently empty structure)
+- **flow-cli/**: Command-line application that consumes the flow-api
+- **flow-service/**: Service component (currently empty structure)
+- **flow-ontology/**: Ontology definitions (currently empty)
+- **flow-web/**: Web frontend for the flow-service
 - **sflo-dendron-notes/**: Complete documentation and specification in Dendron format
 - **test-ns/**: Test mesh repo
 
@@ -33,6 +34,7 @@ A dereferenceable, versioned collection of semantic data and other resources, wh
     - **Namespace Nodes**: basically empty folders for URL-based hierarchical organization
     - **Reference Nodes**: Refer to "things that exist" like people, or songs, or ideas
   - **Elements**: things that help define and systematize the nodes
+    - **Components**: datasets for node metadata, reference data, and payload data
   - **Handles**: things that let you refer to a node as a node instead of its referent
   - **Asset Trees**: elements that allow you to attach arbitrary collections of files and folders to a mesh; in a sense, these things are "outside" the mesh, and other than the top-level "_meta" folder, they don't contain any other mesh resources
 
@@ -52,18 +54,21 @@ A dereferenceable, versioned collection of semantic data and other resources, wh
 
 - meshes support multiple RDF formats (.trig, .jsonld, etc.)
 - be mindful of RDF terminology and concepts
-- Uses DCAT for dataset catalogs
+  - Uses DCAT for dataset catalogs
+  - Uses PROV for provenance
 - When referring to IRIs or URIs that are part of a semantic mesh, prefer the term URLs instead of IRI or URI
   - if you see a reference to IRI or URI, it might need updating, or it might mean a distinction should be drawn
+- RDF comments should be extremely brief and clear.
 
 ## Documentation
 
 - All specifications and design docs are in `sflo-dendron-notes/`
-- Check conversation logs in `sflo.conv.*` for context on design decisions if necessary, but beware of superseded info 
+- Check conversation logs in `sflo.conv.*` for context on design decisions if necessary, but beware of superceded and dangerously-outdated info 
 
 ### Documentation First
 
 - unclear or anemic documentation should be called out
+- documentation should be wiki-style: focused on the topic at hand, don't repeat yourself, keep things simple and clear
 - when assisting with writing documentation, it should be kept concise and specific to the topic at hand
 - whenever documentation is updated, any corresponding LLM conversation context should be updated too   
 - to encourage documentation-driven software engineering, code comments should refer to corresponding documentation by filename, and the documentation and code should be cross-checked for consistency whenever possible 
@@ -85,7 +90,7 @@ Project documentation, specifications, journaling, and design choices are stored
 
 ### Component Development with Docs
 
-- Each component (sf-api, sf-cli, sf-service) should follow the architecture defined in the documentation
+- Each component (flow-api, flow-cli, flow-service, flow-web) should follow the architecture defined in the documentation
 - Refer to `sflo.products.*` files for component-specifc descriptions, requirements, etc
 
 ## Project Architecture
@@ -124,7 +129,7 @@ TBD
 
 ### Component Architecture
 
-- **Separation**: Maintain clear boundaries between sf-api, sf-cli, and sf-service
+- **Separation**: Maintain clear boundaries between flow-api, flow-cli, flow-service, and flow-web
 - **Error Handling**: Use consistent error patterns across all components
 - **Async Patterns**: Use async/await for RDF operations and file I/O
 - **Type Safety**: Leverage TypeScript's type system for mesh resource validation
@@ -133,7 +138,7 @@ TBD
 
 - **TypeScript Modules**: Use `.ts` extension, organize by feature/component
 - **Test Files**: Co-locate test files with source using `.test.ts` suffix
-- **Mesh Resources**: Follow mesh resource naming conventions from documentation
+- **Mesh Resources**: Follow mesh resource naming conventions from @/flow-ontology/alpha/_node-data/_next/flow-ontology-alpha.trig 
 - **Constants**: Use UPPER_SNAKE_CASE for constants, especially for reserved names
 
 ### Code Style
