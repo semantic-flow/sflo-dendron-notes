@@ -2,7 +2,7 @@
 id: p3mbdrze0qe8uvko4i16t1s
 title: folder resource facet
 desc: ''
-updated: 1751994179220
+updated: 1752026071386
 created: 1750659145476
 ---
 
@@ -23,16 +23,16 @@ All folder-based resources should contain a [[sflo.concept.mesh.resource.element
 
 #### Abstract Dataset Folders
 
-- **`_meta/`**
+- **`_meta-component/`**
   - correspond to [[sflo.concept.mesh.resource.element.node-component.metadata]]
   - present in mesh nodes and [[sflo.concept.mesh.resource.element.asset-tree]]
 
-- **`_ref/`**
+- **`_ref-component/`**
 
   - correspond to the [[sflo.concept.mesh.resource.node.reference]]
   - Contains the **referent data** for [[reference-node|sflo.concept.mesh.resource.node.reference]] and optionally [[sflo.concept.mesh.resource.node.data]] (i.e., triples that say things about the thing the node represents).
 
-- **`_data/`**
+- **`_data-component/`**
 
   - correspond to the [[sflo.concept.mesh.resource.element.node-component.data]]
   - contain the dataset associated with the [[sflo.concept.mesh.resource.node.data]]

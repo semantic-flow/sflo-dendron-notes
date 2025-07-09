@@ -2,7 +2,7 @@
 id: faq000
 title: Semantic Flow FAQ
 desc: ''
-updated: 1751435559705
+updated: 1752026524927
 created: 1751351477000
 ---
 
@@ -12,11 +12,11 @@ This section addresses common questions about Semantic Flow design principles an
 
 ## Design Principles
 
-### [[Why don't namespace nodes and data nodes have reference datasets?|sflo.faq.why-dont-namespace-nodes-and-dataset-nodes-have-reference-datasets]]
-Explains the fundamental difference between reference nodes (which refer to external entities) and other node types (which refer to themselves).
+### [[Why don't namespace nodes have reference components?|sflo.faq.why-dont-namespace-nodes-have-reference-components]]
+Why should a namespace have to refer to something?
 
 ### [[Why are there elements at the top of a repo?|sflo.faq.why-are-there-elements-at-the-top-of-a-repo]]
-The repository root is itself a mesh node, explaining why elements like `_meta/` and `_handle/` appear at the top level. `_assets` might be there too; in fact it's a good place for mesh-wide assets.
+The repository root can be a mesh node, in which case `_meta-component/` and `_handle/` elements appear at the top level. 
 
 ## Architecture Questions
 

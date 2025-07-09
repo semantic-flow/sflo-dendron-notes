@@ -2,7 +2,7 @@
 id: osqi7xn4mw3j9v0kvsoc5uo
 title: Why Dont Data Nodes Contain Distributions Directly
 desc: ''
-updated: 1752025335650
+updated: 1752025928404
 created: 1751387201637
 ---
 
@@ -41,12 +41,16 @@ This mirrors how [[reference nodes|sflo.concept.mesh.resource.node.reference]] w
 
 ### Metadata Separation
 
-The data node's [[metadata component|sflo.concept.mesh.resource.element.node-component.metadata]] contains system metadata about the data concept itself, while each temporal dataset element contains metadata about that specific data instance.
+The data node's [[metadata component|sflo.concept.mesh.resource.element.node-component.metadata]] contains system metadata about the data concept and its components, while each [[sflo.concept.mesh.resource.element.node-component.data]] can also contain (concept-specific) metadata.
+
+TODO: example
+
 
 ## Analogy
 
 Think of it like a library:
 - **Data node** = "The concept of the Encyclopedia Britannica"
-- **Dataset elements** = Specific editions (1990 edition, 2020 edition, current edition)
+- **Data component** = The Encyclopedia Britannica as an ongoing series of editions
+- **[[sflo.concept.mesh.resource.element.node-component.layer]]** = Specific editions (1990 edition, 2020 edition, current edition)
 
-You can refer to "Encyclopedia Britannica" as a concept without specifying which edition, or you can reference a specific edition when you need concrete data.
+You can refer to "Encyclopedia Britannica" as a general concept or as a series without specifying which edition, or you can reference a specific edition when you need concrete data.
