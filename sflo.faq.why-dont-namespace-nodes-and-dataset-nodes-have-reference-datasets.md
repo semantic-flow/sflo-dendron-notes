@@ -1,14 +1,14 @@
 ---
 id: faq001
-title: Why don't namespace nodes and data nodes have reference datasets?
+title: Why don't namespace nodes and data nodes have reference components?
 desc: ''
-updated: 1751748113453
+updated: 1751994453796
 created: 1751351297000
 ---
 
 ## Question
 
-Why don't [[namespace nodes|sflo.concept.mesh.resource.node.namespace]]  have [[reference datasets|sflo.concept.mesh.resource.element.node-component.reference]] like [[reference nodes|sflo.concept.mesh.resource.node.reference]] and [[sflo.concept.mesh.resource.node.data]]do?
+Why don't [[namespace nodes|sflo.concept.mesh.resource.node.namespace]] have [[reference components|sflo.concept.mesh.resource.element.node-component.reference]] like [[reference nodes|sflo.concept.mesh.resource.node.reference]] do?
 
 ## Answer
 

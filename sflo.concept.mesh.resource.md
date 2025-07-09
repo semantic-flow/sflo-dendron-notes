@@ -2,7 +2,7 @@
 id: xmdevh3s6gvp93m3nyc6683
 title: mesh resource
 desc: ''
-updated: 1751994035001
+updated: 1752025355023
 created: 1750709094321
 ---
 
@@ -10,26 +10,23 @@ created: 1750709094321
 
 A **mesh resource** is any addressable component within a [[semantic mesh|sflo.concept.mesh]]. Every mesh resource has a unique [[identifier|sflo.concept.identifier]] based on its path and locally unique name, making it dereferenceable via URL.
 
-In RDF terms, a resource is any node in an RDF graph that can be represented with an IRI (the other kinds of RDF graph nodes are literals and blank nodes).
+In RDF terms, a resource is any node in an RDF graph that can be represented with an IRI (the other kinds of RDF graph nodes are literals and blank nodes). So theoretically, files and folders in [[sflo.concept.mesh.resource.element.asset-tree]] could be considered RDF resources. But they are not considered **mesh** resources
 
 ## Types of Mesh Resources
 
 The structure of a semantic mesh is built on a fundamental distinction between **extensible** and **terminal** resources:
 
 - **[[Mesh nodes|sflo.concept.mesh.resource.node]]** are extensible namespace containers:
-
-
-
 - **[[Mesh elements|sflo.concept.mesh.resource.element]]** are terminal mesh resources:
-- Can be physically represented as folders or files
-  - Folder [[sflo.concept.identifier]] are part of the namespace but cannot be extended beyond their own internal structure
-- All files and folders within an element folder are considerd to be part of the parent node
+  - Can be physically represented as folders or files
+    - Folder [[sflo.concept.identifier]] are part of the namespace but cannot be extended beyond their own internal structure
+  - All files and folders within an element folder are considerd to be part of the parent node
 
 **Folder-based elements:**
 
 
-- **[[Metadata components|sflo.concept.mesh.resource.element.node-component.metadata]]**: Administrative metadata (in `_node-meta/` folders)
-- **[[Reference components|sflo.concept.mesh.resource.element.node-component.reference]]**: Referent data (in `_node-ref/` folders)
+- **[[Metadata components|sflo.concept.mesh.resource.element.node-component.metadata]]**: Administrative metadata (in `_meta-component/` folders)
+- **[[Reference components|sflo.concept.mesh.resource.element.node-component.reference]]**: Referent data (in `_ref-component/` folders)
 - **[[Asset trees|sflo.concept.mesh.resource.element.asset-tree]]**: File collections (in `_assets/` folders)
 - **[[Version datasets|sflo.concept.mesh.resource.element.node-component.layer.version]]**: Versioned snapshots
 - **[[Next layers|sflo.concept.mesh.resource.element.node-component.layer.next]]**: Draft workspaces

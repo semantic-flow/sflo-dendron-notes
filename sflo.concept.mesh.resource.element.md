@@ -2,7 +2,7 @@
 id: 9c27yly4ed3ju7msf8luhge
 title: mesh element
 desc: ''
-updated: 1751988564158
+updated: 1752025355014
 created: 1750706813437
 ---
 
@@ -37,7 +37,7 @@ User elements are primarily created and maintained by users or their software ag
 System elements are usually created or altered by the [[Weave Process|sflo.concept.weave-process]] process rather than direct user modification:
 
 **Folder-based system elements:**
-- **[[Metadata components|sflo.concept.mesh.resource.element.node-component.metadata]]**: Administrative and structural metadata for mesh nodes (in `_node-meta/` folders)
+- **[[Metadata components|sflo.concept.mesh.resource.element.node-component.metadata]]**: Administrative and structural metadata for mesh nodes (in `_meta-component/` folders)
 - **[[Version layer|sflo.concept.mesh.resource.element.node-component.layer.version]]**: Versioned snapshots of datasets (in `_vN/` folders)
 - **[[Node handles|sflo.concept.mesh.resource.element.node-handle]]**: Elements providing referential indirection for nodes as mesh resources (in `_node-handle/` folders)
 - [[sflo.concept.mesh.resource.element.unified-dataset]]
@@ -49,7 +49,7 @@ System elements are usually created or altered by the [[Weave Process|sflo.conce
 ## Physical vs Logical Structure
 
 **Physical Representation:**
-- Folder-based elements are represented as folders with underscore prefixes (like `_node-meta/`, `_node-ref/`, `_assets/`)
+- Folder-based elements are represented as folders with underscore prefixes (like `_meta-component/`, `_ref-component/`, `_assets/`)
 - File-based elements are individual files within mesh nodes or other elements
 - Element folders contain all files and folders that belong to that element
 

@@ -2,7 +2,7 @@
 id: 8hmkiyjtsey7z8y5oi5xdxm
 title: MeshNode
 desc: ''
-updated: 1751984996314
+updated: 1752025355003
 created: 1750999795528
 ---
 
@@ -24,31 +24,31 @@ When stored on disk, all mesh nodes:
 
 Every mesh node has these elements:
 
-- **[[sflo.concept.mesh.resource.element.node-component.metadata]]** (`_node-meta/`): Centralized metadata for the node
+- **[[sflo.concept.mesh.resource.element.node-component.metadata]]** (`_meta-component/`): Centralized metadata for the node
 - **[[sflo.concept.mesh.resource.element.node-handle]]** (`_node-handle/`): Universal marker folder that refers to the parent "as a mesh node", as opposed to "as the name, dataset, or other thing" to which it normally refers; a handle resource page should explain this distinction
 
 ## Node Types
 
 ### 1. [[Namespace Node|sflo.concept.mesh.resource.node.namespace]]
-**Elements**: `_node-meta/` + `_node-handle/`
+**Elements**: `_meta-component/` + `_node-handle/`
 - Functions as organizational containers
 - Contains essential identity, metadata, and handle information
 - Node IRI refers to the namespace itself
 - Base level for all mesh nodes
 
 ### 2. [[Reference Node|sflo.concept.mesh.resource.node.reference]]
-**Elements**: `_node-meta/` + `_node-handle/` + `_node-ref/`
+**Elements**: `_meta-component/` + `_node-handle/` + `_ref-component/`
 - Represents external entities (people, concepts, relationships)
 - Node IRI refers to the external entity being referenced
 - Adds reference data capabilities to the namespace foundation
-- Evolved from namespace nodes by adding the `_node-ref/` element
+- Evolved from namespace nodes by adding the `_ref-component/` element
 - Maintains single referent principle - the node refers to the external entity
 
 ### 3. [[Data Node|sflo.concept.mesh.resource.node.data]]
-**Elements**: `_node-meta/` + `_node-handle/` + `_node-data/` ( + optional `_node-ref`)
+**Elements**: `_meta-component/` + `_node-handle/` + `_data-component/` ( + optional `_ref-component`)
 - Contains data distributions and versioning capabilities
 - Node IRI refers to the node component
 - Adds dataset storage to the namespace foundation
 - Can be configured as [[dataset series|sflo.concept.mesh.resource.node.data.series]]
-- Evolved from namespace nodes by adding the `_node-data/` element
+- Evolved from namespace nodes by adding the `_data-component/` element
 - Maintains single referent principle - the node refers to the dataset

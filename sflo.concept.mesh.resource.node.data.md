@@ -2,7 +2,7 @@
 id: 8hmkiyjtsey7z8y5oi5xdxx
 title: data node
 desc: ''
-updated: 1751984996320
+updated: 1752025355027
 created: 1750999795528
 ---
 
@@ -29,8 +29,8 @@ The data node provides:
 
 ### Concrete Data Instance (Dataset Elements)
 [[Temporal dataset elements|sflo.concept.mesh.resource.element.temporal-dataset]] contain the actual data:
-- `/ns/monsters/_data/_v4/` = "the current monster data dataset"
-- `/ns/census/_ref/_current` = "the current reference dataset which describes the referent", i.e., the particular census  
+- `/ns/monsters/_data/_v4/` = "the current monster data component"
+- `/ns/census/_ref/_current` = "the current reference component which describes the referent", i.e., the particular census
 - `/ns/weather-stations/_v3/` = "version 3 of weather station data"
 
 These elements contain:
@@ -41,14 +41,14 @@ These elements contain:
 
 Every data node must contain:
 
-- **[[sflo.concept.mesh.resource.element.node-component.metadata]]** (`_node-meta/`): Administrative metadata about the data concept
-- **[[sflo.concept.mesh.resource.element.node-component.data]]** (`_node-data/`): dataset data
+- **[[sflo.concept.mesh.resource.element.node-component.metadata]]** (`_meta-component/`): Administrative metadata about the data concept
+- **[[sflo.concept.mesh.resource.element.node-component.data]]** (`_data-component/`): dataset data
 - **[[Node handle|sflo.concept.mesh.resource.element.node-handle]]** (`_node-handle/`): Referential indirection for the node
 
 
 ## Optional Structure
 
-- **[[sflo.concept.mesh.resource.element.node-component.reference]]** (`_node-ref/`): reference data
+- **[[sflo.concept.mesh.resource.element.node-component.reference]]** (`_ref-component/`): reference data
 - **[[Asset trees|sflo.concept.mesh.resource.element.asset-tree]]** (`_assets/`): Attached file collections
 - [[sflo.concept.mesh.resource.element.documentation-resource.changelog]] and [[sflo.concept.mesh.resource.element.documentation-resource.readme]]
 - [[sflo.concept.mesh.resource.element.weave-config]]
@@ -67,7 +67,7 @@ Every data node must contain:
 ### Overlap with Reference Nodes
 
 Data nodes function like [[reference nodes|sflo.concept.mesh.resource.node.reference]], just with assoicated data
-- **Reference nodes**: Contain required `_node-ref/` element for external entity data
+- **Reference nodes**: Contain required `_ref-component/` element for external entity data
 
 ### Extensible Container
 Like all mesh nodes, data nodes can contain other mesh nodes and elements, making them extensible namespace containers.
@@ -77,7 +77,7 @@ Like all mesh nodes, data nodes can contain other mesh nodes and elements, makin
 ### Unversioned Data Node
 ```
 ns/monsters/
-├── _node-meta/           # metadata about "monsters as a data concept"
+├── _meta-component/           # metadata about "monsters as a data concept"
 ├── _node-handle/           # handle for the data node
 └── _current/          # current monster data
     ├── monsters.jsonld

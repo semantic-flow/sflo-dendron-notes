@@ -1,8 +1,8 @@
 ---
 id: q8slazhp0ua68v3hsggkp4o
-title: _node-meta folder
+title: _meta-component folder
 desc: ''
-updated: 1751942744490
+updated: 1752025252032
 created: 1751206968994
 ---
 

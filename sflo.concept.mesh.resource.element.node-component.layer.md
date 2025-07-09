@@ -2,7 +2,7 @@
 id: 8t3swuswoi81yuzo2bnecy9
 title: component layer
 desc: ''
-updated: 1751984696163
+updated: 1752025354996
 created: 1751689346769
 ---
 
@@ -27,17 +27,17 @@ Versioned components
 
 ```file
 /my-ontology/               ← Data Node: Conceptual, data-oriented "thing"
-├── _node-meta/                   ← Reference node component (reference data about ontology)
+├── _meta-component/                   ← Reference node component (reference data about ontology)
 │   ├── _current/           ← component layer (current reference data)
 │   ├── _next/              ← component layer (working draft)
 │   ├── _v1/                ← component layer (version 1 reference data)
 │   └── _v2/                ← component layer (version 2 reference data)
-├── _node-ref/                   ← Reference node component (reference data about ontology)
+├── _ref-component/                   ← Reference node component (reference data about ontology)
 │   ├── _current/           ← component layer (current reference data)
 │   ├── _next/              ← component layer (working draft)
 │   ├── _v1/                ← component layer (version 1 reference data)
 │   └── _v2/                ← component layer (version 2 reference data)
-└── _node-data/                  ← Data node component (ontology definition--by-dataset)
+└── _data-component/                  ← Data node component (ontology definition--by-dataset)
     ├── _current/           ← component layer (current definition)
     ├── _next/              ← component layer (working draft)
     └── _v1/                ← component layer (version 1 definition)

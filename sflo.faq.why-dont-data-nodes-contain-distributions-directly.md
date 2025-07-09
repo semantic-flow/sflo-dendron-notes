@@ -2,7 +2,7 @@
 id: osqi7xn4mw3j9v0kvsoc5uo
 title: Why Dont Data Nodes Contain Distributions Directly
 desc: ''
-updated: 1751435070654
+updated: 1752025335650
 created: 1751387201637
 ---
 
@@ -17,13 +17,14 @@ Data nodes represent **abstract data concepts**, not concrete data instances. Th
 ### Clear Semantic Distinction
 
 - **Data node** (`/ns/monsters/`): "The concept of monster data"
-- **Dataset element** (`/ns/monsters/_current/`): "The current monster data files"
+- **Data compound** (`/ns/monsters/_data-component/`): "The abstract dataset associated with the monster data concept" 
+- **Data compound layers**: the current, next and historical versions of the dataset
 
-This allows you to reference the stable concept separately from any specific data instance.
+This allows you to reference the concept separately from the associated abstract or concrete dataset.
 
 ### Stable Identity
 
-The data node provides a permanent, stable identifier for the data concept that persists even as the concrete data changes over time. You can always refer to "monster data as a concept" using `/ns/monsters/` regardless of how many versions exist.
+The data node and data compound provide permanent, stable identifier for the concept and its data payload that persist even as the concrete data changes over time. You can always refer to "monster data as a concept" using `/ns/monsters/` regardless of how many versions exist.
 
 ### Temporal Organization
 
@@ -40,7 +41,7 @@ This mirrors how [[reference nodes|sflo.concept.mesh.resource.node.reference]] w
 
 ### Metadata Separation
 
-The data node's [[meta dataset|sflo.concept.mesh.resource.element.node-component.metadata]] contains metadata about the data concept itself, while each temporal dataset element contains metadata about that specific data instance.
+The data node's [[metadata component|sflo.concept.mesh.resource.element.node-component.metadata]] contains system metadata about the data concept itself, while each temporal dataset element contains metadata about that specific data instance.
 
 ## Analogy
 

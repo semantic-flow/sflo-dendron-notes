@@ -8,7 +8,7 @@ created: 1730660543063
 
 A **metadata component** contains system-related administrative and structural metadata for every [[sflo.concept.mesh.resource.node]].
 
-Physically, it exists as a [[sflo.concept.mesh.resource.folder._node-meta]] in a [[sflo.concept.mesh.resource.folder.node]].
+Physically, it exists as a [[sflo.concept.mesh.resource.folder._meta-component]] in a [[sflo.concept.mesh.resource.folder.node]].
 
 Mesh-specific metadata about a node's [[sflo.concept.mesh.resource.element.node-component.layer.version]] mostly lives here too, eliminating the need to keep separate metadata in the element. 
 

@@ -2,11 +2,11 @@
 id: e6enrj5ztz3hz84ojujef0k
 title: Aggregated Distribution
 desc: ''
-updated: 1751769861493
+updated: 1751994489533
 created: 1751631229565
 ---
 
-A node's **aggregated distribution** is a compilation of all the data datasets of all its contained nodes, situated directly under the node for easy access with an intuitive filename of "nodename.ext".
+A node's **aggregated distribution** is a compilation of all the data components of all its contained nodes, situated directly under the node for easy access with an intuitive filename of "nodename.ext".
 
 ## Purpose
 

@@ -2,7 +2,7 @@
 id: rregmt56znauz71qgypet6a
 title: node component
 desc: ''
-updated: 1751989185888
+updated: 1752025335642
 created: 1751688486456
 ---
 
@@ -31,11 +31,11 @@ The node component is a [[related-topics.dcat.dataset-series]] and may have mult
 
 ```file
 /my-ontology/
-├── _node-ref/                    ← node component (reference data about ontology)
+├── _ref-component/                    ← node component (reference data about ontology)
 │   ├── _current/           ← component layer
 │   ├── _v1/                ← component layer  
 │   └── _v2/                ← component layer
-└── _node-data/                  ← node component (ontology definitions)
+└── _data-component/                  ← node component (ontology definitions)
     ├── _current/           ← component layer
     └── _v1/                ← component layer
 ```

@@ -2,7 +2,7 @@
 id: h6ssv16gdyf56gg235dxv85
 title: semantic mesh
 desc: ''
-updated: 1751993867375
+updated: 1752025355019
 created: 1750624002110
 ---
 
@@ -67,7 +67,7 @@ Terminal [[mesh resources|sflo.concept.mesh.resource]] that cannot contain other
 
 ### Reserved Names
 - All reserved folder names begin with an underscore (_)
-- Examples: `_assets/`, `_node-meta/`, `_node-ref/`, `_current`, `_next`
+- Examples: `_assets/`, `_meta-component/`, `_ref-component/`, `_current`, `_next`
 
 ## Logical Structure
 
