@@ -1,8 +1,8 @@
 ---
 id: ny1idkv8vh3ko7nzxxhbciw
-title: Sflo CLI
+title: flow CLI
 desc: ''
-updated: 1751671710890
+updated: 1752026760517
 created: 1730525984955
 ---
 
@@ -10,7 +10,7 @@ created: 1730525984955
 
 ## Stand-alone or Service-backed
 
-- the CLI can function alone, but when used in tandem with the [[sflo.product.sflo-service]], it becomes multi-user and multi-threaded
+- the CLI can function alone, but when used in tandem with the [[sflo.product.flow-service]], it becomes multi-user and multi-threaded
 
 ## Commands
 

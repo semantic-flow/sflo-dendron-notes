@@ -1,7 +1,7 @@
 ---
 id: dsdb7526oyks2q9lsuuk9rb
-title: sflo-ontology
+title: flow ontology
 desc: ''
-updated: 1751670881974
+updated: 1752026957406
 created: 1730669161369
 ---
