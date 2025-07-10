@@ -8,4 +8,4 @@ created: 1730373700120
 
 Only [[sflo.concept.mesh.resource.element.node-component]] may be versioned. But that effectively means everything important can be versioned. 
 
-Versioning is controlled in the [[sflo.concept.mesh.resource.element.weave-config]].
+Versioning is controlled in the [[sflo.concept.mesh.resource.element.flow-config]].
