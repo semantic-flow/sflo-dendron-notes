@@ -2,13 +2,15 @@
 id: l59hvxem2488war5j981yca
 title: SF Todo
 desc: ''
-updated: 1751886393536
+updated: 1752298270157
 created: 1731041743071
 ---
 
 ## Immediately
 
-- is user vs system really useful, at least at the folder level?
+- config vs meta
+  - config varies depending on hierarchy, so fundamentally different from meta
+  - so is config its own component? Or is it just fundamentally outside the mesh
 
 ## Eventually
 

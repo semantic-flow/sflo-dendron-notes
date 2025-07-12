@@ -2,7 +2,7 @@
 id: ecqjh8rar8dbfbz32xy6lkx
 title: Summary
 desc: ''
-updated: 1752244707004
+updated: 1752298148981
 created: 1752244677930
 ---
 
@@ -16,7 +16,7 @@ Building a **Flow CLI** in Deno using Cliffy to manage semantic meshes - version
 ### **1. Architecture Approach**
 - **Service-first architecture**: CLI becomes client of flow-service API
 - **Multi-mesh support**: Service can handle multiple meshes across filesystem
-- **REST API over tRPC**: Better alignment with hierarchical mesh structure and future web UI needs
+- **REST API**: Better alignment with hierarchical mesh structure and future web UI needs
 - **Deno-based implementation**: Both CLI and service in Deno for consistency
 
 ### **2. API Design**
@@ -53,37 +53,41 @@ Building a **Flow CLI** in Deno using Cliffy to manage semantic meshes - version
   "@hono/zod-openapi": "jsr:@hono/zod-openapi@^0.16.0",
   "quadstore": "npm:quadstore@^15.1.0",
   "memory-level": "npm:memory-level@^1.0.0", 
-  "rdf-data-factory": "npm:rdf-data-factory@^1.1.0",
-  "jsonld": "npm:jsonld@^8.3.0",
-  "@cliffy/command": "jsr:@cliffy/command@^1.0.0-rc.7"
+  "n3 data factory": ,
+  "jsonld-streaming-parser": ,
+  "@cliffy/command": "jsr:@cliffy/command@^1.0.0-rc.8"
 }
 ```
 
 ### **RDF/Storage Layer**
+- **filesystem as source of truth**: the mesh data may be in-memory, but storage is on disk in plain RDF distributions
 - **Quadstore with MemoryLevel backend**: Provides both in-memory RDF storage and native SPARQL support
-- **rdf-data-factory**: DataFactory implementation for RDF term creation (ecosystem standard)
-- **JSON-LD processing**: For `.flow-config.jsonld` files using npm:jsonld
-- **File:// URIs**: For representing local mesh structure in RDF store
+- **n3.js**: DataFactory implementation and serialization for non-jsonld formats
+- **JSON-LD processing**: "[JSON-LD Streaming parser](https://github.com/rubensworks/jsonld-streaming-parser.js)" and maybe https://github.com/rubensworks/jsonld-context-parser.js
 
 ### **API Layer**  
 - **Hono framework**: Fast, TypeScript-first web framework with excellent Deno support
-- **OpenAPI + Zod**: Type-safe API with auto-generated documentation
-- **SPARQL endpoint**: Custom implementation using Quadstore's native SPARQL support
+- **OpenAPI + Zod**: Type-safe API with auto-generated documentation 
+
+
+### Contained Servies
+- **Local webserver**: serves the mesh locally, either for preview before publishing or for local application use
+- **SPARQL endpoint**: Quadstore's native SPARQL support
 - **Comunica jQuery widget**: For web-based SPARQL query interface
+- **Swagger UI**: for testing and direct mesh manipulation
 
 ### **CLI Layer**
 - **Cliffy framework**: For command-line interface implementation
-- **Flow API client**: TypeScript client consuming the REST API
 - **Commands**: `flow init`, `flow weave`, `flow validate`, `flow status`
 
 ## Architecture Patterns
 
 ### **Weave Process Flow**
-1. **User component changes** trigger weave (edit data in `_next`)
-2. **System components regenerate** atomically (`_meta-component` + `_unified-dataset`)
-3. **HTMX fragments generate** for updated interfaces
-4. **Versioning occurs** if policies require it
-5. **Resource pages update** with current mesh state
+- Triggered via CLI, web app, or via API
+- **User component changes** (i.e., editing of data in `_next` layers) determines whether weave does anything
+- **Versioning occurs** if policies require it
+- **System components regenerate** atomically (`_meta-component` + `_unified-component`)
+- Resource pages and **HTMX fragments generate** for updated nodes
 
 ### **Configuration Resolution**
 1. **Local config** loaded from `.flow-config.jsonld`
@@ -95,16 +99,17 @@ Building a **Flow CLI** in Deno using Cliffy to manage semantic meshes - version
 - **Quadstore** provides SPARQL endpoint functionality
 - **Comunica widget** consumes `/sparql` endpoint for user interface
 - **Mesh structure** queryable via SPARQL for advanced operations
-- **File:// URIs** allow querying local filesystem locations
 
 ## Next Implementation Steps
 
-1. **Set up basic Hono service** with Quadstore + MemoryLevel
-2. **Implement mesh scanning** and RDF loading with file:// URIs
-3. **Create SPARQL endpoint** and test with Comunica widget
-4. **Build CLI commands** consuming the service API
-5. **Add weave process** with component versioning and fragment generation
-6. **Implement config inheritance** and JSON-LD processing
+- **Set up basic Hono service** with Quadstore + MemoryLevel
+- **Implement mesh scanning** 
+  - RDF loading
+  - config loading
+- **Create SPARQL endpoint** and test with Comunica widget
+- **Build CLI commands** consuming the service API
+- **Add weave process** with component versioning and fragment generation
+- **Implement config inheritance** and JSON-LD processing
 
 ## Key Technical Considerations
 
