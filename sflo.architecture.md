@@ -1,11 +1,10 @@
 ---
-id: ecqjh8rar8dbfbz32xy6lkx
-title: Summary
+id: 960nifinmgi8yulj3nndffl
+title: Architecture
 desc: ''
-updated: 1752347736699
-created: 1752244677930
+updated: 1752347925054
+created: 1752347754851
 ---
-
 # Flow CLI & Service Implementation Discussion Summary
 
 ## Project Context
@@ -60,7 +59,7 @@ Building a **Flow CLI** in Deno using Cliffy to manage semantic meshes - version
 ```
 
 ### **RDF/Storage Layer**
-- **filesystem as source of truth**: the mesh data may be in-memory, but storage is on disk in plain RDF distributions
+- **filesystem as source of truth**: the mesh data may be in-memory during service operation, but storage is on disk in plain RDF distributions
 - **Quadstore with MemoryLevel backend**: Provides both in-memory RDF storage and native SPARQL support
 - **n3.js**: DataFactory implementation and serialization for non-jsonld formats
 - **JSON-LD processing**: "[JSON-LD Streaming parser](https://github.com/rubensworks/jsonld-streaming-parser.js)" and maybe https://github.com/rubensworks/jsonld-context-parser.js
@@ -114,7 +113,7 @@ Building a **Flow CLI** in Deno using Cliffy to manage semantic meshes - version
 ## Key Technical Considerations
 
 - **Deno compatibility**: Most RDF libraries work via npm: imports, but some complex dependencies may require workarounds
-- **Performance**: In-memory storage suitable for development, consider persistence strategies for production
+- **Performance**: In-memory storage suitable for development
 - **Standards compliance**: Following RDF/JS interfaces ensures ecosystem compatibility
 - **Semantic consistency**: All mesh operations maintain semantic web principles with proper IRIs and ontology alignment
 
