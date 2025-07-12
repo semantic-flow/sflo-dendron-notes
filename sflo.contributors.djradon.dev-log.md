@@ -2,7 +2,7 @@
 id: fd1whkyvoagggk6ubysjl50
 title: Semantic Flow Log
 desc: ''
-updated: 1751886542404
+updated: 1752324337371
 created: 1727801720160
 ---
 
@@ -66,3 +66,12 @@ It's hard to imagine the design shifting significantly, but that's been true for
 ## t.2025.07.07.05
 
 Ready.
+
+## t.2025.07.12.06
+
+- node config is a component, so it can travel around ([[sflo.concept.transposability]] and [[sflo.concept.composability]])
+- the [[sflo.concept.mesh.resource.element.node-config-defaults]] is actually a "defaults" file that only gets used when nodes don't have a config yet (or their config is reset)
+  - when importing, grafting, you have the option to reset (parts of) config.
+  - the tree walk for config-defaults only needs to happen when:
+    - a node's config is empty
+    - config schema version gets bumped?

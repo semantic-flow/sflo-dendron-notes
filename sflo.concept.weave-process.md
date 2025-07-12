@@ -2,13 +2,13 @@
 id: rall4fbxm369okmy5383sf8
 title: Weave Process
 desc: ''
-updated: 1752291282249
+updated: 1752335600254
 created: 1751128698638
 ---
 
 - checks for required [[sflo.concept.mesh.resource-facet.system]] and creates them if missing
 - optionally removes extraneous files, interactively if requested
-- for changed datasets (i.e.,  need re-generation)
+- for changed [[sflo.concept.mesh.resource-facet.user]] datasets (i.e., need re-generation)
   - if versioning is on:
     - creates a new [[sflo.concept.mesh.resource.element.node-component.layer.version]] 
     - updates version metadata
@@ -54,3 +54,8 @@ This ensures that in published meshes and sites:
 
 If you know a sub-mesh is permanently moving to a new location (or even if a branch is being created somewhere else), you should be able to tell weave to insert references to the new location
 
+### Resource Page Generation
+
+- uses the [[service.design.in-memory]] to calculate template usage
+- if no templates specified, and no "default template" exists in the root, it can generate its own
+  - perhaps there's a default template and css distributed with the service in case its missing from the mesh root

@@ -2,15 +2,15 @@
 id: sif626tmt3mw3nir5gv1s1a
 title: unified component
 desc: ''
-updated: 1752293704424
+updated: 1752335016022
 created: 1751599398246
 ---
 
 ## Overview
 
-A **unified dataset** provides convenient aggregated access to a mesh node's current state by combining data from its [[componsnets|sflo.concept.mesh.resource.element.node-component]] (meta and ref; meta and data; or meta, ref, and data) into a single [[sflo.concept.mesh.resource.element.node-component.layer]] with corresponding distribution files.
+A **unified dataset** provides convenient aggregated access to a mesh node's current state by combining data from its non-config [[components|sflo.concept.mesh.resource.element.node-component]] (meta and ref; meta and data; or meta, ref, and data) into a single [[sflo.concept.mesh.resource.element.node-component.layer]] with corresponding distribution files.
 
-Since it is fundamentally a combination, it only makes sense to generated a unified component for nodes that have more than one component, i.e., not [[sflo.concept.mesh.resource.node.namespace]].
+Since it is fundamentally a combination, it only makes sense to generate a unified component for nodes that have more than one component, i.e., not [[sflo.concept.mesh.resource.node.namespace]].
 
 ## Component or Not?
 

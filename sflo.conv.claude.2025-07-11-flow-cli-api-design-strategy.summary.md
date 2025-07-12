@@ -2,7 +2,7 @@
 id: ecqjh8rar8dbfbz32xy6lkx
 title: Summary
 desc: ''
-updated: 1752298148981
+updated: 1752323223333
 created: 1752244677930
 ---
 
@@ -38,10 +38,10 @@ Building a **Flow CLI** in Deno using Cliffy to manage semantic meshes - version
 - **Atomic weave operations**: System components version together to avoid circular dependencies
 
 ### **5. Resource Pages & UI**
-- **Multiple resource pages** possible per node, stored in `_assets/pages/`
-- **HTMX integration** for rich interactions with static backend compatibility
-- **Fragment-based architecture**: Generate HTML fragments during weave for HTMX navigation
 - **Root index.html as router**: Can coordinate version viewing across components
+- **HTMX integration** for rich interactions with static backend compatibility
+- **Multiple resource fragments** possible per node, stored in `_assets/_fragments/`
+- **Fragment-based architecture**: Generate HTML fragments during weave for HTMX navigation
 
 ## Technology Stack
 
@@ -78,7 +78,7 @@ Building a **Flow CLI** in Deno using Cliffy to manage semantic meshes - version
 
 ### **CLI Layer**
 - **Cliffy framework**: For command-line interface implementation
-- **Commands**: `flow init`, `flow weave`, `flow validate`, `flow status`
+- **Commands**: `flow init`, `flow service start`, `flow weave`, `flow validate`, `flow status`
 
 ## Architecture Patterns
 

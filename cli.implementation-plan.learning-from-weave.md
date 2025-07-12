@@ -2,7 +2,7 @@
 id: tsnodsj6rd7v6sa1ggh7l53
 title: Learning from Weave
 desc: ''
-updated: 1752100486722
+updated: 1752322402318
 created: 1752100445900
 ---
 
@@ -21,6 +21,7 @@ CLI commands are thin wrappers that delegate to core functions
 Centralized deps in src/deps/ with re-exports
 Path mapping with @/ for clean imports
 JSR packages for Cliffy (more modern than deno.land/x)
+  - (but Oscar prefers deno.land)
 
 3. Configuration Architecture (.9)
 

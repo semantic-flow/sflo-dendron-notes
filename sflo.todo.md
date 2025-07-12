@@ -2,7 +2,7 @@
 id: l59hvxem2488war5j981yca
 title: SF Todo
 desc: ''
-updated: 1752298270157
+updated: 1752322181159
 created: 1731041743071
 ---
 
@@ -11,6 +11,8 @@ created: 1731041743071
 - config vs meta
   - config varies depending on hierarchy, so fundamentally different from meta
   - so is config its own component? Or is it just fundamentally outside the mesh
+- test data (from example)
+
 
 ## Eventually
 

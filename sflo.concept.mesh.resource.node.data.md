@@ -51,7 +51,7 @@ Every data node must contain:
 - **[[sflo.concept.mesh.resource.element.node-component.reference]]** (`_ref-component/`): reference data
 - **[[Asset trees|sflo.concept.mesh.resource.element.asset-tree]]** (`_assets/`): Attached file collections
 - [[sflo.concept.mesh.resource.element.documentation-resource.changelog]] and [[sflo.concept.mesh.resource.element.documentation-resource.readme]]
-- [[sflo.concept.mesh.resource.element.flow-config]]
+- [[sflo.concept.mesh.resource.element.node-config-defaults]]
 - [[sflo.concept.mesh.resource.element.node-component.unified]] 
 
 ## Key Characteristics

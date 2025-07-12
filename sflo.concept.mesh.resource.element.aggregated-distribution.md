@@ -2,7 +2,7 @@
 id: e6enrj5ztz3hz84ojujef0k
 title: Aggregated Distribution
 desc: ''
-updated: 1751994489533
+updated: 1752325513586
 created: 1751631229565
 ---
 
@@ -15,6 +15,8 @@ Aggregated distributions enable **composable semantic data** by:
 - Providing complete datasets for external consumption
 - Supporting modular ontology and knowledge base construction
 - Maintaining component independence while enabling composition
+
+This is especially useful for ontologies, when their parts are spread out
 
 ## Generation Process
 
