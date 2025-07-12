@@ -2,7 +2,7 @@
 id: fnz4d2mluhnv6qtqjj0lo4y
 title: Design
 desc: ''
-updated: 1752105211411
+updated: 1752240812458
 created: 1752104846944
 ---
 
@@ -21,6 +21,7 @@ created: 1752104846944
 For most mesh sizes, config data should be tiny:
 - Text-based JSON-LD configs
 - Minimal RDF triples for structure
+- sensible defaults means underspecification is impossible
 - Resolved configs are small objects
 
 Even large meshes (thousands of nodes) would likely fit comfortably in memory.

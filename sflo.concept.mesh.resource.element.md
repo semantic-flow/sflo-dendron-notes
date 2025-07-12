@@ -40,7 +40,7 @@ System elements are usually created or altered by the [[Weave Process|sflo.conce
 - **[[Metadata components|sflo.concept.mesh.resource.element.node-component.metadata]]**: Administrative and structural metadata for mesh nodes (in `_meta-component/` folders)
 - **[[Version layer|sflo.concept.mesh.resource.element.node-component.layer.version]]**: Versioned snapshots of datasets (in `_vN/` folders)
 - **[[Node handles|sflo.concept.mesh.resource.element.node-handle]]**: Elements providing referential indirection for nodes as mesh resources (in `_node-handle/` folders)
-- [[sflo.concept.mesh.resource.element.unified-dataset]]
+- [[sflo.concept.mesh.resource.element.node-component.unified]]
 
 **File-based system elements:**
 - **[[Resource pages|sflo.concept.mesh.resource.element.documentation-resource.resource-page]]**: Generated index.html files for human-readable access

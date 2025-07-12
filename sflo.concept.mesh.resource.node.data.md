@@ -52,7 +52,7 @@ Every data node must contain:
 - **[[Asset trees|sflo.concept.mesh.resource.element.asset-tree]]** (`_assets/`): Attached file collections
 - [[sflo.concept.mesh.resource.element.documentation-resource.changelog]] and [[sflo.concept.mesh.resource.element.documentation-resource.readme]]
 - [[sflo.concept.mesh.resource.element.flow-config]]
-- [[sflo.concept.mesh.resource.element.unified-dataset]] 
+- [[sflo.concept.mesh.resource.element.node-component.unified]] 
 
 ## Key Characteristics
 

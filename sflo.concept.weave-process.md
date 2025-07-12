@@ -2,13 +2,13 @@
 id: rall4fbxm369okmy5383sf8
 title: Weave Process
 desc: ''
-updated: 1752071350647
+updated: 1752291282249
 created: 1751128698638
 ---
 
 - checks for required [[sflo.concept.mesh.resource-facet.system]] and creates them if missing
 - optionally removes extraneous files, interactively if requested
-- for changed datasets (i.e., distributions need re-generation)
+- for changed datasets (i.e.,  need re-generation)
   - if versioning is on:
     - creates a new [[sflo.concept.mesh.resource.element.node-component.layer.version]] 
     - updates version metadata
