@@ -13,7 +13,7 @@ Default configuration can be determined using [[sflo.concept.mesh.resource-facet
 
 Inheritance of configuration and defaults can be turned off. 
 
-In case of missing configuration and absence of user defaults, the system will use sensible defaults which can be specified in the [[sflo.concept.config]]
+In case of missing configuration and absence of user defaults, the system will use sensible defaults which can be specified in the [[sflo.concept.node-config]]
 
 ## Core Principles
 
