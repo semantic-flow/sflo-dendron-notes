@@ -1,6 +1,6 @@
 ---
 id: t2bpdmdqx5149z0y2t8b5kd
-title: Config Map
+title: Node Config Map
 desc: ''
 updated: 1752335446768
 created: 1752335338564

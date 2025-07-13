@@ -32,7 +32,7 @@ When the [[service]] starts, it calculates non-default config settings for every
 - determines the "default" settings for this service instance from [[service.config]]
 - if the node has a [[sflo.concept.mesh.resource.element.node-component.config]] , the service will use any settings there that differ from its defaults
 - if config-inheritance is turned on for a node, the service will scan back up the hierarchy to compose any missing "non-default" settings
--  the result is an in-memory "shadow mesh" known as the [[service.components.config-map]] containing any non-default settings for the mesh
+-  the result is an in-memory "shadow mesh" known as the [[service.components.node-config-map]] containing any non-default settings for the mesh
 
 If calculated config matches the service defaults, they are ignored.
 
