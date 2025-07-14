@@ -2,10 +2,9 @@
 id: wjl3rmw6iyypzy13h4uci9q
 title: Configuration
 desc: ''
-updated: 1752434880787
+updated: 1752445355076
 created: 1752434728498
 ---
-# Flow Configuration System Implementation Plan
 
 ## Overview
 
@@ -173,18 +172,43 @@ node:versioningEnabled a owl:DatatypeProperty ;
   rdfs:range xsd:boolean .
 ```
 
-### SHACL + Zod Validation Strategy
+### Dual Validation: SHACL + Zod
 ```typescript
-// Use both validation approaches
-async function validateServiceConfig(config: any): Promise<ServiceConfig> {
-  // 1. SHACL validation for RDF semantics
-  const shaclResult = await validateWithSHACL(config, serviceConfigShapes);
-  if (!shaclResult.conforms) {
-    throw new ConfigError(`SHACL validation failed: ${shaclResult.text}`);
-  }
+import { Validator } from "npm:shacl-engine";
+import rdfDataModel from "@rdfjs/data-model";
 
-  // 2. Zod validation for TypeScript types (generated from SHACL)
-  return ServiceConfigSchema.parse(config);
+// SHACL validation for RDF semantics
+async function validateServiceConfigSHACL(jsonldConfig: any): Promise<void> {
+  const validator = new Validator(serviceShapesDataset, { factory: rdfDataModel });
+  const report = await validator.validate({ dataset: configAsDataset });
+
+  if (!report.conforms) {
+    throw new ConfigError(`SHACL validation failed: ${report.results.map(r => r.message).join(', ')}`);
+  }
+}
+
+// Zod validation for TypeScript ergonomics and API safety
+const ServiceConfigInputSchema = z.object({
+  "@context": z.record(z.string()),
+  "@type": z.literal("svc:ServiceConfig"),
+  "svc:port": z.number().int().min(1000).max(65535).optional(),
+  "svc:sentryEnabled": z.boolean().optional(),
+  "svc:nodeDefaults": z.object({
+    "node:versioningEnabled": z.boolean().optional(),
+    "node:distributionFormats": z.array(z.string()).optional(),
+    "node:templateMappings": z.record(z.string()).optional()
+  }).optional()
+});
+
+// Combined validation
+async function validateServiceConfigInput(jsonldInput: unknown): Promise<ServiceConfigInput> {
+  // 1. Zod validation for structure and types
+  const parsedConfig = ServiceConfigInputSchema.parse(jsonldInput);
+
+  // 2. SHACL validation for semantic constraints
+  await validateServiceConfigSHACL(parsedConfig);
+
+  return parsedConfig;
 }
 ```
 
@@ -230,52 +254,106 @@ async function validateServiceConfig(config: any): Promise<ServiceConfig> {
 flow-core/
 ├── src/
 │   ├── config/
-│   │   ├── types.ts                    # TypeScript interfaces
-│   │   ├── ontologies/                 # RDF ontology definitions
-│   │   │   ├── service-ontology.ttl
-│   │   │   ├── node-ontology.ttl
-│   │   │   └── shared-ontology.ttl
-│   │   ├── shapes/                     # SHACL validation shapes
-│   │   │   ├── service-shapes.ttl
-│   │   │   └── node-shapes.ttl
-│   │   ├── schemas/                    # Generated Zod schemas
-│   │   │   ├── service-config.ts       # From SHACL shapes
-│   │   │   └── node-config.ts
+│   │   ├── types.ts                    # Config-specific TypeScript interfaces
+│   │   ├── external/                   # References to external ontologies
+│   │   │   ├── service-ontology-ref.ts # Reference to flow-service-ontology
+│   │   │   └── node-ontology-ref.ts    # Reference to node-config-ontology
+│   │   ├── schemas/                    # Zod schemas for JSON-LD configs
+│   │   │   ├── service-config.ts       # ServiceConfigInputSchema
+│   │   │   └── node-config.ts          # NodeConfigInputSchema
 │   │   ├── resolution/
-│   │   │   ├── service-resolver.ts     # Weave-pattern merger
-│   │   │   ├── node-resolver.ts        # Hierarchy walker
-│   │   │   └── merge-utils.ts          # RDF-aware merging
-│   │   ├── loaders/
-│   │   │   ├── jsonld-loader.ts
-│   │   │   ├── env-loader.ts
-│   │   │   └── defaults.ts             # Platform defaults
-│   │   ├── validation/
-│   │   │   ├── shacl-validator.ts
-│   │   │   └── zod-validator.ts
+│   │   │   ├── service-config-resolver.ts    # Weave-pattern merger
+│   │   │   ├── node-config-resolver.ts       # Hierarchy walker
+│   │   │   └── merge-utils.ts                # Config merging utilities
+│   │   ├── defaults.ts                 # Platform default configurations
 │   │   └── index.ts
-│   └── logging/                        # Depends on resolved config
+│   ├── loaders/                        # General-purpose loaders
+│   │   ├── jsonld-loader.ts           # JSON-LD file parsing
+│   │   └── env-loader.ts              # Environment variable processing
+│   ├── validation/                     # General validation utilities
+│   │   ├── shacl-loader.ts           # Load shapes from external repos
+│   │   ├── shacl-validator.ts        # shacl-engine integration
+│   │   ├── zod-validator.ts          # Zod schema validation
+│   │   └── combined-validator.ts     # SHACL + Zod pipeline
+│   └── logging/                       # Uses resolved service config
+
+flow-service/
+├── src/
+│   ├── storage/
+│   │   ├── quadstore.ts               # RDF storage for service
+│   │   └── config-manager.ts          # Config access + RDF population
+│   ├── api/
+│   └── app.ts
+```
 ```
 
 ## Implementation Phases
 
-### Phase 1: Service Config Foundation
-1. **Basic ontology**: Service-specific vocabulary
-2. **SHACL shapes**: Validation constraints
-3. **Weave-pattern resolution**: env → file → CLI merge
-4. **Platform defaults**: In-memory complete model
-5. **Sparse file loading**: JSON-LD with missing properties
+### Phase 1: Core Service Config
+1. **Service ontology setup**: Reference external flow-service-ontology repo (.9)
+2. **Zod schemas**: Manual schemas for service config JSON-LD (.8)
+3. **Weave-pattern resolution**: env + file + CLI merge for service config (.8)
+4. **Single-stage loading**: Complete config before service start (.9)
+5. **Logging integration**: Three-tier logging using resolved config (.8)
 
-### Phase 2: Node Config System
-1. **Node ontology**: Mesh operation vocabulary
-2. **Hierarchy walking**: Up mesh tree for inheritance
-3. **Service integration**: `svc:nodeDefaults` override
-4. **Sparse node configs**: `_config-component` handling
+### Phase 2: Node Config + API
+1. **Node ontology setup**: Reference external node-config-ontology repo (.8)
+2. **Node config resolution**: Hierarchy walking with sparse configs (.8)
+3. **RDF population**: Copy configs to Quadstore after service start (.7)
+4. **JSON-LD APIs**: Config CRUD endpoints with validation (.9)
+5. **Semantic queries**: SPARQL endpoint for config introspection (.7)
 
-### Phase 3: Validation & Tooling
-1. **Dual validation**: SHACL + Zod integration
-2. **Config migration**: Schema update tools
-3. **Development tools**: Config watching, validation CLI
-4. **Type generation**: Zod schemas from SHACL shapes
+### Phase 3: Advanced Features
+1. **Contained services**: Bootstrap control of SPARQL, static server, etc (.8)
+2. **Per-mesh defaults**: Runtime configuration via API (.7)
+3. **Config management UI**: Web interface using Comunica widget (.6)
+4. **SHACL → Zod generation**: Auto-generate schemas from shapes (.6)
+
+## JSON-LD API Design
+
+### Service Config Endpoints
+```typescript
+// GET /api/service/config - Returns resolved service config
+app.get('/api/service/config', async (c) => {
+  const context = await resolveServiceConfig();
+  const resolved = mergeConfigContext(context);
+  return c.json(resolved); // JSON-LD response
+});
+
+// PUT /api/service/config - Update service config file
+app.put('/api/service/config',
+  zValidator('json', ServiceConfigInputSchema),
+  async (c) => {
+    const input = c.req.valid('json');
+    await validateServiceConfigSHACL(input);
+    await saveServiceConfig(input);
+    return c.json({ status: "updated" });
+  }
+);
+```
+
+### Node Config Endpoints
+```typescript
+// GET /api/mesh/{meshPath}/config - Returns resolved node config
+app.get('/api/mesh/:meshPath/config', async (c) => {
+  const meshPath = c.req.param('meshPath');
+  const context = await resolveNodeConfig(meshPath);
+  const resolved = mergeConfigContext(context);
+  return c.json(resolved); // JSON-LD response
+});
+
+// PUT /api/mesh/{meshPath}/config - Update node config
+app.put('/api/mesh/:meshPath/config',
+  zValidator('json', NodeConfigInputSchema),
+  async (c) => {
+    const input = c.req.valid('json');
+    const meshPath = c.req.param('meshPath');
+    await validateNodeConfigSHACL(input);
+    await saveNodeConfig(meshPath, input);
+    return c.json({ status: "updated" });
+  }
+);
+```
 
 ## Environment Variable Mapping
 
@@ -291,14 +369,36 @@ FLOW_DEFAULT_VERSIONING=true    # → svc:nodeDefaults/node:versioningEnabled
 FLOW_DEFAULT_FORMATS=trig,jsonld # → svc:nodeDefaults/node:distributionFormats
 ```
 
-## Key Questions
+## Key Design Decisions
 
-1. **SHACL library**: shacl-engine
+### **Zod's Role Clarified**
+- **File parsing validation**: JSON-LD config files need runtime validation (.9)
+- **API request/response validation**: All config endpoints use JSON-LD (.9)
+- **Environment variable mapping**: ENV → JSON-LD structure validation (.7)
+- **TypeScript ergonomics**: Typed access to `"svc:port"` style properties (.8)
 
-2. **Type generation**: Should we auto-generate Zod schemas from SHACL shapes, or maintain them separately?
+### **SHACL Library Choice**
+- **Use shacl-engine**: 15-26x faster than alternatives, lighter weight (.8)
+- **RDF/JS compatible**: Works well with Deno ecosystem (.8)
+- **Performance critical**: Config validation happens frequently (.9)
 
-3. **In-memory representation**: Store resolved configs as RDF graphs or plain objects?
+### **In-Memory Representation**
+- **Primary**: RDF datasets with Quadstore for semantic queries (.8)
+- **Secondary**: Typed accessors for common properties (.8)
+- **Benefits**: Native JSON-LD handling + SPARQL capability (.9)
 
-4. **Config watching**: Should we implement weave-style config file watching for development?
+### **Type Generation Strategy**
+- **Phase 1**: Manual Zod schemas (faster to implement) (.8)
+- **Phase 2**: Explore SHACL → Zod generation (JSON-LD makes it feasible) (.7)
+- **JSON-LD insight**: Structure maps directly to TypeScript/Zod (.9)
 
-5. **Migration strategy**: How do we handle ontology/shape evolution over time?
+## Recommended Implementation Order
+
+**Yes, implement configuration first** (.9). Logging depends on resolved config, so the dependency order is:
+
+1. **Config system** (this plan)
+2. **Logging revamp** (uses resolved service config)
+3. **Mesh operations** (uses resolved node configs)
+4. **API layer** (uses both config types)
+
+This ensures clean dependency flow and lets you validate the config patterns before building dependent systems.
