@@ -2,7 +2,7 @@
 id: xebek3dtv2zgs9ah0vbv57g
 title: Semantic Flow General Guidance
 desc: ''
-updated: 1752579264317
+updated: 1752611416680
 created: 1751259888479
 ---
 
@@ -10,15 +10,19 @@ created: 1751259888479
 
 ## Workspace Components
 
-The workspace contains multiple interconnected components:
+The workspace contains:
 
-- **flow-api/**: API component for creating, augmenting and maintaining [[sflo.concept.mesh-repo]] (currently empty structure)
-- **flow-cli/**: Command-line application that consumes the flow-api
-- **flow-service/**: Service component (currently empty structure)
-- **flow-ontology/**: Ontology definitions (currently empty)
-- **flow-web/**: Web frontend for the flow-service
-- **sflo-dendron-notes/**: Complete documentation and specification in Dendron format
-- **test-ns/**: Test mesh repo
+- a main monorepo, divided into a few different modules:
+  - **flow-service/**: Service component (currently empty structure)
+  - **flow-cli/**: Command-line application that consumes the flow-service
+  - **flow-web/**: Web frontend for the flow-service
+  - **flow-core/**: cross-cutting code like type schemas, logging, and config
+- the **sflo-dendron-notes/** repo: wiki-based notes about mesh structure, specifications, and concepts; in Dendron format
+- the **test-ns/** repo: Test mesh repo
+- **ontology/**: Ontology definitions (currently empty)
+  - `flow` is the main ontology that describe a semantic mesh
+  - `flow-service` describes the RDF-based configuration options for flow-service
+  - `node-config` describes the RDF-based configuration options for a mesh node
 
 ## Key Concepts
 
@@ -35,12 +39,13 @@ A dereferenceable, versioned collection of semantic data and other resources, wh
     - **Reference Nodes**: Refer to "things that exist" like people, or songs, or ideas
   - **Elements**: things that help define and systematize the nodes
     - **Components**: datasets for node metadata, reference data, and payload data
-  - **Handles**: things that let you refer to a node as a node instead of its referent
+  - **Handles**: things that let you refer to a node as a node instead of as its referent
   - **Asset Trees**: elements that allow you to attach arbitrary collections of files and folders to a mesh; in a sense, these things are "outside" the mesh, and other than the top-level "_meta" folder, they don't contain any other mesh resources
 
 ### Semantic Flow Workflow:
 
-- In General: Mesh resource addition & editing → Weaving → Publishing using GitHub Pages
+- In General: Mesh resource addition & editing → Weaving
+- a mesh is servable "as-is", so if the git provider is configure to serve it as a website, no additional publishing step is required (beyond commit)
 
 ### Semantic Site
 
@@ -81,20 +86,18 @@ A dereferenceable, versioned collection of semantic data and other resources, wh
 
 ### Project notes
 
-Project documentation, specifications, journaling, and design choices are stored in `sflo-dendron-notes/` using Dendron's hierarchical note system. Key documentation includes:
+Project documentation, specifications, journaling, and design choices are stored in `sflo-dendron-notes/` using Dendron's hierarchical note system. Key documentation hierarchies include:
 
 - **Core concepts**: `sflo.concept.*` files talk about general Semantic Flow concepts
 - **Mesh docs**: `sflo.concept.mesh.*` files define the semantic mesh architecture
 - **Product specifications**: `sflo.product.*` files detail each component
-- **Requirements**: `sflo.requirements.md`
 - **Use cases**: `sflo.use-cases.*` files
 - **Conversation logs**: `sflo.conv.*` files track design decisions and development history; BEWARE! These conversations contain information and decisions that have been superceded. Only reference conversations when necessary for historical context. Newer conversations are usually less misleading.
 
-
 ### Component Development with Docs
 
-- Each component (flow-api, flow-cli, flow-service, flow-web) should follow the architecture defined in the documentation
-- Refer to `sflo.products.*` files for component-specifc descriptions, requirements, etc
+- Each module (flow-cli, flow-service, flow-web) should follow the architecture defined in the documentation
+- Refer to `sflo.product.*` files for component-specifc descriptions, requirements, etc
 
 ## Project Architecture
 

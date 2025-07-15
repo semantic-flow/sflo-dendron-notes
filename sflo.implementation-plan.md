@@ -9,7 +9,7 @@ created: 1752071938622
 ## **Flow Stack Implementation Plan**
 
 ### **Project Overview**
-We're building the [[flow-service|service]], a REST-based backend for creating, manipulating, and using semantic meshes, and a Deno-based CLI using Cliffy that consumes it.
+We're building the [[flow-service|sflo.product.service]], a REST-based backend for creating, manipulating, and using semantic meshes, and a Deno-based CLI using Cliffy that consumes it.
 
 Meshes are derefenceable, versioned collections of semantic data where every URL returns meaningful content. The CLI will trigger the "weave process" that maintains mesh integrity, versioning, and generates resource pages.
 

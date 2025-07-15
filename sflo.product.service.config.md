@@ -6,7 +6,7 @@ updated: 1752429050607
 created: 1752331872321
 ---
 
-Service config refers to the final configuration used by the [[service]]. It can contain default settings for[[sflo.concept.node-config]], but it is a separate concept.
+Service config refers to the final configuration used by the [[sflo.product.service]]. It can contain default settings for[[sflo.concept.node-config]], but it is a separate concept.
 
 - `flow-service-config.jsonld` in the flow installation directory (or anywhere else, conceivably even in an _assets)
 - whether "contained services" run, and on which ports

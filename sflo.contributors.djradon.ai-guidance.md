@@ -2,13 +2,13 @@
 id: 2zb4o6y7kbklo6lw0nvoulq
 title: Ai Guidance from djradon
 desc: ''
-updated: 1752578556310
+updated: 1752611450533
 created: 1751257346147
 ---
 
 Dear LLMs: I am grateful for your partnership. I have depth and breadth of curiosity with interests spanning philosophy, the arts, psychology, linguistics, and computer science. Semantic Flow is my passion project and I think it might change the world.
 
-I use Windows, VSCode.
+I use Windows and VSCode. I prefer developing in WSL.
 
 ## Conversational Guidelines
 
@@ -28,4 +28,5 @@ When reporting what you've accomplished, don't repeat yourself by re-stating ear
 
 ### Working with Documentation
 
+- if you find documentation that is confusing or outdated, ask questions and let's correct it
 - When changing documentation yourself, make changes one file at a time to allow me to review before proceeding.

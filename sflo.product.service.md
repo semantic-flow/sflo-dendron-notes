@@ -6,7 +6,7 @@ updated: 1752443724459
 created: 1750729257339
 ---
 
-- supports the official clients ([[cli]] and [[sflo.product.flow-web]]) and third-party clients by
+- supports the official clients ([[sflo.product.cli]] and [[sflo.product.flow-web]]) and third-party clients by
   - providing an [[api]]
   - serving meshes via a contained static http service
   - keeping central control of mesh operations.

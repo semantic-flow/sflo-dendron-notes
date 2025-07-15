@@ -56,6 +56,6 @@ If you know a sub-mesh is permanently moving to a new location (or even if a bra
 
 ### Resource Page Generation
 
-- uses the [[service.design.in-memory]] to calculate template usage
+- uses the [[sflo.product.service.design.in-memory]] to calculate template usage
 - if no templates specified, and no "default template" exists in the root, it can generate its own
   - perhaps there's a default template and css distributed with the service in case its missing from the mesh root

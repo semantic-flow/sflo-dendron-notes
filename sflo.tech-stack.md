@@ -8,4 +8,4 @@ created: 1752241464257
 
 ## HTMX
 
-- can be useful for dynamic sites with static backends, see [[service.design.htmx]]
+- can be useful for dynamic sites with static backends, see [[sflo.product.service.design.htmx]]
