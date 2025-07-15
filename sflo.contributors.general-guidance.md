@@ -2,7 +2,7 @@
 id: xebek3dtv2zgs9ah0vbv57g
 title: Semantic Flow General Guidance
 desc: ''
-updated: 1752061607151
+updated: 1752579264317
 created: 1751259888479
 ---
 
@@ -28,7 +28,7 @@ A dereferenceable, versioned collection of semantic data and other resources, wh
 
 #### Core Components
 
-- **Mesh Resources**: 
+- **Mesh Resources**:
   - **Nodes**: Semantic Atoms
     - **Dataset Nodes**: Bundles of data with optional quasi-immutable, versioned history
     - **Namespace Nodes**: basically empty folders for URL-based hierarchical organization
@@ -38,9 +38,9 @@ A dereferenceable, versioned collection of semantic data and other resources, wh
   - **Handles**: things that let you refer to a node as a node instead of its referent
   - **Asset Trees**: elements that allow you to attach arbitrary collections of files and folders to a mesh; in a sense, these things are "outside" the mesh, and other than the top-level "_meta" folder, they don't contain any other mesh resources
 
-### Semantic Flow Workflow: 
+### Semantic Flow Workflow:
 
-- In General: Mesh resource addition & editing → Weaving → Publishing using GitHub Pages 
+- In General: Mesh resource addition & editing → Weaving → Publishing using GitHub Pages
 
 ### Semantic Site
 
@@ -63,17 +63,23 @@ A dereferenceable, versioned collection of semantic data and other resources, wh
 ## Documentation
 
 - All specifications and design docs are in `sflo-dendron-notes/`
-- Check conversation logs in `sflo.conv.*` for context on design decisions if necessary, but beware of superceded and dangerously-outdated info 
+- Check conversation logs in `sflo.conv.*` for context on design decisions if necessary, but beware of superceded and dangerously-outdated info
 
 ### Documentation First
 
 - unclear or anemic documentation should be called out
 - documentation should be wiki-style: focused on the topic at hand, don't repeat yourself, keep things simple and clear
 - when assisting with writing documentation, it should be kept concise and specific to the topic at hand
-- whenever documentation is updated, any corresponding LLM conversation context should be updated too   
-- to encourage documentation-driven software engineering, code comments should refer to corresponding documentation by filename, and the documentation and code should be cross-checked for consistency whenever possible 
+- whenever documentation is updated, any corresponding LLM conversation context should be updated too
+- to encourage documentation-driven software engineering, code comments should refer to corresponding documentation by filename, and the documentation and code should be cross-checked for consistency whenever possible
 
 ### Documentation Architecture
+
+- `sflo-dendron-notes` repo has wiki-style notes about the mesh architecture
+  -  Dendron handles the frontmatter... don't rewrite IDs or anything else in the frontmatter
+- official project documentation should be generated in `documentation` directory in markdown
+
+### Project notes
 
 Project documentation, specifications, journaling, and design choices are stored in `sflo-dendron-notes/` using Dendron's hierarchical note system. Key documentation includes:
 
@@ -84,9 +90,6 @@ Project documentation, specifications, journaling, and design choices are stored
 - **Use cases**: `sflo.use-cases.*` files
 - **Conversation logs**: `sflo.conv.*` files track design decisions and development history; BEWARE! These conversations contain information and decisions that have been superceded. Only reference conversations when necessary for historical context. Newer conversations are usually less misleading.
 
-### Documentation Standards
-
-- this project use wiki-style documentation. It's fine for articles to be extremely short. In general, articles should focus on their namesake topics.
 
 ### Component Development with Docs
 
@@ -95,7 +98,39 @@ Project documentation, specifications, journaling, and design choices are stored
 
 ## Project Architecture
 
-TBD
+### Configuration Architecture
+
+- The project uses a sophisticated JSON-LD based configuration system with multiple layers
+- **Configuration resolution order**: CLI arguments → Environment variables → Config file → Defaults
+- The [`defaults.ts`](semantic-flow/flow-service/src/config/defaults.ts) file is the  source for "platform default" configuration
+
+### Logging System Architecture
+
+- **Structured logging** with rich `LogContext` interface is the preferred approach
+- **Three-tier logging architecture**:
+  - Console logging (pretty format for development)
+  - File logging (pretty format for human readability)
+  - Sentry logging (structured JSON for error tracking)
+- **Graceful degradation principle**: Logging failures should never crash the application
+
+### Error Handling Patterns
+
+- Use the [`handleCaughtError`](semantic-flow/flow-service/src/utils/logger.ts) utility for consistent error handling
+- **Integration points**: Configuration parsing and application startup are critical areas requiring robust error handling
+- **Documentation**: See [error-handling-usage.md](semantic-flow/flow-service/documentation/error-handling-usage.md) for comprehensive usage examples
+- The error handling system integrates with all logging tiers (console, file, Sentry)
+
+### File Organization
+
+- **Integration tests** should be organized in the `test/integration/` folder
+- **Import paths** require careful attention when reorganizing files to avoid breaking dependencies
+- **Test files** should mirror the source structure for easy navigation
+
+### Implementation Patterns
+
+- **Proper TypeScript interfaces** for configuration validation and type safety
+- **SHACL constraints** for JSON-LD validation when working with semantic data
+- **Modular design**: Keep utilities focused and avoid circular dependencies between core modules
 
 ## Coding Standards
 
@@ -138,13 +173,14 @@ TBD
 
 - **TypeScript Modules**: Use `.ts` extension, organize by feature/component
 - **Test Files**: Co-locate test files with source using `.test.ts` suffix
-- **Mesh Resources**: Follow mesh resource naming conventions from @/flow-ontology/alpha/_node-data/_next/flow-ontology-alpha.trig 
+- **Mesh Resources**: Follow mesh resource naming conventions from @/flow-ontology/alpha/_node-data/_next/flow-ontology-alpha.trig
 - **Constants**: Use UPPER_SNAKE_CASE for constants, especially for reserved names
 
 ### Code Style
 
 - **Formatting**: Use Deno's built-in formatter (`deno fmt`)
 - **Linting**: Use Deno's built-in linter (`deno lint`)
+  - If using any is actually clearer than not using it, it's okay, just add the // deno-lint-ignore comment
 - **Line Length**: 100 characters maximum
 - **Indentation**: 2 spaces (TypeScript standard)
 - **Semicolons**: Required (TypeScript best practice)
@@ -162,6 +198,7 @@ TBD
 - **Integration Tests**: Test mesh operations end-to-end
 - **RDF Validation**: Test both .trig and JSON-LD parsing/serialization
 - **Mock Data**: Create test mesh structures following documentation patterns
+- after you think you've completed a task, check for any "problems", i.e., deno-lint
 
 ### Performance
 
