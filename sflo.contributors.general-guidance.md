@@ -2,7 +2,7 @@
 id: xebek3dtv2zgs9ah0vbv57g
 title: Semantic Flow General Guidance
 desc: ''
-updated: 1752611416680
+updated: 1752670399831
 created: 1751259888479
 ---
 
@@ -10,7 +10,7 @@ created: 1751259888479
 
 ## Workspace Components
 
-The workspace contains:
+The sf-workspace contains:
 
 - a main monorepo, divided into a few different modules:
   - **flow-service/**: Service component (currently empty structure)
@@ -119,15 +119,12 @@ Project documentation, specifications, journaling, and design choices are stored
 ### Error Handling Patterns
 
 - Use the [`handleCaughtError`](semantic-flow/flow-service/src/utils/logger.ts) utility for consistent error handling
-- **Integration points**: Configuration parsing and application startup are critical areas requiring robust error handling
 - **Documentation**: See [error-handling-usage.md](semantic-flow/flow-service/documentation/error-handling-usage.md) for comprehensive usage examples
 - The error handling system integrates with all logging tiers (console, file, Sentry)
 
 ### File Organization
 
-- **Integration tests** should be organized in the `test/integration/` folder
 - **Import paths** require careful attention when reorganizing files to avoid breaking dependencies
-- **Test files** should mirror the source structure for easy navigation
 
 ### Implementation Patterns
 
@@ -153,21 +150,22 @@ Project documentation, specifications, journaling, and design choices are stored
 
 ### Semantic Mesh Architecture
 
-- **Resource Types**: Maintain clear distinction between Nodes, Elements, and Resources as defined in `sflo.concept.mesh.md`
+- **Resource Types**: Nodes are the foundation, Elements support Nodes, and components as defined in `sflo.concept.mesh.md`
 - **Folder Structure**: Validate mesh folder structures (dataset nodes, namespace nodes, etc.)
 - **System Elements**: Distinguish between system-generated and user-modifiable elements
 - **Weave Integration**: Code must support weave operations as defined in `sflo.concept.weave.md`
 
 ### Documentation-Driven Development
 
-- **Code Comments**: Must reference corresponding documentation by filename (e.g., `// See sflo.concept.mesh.resource.node.md`)
+- **Code Comments**: reference corresponding documentation by filename (e.g., `// See sflo.concept.mesh.resource.node.md`)
 - **Interface Definitions**: Link to concept documentation in TSDoc comments
-- **Cross-Reference Validation**: Ensure consistency between code and documentation
+- **Cross-Reference Validation**: Ensure consistency between code and documentation; if docs need updating, let me know
 - **API Documentation**: Generate from TSDoc comments
 
 ### Component Architecture
 
-- **Separation**: Maintain clear boundaries between flow-api, flow-cli, flow-service, and flow-web
+- **Shaared code**: should go in flow-core/
+- **Separation**: Maintain clear boundaries between flow-cli, flow-service, and flow-web
 - **Error Handling**: Use consistent error patterns across all components
 - **Async Patterns**: Use async/await for RDF operations and file I/O
 - **Type Safety**: Leverage TypeScript's type system for mesh resource validation
@@ -175,18 +173,16 @@ Project documentation, specifications, journaling, and design choices are stored
 ### File Organization & Naming
 
 - **TypeScript Modules**: Use `.ts` extension, organize by feature/component
-- **Test Files**: Co-locate test files with source using `.test.ts` suffix
-- **Mesh Resources**: Follow mesh resource naming conventions from @/flow-ontology/alpha/_node-data/_next/flow-ontology-alpha.trig
-- **Constants**: Use UPPER_SNAKE_CASE for constants, especially for reserved names
+- **Test Files**:
+  - unit test files go in tests/unit/ using `.test.ts` suffix
+  - integration tests go in tests/integration
+- **Mesh Resources**: Follow mesh resource naming conventions from @/ontology/alpha/_node-data/_next/flow-ontology-alpha.trig
+- **Constants**: Use UPPER_SNAKE_CASE for constants, especially for reserved names; centralize constants, e.g. semantic-flow/flow-core/src/mesh-constants.ts
 
 ### Code Style
 
-- **Formatting**: Use Deno's built-in formatter (`deno fmt`)
 - **Linting**: Use Deno's built-in linter (`deno lint`)
   - If using any is actually clearer than not using it, it's okay, just add the // deno-lint-ignore comment
-- **Line Length**: 100 characters maximum
-- **Indentation**: 2 spaces (TypeScript standard)
-- **Semicolons**: Required (TypeScript best practice)
 
 ### Error Handling
 
@@ -206,6 +202,4 @@ Project documentation, specifications, journaling, and design choices are stored
 ### Performance
 
 - **RDF Processing**: Stream large RDF files where possible
-- **Caching**: Cache parsed RDF for repeated operations during weave
 - **File I/O**: Use async file operations consistently
-- **Memory Management**: Be mindful of large dataset loading
