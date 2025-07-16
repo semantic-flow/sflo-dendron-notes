@@ -6,4 +6,4 @@ updated: 1752025446569
 created: 1751001259651
 ---
 
-The physical representation of the [[sflo.concept.mesh.resource.element.node-component.reference]]
+The physical representation of the [[sflo.concept.mesh.resource.element.flow.reference]]

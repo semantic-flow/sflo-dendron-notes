@@ -6,4 +6,4 @@ updated: 1751775512988
 created: 1750467224745
 ---
 
-- if a namespace-iri is changed, gulp, the old one can be preserved with a "redirect" predicate in the [[sflo.concept.mesh.resource.element.node-component.metadata]] and a warning on the html page
+- if a namespace-iri is changed, gulp, the old one can be preserved with a "redirect" predicate in the [[sflo.concept.mesh.resource.element.flow.metadata]] and a warning on the html page

@@ -6,6 +6,6 @@ updated: 1751993266223
 created: 1750655550072
 ---
 
-A [[sflo.concept.mesh.resource.element.node-component]] whose versions are being kept around. 
+A [[sflo.concept.mesh.resource.element.flow]] whose versions are being kept around. 
 
 Physically, the historical versions are located in "_vN" folders, e.g. "_v1" or "_v9999". 

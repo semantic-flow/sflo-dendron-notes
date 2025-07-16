@@ -12,9 +12,9 @@ A **node handle** is a very simple folder. It has a very special semantic use: i
 
 ## Justification
 
-Element identifiers don't have an obvious referent other than themselves. e.g., ns/djradon/bio-dataset/_data refers only to a specific [[sflo.concept.mesh.resource.element.node-component]]. 
+Element identifiers don't have an obvious referent other than themselves. e.g., ns/djradon/bio-dataset/_data refers only to a specific [[sflo.concept.mesh.resource.element.flow]]. 
 
-So when they're mentioned in [[sflo.concept.mesh.resource.element.node-component.metadata]], it's clear enough that their identifiers refer to them "as mesh resources."
+So when they're mentioned in [[sflo.concept.mesh.resource.element.flow.metadata]], it's clear enough that their identifiers refer to them "as mesh resources."
 
 But because the [[sflo.concept.identifier]] for a [[sflo.concept.mesh.resource.node]] refers to nothing (in the case of a namespace node) or a concept (in the case of a reference node or data node), based on the [[sflo.principle.single-referent]] principle, you should not use the node's URL to refer to it "as a mesh resource."
 

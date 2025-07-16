@@ -17,7 +17,7 @@ In case of missing configuration and absence of user defaults, the system will u
 
 ## Core Principles
 
-### Node-Config as Node Component
+### Node-Config as node flow
 - **Optional**: 
 - **Transposable**: Node config travels with nodes during import/graft operations
 - **Composable**: Each node may have its own self-contained configuration, but i

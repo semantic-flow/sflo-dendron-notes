@@ -6,13 +6,13 @@ updated: 1751992410510
 created: 1751138751433
 ---
 
-- [[sflo.concept.mesh.resource.element.node-component.layer]] should have one or more distributions.
+- [[sflo.concept.mesh.resource.element.flow.snapshot]] should have one or more distributions.
 - a layer's distributions should contain the same data, just in different syntaxes 
 
 ## Naming
 
-- [[sflo.concept.mesh.resource.element.node-component.metadata]] and [[sflo.concept.mesh.resource.element.node-component.reference]] have their distributions named with "_meta" and "_ref" respectively, but
-- [[sflo.concept.mesh.resource.element.node-component.data]], being the "payload data", 
+- [[sflo.concept.mesh.resource.element.flow.metadata]] and [[sflo.concept.mesh.resource.element.flow.reference]] have their distributions named with "_meta" and "_ref" respectively, but
+- [[sflo.concept.mesh.resource.element.flow.data]], being the "payload data", 
 
 
 ## Issues

@@ -2,44 +2,33 @@
 id: kawddwi1dx4qqbhdyip4896
 title: 'Use Case: Radio Show Websiste'
 desc: a simple user story
-updated: 1750645410973
+updated: 1752696515924
 created: 1750645191521
 ---
 
-Suppose DJ Radon wants to publish a website about himself, his musical activities, and maybe some album reviews. Call it a wiki, call it a knowledgebase, call it a homepage. 
+Suppose DJ Radon wants to publish a website about himself, his musical activities, and maybe some album reviews. Call it a wiki, call it a knowledgebase, call it a show site. 
 
-To get started, he wants to publish his top-5 most-played cuts of the week. 
+To get started, he wants to publish his top-5 most-played tracks of the week. 
 
 Publishing them as plain-text might be adequate for this situation, but say he eventually wanted to make his site linked: you can click from a playlist, to an album, to a track, to an artist. 
 
-But to get started, :
+But to get started:
 
-* A **namespace** `/ns/`
+* A **namespace** `/test-ns/`
 * A **thing** `/ns/djradon/`
 * A **dataset** `/ns/djradon/picks/`
 
 #### Mesh Directory Structure
 
 ```file
-/ns/
-├── _id/
-│   └── ns_id.trig
-└── djradon/
-    ├── _id/
-    │   └── djradon_id.trig
-    ├── _ref/
-    │   └── djradon_ref.jsonld
-    └── picks/
-        ├── _id/
-        │   └── picks_id.trig
-
-        ├── picks.trig
-
-        └── _v-series/
-            ├── v1/
-            │   └── picks_v1.trig
-            └── v2/
-                └── picks_v2.trig
+test-ns                    # namespace node
+   djradon                 # ref node (refering to a human dj)
+      bio                  # data node (without ref)
+      picks                # data node 
+      underbrush           # ref node (refering to a radio show)
+         playlists         # data (series) node with ref
+            1996-11-10     # data node with ref
+            1996-11-17            
 ```
 
 #### Sample RDF (Turtle)

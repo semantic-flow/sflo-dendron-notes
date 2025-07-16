@@ -18,7 +18,7 @@ Elements are categorized by their facets, including:
   - typical creation and maintenance patterns (user vs system)
   - verioning status
   - folder vs. file
-  - node role (name, reference, and data [[sflo.concept.mesh.resource.element.node-component]])
+  - node role (name, reference, and data [[sflo.concept.mesh.resource.element.flow]])
 
 ### User Elements
 
@@ -26,7 +26,7 @@ User elements are primarily created and maintained by users or their software ag
 
 **Folder-based user elements:**
 - **[[Asset trees|sflo.concept.mesh.resource.element.asset-tree]]**: Collections of arbitrary files attached to the mesh (in `_assets/` folders)
-- **[[Next datasets|sflo.concept.mesh.resource.element.node-component.layer.next]]**: Draft workspaces for ongoing changes to [[sflo.concept.mesh.resource.element.node-component]] (in `_next/` folders)
+- **[[Next datasets|sflo.concept.mesh.resource.element.flow.snapshot.next]]**: Draft workspaces for ongoing changes to [[sflo.concept.mesh.resource.element.flow]] (in `_next/` folders)
 
 **File-based user elements:**
 - **README.md files**: User documentation providing context
@@ -37,14 +37,14 @@ User elements are primarily created and maintained by users or their software ag
 System elements are usually created or altered by the [[Weave Process|sflo.concept.weave-process]] process rather than direct user modification:
 
 **Folder-based system elements:**
-- **[[Metadata components|sflo.concept.mesh.resource.element.node-component.metadata]]**: Administrative and structural metadata for mesh nodes (in `_meta-component/` folders)
-- **[[Version layer|sflo.concept.mesh.resource.element.node-component.layer.version]]**: Versioned snapshots of datasets (in `_vN/` folders)
+- **[[metadata flows|sflo.concept.mesh.resource.element.flow.metadata]]**: Administrative and structural metadata for mesh nodes (in `_meta-component/` folders)
+- **[[version snapshot|sflo.concept.mesh.resource.element.flow.snapshot.version]]**: Versioned snapshots of datasets (in `_vN/` folders)
 - **[[Node handles|sflo.concept.mesh.resource.element.node-handle]]**: Elements providing referential indirection for nodes as mesh resources (in `_node-handle/` folders)
-- [[sflo.concept.mesh.resource.element.node-component.unified]]
+- [[sflo.concept.mesh.resource.element.flow.unified]]
 
 **File-based system elements:**
 - **[[Resource pages|sflo.concept.mesh.resource.element.documentation-resource.resource-page]]**: Generated index.html files for human-readable access
-- **[[Distribution files|sflo.concept.mesh.resource.element.node-component.layer.distribution]]**: Data files in various RDF formats
+- **[[Distribution files|sflo.concept.mesh.resource.element.flow.snapshot.distribution]]**: Data files in various RDF formats
 
 ## Physical vs Logical Structure
 
@@ -61,7 +61,7 @@ System elements are usually created or altered by the [[Weave Process|sflo.conce
 ## Integration with Nodes
 
 Elements work in conjunction with mesh nodes to create the complete mesh structure:
-- Every mesh node contains at least two elements: metadata components and node handles
-- Reference nodes contain reference components 
-- data nodes may also contain reference components, but their defining component is the [[sflo.concept.mesh.resource.element.node-component.data]]
+- Every mesh node contains at least two elements: metadata flows and node handles
+- Reference nodes contain reference flows 
+- data nodes may also contain reference flows, but their defining component is the [[sflo.concept.mesh.resource.element.flow.data]]
 - Any node may contain asset trees (user elements) for file attachments

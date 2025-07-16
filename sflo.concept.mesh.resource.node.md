@@ -24,7 +24,7 @@ When stored on disk, all mesh nodes:
 
 Every mesh node has these elements:
 
-- **[[sflo.concept.mesh.resource.element.node-component.metadata]]** (`_meta-component/`): Centralized metadata for the node
+- **[[sflo.concept.mesh.resource.element.flow.metadata]]** (`_meta-component/`): Centralized metadata for the node
 - **[[sflo.concept.mesh.resource.element.node-handle]]** (`_node-handle/`): Universal marker folder that refers to the parent "as a mesh node", as opposed to "as the name, dataset, or other thing" to which it normally refers; a handle resource page should explain this distinction
 
 ## Node Types
@@ -47,7 +47,7 @@ Every mesh node has these elements:
 ### 3. [[Data Node|sflo.concept.mesh.resource.node.data]]
 **Elements**: `_meta-component/` + `_node-handle/` + `_data-component/` ( + optional `_ref-component`)
 - Contains data distributions and versioning capabilities
-- Node IRI refers to the node component
+- Node IRI refers to the node flow
 - Adds dataset storage to the namespace foundation
 - Can be configured as [[dataset series|sflo.concept.mesh.resource.node.data.series]]
 - Evolved from namespace nodes by adding the `_data-component/` element

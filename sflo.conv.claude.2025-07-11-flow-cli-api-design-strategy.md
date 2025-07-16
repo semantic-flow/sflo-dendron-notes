@@ -4042,7 +4042,7 @@ There are two primary categories:
 [[Mesh nodes|sflo.concept.mesh.resource.node]] are the primary structural components, physically represented as [[mesh folders|sflo.concept.mesh.resource-facet.folder]]. They extend namespaces and serve as containers.
 
 - **[[Namespace nodes|sflo.concept.mesh.resource.node.namespace]]**: Empty containers for organizing other mesh nodes
-- **[[Reference nodes|sflo.concept.mesh.resource.node.reference]]**: Nodes that refer to external entities (people, concepts, relationships) and contain [[reference components|sflo.concept.mesh.resource.element.node-component.reference]]
+- **[[Reference nodes|sflo.concept.mesh.resource.node.reference]]**: Nodes that refer to external entities (people, concepts, relationships) and contain [[reference flows|sflo.concept.mesh.resource.element.node-component.reference]]
 - **[[Data nodes|sflo.concept.mesh.resource.node.data]]**: Nodes containing data distributions with optional versioning
 
 
@@ -4055,7 +4055,7 @@ There are two primary categories:
 - **[[sflo.concept.mesh.resource.element.node-component]]** and their [[sflo.concept.mesh.resource.element.node-component.layer]]
   - **[[sflo.concept.mesh.resource.element.node-component.metadata]]**: System-related administrative and structural metadata for mesh nodes
   - **[[Version datasets|sflo.concept.mesh.resource.element.node-component.layer.version]]**: Versioned snapshots of datasets
-- **[[Next layers|sflo.concept.mesh.resource.element.node-component.layer.next]]**: Draft workspaces for ongoing changes to versioned datasets
+- **[[next snapshots|sflo.concept.mesh.resource.element.node-component.layer.next]]**: Draft workspaces for ongoing changes to versioned datasets
 - **[[Node handles|sflo.concept.mesh.resource.element.node-handle]]**: Elements that provide referential indirection, allowing references to nodes as mesh resources rather than their referents
 - **[[Asset trees|sflo.concept.mesh.resource.element.asset-tree]]**: Collections of arbitrary files and folders attached to the mesh
 
@@ -4167,11 +4167,11 @@ The structure of a semantic mesh is built on a fundamental distinction between *
 **Folder-based elements:**
 
 
-- **[[Metadata components|sflo.concept.mesh.resource.element.node-component.metadata]]**: Administrative metadata (in `_meta-component/` folders)
-- **[[Reference components|sflo.concept.mesh.resource.element.node-component.reference]]**: Referent data (in `_ref-component/` folders)
+- **[[metadata flows|sflo.concept.mesh.resource.element.node-component.metadata]]**: Administrative metadata (in `_meta-component/` folders)
+- **[[reference flows|sflo.concept.mesh.resource.element.node-component.reference]]**: Referent data (in `_ref-component/` folders)
 - **[[Asset trees|sflo.concept.mesh.resource.element.asset-tree]]**: File collections (in `_assets/` folders)
 - **[[Version datasets|sflo.concept.mesh.resource.element.node-component.layer.version]]**: Versioned snapshots
-- **[[Next layers|sflo.concept.mesh.resource.element.node-component.layer.next]]**: Draft workspaces
+- **[[next snapshots|sflo.concept.mesh.resource.element.node-component.layer.next]]**: Draft workspaces
 
 **File-based elements:**
 - **Documentation files**: 
@@ -4251,7 +4251,7 @@ Every mesh node has these elements:
 ### 3. [[Data Node|sflo.concept.mesh.resource.node.data]]
 **Elements**: `_meta-component/` + `_node-handle/` + `_data-component/` ( + optional `_ref-component`)
 - Contains data distributions and versioning capabilities
-- Node IRI refers to the node component
+- Node IRI refers to the node flow
 - Adds dataset storage to the namespace foundation
 - Can be configured as [[dataset series|sflo.concept.mesh.resource.node.data.series]]
 - Evolved from namespace nodes by adding the `_data-component/` element
@@ -8423,7 +8423,7 @@ mesh-node/
 │       ├── distributions.html   # Data distributions  
 │       ├── metadata-table.html  # Metadata display
 │       ├── version-history.html # Version information
-│       └── references.html      # Reference component data
+│       └── references.html      # reference flow data
 HTMX Integration
 html<!-- _assets/pages/index.html -->
 <div class="mesh-node-page">
@@ -9527,7 +9527,7 @@ typescriptclass WeaveProcessor {
     const hasDataChanges = await this.detectDataChanges(node);
     
     if (hasDataChanges && node.versioningEnabled) {
-      // 2. Create new version layer
+      // 2. Create new version snapshot
       const newVersion = await this.createVersionLayer(node);
       
       // 3. Copy _next to _current (including _assets)
@@ -9625,7 +9625,7 @@ data-node/
     ├── index.html               # ← Routes between metadata versions
     ├── _current/
     └── _v1/
-Data Component Router
+data flow Router
 html<!-- _data-component/index.html -->
 <div class="data-component-router">
   <h2>Project Data</h2>
@@ -9912,7 +9912,7 @@ html<!-- Pure static links -->
 You're absolutely right to call that out (.9) - I was mixing server-side routing concepts with static file serving. The cleanest approach is direct file paths where each version has its own complete interface file, and navigation just changes which file you're viewing.
 No query strings needed, no server required, just simple file-based routing that works everywhere.RetryDtwo thoughts:  aggregated distributions have to have their own versioning  does it work to use file:// URIs for the local state in the in-memory n3 representation of the mesh.jEditTwo excellent points! (.9)
 1. Aggregated Distribution Versioning
-You're absolutely right - aggregated distributions need their own versioning separate from the component layers they aggregate from.
+You're absolutely right - aggregated distributions need their own versioning separate from the flow snapshots they aggregate from.
 The Problem
 data-node/
 ├── _data-component/
@@ -10144,7 +10144,7 @@ jsonld// _unified-dataset/_v2/_provenance.jsonld
   ],
   "prov:generatedAtTime": "2025-07-10T10:15:00Z",
   "sflo:triggerComponent": "data",
-  "sflo:changeDescription": "Data component updated, reference unchanged"
+  "sflo:changeDescription": "data flow updated, reference unchanged"
 }
 Weave Logic for Node Snapshots
 typescriptclass NodeSnapshotManager {
@@ -10324,12 +10324,12 @@ Can be referenced like other components
 Constraints that make it different:
 
 Generated, never authored
-No _next layer (or _next is just temporary during weave)
+No _next snapshot (or _next is just temporary during weave)
 Provenance always points to other components
 Cannot be independently modified
 
 I think it is a component, but a special system-generated, read-only component (.8). It follows all the component patterns but with strict constraints on how it's created and modified.
-What's your intuition - does calling it a component feel right, or does the read-only nature make it fundamentally different?RetryDunified dataset seems to have independent versioning, but yes it is derivative.Metadata component would also seem to be a system component. But yes, good call, no _next. Doe MetadataComponent have a next?EditGood point about independent versioning! (.9) The unified dataset does have its own version sequence (v1, v2, v3...) even though it's derived from components.
+What's your intuition - does calling it a component feel right, or does the read-only nature make it fundamentally different?RetryDunified dataset seems to have independent versioning, but yes it is derivative.metadata flow would also seem to be a system component. But yes, good call, no _next. Doe MetadataComponent have a next?EditGood point about independent versioning! (.9) The unified dataset does have its own version sequence (v1, v2, v3...) even though it's derived from components.
 MetaComponent and _next
 You're right to question this. Let me think through it (.8):
 What goes in MetaComponent?
@@ -10340,7 +10340,7 @@ Version history tracking
 Weave operation logs
 Configuration inheritance resolution
 
-Does this need a _next layer?
+Does this need a _next snapshot?
 Arguments against _next: (.7)
 
 Metadata is system-generated during weave
@@ -10365,7 +10365,7 @@ typescriptasync function executeWeave(node: MeshNode) {
 }
 vs
 typescriptasync function executeWeave(node: MeshNode) {
-  // 1. Stage all changes in _next layers
+  // 1. Stage all changes in _next snapshots
   await this.stageUserComponents(node);
   await this.stageMetadata(node);           // Compute metadata in _next
   await this.stageUnifiedDataset(node);     // Compute unified in _next
@@ -11936,7 +11936,7 @@ This gives you native SPARQL support with excellent performance and ecosystem co
 Building a **Flow CLI** in Deno using Cliffy to manage semantic meshes - versioned collections of semantic data where every URL returns meaningful content. The CLI will consumThis summary captures our key decisions and provides a solid foundation for continuing the implementation in a new conversation. The main outcomes were:
 
 Service-first architecture with Hono + Quadstore + SPARQL support
-Assets versioning within component layers
+Assets versioning within flow snapshots
 HTMX fragments for rich web interfaces
 OpenAPI + Zod for type-safe REST API
 Comunica integration for SPARQL UI

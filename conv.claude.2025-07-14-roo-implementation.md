@@ -608,7 +608,7 @@ typescript
 
 
 6.2 Weave Process Flow
-Detect changes in _next layers across components
+Detect changes in _next snapshots across components
 Version components according to policies
 Regenerate system components (_meta-component, _unified-dataset)
 Generate resource pages and HTMX fragments

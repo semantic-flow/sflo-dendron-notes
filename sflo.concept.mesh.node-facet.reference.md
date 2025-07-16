@@ -10,4 +10,4 @@ This is the facet that differentiates [[sflo.concept.mesh.resource.node.namespac
 
 [[sflo.concept.mesh.resource.node.data]] may also have this facet.
 
-It is manifested as a [[sflo.concept.mesh.resource.element.node-component.reference]] 
+It is manifested as a [[sflo.concept.mesh.resource.element.flow.reference]] 

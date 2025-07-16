@@ -6,7 +6,7 @@ updated: 1752325513586
 created: 1751631229565
 ---
 
-A node's **aggregated distribution** is a compilation of all the data components of all its contained nodes, situated directly under the node for easy access with an intuitive filename of "nodename.ext".
+A node's **aggregated distribution** is a compilation of all the data flows of all its contained nodes, situated directly under the node for easy access with an intuitive filename of "nodename.ext".
 
 ## Purpose
 
@@ -72,6 +72,6 @@ During [[sflo.concept.weave-process]], aggregated distributions are created by:
 
 ## Related Concepts
 
-- **[[sflo.concept.mesh.resource.element.node-component.data]]** - Source datasets for aggregation
+- **[[sflo.concept.mesh.resource.element.flow.data]]** - Source datasets for aggregation
 - **[[sflo.concept.weave-process]]** - Process that generates aggregated distributions
-- **[[sflo.concept.mesh.resource.element.node-component.layer]]** - Contains the actual distributions being aggregated
+- **[[sflo.concept.mesh.resource.element.flow.snapshot]]** - Contains the actual distributions being aggregated

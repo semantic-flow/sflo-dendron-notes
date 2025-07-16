@@ -13,7 +13,7 @@ A **semantic mesh** is a dereferenceable, possibly-versioned, [[sflo.concept.imm
 Key characteristics:
 - **Addressable**: Every resource has a unique URL-based identifier
 - **Dereferenceable**: All URLs return meaningful content when accessed
-- **Versioned**: Changes are managed through the [[Weave Process|sflo.concept.weave-process]] process, and [[sflo.concept.mesh.resource.element.node-component]] are versioned by default
+- **Versioned**: Changes are managed through the [[Weave Process|sflo.concept.weave-process]] process, and [[sflo.concept.mesh.resource.element.flow]] are versioned by default
 - **Publish-ready**: Can be served directly via GitHub Pages or similar static hosting; or via a local web server like live-server
 
 ## Core Concepts
@@ -27,7 +27,7 @@ There are two primary categories:
 [[Mesh nodes|sflo.concept.mesh.resource.node]] are the primary structural components, physically represented as [[mesh folders|sflo.concept.mesh.resource-facet.folder]]. They extend namespaces and serve as containers.
 
 - **[[Namespace nodes|sflo.concept.mesh.resource.node.namespace]]**: Empty containers for organizing other mesh nodes
-- **[[Reference nodes|sflo.concept.mesh.resource.node.reference]]**: Nodes that refer to external entities (people, concepts, relationships) and contain [[reference components|sflo.concept.mesh.resource.element.node-component.reference]]
+- **[[Reference nodes|sflo.concept.mesh.resource.node.reference]]**: Nodes that refer to external entities (people, concepts, relationships) and contain [[reference flows|sflo.concept.mesh.resource.element.flow.reference]]
 - **[[Data nodes|sflo.concept.mesh.resource.node.data]]**: Nodes containing data distributions with optional versioning
 
 
@@ -37,10 +37,10 @@ There are two primary categories:
 
 ## Folder-based
 
-- **[[sflo.concept.mesh.resource.element.node-component]]** and their [[sflo.concept.mesh.resource.element.node-component.layer]]
-  - **[[sflo.concept.mesh.resource.element.node-component.metadata]]**: System-related administrative and structural metadata for mesh nodes
-  - **[[Version datasets|sflo.concept.mesh.resource.element.node-component.layer.version]]**: Versioned snapshots of datasets
-- **[[Next layers|sflo.concept.mesh.resource.element.node-component.layer.next]]**: Draft workspaces for ongoing changes to versioned datasets
+- **[[sflo.concept.mesh.resource.element.flow]]** and their [[sflo.concept.mesh.resource.element.flow.snapshot]]
+  - **[[sflo.concept.mesh.resource.element.flow.metadata]]**: System-related administrative and structural metadata for mesh nodes
+  - **[[Version datasets|sflo.concept.mesh.resource.element.flow.snapshot.version]]**: Versioned snapshots of datasets
+- **[[next snapshots|sflo.concept.mesh.resource.element.flow.snapshot.next]]**: Draft workspaces for ongoing changes to versioned datasets
 - **[[Node handles|sflo.concept.mesh.resource.element.node-handle]]**: Elements that provide referential indirection, allowing references to nodes as mesh resources rather than their referents
 - **[[Asset trees|sflo.concept.mesh.resource.element.asset-tree]]**: Collections of arbitrary files and folders attached to the mesh
 
@@ -49,7 +49,7 @@ There are two primary categories:
 Terminal [[mesh resources|sflo.concept.mesh.resource]] that cannot contain other resources:
 
 - **[[Resource pages|sflo.concept.mesh.resource.element.documentation-resource.resource-page]]**: index.html files present in every mesh folder after weaving
-- **[[Distribution files|sflo.concept.mesh.resource.element.node-component.layer.distribution]]**: Data files in various RDF formats
+- **[[Distribution files|sflo.concept.mesh.resource.element.flow.snapshot.distribution]]**: Data files in various RDF formats
 - **README.md and CHANGELOG.md**: Documentation files providing context
 
 
@@ -77,10 +77,10 @@ Terminal [[mesh resources|sflo.concept.mesh.resource]] that cannot contain other
 - Each resource has a unique [[identifier|sflo.concept.identifier]] based on its path and local name
 
 ### Containment Rules
-- **Mesh nodes** are always containers of elements (i.e., at least [[sflo.concept.mesh.resource.element.node-component.metadata]] and [[sflo.concept.mesh.resource.folder._node-handle]]) and potentially containers of other nodes 
+- **Mesh nodes** are always containers of elements (i.e., at least [[sflo.concept.mesh.resource.element.flow.metadata]] and [[sflo.concept.mesh.resource.folder._node-handle]]) and potentially containers of other nodes 
   - **namespace nodes**: no additional containment requirements
-  - **reference nodes**: must have [[sflo.concept.mesh.resource.element.node-component.reference]]
-  - **data nodes**: must have [[sflo.concept.mesh.resource.element.node-component.data]] with at least one distributions; and optionally, [[sflo.concept.mesh.resource.node.reference]]
+  - **reference nodes**: must have [[sflo.concept.mesh.resource.element.flow.reference]]
+  - **data nodes**: must have [[sflo.concept.mesh.resource.element.flow.data]] with at least one distributions; and optionally, [[sflo.concept.mesh.resource.node.reference]]
 - **Assets tree elements**: Cannot contain nodes
 - all elements can contain 
 
@@ -88,14 +88,14 @@ Terminal [[mesh resources|sflo.concept.mesh.resource]] that cannot contain other
 
 ### System vs User Boundaries
 - **System elements**: Generated and managed by the weave process, not intended for user modification
-- **User elements**: Directly modifiable by users ([[sflo.concept.mesh.resource.element.node-component.layer.current]], README.md, CHANGELOG.md)
+- **User elements**: Directly modifiable by users ([[sflo.concept.mesh.resource.element.flow.snapshot.current]], README.md, CHANGELOG.md)
 - The weave process maintains system elements and generates missing required components
 
 ### Versioning Requirements
 - Component versioning is managed through the [[Versioning|sflo.concept.versioning]] system
   - turning versioning on and off is controlled in the [[sflo.concept.mesh.resource.element.node-config-defaults]]
-  - Version history is realized in [[sflo.concept.mesh.resource.element.node-component.layer.version]] with numbered version snapshots
-  - Version history metadata is kept in the node's [[sflo.concept.mesh.resource.element.node-component.metadata]]
+  - Version history is realized in [[sflo.concept.mesh.resource.element.flow.snapshot.version]] with numbered version snapshots
+  - Version history metadata is kept in the node's [[sflo.concept.mesh.resource.element.flow.metadata]]
 
 ### Addressing Requirements
 - Every mesh resource must be addressable via its URL path

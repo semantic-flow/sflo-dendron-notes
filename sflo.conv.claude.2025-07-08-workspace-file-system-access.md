@@ -3440,15 +3440,15 @@ NodeRefComponent dcat:dataset RefLayer .
 NodeDataComponent dcat:dataset DataLayer .
 "Layer" advantages:
 
-Better with "component" - "component layers" sounds more natural
+Better with "component" - "flow snapshots" sounds more natural
 Same structural meaning - layers build up to form the whole
 Familiar metaphor - architecture, software, geology all use layers
 Clear progression - layers stack over time
 
 Works well with all your concepts:
 
-"Current layer"
-"Next layer"
+"current snapshot"
+"next snapshot"
 "Historical layers"
 Layers accumulate to form the complete component
 
@@ -3567,7 +3567,7 @@ someDataComponent dcat:seriesMember version1, version2, version3 .
 Possible approaches:
 1. Identity relationship:
 turtleDataNode owl:equivalentClass DataNodeComponent .
-# The node and its data component are the same thing
+# The node and its data flow are the same thing
 2. Explicit dual nature:
 turtleDataNodeComponent rdfs:subClassOf dcat:DatasetSeries ;
     rdfs:comment "Serves dual role: abstract dataset identity AND catalog of versions" .
@@ -3596,7 +3596,7 @@ turtlesomeDataComponent a DataNodeComponent, dcat:DatasetSeries ;
     dct:title "User Profile Data" ;              # abstract dataset identity
     dcat:seriesMember profile-v1, profile-v2 .  # catalog of versions
 This is conceptually sound - the series embodies the dataset concept while also serving as the organizational structure for its temporal instances.
-Your concern makes sense, but DCAT's DatasetSeries model handles this duality naturally. The "abstract dataset" and "catalog of versions" are the same entity viewed from different angles.RetryDnode component provide three kinds of data: metadata, reference data, and __Where the blank I've been calling "primary data"Edit"primary data" works, but here are alternatives:
+Your concern makes sense, but DCAT's DatasetSeries model handles this duality naturally. The "abstract dataset" and "catalog of versions" are the same entity viewed from different angles.RetryDnode flow provide three kinds of data: metadata, reference data, and __Where the blank I've been calling "primary data"Edit"primary data" works, but here are alternatives:
 Content data - emphasizes it's the main substance/content of the node
 Payload data - suggests it's what the node is "carrying" or delivering
 Core data - emphasizes it's the central/essential data
@@ -3618,7 +3618,7 @@ Technical precision - familiar from networking, APIs, messaging systems
 Semantic clarity - what the node is "delivering"
 
 Clean three-part structure:
-turtle# Node components provide:
+turtle# node flows provide:
 NodeMetaComponent    # metadata about the node
 NodeRefComponent     # reference/linking data  
 NodePayloadComponent # payload data - the actual content
@@ -3646,7 +3646,7 @@ node-folder/
 └── other-content/
 The distinction makes sense:
 
-_comp-* folders = the three data components every node has
+_comp-* folders = the three data flows every node has
 _node-* folders = node-level structural elements (like handles)
 
 This keeps the terminology aligned between your ontology (NodeMetaComponent) and your filesystem structure (_comp-meta/).
@@ -3688,7 +3688,7 @@ PayloadComponent a owl:Class ;
 Benefits:
 
 Concise - shorter class names
-Flexible - if you ever have non-node components, the naming doesn't conflict
+Flexible - if you ever have non-node flows, the naming doesn't conflict
 Natural - "MetadataComponent" describes what it is directly
 
 The "Node" part is implied by the inheritance hierarchy. And it aligns well with your filesystem naming (_node-meta/ for the folder containing MetadataComponent data).
@@ -3724,7 +3724,7 @@ Reasoning:
 Aligns with your domain - you have DataNodes, so DataComponent makes sense
 Avoids payload confusion - "payload" is good for describing the data type, not necessarily the component itself
 Consistent with existing patterns - you already use "data" throughout your vocabulary
-Natural language - "this node has a data component" reads better than "payload component"
+Natural language - "this node has a data flow" reads better than "payload component"
 
 turtleDataComponent a owl:Class ;
     rdfs:subClassOf NodeComponent ;
@@ -3735,7 +3735,7 @@ Class name: DataComponent
 Data description: payload data
 Folder: _node-payload/ (since it holds the payload data)
 
-This keeps your ontology terminology clean while still using "payload" to describe the nature of the data it contains. The component manages/organizes the payload data, but the component itself is the "data component" of the node.RetryDI think the components "dataseries" (i.e., which datasets are in the series) should be stored in the parent node's metadata component.EditThat makes architectural sense (.8)
+This keeps your ontology terminology clean while still using "payload" to describe the nature of the data it contains. The component manages/organizes the payload data, but the component itself is the "data flow" of the node.RetryDI think the components "dataseries" (i.e., which datasets are in the series) should be stored in the parent node's metadata flow.EditThat makes architectural sense (.8)
 Why this works well:
 
 Centralized management - node metadata controls what components/series exist
@@ -3743,17 +3743,17 @@ Consistency - all structural information about the node lives in one place
 Avoids duplication - don't need to store series membership in multiple places
 Clean separation - components focus on their data, metadata focuses on organization
 
-turtle# In the node's metadata component
+turtle# In the node's metadata flow
 someNode hasMetadataComponent someMetaComponent .
 someMetaComponent dcat:dataset [
-    # Metadata about the node's data component series
+    # Metadata about the node's data flow series
     flow:describes someDataComponent ;
     flow:seriesMembers (data-v1 data-v2 data-v3)
 ] .
 This pattern:
 
-Metadata component = "catalog of catalogs" (tracks what series exist)
-Data/Reference components = individual series of versioned datasets
+metadata flow = "catalog of catalogs" (tracks what series exist)
+Data/reference flows = individual series of versioned datasets
 Clean hierarchy - metadata → components → versions
 
 Alternative storage could be confusing:
@@ -3761,7 +3761,7 @@ Alternative storage could be confusing:
 Storing series info in the component itself creates circular references
 Storing it elsewhere makes it harder to discover
 
-The metadata component becomes the authoritative source for the node's structural organization. Good design.RetryDhow do i turn off the gitlens popups when I hover over code.EditIn VSCode settings (.9):
+The metadata flow becomes the authoritative source for the node's structural organization. Good design.RetryDhow do i turn off the gitlens popups when I hover over code.EditIn VSCode settings (.9):
 Option 1: Settings UI
 
 Ctrl+, to open Settings
@@ -3788,7 +3788,7 @@ json{
     "gitlens.hovers.annotations.over": "line"
 }
 The first option ("gitlens.hovers.enabled": false) will turn off all GitLens hover popups completely.RetryDSo wait, what are the kinds of datasets in a mesh?EditIn a semantic flow mesh, there are several types of datasets (.8):
-Node Component Datasets (the three series per node):
+node flow Datasets (the three series per node):
 
 Metadata datasets - data about the node itself
 Reference datasets - linking/relationship data
@@ -3797,13 +3797,13 @@ Data datasets - the payload/content data
 Dataset classification by abstraction level:
 
 Component series (abstract) - MetadataComponent, ReferenceComponent, DataComponent
-Component layers (concrete) - specific versions within each series
+flow snapshots (concrete) - specific versions within each series
 
 Dataset classification by lifecycle:
 
 Historical layers - past versions
-Current layer - active version
-Next layer - draft/upcoming version
+current snapshot - active version
+next snapshot - draft/upcoming version
 
 Dataset classification by source:
 
@@ -3847,7 +3847,7 @@ turtle# Clear in RDF
 <http://example.org/djradon/_node-ref/djradon_ref.trig> a Distribution .
 RDF benefits of _ref-component/:
 
-Self-documenting URIs - immediately tells you it's a reference component
+Self-documenting URIs - immediately tells you it's a reference flow
 Semantic clarity - matches your ontology vocabulary (ReferenceComponent)
 Standalone meaning - makes sense even without filesystem context
 
@@ -3882,7 +3882,7 @@ Doesn't match your class name
 Introduces terminology inconsistency
 "Payload" is better as a description of the data type, not the component name
 
-You were right to keep DataComponent as the class name, so the folder should follow suit. The component manages data (which happens to be payload data), but it's fundamentally the "data component" of the node.RetryDagree. we'll leave "_node-handle" so it'll still be clear that it's a node.EditPerfect compromise (.8)
+You were right to keep DataComponent as the class name, so the folder should follow suit. The component manages data (which happens to be payload data), but it's fundamentally the "data flow" of the node.RetryDagree. we'll leave "_node-handle" so it'll still be clear that it's a node.EditPerfect compromise (.8)
 node-folder/
 ├── _data-component/
 ├── _meta-component/
@@ -3894,7 +3894,7 @@ Makes sense because:
 
 Component folders match ontology terms exactly
 Node handle is a different concept - it's not a component, it's a structural element
-Clear distinction between data components and node infrastructure
+Clear distinction between data flows and node infrastructure
 Handles are node-specific in a way that's worth emphasizing
 
 The _node-handle/ naming preserves the semantic distinction that handles are about node structure/access, while the component folders are about the three types of data every node manages.

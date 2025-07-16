@@ -25,17 +25,17 @@ The structure of a semantic mesh is built on a fundamental distinction between *
 **Folder-based elements:**
 
 
-- **[[Metadata components|sflo.concept.mesh.resource.element.node-component.metadata]]**: Administrative metadata (in `_meta-component/` folders)
-- **[[Reference components|sflo.concept.mesh.resource.element.node-component.reference]]**: Referent data (in `_ref-component/` folders)
+- **[[metadata flows|sflo.concept.mesh.resource.element.flow.metadata]]**: Administrative metadata (in `_meta-component/` folders)
+- **[[reference flows|sflo.concept.mesh.resource.element.flow.reference]]**: Referent data (in `_ref-component/` folders)
 - **[[Asset trees|sflo.concept.mesh.resource.element.asset-tree]]**: File collections (in `_assets/` folders)
-- **[[Version datasets|sflo.concept.mesh.resource.element.node-component.layer.version]]**: Versioned snapshots
-- **[[Next layers|sflo.concept.mesh.resource.element.node-component.layer.next]]**: Draft workspaces
+- **[[Version datasets|sflo.concept.mesh.resource.element.flow.snapshot.version]]**: Versioned snapshots
+- **[[next snapshots|sflo.concept.mesh.resource.element.flow.snapshot.next]]**: Draft workspaces
 
 **File-based elements:**
 - **Documentation files**: 
   - [[Resource pages|sflo.concept.mesh.resource.element.documentation-resource.resource-page]] are index.html files that provide de-referencability for their containing [[sflo.concept.identifier]] [[sflo.concept.mesh.resource-facet.folder]]
   - **README.md and CHANGELOG.md**: unstructured documentation
-- **[[Layer distribution files|sflo.concept.mesh.resource.element.node-component.layer.distribution]]**: Data files in RDF formats
+- **[[Layer distribution files|sflo.concept.mesh.resource.element.flow.snapshot.distribution]]**: Data files in RDF formats
 
 ## Physical vs Logical Structure
 
@@ -52,7 +52,7 @@ The structure of a semantic mesh is built on a fundamental distinction between *
 ## Asset Tree Special Case
 
 [[Asset trees|sflo.concept.mesh.resource.element.asset-tree]] represent a special category where:
-- The asset tree itself (with its [[sflo.concept.mesh.resource.element.node-component.metadata]]) is part of the mesh structure
+- The asset tree itself (with its [[sflo.concept.mesh.resource.element.flow.metadata]]) is part of the mesh structure
 - The files and folders contained within asset trees are "attached to" but not "contained in" the mesh
 - Asset tree contents are addressable but are not considered semantic flow resources
 

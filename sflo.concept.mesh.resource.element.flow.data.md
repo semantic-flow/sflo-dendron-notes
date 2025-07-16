@@ -1,6 +1,6 @@
 ---
 id: 9j8lhoyb0xkhg926nafgkai
-title: data component
+title: data flow
 desc: ''
 updated: 1752025335637
 created: 1751560483669
@@ -8,11 +8,11 @@ created: 1751560483669
 
 ## Overview
 
-Data components (_data-component/) are [[node components|sflo.concept.mesh.resource.element.node-component]] that effectively associate a versioned dataset with a mesh node. They contain the actual content payload of data nodes and provide the primary data storage functionality within the semantic flow mesh architecture.
+data flows (_data-component/) are [[node flows|sflo.concept.mesh.resource.element.flow]] that effectively associate a versioned dataset with a mesh node. They contain the actual content payload of data nodes and provide the primary data storage functionality within the semantic flow mesh architecture.
 
 ## Purpose
 
-Data components serve as the primary content containers for mesh nodes, providing:
+data flows serve as the primary content containers for mesh nodes, providing:
 
 - **Content Storage**: Hold the actual data payload that defines the node's content
 - **Version Management**: Support multiple versions of the same conceptual dataset
@@ -21,7 +21,7 @@ Data components serve as the primary content containers for mesh nodes, providin
 
 ## Structure
 
-Data components organize content through [[component layers|sflo.concept.mesh.resource.element.node-component.layer]]:
+data flows organize content through [[flow snapshots|sflo.concept.mesh.resource.element.flow.snapshot]]:
 
 - `_current/` - Current stable version of the dataset
 - `_next/` - Draft/work-in-progress version
@@ -32,16 +32,16 @@ Like all [[sflo.concept.mesh.resource-facet.folder]], they should contain an `in
 
 ## Relationship to Data Nodes
 
-Data components create the fundamental association between nodes and their content:
+data flows create the fundamental association between nodes and their content:
 
 
 ## Content Types
 
-Data components contain one or more 
+data flows contain one or more 
 
 ## Versioning Strategy
 
-Data components implement sophisticated version management:
+data flows implement sophisticated version management:
 
 - **Linear Versioning**: Sequential versions (v1, v2, v3...)
 - **Branch Management**: Current stable vs. next draft
@@ -50,7 +50,7 @@ Data components implement sophisticated version management:
 
 ## Distribution Formats
 
-Each component layer typically provides multiple format distributions:
+Each flow snapshot typically provides multiple format distributions:
 
 - **Trig (.trig)**: Primary RDF serialization
 - **JSON-LD (.jsonld)**: JSON-compatible linked data
@@ -62,8 +62,8 @@ Each component layer typically provides multiple format distributions:
 From the [[semantic mesh example|sflo.concept.semantic-mesh.example]]:
 
 ```
-/test-ns/djradon-bio/_data/          # data component
-├── _current/                        # current layer
+/test-ns/djradon-bio/_data/          # data flow
+├── _current/                        # current snapshot
 │   ├── djradon-bio.ttl             # turtle distribution
 │   ├── djradon-bio.jsonld          # json-ld distribution
 │   └── index.html                  # layer interface
@@ -76,11 +76,11 @@ From the [[semantic mesh example|sflo.concept.semantic-mesh.example]]:
 
 ## Integration
 
-Data components integrate with other mesh elements:
+data flows integrate with other mesh elements:
 
-- **Metadata Components**: Provide provenance and management data
-- **Reference Components**: Enable indirection and linking
+- **metadata flows**: Provide provenance and management data
+- **reference flows**: Enable indirection and linking
 - **Asset Trees**: Store associated files and media
 - **Resource Pages**: Provide human-readable interfaces
 
-Data components are the core content mechanism that enables the semantic flow mesh to function as a distributed, versioned knowledge management system.
+data flows are the core content mechanism that enables the semantic flow mesh to function as a distributed, versioned knowledge management system.

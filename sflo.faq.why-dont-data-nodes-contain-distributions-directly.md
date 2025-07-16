@@ -41,7 +41,7 @@ This mirrors how [[reference nodes|sflo.concept.mesh.resource.node.reference]] w
 
 ### Metadata Separation
 
-The data node's [[metadata component|sflo.concept.mesh.resource.element.node-component.metadata]] contains system metadata about the data concept and its components, while each [[sflo.concept.mesh.resource.element.node-component.data]] can also contain (concept-specific) metadata.
+The data node's [[metadata flow|sflo.concept.mesh.resource.element.flow.metadata]] contains system metadata about the data concept and its components, while each [[sflo.concept.mesh.resource.element.flow.data]] can also contain (concept-specific) metadata.
 
 TODO: example
 
@@ -50,7 +50,7 @@ TODO: example
 
 Think of it like a library:
 - **Data node** = "The concept of the Encyclopedia Britannica"
-- **Data component** = The Encyclopedia Britannica as an ongoing series of editions
-- **[[sflo.concept.mesh.resource.element.node-component.layer]]** = Specific editions (1990 edition, 2020 edition, current edition)
+- **data flow** = The Encyclopedia Britannica as an ongoing series of editions
+- **[[sflo.concept.mesh.resource.element.flow.snapshot]]** = Specific editions (1990 edition, 2020 edition, current edition)
 
 You can refer to "Encyclopedia Britannica" as a general concept or as a series without specifying which edition, or you can reference a specific edition when you need concrete data.

@@ -32,7 +32,7 @@ Building a **Flow CLI** in Deno using Cliffy to manage semantic meshes - version
 - **Zod schemas** for runtime validation bridging to RDF validation
 
 ### **4. Versioning Strategy**
-- **Assets versioning**: `_assets` should live within component layers (`_current`, `_next`, `_v1`, etc.)
+- **Assets versioning**: `_assets` should live within flow snapshots (`_current`, `_next`, `_v1`, etc.)
 - **Unified datasets**: Node-level aggregation of all component versions at a point in time
 - **System components**: Both `_meta-component` and `_unified-dataset` are system-generated with no `_next` layer
 - **Atomic weave operations**: System components version together to avoid circular dependencies

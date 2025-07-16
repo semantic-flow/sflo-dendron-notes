@@ -14,6 +14,6 @@ Resource files are returned directly when accessed by their [[sflo.concept.url]]
   - [[sflo.concept.mesh.resource.element.documentation-resource.resource-page]] (system-generated)
   - [[sflo.concept.mesh.resource.element.documentation-resource.changelog]]
   - [[sflo.concept.mesh.resource.element.documentation-resource.readme]]
-- [[sflo.concept.mesh.resource.element.node-component.layer.distribution]]
+- [[sflo.concept.mesh.resource.element.flow.snapshot.distribution]]
 - [[sflo.concept.mesh.resource.element.aggregated-distribution]]
 - 

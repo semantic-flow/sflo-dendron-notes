@@ -1869,7 +1869,7 @@ I don't see an abstract-dataset file. Did you create it with a different name, o
 
 You can't access it because I work in WSL, and I haven't committed/pushed and then pulled into the c:\ drive. Here it is:
 
-Datasets which have the [[sflo.concept.mesh.resource.element.node-component]] are abstract datasets. They represents the "dataset as concept", and exist through time, independent of any specific version, snapshot, or temporal realization.
+Datasets which have the [[sflo.concept.mesh.resource.element.flow]] are abstract datasets. They represents the "dataset as concept", and exist through time, independent of any specific version, snapshot, or temporal realization.
 
 ## Relationship to Concrete Datasets
 
@@ -1924,7 +1924,7 @@ Work → Abstract dataset (_ref/, _data/)
 Expression → Concrete dataset (_current/, _v1/)
 Manifestation → Distribution (.ttl, .rdf files)
 Item → Actual files on storage medium
-One small suggestion: The opening line "Datasets which have the [[sflo.concept.mesh.resource.element.node-component]] are abstract datasets" feels a bit circular. Maybe something like:
+One small suggestion: The opening line "Datasets which have the [[sflo.concept.mesh.resource.element.flow]] are abstract datasets" feels a bit circular. Maybe something like:
 
 "Abstract datasets are mesh resource elements that represent the persistent conceptual identity of a dataset through time..."
 

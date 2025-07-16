@@ -301,10 +301,10 @@ Middle ground: You could add them as individuals rather than classes:
 
 turtle
 :current a ComponentLayer ;
-    rdfs:label "Current Layer" .
+    rdfs:label "current snapshot" .
 
 :next a ComponentLayer ;  
-    rdfs:label "Next Layer" .
+    rdfs:label "next snapshot" .
 Or use a simple classification property:
 
 turtle
@@ -336,7 +336,7 @@ VersionLayer rdfs:subClassOf ComponentLayer ;
 DocumentationResource rdf:type owl:Class ;  # you already have this
 Changelog rdfs:subClassOf DocumentationResource ;
 Readme rdfs:subClassOf DocumentationResource ;
-This gives you the semantic precision needed for queries like "find all current layers" or "get the changelog for this node" while maintaining the abstract hierarchy.
+This gives you the semantic precision needed for queries like "find all current snapshots" or "get the changelog for this node" while maintaining the abstract hierarchy.
 
 For FileResource and FolderResource - since filesystem structure is core to your mesh, those probably belong too (.85). They'd help distinguish between file-based and directory-based assets within AssetTree elements.
 
@@ -453,7 +453,7 @@ VersionLayer rdfs:subClassOf ComponentLayer, FolderResource .
 Option 2: Abstract class defines the contract
 
 turtle
-ComponentLayer rdfs:subClassOf FolderResource .  # all component layers are folders
+ComponentLayer rdfs:subClassOf FolderResource .  # all flow snapshots are folders
 CurrentLayer rdfs:subClassOf ComponentLayer .    # inherits FolderResource
 NextLayer rdfs:subClassOf ComponentLayer .
 VersionLayer rdfs:subClassOf ComponentLayer .
@@ -611,12 +611,12 @@ Should it be exactly one ResourcePage (sh:maxCount 1) or could folders have mult
 
 
 
-is "hasSourceLayer" a good name for the property that links a current layer to a version layer?  or is there a good dcat property already?
+is "hasSourceLayer" a good name for the property that links a current snapshot to a version snapshot?  or is there a good dcat property already?
 
 Since we have hasElement, we maybe don't need hasCompound?
 
 Edit
-hasSourceLayer seems unclear (.70). It could imply the current layer is derived from the version layer, but isn't it the opposite? The version layer is typically a snapshot/copy of the current layer.
+hasSourceLayer seems unclear (.70). It could imply the current snapshot is derived from the version snapshot, but isn't it the opposite? The version snapshot is typically a snapshot/copy of the current snapshot.
 
 Better options:
 
@@ -639,17 +639,17 @@ The dcat:isVersionOf approach also fits your existing use of DCAT vocabulary.
 
 
 
-The latest version layer has the same distribution as the current layer. (in case people want to refer to the current layer's data in an immutable way)
+The latest version snapshot has the same distribution as the current snapshot. (in case people want to refer to the current snapshot's data in an immutable way)
 
 Edit
-Ah, that clarifies the relationship (.90). The version layer is a frozen snapshot of current layer state, so people can reference "v1.2.3" instead of the moving target of "current".
+Ah, that clarifies the relationship (.90). The version snapshot is a frozen snapshot of current snapshot state, so people can reference "v1.2.3" instead of the moving target of "current".
 
 For this use case, dcat:isVersionOf works perfectly:
 
 turtle
 :v1-layer dcat:isVersionOf :current-layer .
 :v2-layer dcat:isVersionOf :current-layer .
-This expresses that the version layers are immutable snapshots of the current layer. The inverse dcat:hasVersion would go the other way:
+This expresses that the version snapshots are immutable snapshots of the current snapshot. The inverse dcat:hasVersion would go the other way:
 
 turtle
 :current-layer dcat:hasVersion :v1-layer, :v2-layer .
@@ -667,7 +667,7 @@ Do you want to model both directions, or just one?
 But I want to say "this current version is the same as/based on/currently"
 
 Edit
-Ah, you want the opposite direction (.90). You're saying "the current layer is currently representing/based on version v1.2.3".
+Ah, you want the opposite direction (.90). You're saying "the current snapshot is currently representing/based on version v1.2.3".
 
 For that relationship, you'd want:
 
@@ -685,7 +685,7 @@ Maybe you want:
 turtle
 :current-layer :representsVersion :v2-layer .
 :current-layer :atVersion "v2.3.1"^^xsd:string .
-What's the specific use case? Are you trying to say "current layer currently contains the same data as v2 layer"?
+What's the specific use case? Are you trying to say "current snapshot currently contains the same data as v2 layer"?
 
 
 
@@ -745,10 +745,10 @@ turtle
 # or maybe: :next-layer :basedOn :current-layer .
 When you're ready to release, you'd:
 
-Create new version layer from next: v3-layer prov:wasDerivedFrom next-layer
+Create new version snapshot from next: v3-layer prov:wasDerivedFrom next-layer
 Update current pointer: current-layer :representsVersion v3-layer
 Reset next as copy of new current
-This gives you the immutable references people need while allowing active development. The current layer's distributions are just convenience copies of the latest version's distributions.
+This gives you the immutable references people need while allowing active development. The current snapshot's distributions are just convenience copies of the latest version's distributions.
 
 Does that capture the workflow correctly? Should we model the "convenience copy" aspect explicitly, or is that just implementation detail?
 
@@ -792,7 +792,7 @@ hasVersion a owl:DatatypeProperty ;
 hasMetadata a owl:ObjectProperty ;
     rdfs:domain MeshResource ;
     rdfs:range MetadataComponent ;
-    rdfs:comment "Links mesh resources to their metadata components. This property enables structured metadata management and discovery capabilities."@en ;
+    rdfs:comment "Links mesh resources to their metadata flows. This property enables structured metadata management and discovery capabilities."@en ;
     rdfs:label "has metadata"@en .
 
 dcterms:identifier a owl:DatatypeProperty ;
@@ -1010,7 +1010,7 @@ turtle
 4. Terminology Inconsistencies (.75)
 
 Class is Component but SHACL refers to :NodeComponent
-Labels sometimes say "Node Component" vs "Component"
+Labels sometimes say "node flow" vs "Component"
 5. Missing FolderResource Constraint (.70) We discussed requiring ResourcePage for every FolderResource but it's not implemented.
 
 Plan for Next Steps
@@ -1030,7 +1030,7 @@ Priority 3: Update Disjointness Axioms
 
 Priority 4: Consistent Terminology
 
-Decide: "Component" or "Node Component" in labels/comments
+Decide: "Component" or "node flow" in labels/comments
 Fix SHACL target class references
 Priority 5: Add FolderResource→ResourcePage constraint
 

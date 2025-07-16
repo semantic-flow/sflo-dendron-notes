@@ -69,7 +69,7 @@ ignored in the weaving process,
 
 - creates support system files as needed
 - checks mesh consistency and reports issues
-- "bumps" versions of [[versioned datasets|sflo.concept.mesh.component-facet.versioned]]
+- "bumps" versions of [[versioned datasets|sflo.concept.mesh.flow-facet.versioned]]
 - you can weave a part of your semantic mesh, or the whole thing
 
 ### Publishing
@@ -78,7 +78,7 @@ ignored in the weaving process,
 
 **Aliasing**: Uses skos:closeMatch for node migration with backwards IRI compatibility.
 
-**Content**: Every non-file URL gets an index.html for dereferencability. Only [[sflo.concept.mesh.resource.element.node-component.layer]] contain RDF files (index.trig, index.jsonld, etc.). 
+**Content**: Every non-file URL gets an index.html for dereferencability. Only [[sflo.concept.mesh.resource.element.flow.snapshot]] contain RDF files (index.trig, index.jsonld, etc.). 
 
 ## Key Constraints & Rules
 
@@ -96,7 +96,7 @@ ignored in the weaving process,
   by putting an index.html in a resource folder
 - **RDF formats**: Multiple distributions per version (`.trig`, `.jsonld`, etc.)
 - **Assets**: relative paths (`./_assets/images/...`) for portability
-- **Machine discovery**: [[sflo.concept.mesh.resource.element.node-component.metadata]] specify available formats and series
+- **Machine discovery**: [[sflo.concept.mesh.resource.element.flow.metadata]] specify available formats and series
   info
 - **Things vs Data**: Clear separation - things are presentation, DSSs are data
 
