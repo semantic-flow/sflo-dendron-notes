@@ -6,7 +6,7 @@ updated: 1751749431518
 created: 1751126532834
 ---
 
-A **node handle** is a very simple folder. It has a very special semantic use: instead of refering to itself, it refers to its containing node "as a mesh resource."
+A **handle** is a very simple element that can only be contained in [[sflo.concept.mesh.resource.element.flow.reference]]. It has a very special semantic use: instead of refering to itself, it refers to its containing node "as a mesh resource."
 
 
 

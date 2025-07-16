@@ -44,7 +44,7 @@ Every data node must contain:
 
 - **[[sflo.concept.mesh.resource.element.flow.metadata]]** (`_meta-component/`): Administrative metadata about the data concept
 - **[[sflo.concept.mesh.resource.element.flow.data]]** (`_data-component/`): dataset data
-- **[[Node handle|sflo.concept.mesh.resource.element.node-handle]]** (`_node-handle/`): Referential indirection for the node
+- **[[Node handle|sflo.concept.mesh.resource.element.handle]]** (`_node-handle/`): Referential indirection for the node
 
 
 ## Optional Structure

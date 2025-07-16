@@ -19,7 +19,7 @@ All folder-based resources should contain a [[sflo.concept.mesh.resource.element
 
 #### Handle Folders
 
-- [[sflo.concept.mesh.resource.folder._node-handle]] correspond to the [[sflo.concept.mesh.resource.element.node-handle]]
+- [[sflo.concept.mesh.resource.folder._node-handle]] correspond to the [[sflo.concept.mesh.resource.element.handle]]
 
 #### Abstract Dataset Folders
 

@@ -10,7 +10,7 @@ created: 1752325154211
 
 Node configuration determines:
 
-- component versioning
+- flow versioning
 - resource page and fragment generation
 - distribution syntaxes
 - template usage and stylesheets

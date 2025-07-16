@@ -4440,7 +4440,7 @@ Revised Pros of Combined Dataset Files:
 Single file convenience: Developers get complete current node state in one file
 Format flexibility: Multiple formats (.trig, .jsonld) for different use cases
 Atomic snapshot: Guaranteed consistent view of name + meta + (ref|data) at specific point in time
-Provenance tracking: Can include metadata about which component versions were aggregated
+Provenance tracking: Can include metadata about which flow versions were aggregated
 🏗️ Architectural Benefits
 No single referent violation: Node IRI still refers to its semantic entity, files are just distributions
 Always current: Simple "live view" without complex versioning

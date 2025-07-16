@@ -8,7 +8,7 @@ created: 1752678551342
 
 ## mesh initialization
 
-- create a[[sflo.concept.root-node]] [[sflo.concept.mesh.resource.element.flow.metadata]], [[sflo.concept.mesh.resource.element.node-handle]] and[[sflo.concept.mesh.resource.element.node-handle.page]]
+- create a[[sflo.concept.root-node]] [[sflo.concept.mesh.resource.element.flow.metadata]], [[sflo.concept.mesh.resource.element.handle]] and[[sflo.concept.mesh.resource.element.handle.page]]
 - ? copy a [[sflo.concept.mesh.resource.element.documentation-resource.resource-page]] template and default css into a root _assets[[sflo.concept.mesh.resource.element.asset-tree]]
 - create initial [[sflo.concept.mesh.resource.element.documentation-resource.resource-page]]s (for the node and all contained elements)
 - optionally:

@@ -33,7 +33,7 @@ Building a **Flow CLI** in Deno using Cliffy to manage semantic meshes - version
 
 ### **4. Versioning Strategy**
 - **Assets versioning**: `_assets` should live within flow snapshots (`_current`, `_next`, `_v1`, etc.)
-- **Unified datasets**: Node-level aggregation of all component versions at a point in time
+- **Unified datasets**: Node-level aggregation of all flow versions at a point in time
 - **System components**: Both `_meta-component` and `_unified-dataset` are system-generated with no `_next` layer
 - **Atomic weave operations**: System components version together to avoid circular dependencies
 
@@ -108,7 +108,7 @@ Building a **Flow CLI** in Deno using Cliffy to manage semantic meshes - version
   - config loading
 - **Create SPARQL endpoint** and test with Comunica widget
 - **Build CLI commands** consuming the service API
-- **Add weave process** with component versioning and fragment generation
+- **Add weave process** with flow versioning and fragment generation
 - **Implement config inheritance** and JSON-LD processing
 
 ## Key Technical Considerations

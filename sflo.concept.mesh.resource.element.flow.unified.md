@@ -75,7 +75,7 @@ Unlike other components:
 - **Bandwidth efficiency**: Optimized for common "give me everything about this node" use case
 
 ### Provenance 
-- **Version tracking**: Metadata about which component versions were aggregated
+- **Version tracking**: Metadata about which flow versions were aggregated
 - **Audit trail**: Clear record of what was combined and when
 - **Debugging**: Easy to see complete node state at specific point in time
 

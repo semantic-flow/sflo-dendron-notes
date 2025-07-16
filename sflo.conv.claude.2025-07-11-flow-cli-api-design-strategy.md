@@ -4107,7 +4107,7 @@ Terminal [[mesh resources|sflo.concept.mesh.resource]] that cannot contain other
 - The weave process maintains system elements and generates missing required components
 
 ### Versioning Requirements
-- Component versioning is managed through the [[Versioning|sflo.concept.versioning]] system
+- flow versioning is managed through the [[Versioning|sflo.concept.versioning]] system
   - turning versioning on and off is controlled in the [[sflo.concept.mesh.resource.element.weave-config]]
   - Version history is realized in [[sflo.concept.mesh.resource.element.node-component.layer.version]] with numbered version snapshots
   - Version history metadata is kept in the node's [[sflo.concept.mesh.resource.element.node-component.metadata]]
@@ -9718,7 +9718,7 @@ html<!-- data-node/index.html -->
         'Individual Component Control' : 
         'Coordinated Snapshot Mode';
         
-      // Enable/disable individual component version selectors
+      // Enable/disable individual flow version selectors
       document.querySelectorAll('[data-component]').forEach(iframe => {
         iframe.contentWindow.postMessage({
           individualMode: !coordinatedMode
@@ -9726,7 +9726,7 @@ html<!-- data-node/index.html -->
       });
     }
     
-    // Listen for component version changes
+    // Listen for flow version changes
     window.addEventListener('message', function(event) {
       if (!coordinatedMode && event.data.component) {
         console.log(`${event.data.component} component changed to ${event.data.version}`);
@@ -10095,7 +10095,7 @@ Both insights are spot-on (.9):
 Aggregated distributions need their own versioning because they represent a different semantic entity than their source components
 File:// URIs create a perfect bridge between the filesystem and RDF representation, making queries natural and file system operations traceable
 
-This gives you full provenance tracking for aggregated distributions while keeping the in-memory RDF store grounded in actual file system locations.RetryDoh, sorry, I'd forgotten that I redefined aggregated distributions as including all contained nodes.Just within a single node, I think we need something that aggregates the components (up to three, but maybe no including MetaComponent) as a way to say that this set of components were at this version together). Maybe you could do that just with the metadata dataset, but you still need a way to refer to it, and maybe giving it its own versions (every time at least one of the components has changed) at weave.EditAh, right! (.9) You're talking about node-level aggregation - a way to capture "these specific component versions were together at this point in time" within a single node.
+This gives you full provenance tracking for aggregated distributions while keeping the in-memory RDF store grounded in actual file system locations.RetryDoh, sorry, I'd forgotten that I redefined aggregated distributions as including all contained nodes.Just within a single node, I think we need something that aggregates the components (up to three, but maybe no including MetaComponent) as a way to say that this set of components were at this version together). Maybe you could do that just with the metadata dataset, but you still need a way to refer to it, and maybe giving it its own versions (every time at least one of the components has changed) at weave.EditAh, right! (.9) You're talking about node-level aggregation - a way to capture "these specific flow versions were together at this point in time" within a single node.
 Node Snapshot Concept
 Something like a unified dataset that represents the complete state of a node at a specific point:
 data-node/
@@ -10116,10 +10116,10 @@ data-node/
     │   └── _provenance.jsonld          # What versions were combined
     ├── _v1/
     │   ├── complete-node.trig           # Node state at v1
-    │   └── _provenance.jsonld          # v1 component versions
+    │   └── _provenance.jsonld          # v1 flow versions
     └── _v2/
         ├── complete-node.trig           # Node state at v2  
-        └── _provenance.jsonld          # v2 component versions
+        └── _provenance.jsonld          # v2 flow versions
 Provenance Tracking
 jsonld// _unified-dataset/_v2/_provenance.jsonld
 {
@@ -10198,10 +10198,10 @@ typescriptasync function shouldCreateSnapshot(node: MeshNode): Promise<boolean> 
   
   if (!lastSnapshot) return true; // First snapshot
   
-  // Compare component versions
+  // Compare flow versions
   const lastComponentVersions = await this.getSnapshotComponentVersions(lastSnapshot);
   
-  // Create new snapshot if any component version changed
+  // Create new snapshot if any flow version changed
   return !this.versionsEqual(currentComponentVersions, lastComponentVersions);
 }
 Snapshot Numbering
@@ -10219,7 +10219,7 @@ SELECT ?triple WHERE {
     sflo:contains ?triple .
 }
 2. Component Relationship Tracking
-sparql# What component versions were together in v2?
+sparql# What flow versions were together in v2?
 SELECT ?component ?version WHERE {
   <file://data-node/_unified-dataset/_v2/complete-node.trig>
     prov:wasDerivedFrom ?derivation .
@@ -10248,7 +10248,7 @@ html<!-- Node interface can reference unified snapshots -->
     <iframe src="_unified-dataset/_current/complete-node.trig"></iframe>
   </div>
 </div>
-This gives you a clean way to say "this is what the complete node looked like at this point in time" while maintaining the provenance of which specific component versions contributed to that state (.9).RetryDthe unified dataset is like a component. But is it a component?EditGreat question! (.9) It's walking and talking like a component, but there's a fundamental difference:
+This gives you a clean way to say "this is what the complete node looked like at this point in time" while maintaining the provenance of which specific flow versions contributed to that state (.9).RetryDthe unified dataset is like a component. But is it a component?EditGreat question! (.9) It's walking and talking like a component, but there's a fundamental difference:
 Components vs Unified Dataset
 Components are Inputs
 _data-component/     # User creates/edits data
@@ -10377,7 +10377,7 @@ I think no _next for system components (.8)
 Reasoning:
 
 MetaComponent reflects the current state of the node
-UnifiedDataset reflects the current component versions
+UnifiedDataset reflects the current flow versions
 Both are computed from other components, not staged for other components
 
 Structure:

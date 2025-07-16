@@ -25,7 +25,7 @@ When stored on disk, all mesh nodes:
 Every mesh node has these elements:
 
 - **[[sflo.concept.mesh.resource.element.flow.metadata]]** (`_meta-component/`): Centralized metadata for the node
-- **[[sflo.concept.mesh.resource.element.node-handle]]** (`_node-handle/`): Universal marker folder that refers to the parent "as a mesh node", as opposed to "as the name, dataset, or other thing" to which it normally refers; a handle resource page should explain this distinction
+- **[[sflo.concept.mesh.resource.element.handle]]** (`_node-handle/`): Universal marker folder that refers to the parent "as a mesh node", as opposed to "as the name, dataset, or other thing" to which it normally refers; a handle resource page should explain this distinction
 
 ## Node Types
 

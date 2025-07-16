@@ -6,7 +6,7 @@ updated: 1752325412373
 created: 1751646537672
 ---
 
-- component versioning on | off
+- flow versioning on | off
 - fragment generation 
 - distribution syntaxes
 - unified component on | off

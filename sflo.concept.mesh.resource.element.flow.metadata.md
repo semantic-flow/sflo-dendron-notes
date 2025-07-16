@@ -14,4 +14,4 @@ Mesh-specific metadata about a node's [[sflo.concept.mesh.resource.element.flow.
 
 ## Use of _node-handle in metadata flows
 
-When metadata flows (or any [[sflo.concept.mesh.resource-facet.system]] dataset) refer to mesh nodes, they'll usually be talking about "the-node-as-mesh-constituent", so they'll use the node's [[sflo.concept.mesh.resource.element.node-handle]] identifier
+When metadata flows (or any [[sflo.concept.mesh.resource-facet.system]] dataset) refer to mesh nodes, they'll usually be talking about "the-node-as-mesh-constituent", so they'll use the node's [[sflo.concept.mesh.resource.element.handle]] identifier

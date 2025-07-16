@@ -41,7 +41,7 @@ There are two primary categories:
   - **[[sflo.concept.mesh.resource.element.flow.metadata]]**: System-related administrative and structural metadata for mesh nodes
   - **[[Version datasets|sflo.concept.mesh.resource.element.flow.snapshot.version]]**: Versioned snapshots of datasets
 - **[[next snapshots|sflo.concept.mesh.resource.element.flow.snapshot.next]]**: Draft workspaces for ongoing changes to versioned datasets
-- **[[Node handles|sflo.concept.mesh.resource.element.node-handle]]**: Elements that provide referential indirection, allowing references to nodes as mesh resources rather than their referents
+- **[[Node handles|sflo.concept.mesh.resource.element.handle]]**: Elements that provide referential indirection, allowing references to nodes as mesh resources rather than their referents
 - **[[Asset trees|sflo.concept.mesh.resource.element.asset-tree]]**: Collections of arbitrary files and folders attached to the mesh
 
 #### Files
@@ -92,7 +92,7 @@ Terminal [[mesh resources|sflo.concept.mesh.resource]] that cannot contain other
 - The weave process maintains system elements and generates missing required components
 
 ### Versioning Requirements
-- Component versioning is managed through the [[Versioning|sflo.concept.versioning]] system
+- flow versioning is managed through the [[Versioning|sflo.concept.versioning]] system
   - turning versioning on and off is controlled in the [[sflo.concept.mesh.resource.element.node-config-defaults]]
   - Version history is realized in [[sflo.concept.mesh.resource.element.flow.snapshot.version]] with numbered version snapshots
   - Version history metadata is kept in the node's [[sflo.concept.mesh.resource.element.flow.metadata]]

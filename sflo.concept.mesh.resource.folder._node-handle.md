@@ -6,5 +6,5 @@ updated: 1751984996308
 created: 1751140668163
 ---
 
-Every [[sflo.concept.mesh.resource.node]] contains a **_node-handle folder** which corresponds to its [[sflo.concept.mesh.resource.element.node-handle]]. It provides an identifier that refers to the "node-as-node" rather than itself.
+Every [[sflo.concept.mesh.resource.node]] contains a **_node-handle folder** which corresponds to its [[sflo.concept.mesh.resource.element.handle]]. It provides an identifier that refers to the "node-as-node" rather than itself.
 

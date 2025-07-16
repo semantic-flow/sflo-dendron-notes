@@ -253,7 +253,7 @@ flow health
 - Add RDF data loading and querying
 
 ### **Phase 4: Weave Process**
-- Implement component versioning
+- Implement flow versioning
 - Add weave trigger endpoints
 - Generate resource pages and HTMX fragments
 
