@@ -1,8 +1,8 @@
 ---
 id: xz41kd5hzao6yjybm05uw4l
-title: _current
+title: current snapshot folder
 desc: ''
-updated: 1751687157506
+updated: 1752722555795
 created: 1751671938591
 ---
 

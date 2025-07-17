@@ -2,7 +2,7 @@
 id: ug4w9u17ynr2psj44yk9ych
 title: Sf 6 Test Ns Dataset
 desc: ''
-updated: 1752695352038
+updated: 1752730629408
 created: 1752691832539
 ---
 
@@ -28,7 +28,7 @@ The flow-service needs a robust test environment that can demonstrate and valida
 
 **A. Direct Manual Construction Modality**
 - Pre-built node folder structures with user-editable layers
-- Manual mesh resource creation (nodes, components, elements)
+- Manual mesh resource creation (nodes; flows, snapshots, distributions and other elements)
 - File-system based editing workflows
 - Validation of hand-crafted mesh structures
 
