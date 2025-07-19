@@ -2,7 +2,7 @@
 id: xebek3dtv2zgs9ah0vbv57g
 title: Semantic Flow General Guidance
 desc: ''
-updated: 1752670399831
+updated: 1752931178155
 created: 1751259888479
 ---
 
@@ -19,10 +19,12 @@ The sf-workspace contains:
   - **flow-core/**: cross-cutting code like type schemas, logging, and config
 - the **sflo-dendron-notes/** repo: wiki-based notes about mesh structure, specifications, and concepts; in Dendron format
 - the **test-ns/** repo: Test mesh repo
-- **ontology/**: Ontology definitions (currently empty)
-  - `flow` is the main ontology that describe a semantic mesh
-  - `flow-service` describes the RDF-based configuration options for flow-service
-  - `node-config` describes the RDF-based configuration options for a mesh node
+- **ontology/**: Five-ontology modular architecture for the Semantic Flow platform
+  - `mesh` - Core mesh architecture with base classes (Resource, Node, Element) and fundamental types
+  - `node` - Node operations including Handle, Flow types, and operational relationships
+  - `flow` - Temporal concepts including Snapshot types and versioning relationships
+  - `config-flow` - Configuration properties that apply directly to mesh entities (nodes, flows, snapshots, etc.)
+  - `flow-service` - Service layer configuration vocabulary for the flow-service application
 
 ## Key Concepts
 
@@ -150,7 +152,7 @@ Project documentation, specifications, journaling, and design choices are stored
 
 ### Semantic Mesh Architecture
 
-- **Resource Types**: Nodes are the foundation, Elements support Nodes, and components as defined in `sflo.concept.mesh.md`
+- **Resource Types**: Nodes are the foundation, Elements support Nodes, Flows are "abstract datasets", and "Snapshots" are their temporal slices as defined in `sflo.concept.mesh.md`
 - **Folder Structure**: Validate mesh folder structures (dataset nodes, namespace nodes, etc.)
 - **System Elements**: Distinguish between system-generated and user-modifiable elements
 - **Weave Integration**: Code must support weave operations as defined in `sflo.concept.weave.md`
