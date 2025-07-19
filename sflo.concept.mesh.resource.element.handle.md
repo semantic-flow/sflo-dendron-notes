@@ -2,11 +2,15 @@
 id: o2926clbf63vi9kln79kapg
 title: handle
 desc: ''
-updated: 1752703144821
+updated: 1752755898268
 created: 1751126532834
 ---
 
-A **handle** is a simple element that supports [[sflo.concept.mesh.resource.element.flow.reference]]. It has a very special semantic use: instead of refering to itself, it refers to its containing node "as a mesh resource."
+A **handle** is a simple element that supports [[sflo.concept.mesh.resource.node]]s. It has a very special semantic use: instead of refering to itself, it refers to its containing node "as a mesh resource." So it becomes a "management interface" for the node.
+
+## Example
+
+If `/temperature-data/` URL refers to an abstract dataset, `/temperature-data/_handle` refers to the temperature-data node itself: something that can have a node config and provenance metadata about who created the node (as opposed to who created the dataset).
 
 ## Justification
 
@@ -14,11 +18,13 @@ Element identifiers don't have an obvious referent other than themselves. e.g., 
 
 So when they're mentioned in [[sflo.concept.mesh.resource.element.flow.metadata]] or [[sflo.concept.mesh.resource.element.flow.config]], it's clear enough that their identifiers refer to them "as mesh resources."
 
-The same is true of [[sflo.concept.mesh.resource.node.namespace]] and [[sflo.concept.mesh.resource.node.data]]: their URIs refer to them "as mesh resources."
+But because the URL of a [[sflo.concept.mesh.resource.node]] refers to a namespace; an abstract dataset; or a thing or concept --  based on the [[sflo.principle.single-referent]] principle, you should not use the node's URL to refer to it "as a mesh resource."
 
-But because the URL of a [[sflo.concept.mesh.resource.node.reference]] concept  based on the [[sflo.principle.single-referent]] principle, you should not use the node's URL to refer to it "as a mesh resource."
+## Issues
 
-(note the difference between an abstract dataset, which helps define a data node; and the concept to which a data node refers.)
+### No URL to refer to the handle itself
+
+Luckily there's not much reason to have to refer to the handle-as-mesh-element because they are always co-created with the node, live forever, never change, don't have data of their own. But you can use the "fragment identifier" trick if there's ever a need to refer to the handle. e.g. /temperature-data/_handle#
 
 
 ## Containment Rules
