@@ -2,7 +2,7 @@
 id: ug4w9u17ynr2psj44yk9ych
 title: Sf 6 Test Ns Dataset
 desc: ''
-updated: 1752730629408
+updated: 1753028673462
 created: 1752691832539
 ---
 
@@ -10,11 +10,13 @@ created: 1752691832539
 
 ## Summary
 
-Create a comprehensive test namespace (test-ns) dataset that supports all three modalities of mesh operations and provides a foundation for developing flow-service functionality and API endpoints.
+Create a comprehensive test namespace (test-ns) mesh repo that supports all three modalities of mesh operations and provides a foundation for developing flow-service functionality and API endpoints.
 
 ## Description
 
-The test-ns dataset will serve as the primary development and testing environment for the flow-service, enabling systematic testing of semantic mesh operations across different interaction patterns. This dataset must support three distinct modalities of mesh operations while providing realistic data structures based on the DJ Radon radio show use case.
+The test-ns [[sflo.concept.mesh-repo]] will serve as the primary development and testing data for the [[flow-service|sflo.product.service]], enabling systematic testing of semantic mesh operations across different interaction patterns. This dataset must support three distinct modalities of mesh operations: direct, api, and extranction.
+
+It provides realistic data structures based on the [[DJ Radon radio show use case|sflo.use-case.djradons-radio-show]].
 
 ## Background
 
@@ -22,96 +24,67 @@ The flow-service needs a robust test environment that can demonstrate and valida
 
 ## Requirements
 
-### Core Functionality Requirements
-
-#### 1. Support for Three Mesh Operation Modalities
-
-**A. Direct Manual Construction Modality**
-- Pre-built node folder structures with user-editable layers
-- Manual mesh resource creation (nodes; flows, snapshots, distributions and other elements)
-- File-system based editing workflows
-- Validation of hand-crafted mesh structures
-
-**B. API-Driven Node Creation Modality**
-- Flow-service API endpoints for programmatic node creation
-- Support for root node initialization
-- Component and element management via API
-- RESTful mesh resource manipulation
-
-**C. Dataset Distribution Upload + Extraction Modality**
-- Upload mechanisms for RDF dataset distributions (.trig, .jsonld, etc.)
-- Automatic named entity extraction from semantic data
-- System-generated reference and data nodes
-- Batch processing of semantic data
-- **Limitation**: Cannot handle binary file resources (audio, images, etc.) - only RDF data
-- File resources must be handled via Direct Manual Construction or API-Driven modalities
-
-#### 2. Multiple Initial States via Branching Strategy
+### Multiple Initial States via Branching Strategy
 
 **Branch Structure:**
-- `main`: Fully populated mesh with all modalities demonstrated
-- `minimal`: Basic namespace structure only
-- `api-ready`: Structure optimized for API-driven development
-- `upload-ready`: Structure prepared for dataset distribution uploads
-- `empty`: Clean slate for testing mesh initialization
+- `main`: Fully populated mesh
+- `minimal`: just a top-level README.md file
+- `minimal-woven`: results of a first weave (all system resources created)
+- `djradon`: a README.md file and a _ref-flow/_next/djradon.trig distribution
+- `djradon-woven`: results of a first weave
 
-#### 3. Realistic Data Using DJ Radon Radio Show Use Case
+### Realistic Data Using DJ Radon Radio Show Use Case
 
-**Core Entities:**
+#### Core Entities
+
 - DJ Radon (reference node)
 - Musical picks dataset (versioned data node)
-- Playlists namespace (container for playlist series)
-- Individual playlists (data nodes)
-- Albums and tracks (reference nodes from extraction)
+- Playlists namespace (data series node)
+- Individual playlists (unversioned data nodes)
+- Later: Albums and tracks (reference nodes from extraction)
+
+#### Full Folder Structure
+
+/                          # root (test-ns) namespace node
+   djradon                 # ref node (refering to a human dj)
+      bio                  # data node
+      picks                # data node 
+      underbrush           # ref node
+         playlists         # data (series) node
+            1996-11-10     # data node
+            1996-11-17     # data node
 
 ### Technical Requirements
 
-#### 4. Flow-Service API Endpoints to Support
-
-**Mesh Management:**
-- `POST /api/mesh/init` - Initialize new mesh
-- `POST /api/mesh/node` - Create new node
-- `GET /api/mesh/node/{path}` - Retrieve node
-- `PUT /api/mesh/node/{path}` - Update node
-- `DELETE /api/mesh/node/{path}` - Delete node
-
-**Component Management:**
-- `POST /api/mesh/node/{path}/component` - Add component
-- `GET /api/mesh/node/{path}/component/{type}` - Get component
-- `PUT /api/mesh/node/{path}/component/{type}` - Update component
-
-**Dataset Operations:**
-- `POST /api/mesh/dataset/upload` - Upload RDF dataset distribution
-- `POST /api/mesh/dataset/extract` - Extract entities from RDF dataset
-- `GET /api/mesh/dataset/{path}/versions` - List dataset versions
-- `POST /api/mesh/dataset/{path}/weave` - Trigger weave operation
-- `POST /api/mesh/assets/upload` - Upload binary file resources (separate from dataset extraction)
 
 #### 5. Data Structure Specifications
 
 **Namespace Structure:**
 ```
 /test-ns/                          # Root namespace node
-├── _meta-component/               # System metadata
+├── _config-flow/               # System metadata
+├── _handle/                     # [[sflo.concept.mesh.resource.element.handle]]
+├── _meta-flow/               # System metadata
 ├── _assets/                       # Shared assets
 ├── djradon/                       # Reference node (person)
-│   ├── _ref-component/           # Reference data
-│   ├── _meta-component/          # Node metadata
+│   ├── _config-flow/           # Reference data
+│   ├── _handle/           # Reference data
+│   ├── _meta-flow/          # Node metadata
+│   ├── _ref-flow/           # Reference data
 │   ├── bio/                      # Unversioned dataset
 │   ├── picks/                    # Versioned dataset
 │   └── playlists/                # Playlist namespace
 │       ├── 1996-11-10/          # Individual playlist
 │       └── 1996-11-17/          # Individual playlist
-└── albums/                       # Auto-generated from extraction
-    ├── nevermind/               # Album reference node
-    └── ok-computer/             # Album reference node
+└── albums,artists,tracks, etc
 ```
 
-**Component Types:**
-- `_meta-component`: System metadata (provenance, versioning)
-- `_ref-component`: Reference data (descriptions, classifications)
-- `_data-component`: Payload data (actual content)
-- `_unified-component`: Aggregated views of multiple components
+**Flow Types:**
+- `_meta-flow`: System metadata (provenance, versions)
+- `_config-flow`: Node configuration (versioningEnabled, configInheritanceEnabled, distributionFormats, etc)
+- `_ref-flow`: Reference data (descriptions, classifications)
+- `_data-flow`: Payload data (actual content)
+- `_unified-flow`: Aggregated views of multiple components
 
 **Layer Structure:**
 - `_current/`: Active/published layer
@@ -120,8 +93,7 @@ The flow-service needs a robust test environment that can demonstrate and valida
 
 ### Implementation Strategy
 
-#### Phase 1: Manual Construction Foundation
-1. Create basic mesh structure following semantic mesh example
+1. Create  single root-node mesh structure following semantic mesh example
 2. Implement DJ Radon reference node with biographical data
 3. Create picks dataset with sample music data
 4. Establish playlist namespace with historical examples
@@ -145,42 +117,19 @@ The flow-service needs a robust test environment that can demonstrate and valida
 3. Document switching procedures between branches
 4. Establish CI/CD testing across branches
 
-### Expected Outcomes
-
-1. **Complete Test Environment**: Comprehensive test-ns supporting all mesh operations
-2. **API Foundation**: Working flow-service endpoints for core mesh operations
-3. **Development Workflow**: Clear procedures for mesh development and testing
-4. **Documentation**: Examples and patterns for mesh construction
-5. **Validation Framework**: Automated testing of mesh structures and operations
-
 ### Acceptance Criteria
 
-- [ ] All three modalities can be demonstrated with test-ns
-- [ ] Flow-service API endpoints are functional and tested
-- [ ] Branch strategy supports different development scenarios
 - [ ] DJ Radon use case is fully implemented across all modalities
-- [ ] Automated extraction creates valid reference nodes
-- [ ] Weave operations work correctly on test data
-- [ ] Documentation covers all usage patterns
-- [ ] CI/CD pipeline validates mesh integrity
+- [ ] Branch strategy supports different development scenarios
+- [ ] Documentation covers branch strategy
+- [ ] test-ns is browsable, i.e., [[sflo.concept.mesh.resource.element.documentation-resource.resource-page]] for all [[sflo.concept.mesh.resource.folder]]
 
 ### Dependencies
 
-- Flow-service basic infrastructure (logging, configuration)
 - RDF processing libraries (for .trig and JSON-LD support)
 - Semantic mesh architecture specifications
 - DJ Radon radio show use case definition
 
-### Definition of Done
-
-The test-ns dataset is considered complete when:
-1. All three modalities are functional and demonstrated
-2. Flow-service can successfully perform CRUD operations on test-ns
-3. Dataset distribution uploads trigger correct entity extraction
-4. Branch switching works seamlessly for different development scenarios
-5. All mesh resources validate against semantic mesh specifications
-6. Performance benchmarks are established for typical operations
-7. Documentation enables new developers to understand and extend the system
 
 ## Related Documentation
 

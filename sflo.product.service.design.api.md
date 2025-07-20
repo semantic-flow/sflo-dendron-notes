@@ -2,9 +2,29 @@
 id: 108ze62n5nw1n3ntaeo2yxf
 title: API
 desc: ''
-updated: 1752703210120
+updated: 1753015597934
 created: 1752678551342
 ---
+
+**Mesh Management:**
+- `POST /api/mesh/init` - Initialize new mesh
+- `POST /api/mesh/node` - Create new node
+- `GET /api/mesh/node/{path}` - Retrieve node
+- `PUT /api/mesh/node/{path}` - Update node
+- `DELETE /api/mesh/node/{path}` - Delete node
+
+**Component Management:**
+- `POST /api/mesh/node/{path}/component` - Add component
+- `GET /api/mesh/node/{path}/component/{type}` - Get component
+- `PUT /api/mesh/node/{path}/component/{type}` - Update component
+
+**Dataset Operations:**
+- `POST /api/mesh/dataset/upload` - Upload RDF dataset distribution
+- `POST /api/mesh/dataset/extract` - Extract entities from RDF dataset
+- `GET /api/mesh/dataset/{path}/versions` - List dataset versions
+- `POST /api/mesh/dataset/{path}/weave` - Trigger weave operation
+- `POST /api/mesh/assets/upload` - Upload binary file resources (separate from dataset extraction)
+
 
 ## mesh initialization
 

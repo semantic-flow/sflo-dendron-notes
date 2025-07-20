@@ -2,7 +2,7 @@
 id: kawddwi1dx4qqbhdyip4896
 title: 'Use Case: Radio Show Websiste'
 desc: a simple user story
-updated: 1752696515924
+updated: 1753014248843
 created: 1750645191521
 ---
 
@@ -23,12 +23,12 @@ But to get started:
 ```file
 test-ns                    # namespace node
    djradon                 # ref node (refering to a human dj)
-      bio                  # data node (without ref)
+      bio                  # data node
       picks                # data node 
-      underbrush           # ref node (refering to a radio show)
-         playlists         # data (series) node with ref
-            1996-11-10     # data node with ref
-            1996-11-17            
+      underbrush           # ref node
+         playlists         # data (series) node
+            1996-11-10     # data node
+            1996-11-17     # data node
 ```
 
 #### Sample RDF (Turtle)
