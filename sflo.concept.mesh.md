@@ -58,7 +58,7 @@ Terminal [[mesh resources|sflo.concept.mesh.resource]] that cannot contain other
 ### Folder Mapping
 - Mesh nodes correspond physically to [[mesh folders|sflo.concept.mesh.resource-facet.folder]]
 - Folder names become namespace segments and URL path components
-- The local [[sflo.concept.identifier]] for a node matches its containing folder name
+- The local [[sflo.concept.relative-identifier]] for a node matches its containing folder name
 
 ### File Organization
 - [[Datasets|sflo.concept.mesh.resource-facet.dataset]] are represented by folders containing at least one distribution file
@@ -74,7 +74,7 @@ Terminal [[mesh resources|sflo.concept.mesh.resource]] that cannot contain other
 ### Namespace Extension
 - Mesh folders always extend the namespace with a segment corresponding to the folder name
 - This creates a hierarchical URL structure for addressing resources
-- Each resource has a unique [[identifier|sflo.concept.identifier]] based on its path and local name
+- Each resource has a unique [[Relative Identifier|sflo.concept.relative-identifier]] based on its path and local name
 
 ### Containment Rules
 - **Mesh nodes** are always containers of elements (i.e., at least [[sflo.concept.mesh.resource.element.flow.metadata]] and [[sflo.concept.mesh.resource.folder._handle]]) and potentially containers of other nodes 

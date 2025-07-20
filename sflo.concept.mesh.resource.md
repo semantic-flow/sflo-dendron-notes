@@ -8,7 +8,7 @@ created: 1750709094321
 
 ## Overview
 
-A **mesh resource** is any addressable component within a [[semantic mesh|sflo.concept.mesh]]. Every mesh resource has a unique [[identifier|sflo.concept.identifier]] based on its path and locally unique name, making it dereferenceable via URL.
+A **mesh resource** is any addressable component within a [[semantic mesh|sflo.concept.mesh]]. Every mesh resource has a unique [[Relative Identifier|sflo.concept.relative-identifier]] based on its path and locally unique name, making it dereferenceable via URL.
 
 In RDF terms, a resource is any node in an RDF graph that can be represented with an IRI (the other kinds of RDF graph nodes are literals and blank nodes). So theoretically, files and folders in [[sflo.concept.mesh.resource.element.asset-tree]] could be considered RDF resources. But they are not considered **mesh** resources
 
@@ -19,7 +19,7 @@ The structure of a semantic mesh is built on a fundamental distinction between *
 - **[[Mesh nodes|sflo.concept.mesh.resource.node]]** are extensible namespace containers:
 - **[[Mesh elements|sflo.concept.mesh.resource.element]]** are terminal mesh resources:
   - Can be physically represented as folders or files
-    - Folder [[sflo.concept.identifier]] are part of the namespace but cannot be extended beyond their own internal structure
+    - Folder [[sflo.concept.relative-identifier]] are part of the namespace but cannot be extended beyond their own internal structure
   - All files and folders within an element folder are considerd to be part of the parent node
 
 **Folder-based elements:**
@@ -33,7 +33,7 @@ The structure of a semantic mesh is built on a fundamental distinction between *
 
 **File-based elements:**
 - **Documentation files**: 
-  - [[Resource pages|sflo.concept.mesh.resource.element.documentation-resource.resource-page]] are index.html files that provide de-referencability for their containing [[sflo.concept.identifier]] [[sflo.concept.mesh.resource-facet.folder]]
+  - [[Resource pages|sflo.concept.mesh.resource.element.documentation-resource.resource-page]] are index.html files that provide de-referencability for their containing [[sflo.concept.relative-identifier]] [[sflo.concept.mesh.resource-facet.folder]]
   - **README.md and CHANGELOG.md**: unstructured documentation
 - **[[Layer distribution files|sflo.concept.mesh.resource.element.flow.snapshot.distribution]]**: Data files in RDF formats
 

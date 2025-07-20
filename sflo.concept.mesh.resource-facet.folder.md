@@ -6,7 +6,7 @@ updated: 1752026071386
 created: 1750659145476
 ---
 
-A mesh is structured with mesh folders, which correspond to RDF resources and their [[sflo.concept.identifier]]
+A mesh is structured with mesh folders, which correspond to RDF resources and their [[sflo.concept.relative-identifier]]
   
 When a mesh gets published, the folders also correspond to [[sflo.concept.url]]. 
 

@@ -38,7 +38,7 @@ created: 1752678551342
 ## node initialization
 
 - same as mesh initialization, except:
-  - specify an [[sflo.concept.identifier]] and select a parent node (or specify a path which is equivalent),
+  - specify an [[sflo.concept.relative-identifier]] and select a parent node (or specify a path which is equivalent),
   - by default, no template/css copy
 
 ## weave
