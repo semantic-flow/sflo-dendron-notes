@@ -2,264 +2,121 @@
 id: 4v2b7t8nbzkmtyvnayye3vj
 title: Provenance
 desc: ''
-updated: 1753134023858
+updated: 1753134166733
 created: 1753117923066
 ---
 
-# Semantic Flow Provenance Handling
-
 ## Core Principles
 
-**Provenance occurs at version snapshot level** - Provenance is only recorded for immutable version snapshots (like `_v1`), not for moving targets like `_current` or `_next`.
+**Version-only provenance** - Provenance is recorded only for immutable version snapshots (like `_v47`), not for moving targets like `_current` or `_next`.
 
-**Semantic Flow-specific provenance lives in the Meta-Flow, referencing the Version Snapshots in other flows and itself** - Domain-specific provenance can live in the datasets themselves, but mesh operations provenance goes in meta-flows.
+**Meta-flow storage** - Semantic Flow-specific provenance lives in meta-flows, referencing version snapshots in other flows. Domain-specific provenance can live in datasets themselves.
 
-**Current meta snapshots duplicate provenance** - Like all `_current` snapshots, `_meta-flow/_current` contains an identical copy of the latest version's metadata, including provenance, with base URI set to point to the version snapshot for stable fragment resolution.
+**Current snapshot duplication** - `_current` meta snapshots contain identical copies of the latest version's provenance with base URI pointing to the version snapshot for stable fragment resolution.
 
-## Provenance Architecture
+## Architecture
 
 ### Version Snapshot Provenance
 
-Provenance is recorded only for version snapshots, ensuring URI stability:
-
 ```turtle
-# In my-dataset/_meta-flow/_v2/my-dataset_meta.trig
-@base <../_v2/> .
+# In my-dataset/_meta-flow/_v47/my-dataset_meta.trig
+@base <../_v47/> .
 
-# The activity that created the snapshot
+# Weave activity with PROV standard properties
 :configUpdateActivity a meta:ConfigWeave ;
     prov:startedAtTime "2025-07-20T14:30:00Z" ;
     prov:endedAtTime "2025-07-20T14:30:15Z" ;
-    prov:used <../../_config-flow/_v1/config.jsonld> ;
-    prov:generated <../../_config-flow/_v2/config.jsonld> ;
+    prov:used <../../_config-flow/_v46/config.jsonld> ;
+    prov:generated <../../_config-flow/_v47/config.jsonld> ;
     prov:wasAssociatedWith <https://semantic-flow.org/agents/flow-service-bot> .
 
-# The snapshot specializes its flow
-<../../_config-flow/_v2> prov:specializationOf <../../_config-flow> .
+# Rights and licensing at snapshot level
+<../../_config-flow/_v47> dcterms:rightsHolder <https://orcid.org/0000-0002-1825-0097> ;
+                          dcterms:license <https://creativecommons.org/licenses/by-sa/4.0/> ;
+                          prov:has_provenance :configProvenance .
 
-# Complex authorship context
+# Delegation chain (step 1 = top authority, gets copyright by default)
 :configProvenance a meta:ProvenanceContext ;
-    :forActivity :configUpdateActivity ;
-    :forSnapshot <../../_config-flow/_v2> ;
-    :primaryAgent <https://semantic-flow.org/agents/flow-service-bot> ;
-    :delegationChain :delegationChain_001 .
+    meta:forActivity :configUpdateActivity ;
+    meta:forSnapshot <../../_config-flow/_v47> ;
+    prov:wasAttributedTo <https://acme-corp.com/org> ; # Primary attribution
+    meta:delegationChain :delegationChain_001 .
 
-:delegationChain_001 :hasStep :step1, :step2 .
+:delegationChain_001 meta:hasStep :step1, :step2, :step3 .
 
 :step1 a meta:DelegationStep ;
-       :agent <https://semantic-flow.org/agents/flow-service-bot> ; 
-       :actsFor <https://orcid.org/0000-0002-1825-0097> .
+       meta:stepOrder 1 ;
+       prov:agent <https://acme-corp.com/org> . # Prime mover, no actedOnBehalfOf
 
 :step2 a meta:DelegationStep ;
-       :agent <https://orcid.org/0000-0002-1825-0097> ; 
-       :actsFor <https://acme-corp.com/org#engineering-team> .
+       meta:stepOrder 2 ;
+       prov:agent <https://orcid.org/0000-0002-1825-0097> ;
+       prov:actedOnBehalfOf <https://acme-corp.com/org> .
 
-# Link snapshot to its provenance
-<../../_config-flow/_v2> prov:has_provenance :configProvenance .
+:step3 a meta:DelegationStep ;
+       meta:stepOrder 3 ;
+       prov:agent <https://semantic-flow.org/agents/flow-service-bot> ;
+       prov:actedOnBehalfOf <https://orcid.org/0000-0002-1825-0097> .
 ```
 
-### Current Snapshot Provenance Copy
-
-`_current` contains identical provenance data but with base URI pointing to version:
+### Current Snapshot Copy
 
 ```turtle
 # In my-dataset/_meta-flow/_current/my-dataset_meta.trig
-@base <../_v2/> .
+@base <../_v47/> .
 
-# Identical content to version snapshot - all URIs resolve to version
-:configUpdateActivity a meta:ConfigWeave ;
-    prov:startedAtTime "2025-07-20T14:30:00Z" ;
-    prov:endedAtTime "2025-07-20T14:30:15Z" ;
-    prov:used <../../_config-flow/_v1/config.jsonld> ;
-    prov:generated <../../_config-flow/_v2/config.jsonld> ;
-    prov:wasAssociatedWith <https://semantic-flow.org/agents/flow-service-bot> .
-
-<../../_config-flow/_v2> prov:specializationOf <../../_config-flow> .
-
-:configProvenance a meta:ProvenanceContext ;
-    :forActivity :configUpdateActivity ;
-    :forSnapshot <../../_config-flow/_v2> ;
-    :primaryAgent <https://semantic-flow.org/agents/flow-service-bot> ;
-    :delegationChain :delegationChain_001 .
-
-:delegationChain_001 :hasStep :step1, :step2 .
-
-:step1 a meta:DelegationStep ;
-       :agent <https://semantic-flow.org/agents/flow-service-bot> ; 
-       :actsFor <https://orcid.org/0000-0002-1825-0097> .
-
-:step2 a meta:DelegationStep ;
-       :agent <https://orcid.org/0000-0002-1825-0097> ; 
-       :actsFor <https://acme-corp.com/org#engineering-team> .
-
-<../../_config-flow/_v2> prov:has_provenance :configProvenance .
+# Identical content to version snapshot - all URIs resolve to stable version
+# (same provenance content as above)
 ```
 
-### Handling Unversioned Flows
+### Unversioned Flow Accumulation
 
-For flows that don't use versioning, provenance accumulates in `_next` with unique activity identifiers:
+For flows without versioning, activities accumulate in `_next` with unique timestamps:
 
 ```turtle
 # In my-dataset/_meta-flow/_next/my-dataset_meta.trig
-@base <../_v2/> .
-
-# Multiple activities with timestamp-based unique IDs
-:dataIngestionActivity_2025-07-20_14-30 a meta:DataWeave ;
+:dataActivity_2025-07-20_14-30 a meta:DataWeave ;
     prov:startedAtTime "2025-07-20T14:30:00Z" ;
-    prov:endedAtTime "2025-07-20T14:32:15Z" ;
     prov:generated <../../_data-flow/_current/data.trig> .
 
-:dataIngestionActivity_2025-07-20_16-45 a meta:DataWeave ;
+:dataActivity_2025-07-20_16-45 a meta:DataWeave ;
     prov:startedAtTime "2025-07-20T16:45:00Z" ;
-    prov:endedAtTime "2025-07-20T16:47:30Z" ;
     prov:used <../../_data-flow/_current/data.trig> ;
     prov:generated <../../_data-flow/_current/data.trig> .
-
-# When versioning is re-enabled, these activities become part of the version snapshot
 ```
 
-## Provenance Patterns
+## Key Components
 
-### Simple Software Agent
-```turtle
-:weaveActivity a meta:NodeWeave ;
-    prov:wasAssociatedWith <https://semantic-flow.org/agents/cli> ;
-    prov:generated <../../_config-flow/_v1/config.jsonld> .
+### Activity Types (subclass `prov:Activity`)
+- `meta:ConfigWeave`, `meta:ReferenceWeave`, `meta:DataWeave`, `meta:MetaWeave`
+- `meta:NodeWeave` (entire node), `meta:NodeTreeWeave` (recursive)
 
-<https://semantic-flow.org/agents/cli> a prov:SoftwareAgent ;
-    prov:actedOnBehalfOf <https://orcid.org/0000-0002-1825-0097> .
-```
-
-
-
-### Complex Delegation Chain
-```turtle
-:deploymentActivity a meta:NodeTreeWeave ;
-    prov:wasAssociatedWith <https://acme-corp.com/agents/ci-cd-pipeline> .
-
-:deploymentProvenance a meta:ProvenanceContext ;
-    :forActivity :deploymentActivity ;
-    :delegationChain :delegationChain_002 ;
-    :supervisionContext :supervision_001 .
-
-:delegationChain_002 :hasStep :step1, :step2, :step3 .
-
-:step1 a meta:DelegationStep ;
-       :agent <https://acme-corp.com/agents/ci-cd-pipeline> ; 
-       :actsFor <https://acme-corp.com/services/automation> .
-
-:step2 a meta:DelegationStep ;
-       :agent <https://acme-corp.com/services/automation> ; 
-       :actsFor <https://acme-corp.com/org#dev-team> .
-
-:step3 a meta:DelegationStep ;
-       :agent <https://acme-corp.com/org#dev-team> ; 
-       :actsFor <https://acme-corp.com/org> .
-
-:supervision_001 a meta:SupervisionContext ;
-                 :supervisor <https://orcid.org/0000-0002-1825-0098> ;
-                 :supervisee <https://acme-corp.com/agents/ci-cd-pipeline> ;
-                 :supervisionType :monitoring .
-```
-
-### Multi-Agent Collaboration
-```turtle
-:dataIngestionActivity a meta:DataWeave ;
-    prov:wasAssociatedWith <https://data-corp.com/agents/extraction-bot>, 
-                          <https://data-corp.com/services/validation>, 
-                          <https://orcid.org/0000-0002-1825-0099> .
-
-:collaborationContext a meta:ProvenanceContext ;
-    :forActivity :dataIngestionActivity ;
-    :agentRoles :agentRoles_001 .
-
-:agentRoles_001 :hasRole :role1, :role2, :role3 .
-
-:role1 a meta:AgentRole ;
-       :agent <https://data-corp.com/agents/extraction-bot> ; 
-       :role :dataExtraction .
-
-:role2 a meta:AgentRole ;
-       :agent <https://data-corp.com/services/validation> ; 
-       :role :qualityAssurance .
-
-:role3 a meta:AgentRole ;
-       :agent <https://orcid.org/0000-0002-1825-0099> ; 
-       :role :finalApproval .
-```
-
-## Implementation Guidelines
-
-### Meta-Flow Structure
-```
-my-dataset/
-└── _meta-flow/
-    ├── _current/
-    │   └── my-dataset_meta.trig     # Copy of latest version's meta distribution
-    ├── _v2/
-    │   └── my-dataset_meta.trig     # Immutable meta distribution for v2
-    └── _v1/
-        └── my-dataset_meta.trig     # Historical meta distribution
-```
-
-### Provenance Distribution Types
-
-**flow:MetaDistribution** - Contains PROV data, resource descriptions, and all metadata about the node and its flows in a single distribution (subclass of `prov:Entity`)
-
-### Key Properties
-
-- `prov:has_provenance` - Links snapshots to their provenance contexts
-- `prov:specializationOf` - Links snapshots to their flows (via `flow:hasSnapshot` subproperty)
-- `meta:forSnapshot` - Links provenance context to specific snapshots
-- `meta:delegationChain` - Captures complex authorship hierarchies
-- `meta:supervisionContext` - Models oversight relationships
-
-### Activity Types
-
-**Weave Activities** (all subclass `prov:Activity`):
-- `meta:WeaveActivity` - Base class for all mesh operations
-- `meta:ConfigWeave` - Configuration flow weaving
-- `meta:ReferenceWeave` - Reference flow weaving  
-- `meta:DataWeave` - Data flow weaving
-- `meta:MetaWeave` - Meta-flow weaving
-- `meta:NodeWeave` - Entire node weaving
-- `meta:NodeTreeWeave` - Recursive node tree weaving
-
-### Entity Types
-
-**Provenance Entities** (all in meta-flow ontology):
+### Provenance Entities (subclass `meta:ProvenanceEntity`)
 - `meta:ProvenanceContext` - Relator for complex authorship scenarios
-- `meta:DelegationStep` - Individual steps in authorization chains
-- `meta:SupervisionContext` - Oversight relationships
-- `meta:AgentRole` - Agent roles in collaborative activities
+- `meta:DelegationChain` / `meta:DelegationStep` - Authorization chains
+- `meta:AgentRoleCollection` / `meta:AgentRole` - Collaborative role assignments
 
-### Querying Provenance
+### Standard Properties Used
+- `prov:agent`, `prov:actedOnBehalfOf`, `prov:wasAttributedTo` (instead of custom properties)
+- `dcterms:rightsHolder`, `dcterms:license` (rights at snapshot level)
+- `prov:has_provenance` (link snapshots to provenance contexts)
 
-```sparql
-# Find who was ultimately responsible for a snapshot
-SELECT ?ultimateAgent WHERE {
-    <snapshot-uri> prov:wasGeneratedBy ?activity .
-    ?provContext :forActivity ?activity ;
-                 :delegationChain ?chain .
-    ?chain ?step [ :agent ?agent ; :actsFor* ?ultimateAgent ] .
-    FILTER NOT EXISTS { ?ultimateAgent :actsFor ?someone }
-}
-```
+## Delegation Chain Pattern
 
-## Recommendations
+**Step ordering**: Lower numbers = higher authority
+- Step 1: Prime mover (organization) - gets copyright by default, no `prov:actedOnBehalfOf`
+- Step 2+: Each agent acts on behalf of the previous step's agent
+- Tools/software agents typically at the end of the chain
 
-1. **Record provenance only for versions** - Skip `_current` and `_next`, only create provenance when cutting versions
-2. **Use base URI in current copies** - Set `@base <../_v2/>` to point fragments to stable version URIs
-3. **Use absolute URLs for agents** - ORCID IDs for people, organizational URLs for entities, service URLs for software
-4. **Contextualize step identifiers** - Use fragment URIs like `#step1` within version snapshot contexts
-5. **Model supervision explicitly** - Don't just use delegation for oversight relationships
-6. **Capture temporal bounds** - Always include start/end times for activities
-7. **Use custom relators** - PROV alone isn't sufficient for complex organizational relationships
+## Configuration
 
-## Benefits
+**Copyright assignment**: Configurable in node-config-defaults, defaults to first agent in delegation chain (step 1).
 
-- **Audit trails** - Complete history of how each snapshot was created
-- **Accountability** - Clear authorship chains through complex organizational structures  
-- **Debugging** - Understand what process created problematic states
-- **Compliance** - Meet regulatory requirements for data lineage
-- **Reproducibility** - Sufficient information to recreate snapshot generation processes
+**External vocabulary tracking**: Use SHACL to declare recommended external properties like `prov:wasInfluencedBy`, `dcterms:license`.
+
+## Implementation Notes
+
+- **Fragment URIs**: Use `<#step1>` etc. within version snapshots for stable addressability
+- **Base URI**: All snapshots use `@base <../_vN/>` pattern for consistent resolution
+- **Rights inheritance**: Capture previous version rights holders in provenance contexts when content is derived
+- **Static site friendly**: Documentation approach for external references since no server-side redirects available
