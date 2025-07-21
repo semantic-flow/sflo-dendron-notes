@@ -2,7 +2,7 @@
 id: 9el7ivz22xvt8exiz7tj23f
 title: Node Config Defaults
 desc: ''
-updated: 1752325412373
+updated: 1753133164402
 created: 1751646537672
 ---
 
@@ -11,3 +11,4 @@ created: 1751646537672
 - distribution syntaxes
 - unified component on | off
 - aggregate dataset 
+- copyright / licensing / attribution / delegation chaing defaults
