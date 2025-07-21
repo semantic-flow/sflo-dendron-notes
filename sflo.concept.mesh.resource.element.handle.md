@@ -2,7 +2,7 @@
 id: o2926clbf63vi9kln79kapg
 title: handle
 desc: ''
-updated: 1752755898268
+updated: 1753063187498
 created: 1751126532834
 ---
 
@@ -24,7 +24,7 @@ But because the URL of a [[sflo.concept.mesh.resource.node]] refers to a namespa
 
 ### No URL to refer to the handle itself
 
-Luckily there's not much reason to have to refer to the handle-as-mesh-element because they are always co-created with the node, live forever, never change, don't have data of their own. But you can use the "fragment identifier" trick if there's ever a need to refer to the handle. e.g. /temperature-data/_handle#
+Luckily there's not much reason to have to refer to the handle-as-mesh-element because they are always co-created with the node, live forever, never change, don't have data of their own. But you can use the "fragment identifier" trick if there's ever a need to refer to the handle. e.g. /temperature-data/_handle/#
 
 
 ## Containment Rules

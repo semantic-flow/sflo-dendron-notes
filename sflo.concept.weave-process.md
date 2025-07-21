@@ -2,7 +2,7 @@
 id: rall4fbxm369okmy5383sf8
 title: Weave Process
 desc: ''
-updated: 1752335600254
+updated: 1753067465738
 created: 1751128698638
 ---
 
@@ -59,3 +59,21 @@ If you know a sub-mesh is permanently moving to a new location (or even if a bra
 - uses the [[sflo.product.service.design.in-memory]] to calculate template usage
 - if no templates specified, and no "default template" exists in the root, it can generate its own
   - perhaps there's a default template and css distributed with the service in case its missing from the mesh root
+
+## Scope
+
+- **Single flow weave**: Update one flow + its meta-flow
+- **Node weave**: Update all flows in a node (each flow + meta gets woven)
+- **Node tree weave**: Recursively weave nodes and their contained nodes
+
+**Meta-flow co-weaving**: whenever any flow in a node gets woven, the meta-flow updates to reflect the new state. This ensures the meta-flow always accurately describes the current node state without requiring separate meta-weaving operations.
+
+This gives you:
+- **Local consistency**: Each node stays internally consistent
+- **Flexible granularity**: Can weave at flow, node, or tree level as needed
+- **Automatic meta updates**: No manual meta-flow management
+- **Simple model**: No complex cross-node locking or coordination
+
+For contained nodes mentioned in config flows, any references ideally point to the appropriate version snapshot. If there's inconsistency during concurrent operations, it's temporary and resolves when operations complete (.7).
+
+This seems like the right balance between consistency guarantees and implementation complexity for the mesh architecture. We can always add more sophisticated coordination later if specific use cases demand it.
