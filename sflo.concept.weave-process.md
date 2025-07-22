@@ -2,7 +2,7 @@
 id: rall4fbxm369okmy5383sf8
 title: Weave Process
 desc: ''
-updated: 1753067465738
+updated: 1753136522537
 created: 1751128698638
 ---
 
@@ -49,6 +49,10 @@ This ensures that in published meshes and sites:
 - [[sflo.concept.mesh.resource.element.flow.snapshot.current]] is identical to the latest version
 
 ## Features
+
+### Interactive Mode
+
+- to encourage data quality, the weave process can include an interactive mode, or modes. Perhaps one mode is naive, like "step through every bit of metadata" or "review every inferred metadata item", but you could have an AI-driven mode that optimizes for importance, identifying possible errors based on usage, etc.
 
 ### Tombstoning
 

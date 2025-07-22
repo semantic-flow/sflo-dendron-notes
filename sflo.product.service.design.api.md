@@ -2,28 +2,35 @@
 id: 108ze62n5nw1n3ntaeo2yxf
 title: API
 desc: ''
-updated: 1753015597934
+updated: 1753138562498
 created: 1752678551342
 ---
 
-**Mesh Management:**
+## Mesh Management ##
+
 - `POST /api/mesh/init` - Initialize new mesh
+
+## Node Management **
+
 - `POST /api/mesh/node` - Create new node
 - `GET /api/mesh/node/{path}` - Retrieve node
 - `PUT /api/mesh/node/{path}` - Update node
 - `DELETE /api/mesh/node/{path}` - Delete node
+- `graft` - start a new node from an existing snapshot
 
-**Component Management:**
-- `POST /api/mesh/node/{path}/component` - Add component
-- `GET /api/mesh/node/{path}/component/{type}` - Get component
-- `PUT /api/mesh/node/{path}/component/{type}` - Update component
+**Flow and Snapshot Management:**
+- `weave`
+- `POST /api/mesh/{path}/weave` - Trigger weave operation
 
-**Dataset Operations:**
+**Distribution Operations:**
+TODO: review
+
 - `POST /api/mesh/dataset/upload` - Upload RDF dataset distribution
 - `POST /api/mesh/dataset/extract` - Extract entities from RDF dataset
 - `GET /api/mesh/dataset/{path}/versions` - List dataset versions
-- `POST /api/mesh/dataset/{path}/weave` - Trigger weave operation
 - `POST /api/mesh/assets/upload` - Upload binary file resources (separate from dataset extraction)
+
+## Service Management
 
 
 ## mesh initialization
@@ -34,6 +41,7 @@ created: 1752678551342
 - optionally:
   - if the root node is to be a [[sflo.concept.mesh.resource.node.reference]], maybe some kind of wizard to select some initial reference data, like a zazuko lookup for the thing's class
   - if the root node is to be a [[sflo.concept.mesh.resource.node.data]], maybe a way to specify/download/upload a[[related-topics.dataset.distribution]]
+- set defaults, especially for provenance/attribution
 
 ## node initialization
 
