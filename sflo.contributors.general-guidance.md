@@ -2,7 +2,7 @@
 id: xebek3dtv2zgs9ah0vbv57g
 title: Semantic Flow General Guidance
 desc: ''
-updated: 1752931178155
+updated: 1753198717499
 created: 1751259888479
 ---
 
@@ -10,27 +10,26 @@ created: 1751259888479
 
 ## Workspace Components
 
-The sf-workspace contains:
-
-- a main monorepo, divided into a few different modules:
-  - **flow-service/**: Service component (currently empty structure)
+- The sflow-platform repo/folder is organized as a monorepo, divided into a few different modules:
+  - **flow-service/**: Service component
   - **flow-cli/**: Command-line application that consumes the flow-service
   - **flow-web/**: Web frontend for the flow-service
   - **flow-core/**: cross-cutting code like type schemas, logging, and config
 - the **sflo-dendron-notes/** repo: wiki-based notes about mesh structure, specifications, and concepts; in Dendron format
 - the **test-ns/** repo: Test mesh repo
-- **ontology/**: Five-ontology modular architecture for the Semantic Flow platform
+- **ontology/**: modular architecture for the Semantic Flow platform
   - `mesh` - Core mesh architecture with base classes (Resource, Node, Element) and fundamental types
   - `node` - Node operations including Handle, Flow types, and operational relationships
   - `flow` - Temporal concepts including Snapshot types and versioning relationships
   - `config-flow` - Configuration properties that apply directly to mesh entities (nodes, flows, snapshots, etc.)
+  - `meta-flow` - provenance and licensing vocabulary
   - `flow-service` - Service layer configuration vocabulary for the flow-service application
 
 ## Key Concepts
 
 ### Semantic Mesh
 
-A dereferenceable, versioned collection of semantic data and other resources, where every HTTP URI returns meaningful content.
+A dereferenceable, versioned collection of semantic data and supporting resources, where every HTTP URI returns meaningful content.
 
 #### Core Components
 
@@ -40,9 +39,10 @@ A dereferenceable, versioned collection of semantic data and other resources, wh
     - **Namespace Nodes**: basically empty folders for URL-based hierarchical organization
     - **Reference Nodes**: Refer to "things that exist" like people, or songs, or ideas
   - **Elements**: things that help define and systematize the nodes
-    - **Components**: datasets for node metadata, reference data, and payload data
-  - **Handles**: things that let you refer to a node as a node instead of as its referent
-  - **Asset Trees**: elements that allow you to attach arbitrary collections of files and folders to a mesh; in a sense, these things are "outside" the mesh, and other than the top-level "_meta" folder, they don't contain any other mesh resources
+    - **Flows**: datasets for node metadata, reference data, and payload data
+      - **Snapshots**: temporal slices of a flow, containing RDF dataset distributions
+    - **Handles**: things that let you refer to a node as a node instead of as its referent
+    - **Asset Trees**: elements that allow you to attach arbitrary collections of files and folders to a mesh; in a sense, these things are "outside" the mesh, and other than the top-level "_meta" folder, they don't contain any other mesh resources
 
 ### Semantic Flow Workflow:
 
@@ -61,11 +61,11 @@ A dereferenceable, versioned collection of semantic data and other resources, wh
 
 - meshes support multiple RDF formats (.trig, .jsonld, etc.)
 - be mindful of RDF terminology and concepts
-  - Uses DCAT for dataset catalogs
-  - Uses PROV for provenance
+  - extends DCAT for dataset catalogs
+  - extends PROV for provenance, with relator-based contexts
 - When referring to IRIs or URIs that are part of a semantic mesh, prefer the term URLs instead of IRI or URI
   - if you see a reference to IRI or URI, it might need updating, or it might mean a distinction should be drawn
-- RDF comments should be extremely brief and clear.
+- RDF comments should be extremely concise and clear.
 
 ## Documentation
 
@@ -90,7 +90,7 @@ A dereferenceable, versioned collection of semantic data and other resources, wh
 
 Project documentation, specifications, journaling, and design choices are stored in `sflo-dendron-notes/` using Dendron's hierarchical note system. Key documentation hierarchies include:
 
-- **Core concepts**: `sflo.concept.*` files talk about general Semantic Flow concepts
+- **Concepts**: `sflo.concept.*` files talk about general Semantic Flow concepts
 - **Mesh docs**: `sflo.concept.mesh.*` files define the semantic mesh architecture
 - **Product specifications**: `sflo.product.*` files detail each component
 - **Use cases**: `sflo.use-cases.*` files
@@ -106,8 +106,8 @@ Project documentation, specifications, journaling, and design choices are stored
 ### Configuration Architecture
 
 - The project uses a sophisticated JSON-LD based configuration system with multiple layers
-- **Configuration resolution order**: CLI arguments → Environment variables → Config file → Defaults
-- The [`defaults.ts`](semantic-flow/flow-service/src/config/defaults.ts) file is the  source for "platform default" configuration
+- **Service Configuration resolution order**: CLI arguments → Environment variables → Config file → Defaults
+- The [`defaults.ts`](semantic-flow/flow-service/src/config/defaults.ts) file is the source for "platform default" configuration
 
 ### Logging System Architecture
 
@@ -166,7 +166,7 @@ Project documentation, specifications, journaling, and design choices are stored
 
 ### Component Architecture
 
-- **Shaared code**: should go in flow-core/
+- **Shared code**: should go in flow-core/
 - **Separation**: Maintain clear boundaries between flow-cli, flow-service, and flow-web
 - **Error Handling**: Use consistent error patterns across all components
 - **Async Patterns**: Use async/await for RDF operations and file I/O
