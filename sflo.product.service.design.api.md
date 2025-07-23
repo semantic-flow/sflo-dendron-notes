@@ -2,7 +2,7 @@
 id: 108ze62n5nw1n3ntaeo2yxf
 title: API
 desc: ''
-updated: 1753229490440
+updated: 1753275229117
 created: 1752678551342
 ---
 
@@ -93,7 +93,7 @@ created: 1752678551342
 ```
 
 **Key Body Parameters**:
-- `path`: The relative path for the new node. Use `/` or an empty string for the root node.
+- `path`: The relative path for the new node. For the root node, use `/` or an empty string; the API will return `/{meshName}/` as its path.
 - `nodeType`: The type of node to create ("Namespace", "Reference", or "Dataset").
 - `initialData`: An object containing the initial metadata for the node.
 - `options.copyDefaultAssets`: A boolean to indicate if default assets (templates, CSS) should be copied into the mesh. This is typically `true` only when creating the root node.
@@ -101,14 +101,14 @@ created: 1752678551342
 **Success Response (201 Created)**:
 ```json
 {
-  "message": "Node created successfully at path '/' in mesh 'test-ns'.",
-  "nodePath": "/",
+  "message": "Node created successfully at path '/test-ns/' in mesh 'test-ns'.",
+  "nodePath": "/test-ns/",
   "filesCreated": [
     "./test-ns/index.html",
     "./test-ns/_meta-component/v1.trig"
   ],
   "links": [
-    { "rel": "self", "href": "/api/meshes/test-ns/nodes/" },
+    { "rel": "self", "href": "/api/meshes/test-ns/nodes/test-ns/" },
     { "rel": "mesh", "href": "/api/meshes/test-ns" }
   ]
 }
