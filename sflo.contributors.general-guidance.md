@@ -2,7 +2,7 @@
 id: xebek3dtv2zgs9ah0vbv57g
 title: Semantic Flow General Guidance
 desc: ''
-updated: 1753198717499
+updated: 1753284598334
 created: 1751259888479
 ---
 
@@ -59,7 +59,10 @@ A dereferenceable, versioned collection of semantic data and supporting resource
 
 ## RDF and Semantic Web
 
+- avoid use of blank nodes
 - meshes support multiple RDF formats (.trig, .jsonld, etc.)
+  - .trig might be better for user-facing content
+  - .jsonld might be better for system content
 - be mindful of RDF terminology and concepts
   - extends DCAT for dataset catalogs
   - extends PROV for provenance, with relator-based contexts

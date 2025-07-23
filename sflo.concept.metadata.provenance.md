@@ -2,7 +2,7 @@
 id: 4v2b7t8nbzkmtyvnayye3vj
 title: Provenance
 desc: ''
-updated: 1753134166733
+updated: 1753287421507
 created: 1753117923066
 ---
 
@@ -120,3 +120,27 @@ For flows without versioning, activities accumulate in `_next` with unique times
 - **Base URI**: All snapshots use `@base <../_vN/>` pattern for consistent resolution
 - **Rights inheritance**: Capture previous version rights holders in provenance contexts when content is derived
 - **Static site friendly**: Documentation approach for external references since no server-side redirects available
+
+## Fragment Identifier Naming Scheme
+
+To ensure that every RDF node within a `_meta` distribution has a unique and dereferenceable URI, the following naming scheme for fragment identifiers MUST be used. This allows the `index.html` file for a given snapshot version to correctly link to all provenance entities.
+
+The structure is as follows:
+
+`<{flow-slug}-{version}-{entity-type}[-{unique-part}]>`
+
+-   **`{flow-slug}`**: The slug of the flow this provenance describes (e.g., `config-flow`, `data-flow`). This provides the primary namespace for the identifier.
+-   **`{version}`**: The version of the snapshot (e.g., `v47`). This scopes the provenance to a specific point in time.
+-   **`{entity-type}`**: The type of the entity, using a consistent camelCase or kebab-case convention (e.g., `activity`, `context`, `delegationChain`, `delegationStep`).
+-   **`{unique-part}`**: (Optional) A unique suffix, such as a step number or a timestamp, used when multiple entities of the same type exist for the same flow and version.
+
+### Example
+
+For a `config-flow` at version `v47`, the identifiers would be:
+
+-   **Activity**: `<#config-flow-v47-activity>`
+-   **Provenance Context**: `<#config-flow-v47-context>`
+-   **Delegation Chain**: `<#config-flow-v47-delegationChain>`
+-   **Delegation Steps**:
+    -   `<#config-flow-v47-delegationStep-1>`
+    -   `<#config-flow-v47-delegationStep-2>`
