@@ -2,7 +2,7 @@
 id: xebek3dtv2zgs9ah0vbv57g
 title: Semantic Flow General Guidance
 desc: ''
-updated: 1753284598334
+updated: 1753378012724
 created: 1751259888479
 ---
 
@@ -72,6 +72,7 @@ A dereferenceable, versioned collection of semantic data and supporting resource
 
 ## Documentation
 
+- Avoid numbering of headings and list items, as it makes re-ordering a pain
 - All specifications and design docs are in `sflo-dendron-notes/`
 - Check conversation logs in `sflo.conv.*` for context on design decisions if necessary, but beware of superceded and dangerously-outdated info
 
