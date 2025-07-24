@@ -2,16 +2,20 @@
 id: l59hvxem2488war5j981yca
 title: SF Todo
 desc: ''
-updated: 1752322181159
+updated: 1753318434026
 created: 1731041743071
 ---
 
 ## Immediately
 
-- config vs meta
-  - config varies depending on hierarchy, so fundamentally different from meta
-  - so is config its own component? Or is it just fundamentally outside the mesh
-- test data (from example)
+meshes.ts
+          "prov:startedAtTime": new Date().toISOString(),
+          "prov:endedAtTime": new Date().toISOString(),
+
+should we consider using the term names? capitalization might be an issue here:
+
+    nodeType: z.enum(['Namespace', 'Reference', 'Dataset']).openapi({
+
 
 
 ## Eventually
