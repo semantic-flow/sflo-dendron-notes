@@ -2,7 +2,7 @@
 id: xebek3dtv2zgs9ah0vbv57g
 title: Semantic Flow General Guidance
 desc: ''
-updated: 1753501934050
+updated: 1753540346295
 created: 1751259888479
 ---
 
@@ -184,6 +184,7 @@ Project documentation, specifications, journaling, and design choices are stored
   - integration tests go in tests/integration
 - **Mesh Resources**: Follow mesh resource naming conventions from @/ontology/alpha/_node-data/_next/flow-ontology-alpha.trig
 - **Constants**: Use UPPER_SNAKE_CASE for constants, especially for reserved names; centralize constants, e.g. semantic-flow/flow-core/src/mesh-constants.ts
+- **File size**: For ease of AI-based editing, prefer lots of small files over one huge file
 
 ### Code Style
 

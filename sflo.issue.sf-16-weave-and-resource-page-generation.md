@@ -2,7 +2,7 @@
 id: krwiw5s6129l21bz4leki1d
 title: SF-16 Weave and Resource Page Generation
 desc: Comprehensive implementation of the weave process focusing on resource management, versioning, and resource page generation for single node targeting.
-updated: 1753504244900
+updated: 1753504644974
 created: 1753415990663
 ---
 
@@ -38,10 +38,9 @@ Currently, the system lacks an automated, consistent process to manage resource 
    - Manage user flows, detecting changes that require version bumps.
 
 2. **Version Handling and Snapshot Management**
-   - Create new version snapshots for changed datasets when versioning is enabled.
-   - Update version metadata accordingly.
-   - Copy `_next` dataset to `_current` regardless of versioning status.
-   - Flag unified datasets for regeneration.
+   - Create new version snapshots for changed datasets (assume version is always on for now)
+     - Copy `_next` dataset to `_current` and whatever the next _vN is.
+     - Update version metadata accordingly.
 
 3. **Resource Page Generation**
    - Generate documentation resource pages using specified templates.
