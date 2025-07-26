@@ -2,19 +2,20 @@
 id: rall4fbxm369okmy5383sf8
 title: Weave Process
 desc: ''
-updated: 1753136522537
+updated: 1753420415788
 created: 1751128698638
 ---
 
 - checks for required [[sflo.concept.mesh.resource-facet.system]] and creates them if missing
 - optionally removes extraneous files, interactively if requested
-- for changed [[sflo.concept.mesh.resource-facet.user]] datasets (i.e., need re-generation)
+- for changed [[sflo.concept.mesh.resource-facet.user]] datasets (i.e., need version bump)
   - if versioning is on:
     - creates a new [[sflo.concept.mesh.resource.element.flow.snapshot.version]] 
     - updates version metadata
   - regardless of whether versioning is on:
     - copies _next to _current
-    - flags the unified dataset for regeneration 
+    - flags the unified dataset for regeneration
+    - updates _meta-flow with new version information
 - regenerates affected [[sflo.concept.mesh.resource.element.documentation-resource.resource-page]]
 
 ```file
@@ -24,13 +25,16 @@ created: 1751128698638
 │   │   ├── default.html
 │   │   ├── ontology.html
 │   │   └── person.html
-│   └── _template-mappings.jsonld    ← Global template config
+│   └── _css
+│   │   ├── default.css
+│   │   ├── ontology.css
+│   │   └── person.css
 └── my-ontology/
-    ├── _weave-config.json              ← Node config (just syntax, etc.)
+    ├── _config-flow              ← Node config (just syntax, etc.)
     ├── _assets/                  ← Optional node-specific assets
-    │   ├── _templates/            ← Optional overrides
-    │   └── _template-mappings.jsonld ← Optional mapping overrides
-    └── _data/
+    │   ├── _templates/           ← Optional templates
+    │   └── _css                  ← Optional css
+    └── _data-flow
 ```
 
 ## Quirks
@@ -66,8 +70,8 @@ If you know a sub-mesh is permanently moving to a new location (or even if a bra
 
 ## Scope
 
-- **Single flow weave**: Update one flow + its meta-flow
-- **Node weave**: Update all flows in a node (each flow + meta gets woven)
+- **Single flow weave**: Update one (user) flow (data, ref, or config) + the corresponding meta-flow
+- **Node weave**: Update all (user) flows in a node (each flow + meta gets woven)
 - **Node tree weave**: Recursively weave nodes and their contained nodes
 
 **Meta-flow co-weaving**: whenever any flow in a node gets woven, the meta-flow updates to reflect the new state. This ensures the meta-flow always accurately describes the current node state without requiring separate meta-weaving operations.

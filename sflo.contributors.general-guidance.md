@@ -2,7 +2,7 @@
 id: xebek3dtv2zgs9ah0vbv57g
 title: Semantic Flow General Guidance
 desc: ''
-updated: 1753378012724
+updated: 1753501934050
 created: 1751259888479
 ---
 
@@ -199,8 +199,8 @@ Project documentation, specifications, journaling, and design choices are stored
 
 ### Testing
 
-- **Unit Tests**: Use Deno's built-in test runner
-- **Integration Tests**: Test mesh operations end-to-end
+- **Unit Tests**: Use Deno's built-in test runner; tests are located in test/unit/ dir
+- **Integration Tests**: Test mesh operations end-to-end; tests are located in test/integration/ dir
 - **RDF Validation**: Test both .trig and JSON-LD parsing/serialization
 - **Mock Data**: Create test mesh structures following documentation patterns
 - after you think you've completed a task, check for any "problems", i.e., deno-lint
