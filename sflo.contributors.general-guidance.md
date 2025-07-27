@@ -2,7 +2,7 @@
 id: xebek3dtv2zgs9ah0vbv57g
 title: Semantic Flow General Guidance
 desc: ''
-updated: 1753540346295
+updated: 1753600471482
 created: 1751259888479
 ---
 
@@ -190,6 +190,9 @@ Project documentation, specifications, journaling, and design choices are stored
 
 - **Linting**: Use Deno's built-in linter (`deno lint`)
   - If using any is actually clearer than not using it, it's okay, just add the // deno-lint-ignore comment
+- use flow-core/src/deps.ts for centralizing imports
+- import use single quotes
+- 
 
 ### Error Handling
 
