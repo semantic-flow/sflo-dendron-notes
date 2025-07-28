@@ -2,7 +2,7 @@
 id: xebek3dtv2zgs9ah0vbv57g
 title: Semantic Flow General Guidance
 desc: ''
-updated: 1753600471482
+updated: 1753742699506
 created: 1751259888479
 ---
 
@@ -60,6 +60,7 @@ A dereferenceable, versioned collection of semantic data and supporting resource
 ## RDF and Semantic Web
 
 - avoid use of blank nodes
+- prefer relative/local URIs for transposability/composability
 - meshes support multiple RDF formats (.trig, .jsonld, etc.)
   - .trig might be better for user-facing content
   - .jsonld might be better for system content
@@ -70,9 +71,14 @@ A dereferenceable, versioned collection of semantic data and supporting resource
   - if you see a reference to IRI or URI, it might need updating, or it might mean a distinction should be drawn
 - RDF comments should be extremely concise and clear.
 
+### Quadstore
+
+- make sure you are familiar with [[sflo.tech-stack.quadstore.readme]], which documents the API
+- For testability and in case we ever want to use multiple stores simultaneously, store-accessing functions take a "
+
 ## Documentation
 
-- Avoid numbering of headings and list items, as it makes re-ordering a pain
+- Avoid numbering of code comments, headings and list items, as it makes re-ordering a pain
 - All specifications and design docs are in `sflo-dendron-notes/`
 - Check conversation logs in `sflo.conv.*` for context on design decisions if necessary, but beware of superceded and dangerously-outdated info
 
