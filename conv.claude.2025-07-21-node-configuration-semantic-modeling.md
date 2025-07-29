@@ -2,7 +2,7 @@
 id: vejktfil29pj8lhwc3ut1l5
 title: 2025 07 21 Node Configuration Semantic Modeling
 desc: ''
-updated: 1753142469540
+updated: 1753751090078
 created: 1753142439474
 ---
 
@@ -17,8 +17,8 @@ Our node-config.default.jsonld looks like:
     "flow": "https://semantic-flow.github.io/ontology/flow/",
     "conf": "https://semantic-flow.github.io/ontology/config-flow/"
   },
-  "@type": "conf:NodeConfig",
-  "@id": "conf:defaultNodeConfig",
+  "@type": "conf:MeshNodeConfig",
+  "@id": "conf:defaultMeshNodeConfig",
   "conf:versioningEnabled": true,
   "conf:configInheritanceEnabled": true,
   "conf:distributionFormats": [
@@ -35,18 +35,18 @@ Our node-config.default.jsonld looks like:
   "conf:stylesheetPath": "/_assets/css/default-resource-page.css"
 }
 
-But we'd removed the NodeConfig as a separate type because config statements refer to/ have domains of nodes or flows etc. 
+But we'd removed the MeshNodeConfig as a separate type because config statements refer to/ have domains of nodes or flows etc. 
 
-RooCode though NodeConfig is a template.
+RooCode though MeshNodeConfig is a template.
 
-I'm not sure NodeConfig is a template. It is an ontological entity, in the sense that it's a type of Flow that each node has.   Could it's type be ConfigFlow? Probably not. The actual distributions for the flow's snapshots will have the config data, so maybe we need a flow:Config or flow:ConfigDistribution?
+I'm not sure MeshNodeConfig is a template. It is an ontological entity, in the sense that it's a type of Flow that each node has.   Could it's type be ConfigFlow? Probably not. The actual distributions for the flow's snapshots will have the config data, so maybe we need a flow:Config or flow:ConfigDistribution?
 
 Edit
-Looking at this configuration structure, I think you're right to question whether NodeConfig should be a separate type (.8). The architecture seems to be moving toward configurations as properties that attach to the actual entities (nodes, flows) rather than as standalone configuration objects.
+Looking at this configuration structure, I think you're right to question whether MeshNodeConfig should be a separate type (.8). The architecture seems to be moving toward configurations as properties that attach to the actual entities (nodes, flows) rather than as standalone configuration objects.
 
 Let me think through the ontological relationships here:
 
-Current issue: conf:NodeConfig feels like it's creating an unnecessary layer of abstraction when the configuration properties could directly attach to the nodes themselves.
+Current issue: conf:MeshNodeConfig feels like it's creating an unnecessary layer of abstraction when the configuration properties could directly attach to the nodes themselves.
 
 Potential approaches:
 
@@ -77,14 +77,14 @@ flow:Reference - reference flows
 flow:Data - data flows
 flow:Unified - unified dataset flows
 flow:Aggregated - aggregated dataset flows
-This is much cleaner than having NodeConfig as a separate concept (.8). The configuration is temporal data about how a node should behave, so it belongs in the flow ontology, not as its own entity type.
+This is much cleaner than having MeshNodeConfig as a separate concept (.8). The configuration is temporal data about how a node should behave, so it belongs in the flow ontology, not as its own entity type.
 
 Looking at your JSON-LD, it would become:
 
 json
 {
   "@type": "flow:Config",
-  "@id": "conf:defaultNodeConfig",
+  "@id": "conf:defaultMeshNodeConfig",
   ...
 }
 This also aligns better with your principle that "config statements refer to/have domains of nodes or flows etc." - the flow:Config flow would have relationships to the nodes it configures, rather than nodes having a separate config object (.8).
@@ -186,7 +186,7 @@ So your original JSON-LD would become:
 json
 {
   "@type": "flow:Config",
-  "@id": "conf:defaultNodeConfig",
+  "@id": "conf:defaultMeshNodeConfig",
   ...
 }
 Does this structure capture what you had in mind for the resource/node/flow relationships?
@@ -232,7 +232,7 @@ Your node-config.default.jsonld should be:
 json
 {
   "@type": "flow:ConfigDistribution",
-  "@id": "conf:defaultNodeConfig",
+  "@id": "conf:defaultMeshNodeConfig",
   "conf:versioningEnabled": true,
   ...
 }
@@ -259,7 +259,7 @@ You might distinguish this through properties rather than type:
 json
 {
   "@type": "flow:ConfigDistribution",
-  "@id": "conf:defaultNodeConfig",
+  "@id": "conf:defaultMeshNodeConfig",
   "conf:isDefault": true,
   "conf:appliesTo": "mesh:Node", // or some way to indicate it's for all nodes
   ...
@@ -600,7 +600,7 @@ Add distribution types: flow:ConfigDistribution, flow:MetadataDistribution, etc.
 Proper inheritance: flow types subclass node:Flow, snapshots and distributions follow the chain
 config-flow ontology (conf:):
 
-Remove conf:NodeConfig class entirely
+Remove conf:MeshNodeConfig class entirely
 Keep configuration properties like conf:versioningEnabled, conf:distributionFormats
 Properties apply to flow entities using schema:domainIncludes
 flow-service ontology (fsvc:):
@@ -625,7 +625,7 @@ Update node-config.default.jsonld:
 json
 {
   "@type": "flow:ConfigDistribution",
-  "@id": "conf:defaultNodeConfig",
+  "@id": "conf:defaultMeshNodeConfig",
   ...existing properties...
 }
 5. Meta-Flow Ontology
@@ -791,7 +791,7 @@ node:Handle → node:references → mesh:Node → flow:hasFlow → flow:Config
 So the SHACL should validate that every mesh:Node has the required config flow:
 
 turtle
-:NodeConfigFlowRequirement
+:MeshNodeConfigFlowRequirement
   a sh:NodeShape ;
   sh:targetClass mesh:Node ;
   sh:property [
@@ -1060,8 +1060,8 @@ turtle
 
 :configurationActivity a prov:Activity ;
   prov:wasAssociatedWith :flowServiceBot ;
-  prov:used :oldNodeConfig ;
-  prov:generated :newNodeConfig .
+  prov:used :oldMeshNodeConfig ;
+  prov:generated :newMeshNodeConfig .
 PROV was explicitly designed to handle modern computational workflows where software agents are primary actors (.8). It treats software as first-class participants in provenance chains rather than just tools.
 
 

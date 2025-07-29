@@ -2,7 +2,7 @@
 id: 928ld3kufa3dmffae2kw451
 title: 2025 07 11 Flow CLI API Design Strategy
 desc: ''
-updated: 1752244936378
+updated: 1753750415481
 created: 1752244674640
 ---
 
@@ -7684,10 +7684,10 @@ Validation Strategy (.8)
 CLI Integration
 typescript// src/core/config/validator.ts
 import { FlowConfigSchema } from "@/types/flow-config.ts";
-import { readJsonLD } from "@/core/rdf/parser.ts";
+import { readJsonLd } from "@/core/rdf/parser.ts";
 
 export async function validateFlowConfig(configPath: string): Promise<FlowConfig> {
-  const rawConfig = await readJsonLD(configPath);
+  const rawConfig = await readJsonLd(configPath);
   
   // JSON Schema validation
   const result = FlowConfigSchema.safeParse(rawConfig);

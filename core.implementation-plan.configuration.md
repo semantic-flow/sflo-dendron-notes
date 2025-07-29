@@ -2,7 +2,7 @@
 id: wjl3rmw6iyypzy13h4uci9q
 title: Configuration
 desc: ''
-updated: 1752445355076
+updated: 1753751105092
 created: 1752434728498
 ---
 
@@ -80,9 +80,9 @@ interface ServiceConfigContext {
   defaultOptions: CompleteServiceConfig;   // Platform defaults
 }
 
-interface NodeConfigContext {
-  inputOptions: Partial<NodeConfig>;       // From node + hierarchy walk
-  defaultOptions: CompleteNodeConfig;      // Platform + service defaults
+interface MeshNodeConfigContext {
+  inputOptions: Partial<MeshNodeConfig>;       // From node + hierarchy walk
+  defaultOptions: CompleteMeshNodeConfig;      // Platform + service defaults
 }
 
 // Decision logic - check input first, fall back to defaults
@@ -90,7 +90,7 @@ function getServicePort(context: ServiceConfigContext): number {
   return context.inputOptions.port ?? context.defaultOptions.port;
 }
 
-function getVersioningEnabled(context: NodeConfigContext): boolean {
+function getVersioningEnabled(context: MeshNodeConfigContext): boolean {
   return context.inputOptions.versioningEnabled ?? context.defaultOptions.versioningEnabled;
 }
 ```
@@ -99,19 +99,19 @@ function getVersioningEnabled(context: NodeConfigContext): boolean {
 
 ### Resolution Process (Different from Weave Pattern)
 ```typescript
-async function resolveNodeConfig(nodePath: string): Promise<NodeConfigContext> {
+async function resolveMeshNodeConfig(nodePath: string): Promise<MeshNodeConfigContext> {
   // 1. Start with node-specific config
-  let inputOptions: Partial<NodeConfig> = {};
-  const nodeConfig = await loadNodeConfig(nodePath);
-  if (nodeConfig) {
-    inputOptions = { ...nodeConfig };
+  let inputOptions: Partial<MeshNodeConfig> = {};
+  const meshNodeConfig = await loadMeshNodeConfig(nodePath);
+  if (meshNodeConfig) {
+    inputOptions = { ...meshNodeConfig };
   }
 
   // 2. Walk up hierarchy to fill missing values (if inheritance enabled)
   if (isConfigInheritanceEnabled(nodePath)) {
     const hierarchy = getNodeHierarchy(nodePath); // excluding current node
     for (const ancestorPath of hierarchy) {
-      const ancestorConfig = await loadNodeConfig(ancestorPath);
+      const ancestorConfig = await loadMeshNodeConfig(ancestorPath);
       if (ancestorConfig) {
         // Fill in missing properties from ancestor
         for (const [key, value] of Object.entries(ancestorConfig)) {
@@ -124,7 +124,7 @@ async function resolveNodeConfig(nodePath: string): Promise<NodeConfigContext> {
   }
 
   // 3. Validate sparse input options
-  await validateNodeConfigInput(inputOptions);
+  await validateMeshNodeConfigInput(inputOptions);
 
   // 4. Build complete defaults (platform + service overrides)
   const serviceConfig = getServiceConfig();
@@ -158,17 +158,17 @@ svc:port a owl:DatatypeProperty ;
 
 svc:nodeDefaults a owl:ObjectProperty ;
   rdfs:domain svc:ServiceConfig ;
-  rdfs:range node:NodeConfig ;
+  rdfs:range node:MeshNodeConfig ;
   rdfs:comment "Override platform defaults for node configuration" .
 
 # node-ontology.ttl
 @prefix node: <https://semantic-flow.org/node#> .
 
-node:NodeConfig a owl:Class ;
+node:MeshNodeConfig a owl:Class ;
   rdfs:label "Node Configuration" .
 
 node:versioningEnabled a owl:DatatypeProperty ;
-  rdfs:domain node:NodeConfig ;
+  rdfs:domain node:MeshNodeConfig ;
   rdfs:range xsd:boolean .
 ```
 
@@ -239,7 +239,7 @@ async function validateServiceConfigInput(jsonldInput: unknown): Promise<Service
 ```jsonld
 {
   "@context": { "node": "https://semantic-flow.org/node#" },
-  "@type": "node:NodeConfig",
+  "@type": "node:MeshNodeConfig",
   "node:versioningEnabled": true,           // Override service/platform default
   "node:templateMappings": {
     "node:resourcePage": "special-template.html"  // Node-specific template
@@ -260,7 +260,7 @@ flow-core/
 │   │   │   └── node-ontology-ref.ts    # Reference to node-config-ontology
 │   │   ├── schemas/                    # Zod schemas for JSON-LD configs
 │   │   │   ├── service-config.ts       # ServiceConfigInputSchema
-│   │   │   └── node-config.ts          # NodeConfigInputSchema
+│   │   │   └── node-config.ts          # MeshNodeConfigInputSchema
 │   │   ├── resolution/
 │   │   │   ├── service-config-resolver.ts    # Weave-pattern merger
 │   │   │   ├── node-config-resolver.ts       # Hierarchy walker
@@ -337,19 +337,19 @@ app.put('/api/service/config',
 // GET /api/mesh/{meshPath}/config - Returns resolved node config
 app.get('/api/mesh/:meshPath/config', async (c) => {
   const meshPath = c.req.param('meshPath');
-  const context = await resolveNodeConfig(meshPath);
+  const context = await resolveMeshNodeConfig(meshPath);
   const resolved = mergeConfigContext(context);
   return c.json(resolved); // JSON-LD response
 });
 
 // PUT /api/mesh/{meshPath}/config - Update node config
 app.put('/api/mesh/:meshPath/config',
-  zValidator('json', NodeConfigInputSchema),
+  zValidator('json', MeshNodeConfigInputSchema),
   async (c) => {
     const input = c.req.valid('json');
     const meshPath = c.req.param('meshPath');
-    await validateNodeConfigSHACL(input);
-    await saveNodeConfig(meshPath, input);
+    await validateMeshNodeConfigSHACL(input);
+    await saveMeshNodeConfig(meshPath, input);
     return c.json({ status: "updated" });
   }
 );
