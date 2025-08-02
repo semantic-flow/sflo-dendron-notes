@@ -2,7 +2,7 @@
 id: xebek3dtv2zgs9ah0vbv57g
 title: Semantic Flow General Guidance
 desc: ''
-updated: 1753748374438
+updated: 1754083578208
 created: 1751259888479
 ---
 
@@ -160,6 +160,7 @@ Project documentation, specifications, journaling, and design choices are stored
 - **RDF Libraries**: Use RDF.js ecosystem libraries consistently across components
 - **Namespace Management**: Follow URL-based identifier patterns as defined in `sflo.concept.identifier.md`
 - **Reserved Names**: Validate against underscore-prefixed reserved identifiers per `sflo.concept.identifier.md`
+- The most effective validation strategy combines TypeScript structural validation with RDF semantic validation: DEV Community +2
 
 ### Semantic Mesh Architecture
 
@@ -174,6 +175,7 @@ Project documentation, specifications, journaling, and design choices are stored
 - **Interface Definitions**: Link to concept documentation in TSDoc comments
 - **Cross-Reference Validation**: Ensure consistency between code and documentation; if docs need updating, let me know
 - **API Documentation**: Generate from TSDoc comments
+- 
 
 ### Component Architecture
 
@@ -192,6 +194,7 @@ Project documentation, specifications, journaling, and design choices are stored
 - **Mesh Resources**: Follow mesh resource naming conventions from @/ontology/alpha/_node-data/_next/flow-ontology-alpha.trig
 - **Constants**: Use UPPER_SNAKE_CASE for constants, especially for reserved names; centralize constants, e.g. semantic-flow/flow-core/src/mesh-constants.ts
 - **File size**: For ease of AI-based editing, prefer lots of small files over one huge file
+- **Quoting**: For easier compatibility with JSON files, 
 
 ### Code Style
 
@@ -199,7 +202,7 @@ Project documentation, specifications, journaling, and design choices are stored
   - If using any is actually clearer than not using it, it's okay, just add the // deno-lint-ignore comment
 - use flow-core/src/deps.ts for centralizing imports
 - import use single quotes
-- 
+- Use `satisfies` whenever you're writing a literal config object that should be checked against a TypeScript shape, but you want to retain the full type of the literal for use in your program.
 
 ### Error Handling
 
