@@ -2,7 +2,7 @@
 id: xebek3dtv2zgs9ah0vbv57g
 title: Semantic Flow General Guidance
 desc: ''
-updated: 1754083578208
+updated: 1754096930320
 created: 1751259888479
 ---
 
@@ -211,6 +211,24 @@ Project documentation, specifications, journaling, and design choices are stored
 - **Logging**: Use structured logging for debugging weave operations
 - **Async Error Propagation**: Properly handle async/await error chains
 
+- **Consistent Error Handling Utility**: Use the `handleCaughtError` function from `flow-service/src/utils/logger.ts` for consistent error logging and handling across the codebase.
+- This utility accepts errors of unknown type, logs detailed context, and integrates with console, file, and Sentry logging tiers.
+- Example usage in async functions:
+
+```ts
+import { handleCaughtError } from './utils/logger.ts';
+
+async function exampleFunction() {
+  try {
+    // some async operation
+  } catch (error) {
+    await handleCaughtError(error, 'Error in exampleFunction');
+    throw new Error('Operation failed');
+  }
+}
+```
+
+- This pattern ensures uniform error reporting and easier debugging.
 ### Testing
 
 - **Unit Tests**: Use Deno's built-in test runner; tests are located in test/unit/ dir
