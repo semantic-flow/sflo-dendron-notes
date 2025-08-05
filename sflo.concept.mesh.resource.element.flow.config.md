@@ -2,14 +2,14 @@
 id: kr1y9tt3qljsbfy8lxm3u1g
 title: config component
 desc: ''
-updated: 1752332965346
+updated: 1754285606247
 created: 1752325627733
 ---
 
 
 Node configuration can be inherited from any parent nodes, and overrides are accomplished with an optional node `_config-component` that travels with the node and is distinct from the `_meta-component`.
 
-Default configuration can be determined using [[sflo.concept.mesh.resource-facet.user]] [[sflo.concept.mesh.resource.element.node-config-defaults]], which can also be inherited from parent nodes. 
+Default configuration can be determined recursing up  [[sflo.concept.mesh.resource.element.node-config-defaults]], which can also be inherited from parent nodes. 
 
 Inheritance of configuration and defaults can be turned off. 
 

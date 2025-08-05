@@ -2,12 +2,14 @@
 id: l59hvxem2488war5j981yca
 title: SF Todo
 desc: ''
-updated: 1753575444542
+updated: 1754241506830
 created: 1731041743071
 ---
 
 ## Immediately
 
+- fix clearGraph
+- 
 - display absolute filesystem path for loaded 
 - If the user attempts to create a node at a path that doesn't already exist, all the intervening nodes should be created as namepsace nodes.
 

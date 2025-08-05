@@ -2,7 +2,7 @@
 id: xebek3dtv2zgs9ah0vbv57g
 title: Semantic Flow General Guidance
 desc: ''
-updated: 1754096930320
+updated: 1754240257119
 created: 1751259888479
 ---
 
@@ -211,24 +211,156 @@ Project documentation, specifications, journaling, and design choices are stored
 - **Logging**: Use structured logging for debugging weave operations
 - **Async Error Propagation**: Properly handle async/await error chains
 
-- **Consistent Error Handling Utility**: Use the `handleCaughtError` function from `flow-service/src/utils/logger.ts` for consistent error logging and handling across the codebase.
-- This utility accepts errors of unknown type, logs detailed context, and integrates with console, file, and Sentry logging tiers.
-- Example usage in async functions:
+#### Enhanced Error Handling with LogContext
+
+The platform uses **LogContext-enhanced error handling** from `flow-core/src/utils/logger/error-handlers.ts` for consistent error logging across all components. Both error handling functions now accept optional `LogContext` parameters for rich contextual information.
+
+**Core Functions:**
+- `handleCaughtError()` - For caught exceptions with comprehensive error type handling
+- `handleError()` - For controlled error scenarios with structured messaging
+
+#### LogContext Structure
 
 ```ts
-import { handleCaughtError } from './utils/logger.ts';
+interface LogContext {
+  operation?: string;           // 'startup', 'config-resolve', 'api-request', 'weave'
+  component?: string;          // 'config-resolver', 'mesh-scanner', 'api-handler'
+  operationId?: string;        // Unique operation identifiers
+  serviceContext?: {...};      // Service name, version, environment
+  configContext?: {...};       // Configuration paths and types
+  apiContext?: {...};          // Request IDs and API details
+  performanceMetrics?: {...};  // Duration, memory usage, timing
+  errorContext?: {...};        // Error details and recovery info
+  metadata?: Record<string, unknown>; // Additional contextual data
+}
+```
 
-async function exampleFunction() {
+#### handleCaughtError Examples
+
+**Basic Usage:**
+```ts
+import { handleCaughtError } from '../../../flow-core/src/utils/logger/error-handlers.ts';
+
+async function processConfiguration() {
   try {
     // some async operation
   } catch (error) {
-    await handleCaughtError(error, 'Error in exampleFunction');
+    await handleCaughtError(error, 'Configuration processing failed');
     throw new Error('Operation failed');
   }
 }
 ```
 
-- This pattern ensures uniform error reporting and easier debugging.
+**With LogContext:**
+```ts
+import { handleCaughtError } from '../../../flow-core/src/utils/logger/error-handlers.ts';
+import { LogContext } from '../../../flow-core/src/utils/logger/types.ts';
+
+async function loadConfigurationFile(configPath: string, requestId?: string) {
+  const logContext: LogContext = {
+    operation: 'config-resolve',
+    component: 'config-loader',
+    operationId: crypto.randomUUID(),
+    configContext: {
+      configPath,
+      configType: 'file'
+    },
+    apiContext: requestId ? { requestId } : undefined,
+    performanceMetrics: {
+      startTime: Date.now()
+    }
+  };
+
+  try {
+    // load configuration file
+  } catch (error) {
+    await handleCaughtError(
+      error,
+      'Failed to load configuration file',
+      logContext,
+      { attemptedPath: configPath }
+    );
+    throw new ConfigurationError('Configuration loading failed');
+  }
+}
+```
+
+#### handleError Examples
+
+**API Error Handling:**
+```ts
+import { handleError } from '../../../flow-core/src/utils/logger/error-handlers.ts';
+
+async function handleApiRequest(request: Request) {
+  const requestId = request.headers.get('x-request-id') || crypto.randomUUID();
+  
+  if (!isValidRequest(request)) {
+    await handleError(
+      'Invalid API request received',
+      'Request validation failed',
+      {
+        operation: 'api-request',
+        component: 'api-handler',
+        apiContext: {
+          requestId,
+          method: request.method,
+          url: request.url
+        },
+        metadata: {
+          userAgent: request.headers.get('user-agent'),
+          contentType: request.headers.get('content-type')
+        }
+      }
+    );
+    return new Response('Bad Request', { status: 400 });
+  }
+}
+```
+
+**Startup Error Handling:**
+```ts
+import { handleError } from '../../../flow-core/src/utils/logger/error-handlers.ts';
+
+async function initializeService() {
+  const startTime = Date.now();
+  
+  if (!await validateEnvironment()) {
+    await handleError(
+      'Service initialization failed',
+      'Environment validation failed',
+      {
+        operation: 'startup',
+        component: 'service-initializer',
+        performanceMetrics: {
+          duration: Date.now() - startTime
+        },
+        errorContext: {
+          recoverable: false,
+          requiresRestart: true
+        }
+      }
+    );
+    throw new Error('Service initialization failed');
+  }
+}
+```
+
+#### Import Patterns
+
+**Service-level imports:**
+```ts
+// For flow-service components
+import { handleCaughtError, handleError } from '../../../flow-core/src/utils/logger/error-handlers.ts';
+import { LogContext } from '../../../flow-core/src/utils/logger/types.ts';
+```
+
+**Component-specific imports:**
+```ts
+// For route handlers and utilities
+import { handleCaughtError } from '../../../../flow-core/src/utils/logger/error-handlers.ts';
+```
+
+This pattern ensures **uniform error reporting** with rich contextual information, **easier debugging** through structured logging, and **consistent integration** with console, file, and Sentry logging tiers.
 ### Testing
 
 - **Unit Tests**: Use Deno's built-in test runner; tests are located in test/unit/ dir
