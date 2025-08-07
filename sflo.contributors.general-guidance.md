@@ -2,7 +2,7 @@
 id: xebek3dtv2zgs9ah0vbv57g
 title: Semantic Flow General Guidance
 desc: ''
-updated: 1754240257119
+updated: 1754524436757
 created: 1751259888479
 ---
 
@@ -123,11 +123,15 @@ Project documentation, specifications, journaling, and design choices are stored
 ### Logging System Architecture
 
 - **Structured logging** with rich `LogContext` interface is the preferred approach
-- **Three-tier logging architecture**:
+- **Three-channel logging architecture**:
   - Console logging (pretty format for development)
   - File logging (pretty format for human readability)
   - Sentry logging (structured JSON for error tracking)
 - **Graceful degradation principle**: Logging failures should never crash the application
+
+### Logging System Patterns
+
+- `let logger = getComponentLogger(import.meta);` at the start of every file
 
 ### Error Handling Patterns
 
@@ -254,7 +258,7 @@ async function processConfiguration() {
 **With LogContext:**
 ```ts
 import { handleCaughtError } from '../../../flow-core/src/utils/logger/error-handlers.ts';
-import { LogContext } from '../../../flow-core/src/utils/logger/types.ts';
+import { LogContext } from '../../../flow-core/src/utils/logger/logger-types.ts';
 
 async function loadConfigurationFile(configPath: string, requestId?: string) {
   const logContext: LogContext = {
@@ -351,7 +355,7 @@ async function initializeService() {
 ```ts
 // For flow-service components
 import { handleCaughtError, handleError } from '../../../flow-core/src/utils/logger/error-handlers.ts';
-import { LogContext } from '../../../flow-core/src/utils/logger/types.ts';
+import { LogContext } from '../../../flow-core/src/utils/logger/logger-types.ts';
 ```
 
 **Component-specific imports:**

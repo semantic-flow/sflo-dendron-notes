@@ -2,7 +2,7 @@
 id: bg53f29iezjqt92curqx33a
 title: Logging
 desc: ''
-updated: 1752509668035
+updated: 1754524123409
 created: 1752427701148
 ---
 # Enhanced Structured Logging Implementation Plan
@@ -339,7 +339,7 @@ class JsonFormatter implements LogFormatter {
       level,
       message,
       service: 'flow-service',
-      version: Deno.env.get('FLOW_VERSION'),
+      version: Deno.env.get('FLOW_SERVICE_VERSION'),
       environment: Deno.env.get('DENO_ENV'),
       ...context
     };
