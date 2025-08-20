@@ -2,7 +2,7 @@
 id: pqjdlyd8g80x3yr9o3p82mj
 title: node config
 desc: ''
-updated: 1752428898836
+updated: 1755579981963
 created: 1752325154211
 ---
 
@@ -14,6 +14,7 @@ Node configuration determines:
 - resource page and fragment generation
 - distribution syntaxes
 - template usage and stylesheets
+- attribution defaults
 
 Node configuration is held in memory by the [[flow service|sflo.product.service]], and is calculated when the service starts.
 

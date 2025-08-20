@@ -2,7 +2,7 @@
 id: e6enrj5ztz3hz84ojujef0k
 title: Aggregated Distribution
 desc: ''
-updated: 1752325513586
+updated: 1755580824347
 created: 1751631229565
 ---
 
@@ -24,7 +24,7 @@ During [[sflo.concept.weave-process]], aggregated distributions are created by:
 1. **Scanning contained data nodes** recursively within the mesh structure
 2. **Collecting `_data/_current/` distributions** from each component
 3. **Merging content** with proper URI resolution and prefix handling
-4. **Excluding `_ref` and `_meta` datasets** (data content only)
+4. **Excluding `_ref`, `_config` and `_meta` datasets** (data content only)
 5. **Generating multiple distributions** (.ttl, .rdf, .jsonld) as configured
 
 ## Examples
