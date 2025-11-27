@@ -2,7 +2,7 @@
 id: hldgjwpzez9v1rft4cod7x7
 title: 2024 11 07-ish Simplification
 desc: ''
-updated: 1751565550562
+updated: 1762790635072
 created: 1731281166672
 ---
 
