@@ -2,7 +2,7 @@
 id: 6p14zpyrundnjkbvrzszlf6
 title: 2025 12 14 Template Iri Vs URL
 desc: ''
-updated: 1765734291296
+updated: 1766169864202
 created: 1765734286826
 ---
 
@@ -231,14 +231,14 @@ For now:
 
 If you later discover a real need for class-level separation, you can still layer it on without breaking the innerTemplate / outerTemplate properties.
 You said:
-They are fundamentally different in that an OuterTemplate must have a {{{InnerTemplate}}} block and an InnerTemplate can never have one. All of this is defined in config. A TemplateMapping can specify inner, outer, or both.
+They are fundamentally different in that an OuterTemplate must have a {InnerTemplate} block and an InnerTemplate can never have one. All of this is defined in config. A TemplateMapping can specify inner, outer, or both.
 ChatGPT said:
 
 Given that rule, you’re now encoding a real semantic distinction, not just a usage pattern. The important part is to be honest about the trade-offs.
 
 You’ve said:
 
-    OuterTemplate must contain an {{{InnerTemplate}}} block.
+    OuterTemplate must contain an {InnerTemplate} block.
 
     InnerTemplate must not contain one.
 
@@ -280,7 +280,7 @@ sfconf:outerTemplate
 
 And then attach SHACL (or other validation) to enforce your file-content rule:
 
-    OuterTemplateShape → sh:targetClass OuterTemplate/, checks that the template file contains {{{InnerTemplate}}} (probably via a custom function).
+    OuterTemplateShape → sh:targetClass OuterTemplate/, checks that the template file contains {InnerTemplate} (probably via a custom function).
 
     InnerTemplateShape → sh:targetClass InnerTemplate/, checks that it does not.
 
@@ -331,7 +331,7 @@ Given your explicit rule (“Outer must have a slot, Inner must never have one�
 
     Yes, it is defensible to introduce InnerTemplate/ and OuterTemplate/ as disjoint subclasses of Template/.
 
-    Back that up with SHACL to actually enforce the {{{InnerTemplate}}} presence/absence.
+    Back that up with SHACL to actually enforce the {InnerTemplate} presence/absence.
 
     Keep TemplateMapping pointing to those subclasses via innerTemplate and outerTemplate properties, not via raw URLs.
 

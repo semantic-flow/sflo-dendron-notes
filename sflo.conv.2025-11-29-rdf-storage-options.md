@@ -2,7 +2,7 @@
 id: 1by4v9etsahesstr0eaj8oh
 title: 2025 11 29 Rdf Storage Option
 desc: ''
-updated: 1764499881259
+updated: 1766169864206
 created: 1764499881259
 ---
 
@@ -894,7 +894,7 @@ Example: platform-default template as a node in sflo-platform-defaults:
   "@type": "sflo:Template",
   "sflo:mediaType": "text/x-handlebars-template",
   "dct:format": "text/x-handlebars-template",
-  "sflo:content": "<html><head>{{{head}}}</head><body>{{{body}}}</body></html>"
+  "sflo:content": "<html><head>{head}</head><body>{body}</body></html>"
 }
 
 Similarly for CSS:

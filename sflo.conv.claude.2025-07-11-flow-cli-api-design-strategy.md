@@ -2,7 +2,7 @@
 id: 928ld3kufa3dmffae2kw451
 title: 2025 07 11 Flow CLI API Design Strategy
 desc: ''
-updated: 1753750415481
+updated: 1766169864213
 created: 1752244674640
 ---
 
@@ -8850,7 +8850,7 @@ html<!-- Generated or user-provided index.html -->
   <main>
     {{#if hasCustomAssets}}
       <!-- User's custom content takes precedence -->
-      {{{customContent}}}
+      {customContent}
     {{else}}
       <!-- Default generated content -->
       <p>{{description}}</p>

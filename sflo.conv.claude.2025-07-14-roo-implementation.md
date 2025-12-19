@@ -2,7 +2,7 @@
 id: cdbq8zbkbb8gpmmzgnpjzdb
 title: 2025 07 14 Roo Implementation
 desc: ''
-updated: 1754080945324
+updated: 1766169864210
 created: 1752499045556
 ---
 64.1k
@@ -573,7 +573,7 @@ meshApp.openapi({
     }
   },
   responses: {
-    200: { description: 'SPARQL results', content: { 'application/json': { schema: z.any() }}}
+    200: { description: 'SPARQL results', content: { 'application/json': { schema: z.any() }
   }
 }, async (c) => {
   const { meshPath } = c.req.param()
