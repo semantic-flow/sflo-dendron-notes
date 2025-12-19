@@ -2,7 +2,7 @@
 id: gy3mtmd9j7tbwrjxqmha7vz
 title: 2025 08 25 Mesh Nodes Holonic Nature
 desc: ''
-updated: 1766170587506
+updated: 1766170705206
 created: 1756274752674
 ---
 Skip to content
@@ -1586,7 +1586,7 @@ Template snippet (Nunjucks example)
     <title>{ title }</title>
   </head>
   <body>
-    {% include "/__templates/partials/header.njk" %}
+    { include "/__templates/partials/header.njk" }
     <main>{ content | safe }</main>
   </body>
 </html>
@@ -1772,7 +1772,7 @@ When Weave renders any index.html, it computes two compile‑time constants for 
 and expands template references like:
 
 <link rel="stylesheet" href="(ASSETS_PREFIX)_assets/css/site.css">
-{% include TEMPLATES_PREFIX + "_templates/partials/header.njk" %}
+{ include TEMPLATES_PREFIX + "_templates/partials/header.njk" }
 
 The output HTML contains only plain relative paths (../_assets/...) — no special aliases, no JS, no <base> tag tricks. It’s ready to serve as static files.
 Where things live (simple rule)
