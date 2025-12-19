@@ -2,7 +2,7 @@
 id: 3r6t2eov5oazff1rm5cmqje
 title: 2025 06 27 Rdf Namespace Clarification
 desc: ''
-updated: 1751262195188
+updated: 1766173389134
 created: 1751139740710
 ---
 
@@ -57,7 +57,7 @@ Scale	Example Holon	Its Parts	Its Larger Whole(s)
 Subatomic	Proton	Quarks & gluons	Atomic nucleus
 	Neutron	Quarks & gluons	Atomic nucleus
 Atomic	Atom	Nucleus + electrons	Molecule, crystal lattice
-Molecular	Water (H₂O)	Two H atoms + one O atom	Droplet, ocean, cloud
+Molecular	Water (H₂O)	Two `H`atoms + one O atom	Droplet, ocean, cloud
 Cellular	Cell	Organelles, biomolecules, cytoplasm	Tissue, organ, organism
 Organismal	Organ	Tissues	Body, population
 Ecological	Ecosystem	Organisms + abiotic environment	Biome, biosphere
@@ -220,7 +220,7 @@ Here are a couple of quick ways to “undo” all those 80-column hard breaks wi
 
     Open your Markdown file in the WSL VS Code window.
 
-    Open the Replace panel ( Ctrl + H ) and enable the “Use Regular Expression” (.*) toggle.
+    Open the Replace panel ( Ctrl + `H`) and enable the “Use Regular Expression” (.*) toggle.
 
     In Find paste:
 

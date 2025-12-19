@@ -2,7 +2,7 @@
 id: 5z8vkgkcudi3sjcgj77ea3i
 title: 2025 07 03 Consistency and Readability
 desc: ''
-updated: 1751596048461
+updated: 1766173416652
 created: 1751595723055
 ---
 
@@ -2550,19 +2550,6 @@ Create the metadata separation documentation using this four-type model
 no sorry, that diagram give "unsupported markdown: list" I like this one, because it shows the evolutionary paths of a node. kinda. It doesn't show how a namespace node can evolve into a reference node.
 
 
-graph TD
-    A[Node Base] --> B[_name - required]
-    B --> C[Namespace Node]
-    B --> D[_ref - optional]
-    B --> E[_data - optional]
-    
-    D --> F[Reference Node]
-    E --> G[Dataset Node]
-    D --> H[_data - optional]
-    E --> I[_ref - optional]
-    H --> J[Dataset Reference Node]
-    I --> J
-
 
 
 ... The user is right - my diagram had an error and they prefer the evolutionary path diagram that shows how nodes can evolve by adding facets. They want to see how a namespace node can evolve into a reference node, and also need to fix the final node name to "Referencing Dataset Node" instead of "Dataset Reference Node". Let me create a proper evolutionary diagram that shows all the paths: 1. Start with Namespace Node (_name only) 2. Can add _ref to become Reference Node 3. Can add _data to become Dataset Node 4. From Reference Node, can add _data to become Referencing Dataset Node 5. From Dataset Node, can add _ref to become Referencing Dataset Node This shows the evolutionary paths clearly.
@@ -2625,7 +2612,7 @@ graph TD
     F --> H[+ data]
     G --> I[+ ref]
     
-    H --> J[Referencing Dataset Node]
+    `H`--> J[Referencing Dataset Node]
     I --> J
 
 
@@ -2996,7 +2983,7 @@ graph TD
     F --> H[+ data]
     G --> I[+ ref]
     
-    H --> J[Referencing Dataset Node]
+    `H`--> J[Referencing Dataset Node]
     I --> J
 
 markdown
