@@ -2,7 +2,7 @@
 id: mvldg5swpfjzi3uzzdpzspu
 title: 2025 11 07 Hateoas API
 desc: ''
-updated: 1762578060283
+updated: 1766170208424
 created: 1762578037365
 ---
 
@@ -483,7 +483,7 @@ Example (pseudo-template):
 
   <label>Created By</label>
   <select v-model="dto['pav:createdBy']['@id']">
-    <option v-for="u in users" :value="u['@id']">{{u['foaf:name']}}</option>
+    <option v-for="u in users" :value="u['@id']">\{\{u['foaf:name']\}\}</option>
   </select>
 
   <button type="submit">Save</button>
@@ -1322,7 +1322,7 @@ Jobs
 
         job.progress {job, pct, msg}
 
-        job.done {job, artifacts:[urls], changed:{paths, iris}}
+        job.done {job, artifacts:[urls], changed:{paths, iris\}\}
 
     SPA behavior: show live console, then refetch the affected DTOs.
 
@@ -1619,7 +1619,7 @@ You list weave, uploads, etc. Standardize:
 
         job.progress {job, pct, msg}
 
-        job.done {job, artifacts:[urls], changed:{paths, iris}}
+        job.done {job, artifacts:[urls], changed:{paths, iris\}\}
 
 7) Events (SSE schema)
 
@@ -1702,7 +1702,7 @@ Live updates via SSE:
 Partial refresh trigger pattern:
 On fs.change, send an HTMX trigger header:
 
-HX-Trigger: {"node-changed": {"path":"/new-node/"}}
+HX-Trigger: {"node-changed": {"path":"/new-node/"\}\}
 
 Map that to hx-trigger="node-changed from:body" on fragments to refetch themselves.
 Server rendering structure
