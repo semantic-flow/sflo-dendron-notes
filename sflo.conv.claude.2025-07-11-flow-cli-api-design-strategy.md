@@ -2,7 +2,7 @@
 id: 928ld3kufa3dmffae2kw451
 title: 2025 07 11 Flow CLI API Design Strategy
 desc: ''
-updated: 1766170208421
+updated: 1766170595451
 created: 1752244674640
 ---
 
@@ -8793,7 +8793,7 @@ async function showCachedTab(tabName) {
 2. Cache Invalidation on Weave
 html<!-- Include weave timestamp for cache busting -->
 <script>
-const meshVersion = "\{\{mesh.lastWeaveTimestamp\}\}"; // Injected during generation
+const meshVersion = "{mesh.lastWeaveTimestamp}"; // Injected during generation
 
 // Add version to all HTMX requests
 document.body.addEventListener('htmx:configRequest', function(evt) {
@@ -8823,11 +8823,11 @@ html<!-- Generated or user-provided index.html -->
 <html>
 <head>
   <meta charset="utf-8">
-  <title>\{\{node.title\}\}</title>
+  <title>{node.title}</title>
   
   <!-- Required: Semantic metadata -->
-  <meta name="mesh-node-type" content="\{\{node.type\}\}">
-  <meta name="mesh-node-path" content="\{\{node.path\}\}">
+  <meta name="mesh-node-type" content="{node.type}">
+  <meta name="mesh-node-path" content="{node.path}">
   <link rel="alternate" type="application/ld+json" href="_meta-component/metadata.jsonld">
   
   <!-- Optional: Let people add whatever -->
@@ -8837,28 +8837,28 @@ html<!-- Generated or user-provided index.html -->
 <body>
   <!-- Required: Basic mesh info -->
   <header class="mesh-node-header">
-    <h1>\{\{node.title\}\}</h1>
+    <h1>{node.title}</h1>
     <nav class="mesh-nav">
       <a href="../">↑ Parent</a>
-      \{\{#each children\}\}
-      <a href="\{\{path\}\}/">\{\{name\}\}</a>
-      \{\{/each\}\}
+      {#each children}
+      <a href="{path}/">{name}</a>
+      {/each}
     </nav>
   </header>
   
   <!-- Total freedom zone -->
   <main>
-    \{\{#if hasCustomAssets\}\}
+    {#if hasCustomAssets}
       <!-- User's custom content takes precedence -->
       {customContent}
-    \{\{else\}\}
+    {else}
       <!-- Default generated content -->
-      <p>\{\{description\}\}</p>
+      <p>{description}</p>
       <div id="default-interface">
         <button hx-get="_assets/fragments/config.html" hx-target="#content">Config</button>
         <div id="content"></div>
       </div>
-    \{\{/if\}\}
+    {/if}
   </main>
 </body>
 </html>
@@ -9447,12 +9447,12 @@ html<!-- Root index.html -->
 <!DOCTYPE html>
 <html>
 <head>
-  <title>\{\{node.title\}\}</title>
+  <title>{node.title}</title>
   <script src="https://unpkg.com/htmx.org@1.9.10"></script>
 </head>
 <body>
   <header class="mesh-header">
-    <h1>\{\{node.title\}\}</h1>
+    <h1>{node.title}</h1>
     
     <!-- Version selector -->
     <div class="version-selector">
@@ -9662,7 +9662,7 @@ The node's root index.html coordinates versions across components:
 html<!-- data-node/index.html -->
 <div class="node-coordinator">
   <header class="node-header">
-    <h1>\{\{node.title\}\}</h1>
+    <h1>{node.title}</h1>
     
     <!-- Coordinated version control -->
     <div class="version-coordinator">

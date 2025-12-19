@@ -2,7 +2,7 @@
 id: 1a5srwjbsiu43ixsehk15nw
 title: 2024 11 11 Denokv Lume Vento
 desc: ''
-updated: 1766170208418
+updated: 1766170595453
 created: 1731344619034
 ---
 
@@ -237,13 +237,13 @@ Here’s how you can start setting up **Lume** for **sflow-cli**:
      <html lang="en">
      <head>
        <meta charset="UTF-8">
-       <title>\{\{ name \}\}</title>
+       <title>{ name }</title>
      </head>
      <body>
-       <h1>\{\{ name \}\}</h1>
-       <p>IRI: <a href="\{\{ iri \}\}">\{\{ iri \}\}</a></p>
-       <p>Touchstone Dataset: <a href="\{\{ touchstone \}\}">\{\{ touchstone \}\}</a></p>
-       <p>Catalog Dataset: <a href="\{\{ catalog \}\}">\{\{ catalog \}\}</a></p>
+       <h1>{ name }</h1>
+       <p>IRI: <a href="{ iri }">{ iri }</a></p>
+       <p>Touchstone Dataset: <a href="{ touchstone }">{ touchstone }</a></p>
+       <p>Catalog Dataset: <a href="{ catalog }">{ catalog }</a></p>
      </body>
      </html>
      ```

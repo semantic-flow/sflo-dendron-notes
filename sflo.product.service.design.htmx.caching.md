@@ -2,7 +2,7 @@
 id: q25qyq8qgjgvgw9sxlcxjwt
 title: Caching
 desc: ''
-updated: 1766170208427
+updated: 1766170595443
 created: 1752131799717
 ---
 
@@ -201,7 +201,7 @@ async function showCachedTab(tabName) {
 ```html
 <!-- Include weave timestamp for cache busting -->
 <script>
-const meshVersion = "\{\{mesh.lastWeaveTimestamp\}\}"; // Injected during generation
+const meshVersion = "{mesh.lastWeaveTimestamp}"; // Injected during generation
 
 // Add version to all HTMX requests
 document.body.addEventListener('htmx:configRequest', function(evt) {
