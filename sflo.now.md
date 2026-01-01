@@ -2,12 +2,12 @@
 id: hmj8qhed0lkbcs8hi330lnc
 title: Now (Semantic Flow)
 desc: ''
-updated: 1766118751630
+updated: 1767228239603
 created: 1729359788005
 ---
 
-## *[Semantic Flow](https://djradon.github.io/wiki/notes/ggw3ek46ptgebsgxgihr1dh/)* Static Site Generator
+## *[Semantic Flow](https://github.com/semantic-flow/)* Semantic Web Publishing Platform
 
-* host ontologies and linked data on github or gitlab
-* provide de-referenceable IRIs 
-* client-side features: pull raw RDF files into the resource HTML pages
+* provide de-referenceable IRIs for anything
+* host versioned ontologies and other linked data on github or gitlab
+* provide RDF metadata for any digital artifact
