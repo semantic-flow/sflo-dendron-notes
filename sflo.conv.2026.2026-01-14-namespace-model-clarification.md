@@ -2,7 +2,7 @@
 id: yz76llpg1d96cn7jnh6tskm
 title: 2026 01 14 Namespace Model Clarification
 desc: ''
-updated: 1768460031653
+updated: 1768760520014
 created: 1768456755564
 ---
 Skip to content
@@ -5532,3 +5532,189 @@ It's okay to have Nomina that don't denote world-things. But agreed, all the und
 
 ---
 
+Letting the root Nomen denote anything and treating `/_mesh/` as the mesh handle is a real improvement. It doesn’t just buy shorter IRIs; it also fixes several structural and hosting problems you were creating for yourself.
+
+Below are the concrete benefits, then the folder-structure decision (where knops live), then the “non-mesh-repo” validation, then the naming/superclass issue.
+
+---
+
+## 1) Benefits beyond “shorter IRIs”
+
+### Benefit A: You decouple “mesh identity anchor” from “namespace root meaning”
+
+Previously, if `/` had to denote the mesh, you were forced to choose between:
+
+* mesh-at-root invariant, or
+* domain-at-root semantics
+
+With `/_mesh/`, you get both:
+
+* `/` can denote ontology/person/whatever
+* `/_mesh/` always denotes the mesh (or the mesh-handle that identifies it)
+
+This preserves single-referent at every IRI:
+
+* `/` page is about `/`
+* `/_mesh/` page is about `/_mesh/`
+
+### Benefit B: You support “repository with arbitrary stuff” cleanly
+
+If root can be “just a repo root,” you can host:
+
+* source code
+* docs
+* multiple meshes
+  without making the repo root semantically “a mesh.”
+
+Meshes can live at:
+
+* `/meshA/_mesh/…`
+* `/meshB/_mesh/…`
+* `/docs/…` etc.
+
+This is a big architectural win for the “non-mesh-repo” case.
+
+### Benefit C: Multiple meshes per namespace become natural
+
+If `/_mesh/` is the mesh anchor, you can have:
+
+* multiple independent meshes under one published namespace
+* without inventing “submesh” semantics or requiring mesh-rooted namespaces
+
+### Benefit D: Operational facts become explicitly out-of-band
+
+All operational and inventory/indexing facts can live under `/_mesh/` without contaminating the semantics of the Nomen that users care about (like `/ontology/`).
+
+This is exactly what you want for composability and “servable as-is” while still having a consistent place for operational metadata.
+
+### Benefit E: Tooling becomes simpler in mixed repositories
+
+Tools can detect a mesh by the presence of `/_mesh/` at some path, instead of “the repo root must be the mesh root.”
+
+This makes CLI operations like “find meshes in this repo” straightforward.
+
+---
+
+## 2) Where do knops live now?
+
+You have two viable designs. Pick the one that minimizes collisions and mental load.
+
+### Option 1: Put knops under the mesh handle: `…/_mesh/_knops/`
+
+**Structure**
+
+* `<nomen>/` = whatever it denotes
+* `<nomen>/_mesh/` = mesh identity + operational
+* `<nomen>/_mesh/_knops/` = knob store
+
+**Pros**
+
+* Everything mesh-internal is under `/_mesh/` (clean containment boundary)
+* You can host multiple meshes in one repo without knob-store collisions
+* Makes it obvious that `_knops` are not Nomina; they’re mesh internals
+
+**Cons**
+
+* Knop IRIs get longer (`…/_mesh/_knops/<uuid>/…`)
+
+Given you already accept UUID ugliness, length is the only cost.
+
+### Option 2: Two special folders at the same level: `…/_mesh/` and `…/_knops/`
+
+**Pros**
+
+* Shorter knob IRIs
+* Slightly easier paths
+
+**Cons**
+
+* Boundary between “mesh identity/ops” and “knob store” becomes less explicit
+* In a “repo with multiple meshes,” you must ensure you don’t accidentally share a single `_knops` store across meshes unless that’s intended (usually it isn’t)
+* Harder to reason about copy/import/export: what exactly constitutes “the mesh”?
+
+For the multi-mesh / non-mesh-repo requirement, Option 1 is strongly safer.
+
+**Recommendation:** `/_mesh/_knops/` unless you have a concrete reason you need shorter knob IRIs.
+
+---
+
+## 3) Validate in the “non-mesh-repo” case
+
+### Scenario
+
+Repo root contains arbitrary stuff (source code, docs), but one or more meshes exist deeper.
+
+With the `/_mesh/` anchor, the detection rule is:
+
+* A path `P/` is a **mesh-root Nomen** iff `P/_mesh/` exists.
+
+Then:
+
+* The mesh is identified by `P/_mesh/` (or by `P/_mesh/_identity-flow` etc.)
+* Operational facts for that mesh live under `P/_mesh/`
+* Knops live under `P/_mesh/_knops/` (if you choose Option 1)
+
+This avoids ever treating the repo root as a mesh unless it actually contains `/_mesh/`.
+
+### Tooling implications (good)
+
+* `sf mesh list` can scan for `**/_mesh/` folders
+* `sf mesh weave <path>` operates on a specific mesh root `P`
+
+No global assumptions.
+
+---
+
+## 4) “Nomina that don’t denote world-things” is fine, but keep reserved segments
+
+You can allow Nomina to denote:
+
+* abstract artifacts (ontology-as-artifact)
+* conceptual entities
+* internal constructs
+
+But you should still keep:
+
+* `_mesh`, `_knops`, `_assets`, `_identity-flow`, etc.
+  as **reserved component segments**, not “regular Nomina,” because you want them to have stable operational meaning.
+
+That is compatible with “Nomina need not denote world-things.” It’s about **namespace hygiene**, not metaphysics.
+
+---
+
+## 5) Superclass name for “things addressable in the hierarchy”
+
+I don’t have a reliable record that you “settled” on one (I don’t see it in the memories here). The candidates you previously used in this thread are:
+
+* **Handle** (you used “Identifier Handle” a lot)
+* **Component** (mesh components; but too narrow if you include Nomina too)
+* **Addressable** / **AddressableResource**
+* **Node** (you’re avoiding / already replaced with Knop)
+* **Resource** (too generic)
+
+Given your current stance (“Nomina and underscore-folders are both addressable, but not the same kind of thing”), you probably want two layers:
+
+* **MeshResource** (anything with an IRI under the mesh namespace)
+
+  * **Nomen** (user-facing named path)
+  * **MeshComponent** (reserved `_…` paths, knob store, identity flow, etc.)
+
+If you still want a name that includes both “Nomen” and “Knop parts” under one umbrella for documentation, “MeshResource” is the least misleading.
+
+---
+
+## 6) What I would lock as constraints (minimal and consistent)
+
+1. A mesh is identified by the existence of `<rootNomen>/_mesh/`.
+2. Mesh operational facts live under `<rootNomen>/_mesh/`.
+3. Knops live under `<rootNomen>/_mesh/_knops/` (recommended).
+4. Paths beginning with `_` are reserved **MeshComponents**, not Nomina.
+5. A Nomen may denote world-things or artifacts; `sameDenotationAs` remains your equivalence mechanism; aboutness/description remains `hasReferenceData` (with canonical subset).
+
+If you accept these, most other decisions become local details.
+
+If you want, I can draft the updated “Namespace / Mesh / Nomen / MeshComponent” doc section plus an example directory tree showing:
+
+* repo with arbitrary root content
+* two meshes under `/meshA/` and `/meshB/`
+* an ontology at `/meshA/ontology/` with `/_mesh/` alongside.
