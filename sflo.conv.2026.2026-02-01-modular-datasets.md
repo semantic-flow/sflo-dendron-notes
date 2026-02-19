@@ -5890,3 +5890,162 @@ Those are enforceable, but not with pure core SHACL if you need to inspect named
 ---
 
 If you want the *next* increment after this: decide whether `ReferenceLinkSet` should be forced to be an `AbstractArtifact` (Flow/States/Files), or whether it can remain a “content kind” that can be attached at any artifact layer. That choice drives whether “ReferenceLinkSet in its own Knop” is a convention or a hard invariant.
+
+Why the term "overlay artifacts".
+
+This morning I"m thinking that ReferenceLink are transitive, so if you specify something that is itself a DigitalArtifact, any ReferenceLinks present in that Artifact can also be resolved and used. Probably a maxReferenceLinkDepth property would be useful to prevent runaway chains. The benefit is you wouldn't need ReferenceLinkSets. I do still think they are a separate artifact from metadata. 
+
+Regarding AntiMetadataArtifact, it would probably be named Anti-immutableMetadataArtifact. But was considering just using OperationalMetadatArtifact. We could just keep latestHistoricalState for each DigitalArtifact in mesh (operational) metadata to avoid a separate Artifact for each Knop. We'll have to be careful to update previousHistoricalState during weave, and should probably change the domain to ArtifactState so we can use it in CurrentState and WorkingState.
+We almost need a subclass of DigitalArtifact like MeshDigitalArtifact or (uglier but clearer) SFDigitalArtifact  for things that are SF convention-compliant. It's like a marker class so we can know whether the resolution process can be run on the thing. It would replace using <AbstractArtifact>  (e.g. as subclass of PayloadArtifact) which is justified because AbstractArtifact is a general purpose class AND its only a facet of a (Mesh)DigitalArtifact.
+
+You can target any facet of a MeshDigitalArtifact, from its AbstractArtifact to its LocatedFiles and still resolve to the appropriate LocatedFile when you need to retrieve bytes. But what should be the default level when you just want the current bytes? I'm leaning towards specifying a LocatedFile under _current, to minimize resolution overhead.
+The problem with the direct pointer is it still requires a metadata lookup. For systems that don't have the MeshManagedDigitalArtifact lookup logic, they can't resolve bytes. I'd love to not have a single-syntax default... people should be able to reference <PayloadFileSlug>.trig or metadata.jsonld or alice.jpg and it works just as well as specifying the AbstractArtifact IRI, retrieving current bytes for naive systems and allowing resolution to the client's preferred distribution format if they support the resolution logic. On the other hand, there's the issue of every LocatedFile being its own DigitalArtifact (separate from its AbstractFile DigitalArtifact, which is separate from its ArtifactState, etc.) We don't have a way to disambiguate if you start at the leaf, so maybe we have to say "use the most-general/broadest artifact for the meaning you intend". I think that's what we have to do. Also we probably need a facetFor property linking each layer, so we know that, e.g., a particular LocatedFile is a facet of its AbstractFile DigitalArtifact, its State DigitalArtifact, its Flow DigitalArtifact, and its AbstractFile DigitalArtifact. I probably is also a facet of itself-as-digital-Artifact. Any reason to specialize facetFor?
+
+I think we should get rid of <SemanticFlowResource>. It's kinda vague anyhow, and it's only used for SF-native ArtifactContainers and SF-native Artifacts. We replace it with SfArtifactContainer and SfArtifact. And then have subclasses of SfArtifact: MeshArtifact, NomenArtifact, and KnopArtifact. Then, for example, PayloadArtifact would just be subClassOf KnopArtifact instead of rdfs:subClassOf <AbstractArtifact>, <SemanticFlowResource>. 
+
+
+Yes, if a leaf IRI always means "bytes-at-this-location", there's no ambiguity. ie., we can use the leaf IRI to select a single DigitalArtifact. 
+
+Talk to me about PayloadArtifact ⊑ AbstractArtifact, KnopHostedArtifact vs PayloadArtifact ⊑ DigitalArtifact. Do we keep the concept general? Even if we don't, I think 
+
+One uneasiness I have is about the Knop/Nomen split with regard to ReferenceLinks. If Nomen can denote SfArtifacts, we effectively have two IRIs for that artifact. I think they would be owl:sameAs. e.g. if "http://example.com/alice/bio" denoted "http://example.com/_knops/<uuid>/alice-bio" they are basically two identifiers for the same thing. So when computing ReferenceLinks (and generating ResourcePages), you have to take sameAs into account?
+
+For PayloadArtifacts, I was trying to preserve it for external (non-SF) use. Because we can get whether it's a Knop-hosted PayloadArtifact from SfArtifact/KnopHostedArtifact. i.e., no need to invent VersionedPayloadArtifact, because that's same as a KnopHostedArtifact + PayloadArtifact.
+
+For Nomen/Knop split, the IRIs are denotationally identical. The reason to have two is: Nomen can denote any digital artifact, so why not SfDigitalArtifacts? And also, the Knop IRIs are ugly and long. We need humane IRIs, especially for knop-hosted payload AbstractArtifacts. I know sameAs is scary, but this is a legitimate use case. 
+
+Keep in mind that a Nomen can denote any DigitalArtifact, so could denote a metadata LocatedFile as easily as a Payload AbstractArtifact. Probably we don't even need <designates> -- unless you can convince me sameAs really is dangerous. identity is a big part of what Nomens are for. 
+I'm thinking about reintegrating Knots and Nomen. I wanted to put all the Knots in the same place, so that references wouldn't have to take account of the tree containment. But now that meshes are fixed and we've deprioritized transposability and composability, I'm not sure of the value there. I'm also unclear about why the UUID is needed for a Knob if we're going to use a humane identifier under the Knob that can't change. We might as well just drop the UUID. Then every mesh path would have a Nomen, and optionally, it could have a Knob.
+Yes, I'm using voice transcription, so I always mean K-N-O-P, never knob or not, period. A mesh path has its denotation, if any, established in the nomen. Theoretically, the mesh path could denote any part of the knot, or, and this is just for nomen which denote digital artifacts, any part except the located file, a located file, but most likely would denote the abstract artifact, period. Aren't gnomon or knobs, they are just associated with a gnomon, and optionally, additionally, a knob. I'm fine committing to path as identity. A base plus a path is always unique. And I think renaming, minting a new identity is great. You shouldn't be able to rename something without connoting that it is different.
+The UUID basically becomes a lineage marker. If it's preserved, it actually doesn't establish identity, it just establishes, at one point, I was this other thing. If it never gets updated, it's like the genesis marker.
+Every consumer who cares about semantics will already have to do a nomen lookup to discover what the IRI means. 
+
+alice/ denotes Alice (let's change our property from designates to denotes; denotes is more conventional and is exactly what the IRI does); 
+alice/_nomen/ (or alice/_knop) refers to the Nomen/KnopArtifact attached to the alice/ designatorPath (or maybe we call it meshPath or ???) as an AbstractArtifact- so it refers to to a NomenArtifact, but also marks the alice/ IRI.
+alice/bio/ denotes a DigitalArtifact (at the AbstractArtifact level) so can directly contain a _flow folder (and the flow's subfolder). 
+perhaps alice/bio/alice-bio.ttl denotes the WorkingLocatedFile. We can get rid of the WorkingState and its AbstractFiles because there's only ever one. Maybe we merge Working/Current (or current just becomes the latestHistoricalState, requires a lookup, but it might be worth it)... and then all states are HistoricalStates, we don't have 3 duplicate copies.
+alice/bio/2026-02-02_1423_08/ refers to a payload HistoricalState
+alice/bio/_metadata, alice/bio/_ref, alice/bio/_inventory, etc. for supporting files, and they repeat the pattern: alice/bio/_metadata/metadata.trig is the WorkingLocatedFile, etc
+
+This is closer to what I had earlier, but the Knop maybe doesn't have its own semantic representation. It's just what you call all the stuff attached to an IRI. 
+IRIs do denote! They denote something, and meaning is either attached by convention/reference or (in the case where an IRI denotes a digital thing), by using sflo:denotes. Or the 3rd case is there's some other IRI out there that already denotes something, and then you can say alice/ denotes http://example.com/alice. The _nomen denotes itself as a DigitalArtifact that contains denotation statements. 
+designatorPath is probably wrong now, better to use identifierPath or meshPath. 
+
+Yes, we don't need denotes at all, unless you want to denote some OTHER DigitalArtifact than the one contained directly, OR if it it co-denotes something else denoted by an IRI somewhere. If it denotes something in the real world, no direct denotation. There is no self-denotation unless it has a payload. Having a default, non-semantically materialized referent seems weak to me. Maybe in the NomenArtifact we put stuff (all optional) like its type. If its type is a SfDigitalArtifact, there must be a flow. Which reminds me, my mistake earlier:
+
+alice/bio/_flow/2026-02-02_1423_08/ would denote a HistoricalSlice. Or perhaps "_payload-flow". Maybe to keep things compartmentalized, it would all be under _knop, which gives you a handle to refer to the Knop, which as usual is a collection of support SupportingDigitalArtifacts and an optional PayloadArtifact.
+#1 We might need a string path, because it's the only way to semantically encode "this specific identifier". If we encode it as a node, e.g. it's NomenArtifact nomenFor <alice>, it's a Nomen for the person alice. She might have more than one. 
+
+#2 I kinda like denoting itself explicitly, otherwise (open-world assumption) we just might assume that the denotation statement is missing. But see #4, I think we have a non-redundant candidate. The only time there shouldn't be a denotes statement in the NomenArtifact is when there's no co-denotation and the denoted isn't a DigitalArtifact (or is an unknown/external DigitalArtifact.
+
+#3 I think a Knop is not an Artifact. It's an ArtifactContainer. Nomen is no longer an ArtifactContainer with its own metadata artifact, it's a NomenArtifact, contained in the Knop. I guess Mesh is still an ArtifactContainer. It's handle is at the root meshPath, "_mesh". 
+
+#4 Instead of "alice/bio/_flow/2026-02-02_1423_08" for the payload state, we would have "alice/bio/_knop/_payload/_flow/2026-02-02_1423_08" -- and for payload-bearing meshPaths, "alice/bio/_knop/_payload" denotes the same thing as "alice/bio" AHA! That's what the Nomen can say is the denotee!
+
+We don't need the unnecessary "_history" segment, and _working is no longer part of the flow. 
+
+#5 If we really need WorkingState, we could keep an IRI for it at ".../_flow/_working" -- but I still want to keep the LocatedFile (at least for payloads) above the _knop. We could maybe keep _meta.jsonld, _ref.jsonld, _inventory.jsonld and _nomen.jsonld there too?
+
+#6. If you don't want to make a semantic commitment, don't make any claims. But the reason we can't directly denote something in the real world is because there's no way to directly specify a real-world thing with an IRI. (unless it's already been denoted with some other IRI somewhere else, i.e. the co-denotation use case). If we store type, name, label, comments, etc. directly in the NomenArtifact, it fills the same role we used to have with ReferenceFlows: a default/canonical way to make statements about the denoted. (We ended up externalizing Referencing, to standalone SfDigitalArtifacts. I have a guess why, do you?)
+
+#8 The NomenArtifact is now contained in the Knop. So EVERY "meshPath" has a Knop, and I think  "alice/" -- we need a better term than designator or meshPath, and we don't refer to it as a node, only a string. We could use a relator to capture it perhaps. "alice/" (I miss those trailing slashes! Damn you SPARQL!) We need a way to exclude all the stuff in a mesh other than the things with Knops. meshPath sounds like any IRI in the mesh, including "system IRIs" like <alice/_knop/_meta>. Maybe designator is okay, but to me it has a connotation, of "you have to designate something for some role". We're just naming things. Maybe "Nomen" is the term for IRIs that have associated Knops, and we remove the "Nomen" term from the ontology, because we don't refer to Nomen as instances of classes. And we have a datatype property "nomen" (instead of designator)
+
+Hah, stick all that in your pipe and smoke it.
+"If <alice/> is the identifier IRI (the mesh entry), then it already encodes “this specific identifier” and you don’t need a string." Not when you're using <alice/> as an IRI in RDF data. Believe me, we've been over this a hundred times. My single-referent principle hinges on this. <alice/> only denotes one thing: Alice the person. It does not denote an identifier IRI. So if we want to talk about "alice" the identifier, we have to talk about "alice" with a string, not <alice>. We can get around this by using a handle, like <alice/_nomen> if somewhere we say (and now I'm thinking best to put it in KnopMetadataArtifact):
+
+<alice/_nomen> nomen "alice"
+
+We maybe don't need a NomenArtifact. The reference stuff (about the referent) can go in the revived ReferenceArtifact and the mesh-stuff (about the identifier and the knop and the supporting artifacts) can go in the KnopMetadataArtifact.
+r.e.#5, maybe we keep alice/bio/alice-bio.ttl and then put all the other stuff (WorkingLocatedFiles and _nomen-handle) below _knop, e.g. alice/_knop/_nomen-handle. Nice and clean. Still lets naive systems fetch bytes. And it emphasizes that the Knop ties all this together, the name, the name handle, the payload, the references, the metadata. 
+
+Yes, they are leaves and my nomen can't denote leaves. 
+
+Regarding "Critique of your last line" -- I was intending _nomen-handle to just be an empty segment, not an Artifact or anything that contained RDF data. It would have a ResourcePage and nothing else. The single entrypoint would be the KnopMetadataArtifact (or perhaps KnopInventoryArtifact), whose working version only changes "on weave". 
+Regarding F), I would love to make Nomen identifiers for LocatedFiles. You told me I couldn't because, under Github with no redirects, I can't return the same bytes for both. I suppose we could copy the working file to two places on weave. 
+
+Definitely want Flexible mode. I'm not even sure what's in Metadata any more if we have KnopInventoryArtifacat, but I think the idea was to keep Metadata thin, maybe just repeating the latest HistoricalVersion, pointing to the WorkingArtifacts, and maybe some Knop (not referent) provenance. Although the provenance could live primarily in the inventory. 
+What's a better propertyname, "handleFor" or "nomen"? I like Nomen because it underscores the concept. 
+
+Having a separate, central location for all the Knops might be worth it if that allows file-locating nomen. It hampers composability/transposability. Also makes it more of a pain to cross-reference the payload historicalstates, metadata, etc, which now lives far away from the nomen.  I don't know if we need separate _nomen and _knops directory, remember now the NomenMetadataArtifact just lives under the Knop. 
+
+So, anyhow, for a new path structure, maybe the mesh sits adjacent to the Nomina, a kind of shadow namespace. 
+
+_mesh/ -- denotes the mesh
+_mesh/_meta and _mesh/_inventory -- MeshMetadataArtifact/MeshInventoryArtifact -- denotes the Artifacts that contains info about the mesh
+_mesh/_knops/_root/_nomen-handle denotes the nomen that's associated with the namespace root (if any) and the "sflo:nomen" statement
+_mesh/_knops/alice --  denotes the knop that's associated with a "alice" Nomen (Nomen=base-relative identifier)
+_mesh/_knops/alice/_ref, _meta, _inventory, supporting Artifacts that are used for, among other things, generating the alice/index.html ResourcePage. 
+_mesh/_knops/alice/_nomen-handle would denote the nomen/IRI "as an identifier" 
+
+
+<_knops/alice/bio/_payload/_flow/2026-02-03-1234_20> is a payload artifact HistoricalState. I guess we keep the WorkingLocatedFile for DigitalArtifacts in the Nomen namespace instead
+
+ 
+
+
+"you will eventually need both a token and an IRI anyway, and the names should make the distinction obvious." -- the IRI will be the nomen-handle, we won't use the nomen IRI directly. What I'm angling for is that the thing we've called the meshPath or the designator, we should call the nomen. The nomen-handle is the IRI that refers to the nomen-as-nomen. 
+
+I was thinking that Nomen-handles are involve in a NomenDefinition relator that ties the IRI to (optionally) the thing that it denotes. But maybe a simple binary relationship is fine. Nomen (identified with the handle) -> nomenFor/namespacePath -> "identifier-string"  
+
+One thing I don't like about this new "mesh namespace" is that we have to keep it mirroring (below _mesh/_knop) the "identifier/source namespace". One thing that I love is that you can drop a mesh next to any arbitrary file tree (even if it mixes "things intended to name" with other things, like source code. You could even theoretically keep it in its own repo so as not to pollute the source namespace. Of course then there would be different bases between the two. I guess it just makes sense to keep them in the same repo.
+
+_mesh/_knops/alice/_nomen-handle/ statements:
+
+<_mesh/_knops/alice/_nomen-handle/> a sflo:Nomen ; 
+    nomenPath "alice" . 
+
+Any other benefits or "sharp edges" separating the artifact storage hierarchy from the identifiers/nomen hierarchy?
+
+
+ 
+
+
+You're right, when we refer to paths as string, we should include the leading slash if it's root-relative, and perhaps the trailing slash if it's not a file? so:
+
+    nomenPath "/alice" .
+
+Reminder: we decided to drop the trailing  slash in node identifiers/object props, because they don't place nice with SPARQL. It's not a token, it's a path, usually root-relative, so we at least need the initial slash. 
+I think nomenPath is authoritative canonical identifier path. 
+
+For SPARQL, is it possible and common to use a BASE? Or really for instance/designator IRI you use full IRIs? 
+
+One thing to think about: Does every payload WorkingLocatedFile live in the Nomen namespace? Or is it just an option? If an option, it seems like an alias. Either way, there's a possibility of collision with a filename-shaped nomen. 
+
+I really don't love splitting into a Knop namespace and a Nomen namespace. I really want to hear your opinion on it (i.e., the shadow "artifact namespace"), because it's a huge change. Can't even remember why we unified again other than clarity/simplicity. 
+What do you think about the idea of putting all semantic data (knops, artifacts, and the nomen-handles) in the semantic mesh, and making the mesh adjacent to the nomenspace? So other than (optional) ResourceFiles for the nomen, a semantic mesh would be a completely separate overlay... easily cleaner, layerable anywhere.
+Re #1: we can have separate meshBase and a nomenBase. The ideal situation is that they are the same, so we can use <iri> references anywhere. So nomenPath "/alice" would refer to (or translate to?) ${nomenBase}/alice. 
+
+Tell me more about sflo:nomenspaceRootPath "/" -- Wouldn't it always be that? Or you're thinking you can juggle off parts of the base into rootPath? Oh, I see, you're talking about compared to the repo root. Do we need that info? Publish IRI is the important thing, handled in the base, right? Can you some deep analysis of why we'd need to specify the filesystem/repo location of the Nomen space and the SemanticMesh relative to each other? I guess just for ResourcePage generation. Is there any reasone the _mesh folder containing the semantic mesh would always be contained in the (filesystem) nomenRoot?
+
+If you have ResourcePages everywhere, the cleanliness benefit kinda evaporates. But there's no getting around it other than turning resourcepages off, which is fine. You want dereferenceable identifiers, turn 'em on. You want a pristine nomenspace, turn 'em off.
+
+We'll call them "nomen tree" in general, and "identifier tree" when paired with a base? And then "SemanticMesh", which always lives at the nomen root, under "_sf-mesh"
+Regarding #1, I was thinking that you would strip off the leading slash in nomenPath. Basically the leading slash is there just to accentuate "root relative". Maybe you would want to specify a relative path sometime. If not, I guess we can just leave off the leading slash.
+
+#2 & #3: I don't see an obvious need for separate "published bases" for the nomen tree and the semantic mesh. Maybe you want to use someone else's identifier and attach your own reference data? Or you want to create a flow of historical states for an artifact published elsewhere? But it seems like you can have a mesh without any corresponding nomen... just use the mesh IRIs as identifiers. It seems a little dangerous to allow people to "take over" the meaning of someone else's identifiers. But nothing preventing that on the Semantic Web in general, and you can accomplish that with a mesh that has no nomen of its own.
+
+Maybe "_s-mesh" is better than "_sf-mesh". 
+
+"nomen tree" or "nomen space"? -- I think nomen tree captures leaf nodes better, and not just metaphorically. ;)
+
+By dereferencability, I mean "if you but the IRI into a web browser you either get the bytes (if it denotes a DigitalArtifact) or a ResourcePage about the IRI (its denotation, reference material, associated inventory)" If ResourcePages don't live directly under the designator/nomen, you don't have the dereferencability I'm talking about. 
+
+
+maybe we call it nomenAbsolutePath to make it clearer.
+
+What makes something a Nomen? I think the defining characteristic is that it has a Knop (and a Nomen handle): you can get metadata about the Nomen, including denotation (if it exists); 
+
+I'm now thinking "nomen space" or "nomenspace" is better, because it supports the idea of sparse nomen, scattered throughout an abstract namespace. nomen are realizations of an abstract namespace in a way: "this is something I want to use as an identifier" and the way you mark it as a Nomen is you give it a corresponding Knop in the same namespace. If you just want to say something about someone elses Nomen, you can say it arbitrary RDF data. You don't need a Knop. But you can have a Knop if you want -- it's just for the DigitalArtifact about someone else's Nomen. 
+
+By "non-root" publish directories, (like docs?) you just have to have the nomen root and the corresponding mesh in the docs folder? Syntactically, the _s-mesh and the nomen space should share a base because they are bound to each other. You can't have a nomen space without a support mesh. 
+
+Yes, for #4, I meant LocatedFile. #5, agree with what you've said. But what I was getting at was more "does every (payload?) DigitalArtifact keep its bytes under a Nomen." The answer is clearly no IMO. If the Nomen is created simultaneously with the Knop, it can start under the Nomen. If not, it has to start under the Knop (maybe at the top of the Knop, likely with other supporting WorkingDigitalArtifacts). Question is: can it start in the Knop  and move to the Nomen. It'd be nice, but it could break some clients expecting the IRI for a WorkingDigitalArtifacts to always return the bytes.
+
+Regarding mirroring, it's unnecessary. You mint a Nomen by creating Knop. Was considering that to avoid collisions, you require nomenless knops to use UUIDs. Or we can just say, if the Knop already exists that corresponds to a nomen path, it must become the knop for that nomen.
+Regarding your Important nuance. Actually, I'm trying to establish the designator IRI is the nomen (i.e., a unique name, aka identifier, that has a corresponding Knop), but it is represented in RDF with its handle. So "http://examples.com/alice" is a nomen in prose, but <http://examples.com/_sf-mesh/alice/_nomen-handle> denote the nomen in RDF. 
+
+Remind me what <http://examples.com/_sf-mesh/alice/> denotes? If it's not spoken for, it could denote the nomen in RDF, although its similarity to the designator IRI might be confusing.
+#5, For now, let's not support moving a WorkingFile location from Knop to Nomen. If you want a Nomen to denote a WorkingLocatedFile, you have to create it fresh. 
+
+r.e. #6, nomenPath is way better.  I was imagining just _s-mesh/alice (no _knops or "by-path"). I don't think encoding is necessary. Oh, yeah, that's what <https://example.com/_s-mesh/alice> denotes: the knop. good. Mirroring is necessary for existant nomen. I'm just saying the mesh doesn't have to mirror the full designator namespace or whatever we call it. 
+
