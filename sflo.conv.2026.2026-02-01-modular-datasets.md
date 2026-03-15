@@ -2,7 +2,7 @@
 id: up2ws57duvidloaknxlvr1i
 title: 2026 02 01 Modular Datasets
 desc: ''
-updated: 1769953682549
+updated: 1773457381957
 created: 1769939201855
 ---
 Skip to content
@@ -6049,3 +6049,365 @@ Remind me what <http://examples.com/_sf-mesh/alice/> denotes? If it's not spoken
 
 r.e. #6, nomenPath is way better.  I was imagining just _s-mesh/alice (no _knops or "by-path"). I don't think encoding is necessary. Oh, yeah, that's what <https://example.com/_s-mesh/alice> denotes: the knop. good. Mirroring is necessary for existant nomen. I'm just saying the mesh doesn't have to mirror the full designator namespace or whatever we call it. 
 
+ccepted on (a) no “promotion” of a WorkingLocatedFile from Knop → Nomen, and (b) nomenPath as the canonical key.
+
+The remaining risk is that your “no encoding needed” + “_s-mesh/<nomenPath> denotes the Knop” only works if you tighten what strings are legal in nomenPath and what parts of the path are reserved.
+
+What you’re committing to (make it explicit)
+
+Designator/Nomen IRI: BASE + nomenPath (public space)
+
+Knop IRI: BASE + "_s-mesh/" + nomenPath (management space)
+
+(Optional) Nomen-handle IRI: KnopIri + "/_nomen-handle" (identifier-as-identifier object, for RDF)
+
+This implies “mirroring” for only those nomens you adopt, not the whole identifier space. That’s coherent.
+
+Why “encoding unnecessary” is only true under constraints
+
+If _s-mesh/alice/bio is a folder path, you’re fine. But if you allow arbitrary nomenPath strings, you will hit cases that cannot round-trip to filesystem segments safely without encoding or rejection. Examples:
+
+segments containing / vs wanting a literal slash inside a segment (impossible without encoding)
+
+. or .. segments (path traversal semantics)
+
+empty segments ("alice//bio")
+
+reserved names (_s-mesh, _payload, _meta, etc.)
+
+characters that are legal in IRIs but annoying/ambiguous in filesystems or URLs (spaces, #, %, ?, very long segments, normalization issues)
+
+So you must choose one:
+
+Option 1: Forbid the weird stuff (no encoding needed)
+
+Make sflo:nomenPath constrained to something like:
+
+base-relative
+
+slash-separated segments
+
+each segment matches a conservative regex (e.g., [A-Za-z0-9][A-Za-z0-9._-]*)
+
+no segment starts with _ (reserve underscore-leading segments for system)
+
+segment not in a reserved set (_s-mesh, _payload, _inventory, etc.)
+
+no . / .., no empty segments
+
+This gives you your “simple _s-mesh/alice” layout with no encoding layer.
+
+Option 2: Allow richer paths (encoding required)
+
+If you want to support arbitrary human paths (Unicode, spaces, etc.) and still keep a deterministic Knop IRI path, you need an encoding rule (typically percent-encode each segment or use a hash-based index).
+
+Given your preference, Option 1 is aligned, but you need to admit it’s a restriction.
+
+One non-negotiable reservation
+
+If the mesh overlay shares the same base, then _s-mesh must be reserved in the nomenspace. Otherwise someone can create a designator / _s-mesh / alice and you have a collision between “public identifier” and “management space.”
+
+So: no Nomen may have nomenPath whose first segment is _s-mesh.
+
+(Also consider whether you reserve all underscore-leading segments at any depth, not just first.)
+
+About file-shaped nomens
+
+Even if you don’t mirror the whole tree, your adopted nomens can include things like alice-bio.ttl. Then:
+
+Knop IRI becomes /_s-mesh/alice-bio.ttl
+
+That’s fine as long as it is still a directory-ish resource in the management space (i.e., it has subpaths like /_meta, /_payload, etc.). It will look like a file but behave like a folder. That’s acceptable if you treat _s-mesh as an internal namespace and document that “extension-looking segments are allowed.”
+
+Your “no move from Knop → Nomen” rule is good, but note the consequence
+
+If a payload is created Knop-first, then naive clients who fetch “working bytes” by IRI will only ever have a stable working-bytes IRI under the Knop’s working area, not under the public designator.
+
+That’s consistent and avoids silent breaking changes.
+
+Recommendation: lock in two invariants now
+
+Knop path rule
+KnopIriPath = "_s-mesh/" + nomenPath
+
+nomenPath lexical rules (pick Option 1 constraints)
+So you can truthfully say: “no encoding required.”
+
+If you want, paste your current reserved segments list (_payload, _meta, _inventory, etc.) and I’ll propose a concrete nomenPath SHACL constraint that enforces the no-encoding approach.
+
+Can you provide a detailed summary of this conversation, including decisions and the corresponding next steps, highlighting open questions?
+Thought for 19s
+Summary of the conversation
+
+You’re converging on a two-layer system:
+
+a public identifier space (the “nomenspace”) where people use IRIs like https://example.com/alice and can paste them into a browser, and
+
+a co-located management overlay under a reserved path segment (now _s-mesh) that stores the semantic mesh objects (Knops, handles, operational artifacts, inventories, etc.).
+
+The driving constraints you kept returning to:
+
+No content negotiation, no redirects (beyond the server’s implicit trailing-slash canonicalization if any).
+
+In a browser: if an IRI denotes a LocatedFile, it should return bytes; otherwise it should return a ResourcePage about that identifier (and/or its denotation, reference material, inventory).
+
+Avoid silent meaning changes: especially around identifier renames, working-file relocation, and latest pointers inside immutable artifacts.
+
+Decisions made
+A) Core modeling / naming decisions
+
+Single ontology (“Semantic Flow Ontology”) for the general-purpose core (artifact stack, reference links, resource pages, RdfDocument, etc.).
+
+Rationale: reuse is mostly vocabulary reuse, not import-driven modularization.
+
+Artifact stack remains multi-faceted with these core layers:
+
+AbstractArtifact → ArtifactFlow → ArtifactState (with WorkingState, CurrentState, HistoricalState) → AbstractFile → LocatedFile.
+
+Working vs Current distinction: Working is always mutable; Current is mutable “at weave” and can have multiple file variants; Historical is immutable snapshots.
+
+Constraint direction: treat LocatedFile IRIs as “bytes-at-location”, and everything else as a “resource identity” that can have a ResourcePage.
+
+Do not move a WorkingLocatedFile from Knop-space to Nomen-space after creation.
+
+If you want a Nomen to denote a WorkingLocatedFile, you must create it that way initially.
+
+Motivation: moving breaks naive clients that treat the working-file IRI as stable.
+
+nomenPath becomes the canonical key, preferred over hash/encoded identifiers or “by-path” indexes.
+
+You explicitly prefer _s-mesh/<nomenPath> over _s-mesh/_knops/by-path/<encoded(...)>.
+
+B) Nomen / Knop / handle decisions
+
+The designator IRI is “the nomen” in prose, but in RDF you represent “the nomen-as-an-identifier object” using a Nomen handle IRI.
+
+Example:
+
+Prose: https://example.com/alice is a nomen (because it is adopted / supported).
+
+RDF: <https://example.com/_s-mesh/alice/_nomen-handle> denotes the nomen (identifier-object) and carries metadata like nomenPath "alice".
+
+https://example.com/_s-mesh/alice denotes the Knop (management container) for that nomen.
+
+This is now your intended meaning of _s-mesh/<nomenPath>.
+
+_nomen-handle lives under the Knop.
+
+Mirroring is required only for adopted nomens, not the entire identifier namespace.
+
+The mesh overlay does not have to “mirror everything that exists under the base,” only the subset you “mint as nomens” by creating a Knop.
+
+C) Browser dereferenceability commitments
+
+You clarified the dereferenceability rule as:
+
+LocatedFile IRI → bytes
+
+non-LocatedFile IRI → ResourcePage (about the IRI / denotation / inventory / reference)
+
+This is a critical correction because earlier phrasing (“if it denotes a DigitalArtifact then bytes”) was too broad and would conflict with having pages for AbstractArtifact/Flow/State.
+
+D) Deployment/config assumptions
+
+You currently prefer one published base shared by nomenspace + mesh overlay, with _s-mesh residing under the same base.
+
+You are not prioritizing separate published bases for nomenspace vs mesh overlay right now.
+
+You treat “mesh without nomen” as possible in theory, but your default product stance is: nomenspace and mesh are “bound together” under one base.
+
+Key inconsistencies and risks that surfaced
+
+These are the places where you were implicitly pulling in opposite directions, and where the model/tooling will break if not nailed down:
+
+Leading “/” in path strings
+
+You initially wanted nomenPath "/alice" to emphasize root-relative.
+
+This conflicts with bases that include a path prefix (e.g., GitHub project sites), because "/alice" resolves to the origin root, not the project root.
+
+You later agreed to treat leading “/” as just emphasis and to strip it (base-relative).
+Decision consequence: call it nomenPath (base-relative). Calling it nomenAbsolutePath will mislead future-you into reintroducing the origin-root bug.
+
+“No encoding needed” vs “allow arbitrary human paths”
+
+_s-mesh/<nomenPath> with no encoding only works if nomenPath is constrained to filesystem-safe, URL-safe path segments and avoids reserved names.
+
+If you later allow Unicode, spaces, ?, #, .., empty segments, etc., you will need encoding or a different keying scheme.
+If you keep “no encoding” as a requirement, you must accept constraints (enforced by SHACL and/or tooling).
+
+Dereferenceability vs “ResourcePages not under the designator”
+
+You explicitly require: paste the designator IRI into a browser and get bytes/pages appropriately.
+
+That implies ResourcePages must be reachable at designator IRIs for non-bytes designators (directory-ish IRIs), not only under _s-mesh.
+
+This is incompatible with “pristine nomenspace” unless you accept pages living in the nomenspace (at least for non-leaf designators).
+You can still keep most semantic data in _s-mesh, but the page must be at the designator IRI.
+
+Knop adoption by collision
+
+“If a Knop already exists for that nomenPath, it must become the Knop for that nomen” is dangerous unless you define normalization and reservation rules precisely.
+
+Without strict rules, you’ll get silent reassignment or accidental hijacking.
+
+Next steps (concrete)
+1) Lock the minimal “identifier ↔ management” mapping contract
+
+Write this down as invariants and implement it everywhere:
+
+Designator IRI: designator = BASE + nomenPath
+
+Knop IRI: knop = BASE + "_s-mesh/" + nomenPath
+
+Nomen handle IRI: nomenHandle = knop + "/_nomen-handle"
+
+Then define the minimum RDF assertions:
+
+nomenHandle sflo:nomenPath "alice" (string, canonical)
+
+nomenHandle sflo:nomenFor <https://example.com/alice> (object property to the designator IRI)
+
+knop sflo:hasNomenHandle nomenHandle (or inverse)
+
+2) Add SHACL constraints that enforce the “no encoding needed” choice
+
+A minimal first-pass shape should enforce:
+
+sflo:nomenPath is required and matches a conservative regex (segments, no empty segments).
+
+No segment starts with _ (or at least the first segment may not be _s-mesh).
+
+Disallow . and ...
+
+Disallow reserved segments (_s-mesh, plus any internal ones you want to reserve globally).
+
+This is the price of “no encoding needed.”
+
+3) Update the ontology to reflect the clarified dereferenceability rule
+
+Tighten docs/comments so it’s explicit that only LocatedFile is bytes-at-location.
+
+Everything else (AbstractArtifact/Flow/State/AbstractFile, Knop, handle) is a “resource identity” that may have a ResourcePage.
+
+Update the earlier mistaken comment you called out: “Semantic Flow resources may exist inside or outside a mesh.” (You already flagged it as wrong.)
+
+4) Clarify the “working bytes stability” rule
+
+Since you decided “no moving WorkingLocatedFile Knop→Nomen”:
+
+define where working bytes live by default (likely under Knop-managed working area)
+
+define the allowed “create fresh in nomenspace” case
+
+define what naive clients may rely on (stability expectations)
+
+5) Decide where “anti-immutable” / operational data lives
+
+You floated multiple options:
+
+“anti-metadata artifact per artifact”
+
+“operational metadata artifact” at mesh-level
+
+“overlay artifacts ON by default” and keep latest pointers there
+
+This must be resolved because it affects whether latestHistoricalState is ever written into immutable artifacts.
+
+Minimum viable decision:
+
+Never write latestHistoricalState into HistoricalState artifacts.
+
+If you want it persisted, write it into an operational artifact that is explicitly mutable and excluded from “immutable packaging.”
+
+6) Weave process plan (tooling)
+
+You proposed a strong alternative weave mechanism:
+
+keep mesh in memory
+
+file watchers continuously update working states
+
+on weave: pause watcher processing, perform writes/renames, then resume; optionally reconcile
+
+Next step:
+
+write the weave invariants (what must be frozen, what can continue)
+
+write the failure modes and rollback story (what “abort” means, how you detect inconsistency)
+
+Open questions (still unresolved)
+Vocabulary / modeling
+
+Do you keep AbstractArtifact as a distinct concept or collapse it into “DigitalArtifact with flow”?
+You oscillated on “Flow seems more primary than AbstractArtifact.” This affects how “identity” is communicated to users and tools.
+
+Do you keep CurrentState and WorkingState both, always?
+You landed on “at least two states always exist,” but also flirted with eliminating Working or Current. This needs a final decision because it affects layout and resolution.
+
+What exactly is the Knop in the ontology?
+
+You moved toward “Knop is an ArtifactContainer, not a DigitalArtifact.”
+
+If so, how are its supporting artifacts modeled (as DigitalArtifact facets inside it)?
+
+ReferenceLinks placement and growth
+
+You decided “keep reference links away from metadata; metadata should be slim and factual.”
+
+But you also floated transitive reference link resolution with a depth limit.
+Open: do ReferenceLinks live as dedicated artifacts (flows) per Nomen/Knop/Mesh, and how do you prevent runaway resolution?
+
+Namespace / path policies
+
+Exact nomenPath lexical policy
+
+If you refuse encoding, you must define allowed characters and reserved segments.
+
+Open: do you allow extension-looking segments (alice.ttl) as nomens (fine, but may confuse humans)?
+
+Do you allow “external overlays” (mesh about someone else’s IRIs) and if so, what relation is used?
+
+You correctly flagged “taking over meaning” as dangerous.
+
+Open: do you forbid sameAs by default and prefer “about/annotates”?
+
+Web UX commitments
+
+If designator IRIs must be dereferenceable to ResourcePages, where do those pages live and how are they generated without duplicating semantic data?
+
+You want semantic data concentrated in _s-mesh, but pages must appear at designator IRIs (for non-bytes designators).
+
+Open: do those pages embed data, link to _s-mesh, or both?
+
+Operational data / immutability
+
+Where and how do you store weave times / operational events without NOOP noise?
+
+You explicitly rejected NOOP weave markers in user artifacts.
+
+Open: minimal weave provenance location (probably KnopInventoryArtifact vs operational overlay artifact).
+
+Suggested immediate deliverables (so “the machine rolls”)
+
+A short “Core Invariants” doc (1 page) with the mapping rules and dereference rules.
+
+Ontology patch that:
+
+adds NomenHandle (or clarifies existing Nomen as handle)
+
+adds nomenPath, nomenFor, hasNomenHandle (names adjustable)
+
+updates comments to match LocatedFile-bytes rule and removes the “inside/outside mesh” confusion
+
+SHACL shapes:
+
+NomenHandleShape (requires nomenPath, pattern constraints)
+
+KnopShape (requires one handle, required supporting artifacts if you still want that invariant)
+
+WorkingStateShape (your earlier request) and any “exactly one per flow” constraints
+
+Config sketch (not core ontology): filesystem/publish roots, reserved segment names, whether resource pages are on/off.
+
+If you want, I can turn the “Core Invariants” section above into an explicit checklist suitable for your docs and for implementation tests.
