@@ -2,10 +2,14 @@
 id: up2ws57duvidloaknxlvr1i
 title: 2026 02 01 Modular Datasets
 desc: ''
+<<<<<<< HEAD
 updated: 1773457381957
+=======
+updated: 1773465592745
+>>>>>>> a0072ee (docs: not sure why these conversations are getting in here. Kato!)
 created: 1769939201855
 ---
-Skip to content
+Ski p to content
 Chat history
 You said:
 I think I'm going to leave the general purpose classes and properties in a single "Semantic Flow Ontology". I'd love it if other people would use the general-purpose concepts (the Artifact stack, ReferenceLinks, the ResourcePage concept, and the RdfDocument class), but I don't want to do an Ontology for each of those and I honestly don't think re-use happens mostly with ontology imports, it's mostly in vocab re-use, and that can be as specific or wide as necessary.
