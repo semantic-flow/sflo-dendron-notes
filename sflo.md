@@ -6,7 +6,7 @@ updated: 1752025355009
 created: 1716959415785
 ---
 
-[[sflo.issue]] | [[sflo.todo]] | [[sflo.contributors.djradon.dev-log]]
+[[sflo.issue]] | [[sf.todo]] | [[sflo.contributors.djradon.dev-log]]
 
 A **dereferenceable, versioned semantic mesh** will be the foundation for a new
 era of knowledge graphs.
