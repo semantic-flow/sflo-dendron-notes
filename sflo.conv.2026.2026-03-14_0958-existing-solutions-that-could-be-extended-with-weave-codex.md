@@ -3,7 +3,7 @@ id: existing-solutions-that-5fb2c61c
 title: 'existing solutions that could be extended with weave'
 desc: ''
 created: 1773507524654
-updated: 1773507524654
+updated: 1775334172482
 participants: [codex.gpt-5.4]
 kato-sessionIds: [019ced3e-46f2-79d3-81e7-c21a0c1cc442]
 kato-workspaceIds: [989fc570-8e7a-4471-8e98-da903503f7eb]
@@ -61,7 +61,7 @@ I’ve got the repo’s working assumptions. Next I’m reading the local Weave/
 
 I’ve got enough primary-source material to compare the frameworks on the axes you care about. I’m doing one more pass through your local architecture notes now so the recommendation lands on Weave’s actual shape: committed ResourcePages, adapter precedence, and weave/version semantics.
 
-Mapped against your Weave/resource-page notes in [concept.weave-process.md](/home/djradon/hub/semantic-flow/sflo/documentation/concept.weave-process.md) and [concept.weave-process.resource-page-generation.md](/home/djradon/hub/semantic-flow/sflo/documentation/concept.weave-process.resource-page-generation.md), and using current official docs as of March 14, 2026: Lume looks viable as a rendering substrate, but not as the thing that should define Weave’s core architecture.
+Mapped against your Weave/resource-page notes in [[concept.weave-process]] and [[concept.weave-process.resource-page-generation]], and using current official docs as of March 14, 2026: Lume looks viable as a rendering substrate, but not as the thing that should define Weave’s core architecture.
 
 1. What Lume can probably do out of the box
 
@@ -559,7 +559,7 @@ oops. wrong chat. Let's start filling out task.2026.2026-03-15-fresh-monorepo.md
 
 is the "api" really an app... maybe we call that the daemon, and it implements the API. We haven't flushed it out much, but I was thinking we flesh out a public api for Weave as a spec.
 
-Also, please review the sflo/documentation @product.* files and the [sflo.architecture.md](/home/djradon/hub/semantic-flow/sflo/dependencies/github.com/semantic-flow/sflo-dendron-notes/sflo.architecture.md) and figure out how much of that old architecture planning to examine depth. There's some outdated terminology eg. "Node" is now "Knop", the clients are of the "weave daemon, which exposes the weave API", not clients of the API directly right? And since lots of these operations are going to be long-running, we should strongly consider using AsyncAPI or if we go with OpenAPI, we have to somehow support long-running weave processes, i.e. the API  has to support dispatch jobs like "weave integrate <tree>" or "weave version"
+Also, please review the sflo/documentation @product.* files and the [[sflo.architecture]] and figure out how much of that old architecture planning to examine depth. There's some outdated terminology eg. "Node" is now "Knop", the clients are of the "weave daemon, which exposes the weave API", not clients of the API directly right? And since lots of these operations are going to be long-running, we should strongly consider using AsyncAPI or if we go with OpenAPI, we have to somehow support long-running weave processes, i.e. the API  has to support dispatch jobs like "weave integrate <tree>" or "weave version"
 
 # gpt-5.4_2026-03-15_1314_02
 
@@ -587,9 +587,9 @@ The note is patched. I’m doing one quick verification pass now to make sure th
 
 # gpt-5.4_2026-03-15_1315_46
 
-I filled out [task.2026.2026-03-15-fresh-monorepo.md](/home/djradon/hub/semantic-flow/sflo/documentation/task.2026.2026-03-15-fresh-monorepo.md) with the tentative monorepo layout, companion repos, local `dependencies/`/`references/` strategy, an explicit architecture-planning subtask, and the open decisions around Deno, daemon naming, API spec ownership, and long-running job protocols.
+I filled out [[task.2026.2026-03-15-fresh-monorepo]] with the tentative monorepo layout, companion repos, local `dependencies/`/`references/` strategy, an explicit architecture-planning subtask, and the open decisions around Deno, daemon naming, API spec ownership, and long-running job protocols.
 
-I also folded in a review-depth judgment from the older material: [product.sflo-host.md](/home/djradon/hub/semantic-flow/sflo/documentation/product.sflo-host.md), [product.plugins.sflo-api.md](/home/djradon/hub/semantic-flow/sflo/documentation/product.plugins.sflo-api.md), and [sflo.architecture.md](/home/djradon/hub/semantic-flow/sflo/dependencies/github.com/semantic-flow/sflo-dendron-notes/sflo.architecture.md) are worth deep review; the CLI/web/plugin notes mostly just need light translation and terminology cleanup.
+I also folded in a review-depth judgment from the older material: [[product.sflo-host]], [[product.plugins.sflo-api]], and [[sflo.architecture]] are worth deep review; the CLI/web/plugin notes mostly just need light translation and terminology cleanup.
 
 No code or tests were needed here. If you want, the next good step is for me to create the actual architecture-planning subtask note that this task now calls for.
 
@@ -610,17 +610,17 @@ We’re defining an architecture-planning subtask for a fresh Weave reset.
 
 Please begin by reading these local files for context:
 
-- /home/djradon/hub/semantic-flow/sflo/documentation/dev.general-guidance.md
-- /home/djradon/hub/semantic-flow/sflo/documentation/task.2026.2026-03-15-fresh-monorepo.md
-- /home/djradon/hub/semantic-flow/sflo/documentation/product.sflo-host.md
-- /home/djradon/hub/semantic-flow/sflo/documentation/product.plugins.sflo-api.md
-- /home/djradon/hub/semantic-flow/sflo/dependencies/github.com/semantic-flow/sflo-dendron-notes/sflo.architecture.md
+- sflo/documentation/dev.general-guidance.md
+- sflo/documentation/task.2026.2026-03-15-fresh-monorepo.md
+- sflo/documentation/product.sflo-host.md
+- sflo/documentation/product.plugins.sflo-api.md
+- sflo/dependencies/github.com/semantic-flow/sflo-dendron-notes/sflo.architecture.md
 
 Also review these more lightly, mainly for terminology drift and any ideas still worth carrying over:
 
-- /home/djradon/hub/semantic-flow/sflo/documentation/product.cli.md
-- /home/djradon/hub/semantic-flow/sflo/documentation/product.plugins.sflo-web.md
-- /home/djradon/hub/semantic-flow/sflo/documentation/product.core.md
+- sflo/documentation/product.cli.md
+- sflo/documentation/product.plugins.sflo-web.md
+- sflo/documentation/product.core.md
 
 Context and current direction:
 
@@ -676,7 +676,7 @@ If you want, I can also generate a shorter “high-directiveness” version opti
 
 # djradon_2026-03-15_1323_43
 
-Probably we should do the "Ontology-facing changes" from [task.2026-03-13-picking-up-the-pieces.md](/home/djradon/hub/semantic-flow/sflo/documentation/task.2026-03-13-picking-up-the-pieces.md) before we start the architecture subtask, right?
+Probably we should do the "Ontology-facing changes" from [[task.2026-03-13-picking-up-the-pieces]] before we start the architecture subtask, right?
 
 # gpt-5.4_2026-03-15_1323_56
 
@@ -684,7 +684,7 @@ Yes, mostly.
 
 I’d do the ontology-facing changes conceptually before the architecture subtask, but not necessarily implement all ontology files first.
 
-The architecture review will go much better if the core semantic model is already frozen in prose, especially the parts in [task.2026-03-13-picking-up-the-pieces.md](/home/djradon/hub/semantic-flow/sflo/documentation/task.2026.2026-03-13-picking-up-the-pieces.md) about:
+The architecture review will go much better if the core semantic model is already frozen in prose, especially the parts in [[task.2026.2026-03-13-picking-up-the-pieces|task.2026-03-13-picking-up-the-pieces.md]] about:
 
 - `T/` vs `T/_knop/`
 - collapsing `Nomen` into `Knop`
@@ -872,7 +872,7 @@ The Semantic Flow API is the public contract for managing and publishing Digital
 If you want, I can next turn that into:
 - a repo description
 - a README intro
-- a patch for [task.2026.2026-03-15-fresh-monorepo.md](/home/djradon/hub/semantic-flow/sflo/documentation/task.2026.2026-03-15-fresh-monorepo.md) in diff form first.
+- a patch for [[task.2026.2026-03-15-fresh-monorepo]] in diff form first.
 
 # djradon_2026-03-15_1551_45
 

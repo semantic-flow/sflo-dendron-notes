@@ -14,9 +14,9 @@ kato-recordingIds: [1d75585f-7279-436b-8161-73f6c7f2216d]
 
 picking up the pieces
 
-Let's finish refining [wd.task.2026.2026-03-13-picking-up-the-pieces.md](/home/djradon/hub/semantic-flow/weave/documentation/notes/wd.task.2026.2026-03-13-picking-up-the-pieces.md) 
+Let's finish refining [[wd.task.2026.2026-03-13-picking-up-the-pieces]] 
 
-Please review [AGENTS.md](/home/djradon/hub/semantic-flow/weave/AGENTS.md) and the relevant file it references.
+Please review [AGENTS.md](../../../../AGENTS.md) and the relevant file it references.
 
 Instead of `T/` I think we should use `D/` for designator. 
 
@@ -46,7 +46,7 @@ I spotted one small inconsistency in the ontology-delta section: it still implie
 
 I’ve finished the note refinement. I’m grabbing exact ontology line numbers too, so the close-out ties the recommendation back to the current source of truth that still has `Nomen` and `Knop` split apart.
 
-I reviewed [AGENTS.md](/home/djradon/hub/semantic-flow/weave/AGENTS.md), [wd.general-guidance.md:13](/home/djradon/hub/semantic-flow/weave/documentation/notes/wd.general-guidance.md#L13), and the current ontology split at [semantic-flow-core-ontology.ttl:315](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/semantic-flow-core-ontology.ttl#L315) and [semantic-flow-core-ontology.ttl:343](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/semantic-flow-core-ontology.ttl#L343). I then refined [wd.task.2026.2026-03-13-picking-up-the-pieces.md:11](/home/djradon/hub/semantic-flow/weave/documentation/notes/wd.task.2026.2026-03-13-picking-up-the-pieces.md#L11), [wd.task.2026.2026-03-13-picking-up-the-pieces.md:73](/home/djradon/hub/semantic-flow/weave/documentation/notes/wd.task.2026.2026-03-13-picking-up-the-pieces.md#L73), and [wd.task.2026.2026-03-13-picking-up-the-pieces.md:123](/home/djradon/hub/semantic-flow/weave/documentation/notes/wd.task.2026.2026-03-13-picking-up-the-pieces.md#L123).
+I reviewed [AGENTS.md](../../../../AGENTS.md), [[wd.general-guidance|wd.general-guidance.md:13]], and the current ontology split at [semantic-flow-core-ontology.ttl:315](../ontology/semantic-flow-core-ontology.ttl#L315) and [semantic-flow-core-ontology.ttl:343](../ontology/semantic-flow-core-ontology.ttl#L343). I then refined [[wd.task.2026.2026-03-13-picking-up-the-pieces|wd.task.2026.2026-03-13-picking-up-the-pieces.md:11]], [[wd.task.2026.2026-03-13-picking-up-the-pieces|wd.task.2026.2026-03-13-picking-up-the-pieces.md:73]], and [[wd.task.2026.2026-03-13-picking-up-the-pieces|wd.task.2026.2026-03-13-picking-up-the-pieces.md:123]].
 
 I agree with changing the placeholder from `T/` to `D/`. I’d push back on using `D/_knop/` as the identifier-as-identifier handle, though. The sharper model is:
 `D/` denotes the referent.
@@ -79,7 +79,7 @@ I’m narrowing this to concrete counterexamples now. I want to sanity-check the
 
 After pushing on it, I think your challenge is mostly right.
 
-If we are serious that a `Knop` is the mesh-managed support/container-handle for a designator, then a lot of what I put in the “about the identifier” bucket can live on the Knop just fine. The current ontology already leans “container” in [semantic-flow-core-ontology.ttl:37](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/semantic-flow-core-ontology.ttl#L37) and [semantic-flow-core-ontology.ttl:343](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/semantic-flow-core-ontology.ttl#L343), so if we keep the one-node model, I’d rather redefine `Knop` a bit more broadly than invent a second node too early.
+If we are serious that a `Knop` is the mesh-managed support/container-handle for a designator, then a lot of what I put in the “about the identifier” bucket can live on the Knop just fine. The current ontology already leans “container” in [semantic-flow-core-ontology.ttl:37](../ontology/semantic-flow-core-ontology.ttl#L37) and [semantic-flow-core-ontology.ttl:343](../ontology/semantic-flow-core-ontology.ttl#L343), so if we keep the one-node model, I’d rather redefine `Knop` a bit more broadly than invent a second node too early.
 
 On your specific points:
 
@@ -136,11 +136,11 @@ On `ArtifactContainer`, I think your instinct is probably right, but only if we 
 
 Right now the ontology says:
 
-- `ArtifactContainer` is the common host class at [semantic-flow-core-ontology.ttl:37](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/semantic-flow-core-ontology.ttl#L37)
-- `containsSemanticFlowResource` uses it as domain at [semantic-flow-core-ontology.ttl:289](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/semantic-flow-core-ontology.ttl#L289)
-- `Mesh`, `Nomen`, and `Knop` all subclass it at [semantic-flow-core-ontology.ttl:300](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/semantic-flow-core-ontology.ttl#L300), [semantic-flow-core-ontology.ttl:315](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/semantic-flow-core-ontology.ttl#L315), and [semantic-flow-core-ontology.ttl:343](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/semantic-flow-core-ontology.ttl#L343)
+- `ArtifactContainer` is the common host class at [semantic-flow-core-ontology.ttl:37](../ontology/semantic-flow-core-ontology.ttl#L37)
+- `containsSemanticFlowResource` uses it as domain at [semantic-flow-core-ontology.ttl:289](../ontology/semantic-flow-core-ontology.ttl#L289)
+- `Mesh`, `Nomen`, and `Knop` all subclass it at [semantic-flow-core-ontology.ttl:300](../ontology/semantic-flow-core-ontology.ttl#L300), [semantic-flow-core-ontology.ttl:315](../ontology/semantic-flow-core-ontology.ttl#L315), and [semantic-flow-core-ontology.ttl:343](../ontology/semantic-flow-core-ontology.ttl#L343)
 
-The catch is that `Mesh` currently directly contains mesh metadata and inventory artifacts at [semantic-flow-core-ontology.ttl:395](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/semantic-flow-core-ontology.ttl#L395) through [semantic-flow-core-ontology.ttl:450](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/semantic-flow-core-ontology.ttl#L450), and SHACL expects that too at [sflo-core-shacl.jsonld:293](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/sflo-core-shacl.jsonld#L293).
+The catch is that `Mesh` currently directly contains mesh metadata and inventory artifacts at [semantic-flow-core-ontology.ttl:395](../ontology/semantic-flow-core-ontology.ttl#L395) through [semantic-flow-core-ontology.ttl:450](../ontology/semantic-flow-core-ontology.ttl#L450), and SHACL expects that too at [sflo-core-shacl.jsonld:293](../ontology/sflo-core-shacl.jsonld#L293).
 
 So I’d frame it this way:
 
@@ -192,7 +192,7 @@ I think the model gets much clearer if we separate three axes.
 
 1. Artifact kind
 This is your existing `DigitalArtifact` lattice:
-`AbstractArtifact`, `ArtifactFlow`, `ArtifactState`, `AbstractFile`, `LocatedFile`, etc. at [semantic-flow-core-ontology.ttl:33](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/semantic-flow-core-ontology.ttl#L33) through [semantic-flow-core-ontology.ttl:100](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/semantic-flow-core-ontology.ttl#L100).
+`AbstractArtifact`, `ArtifactFlow`, `ArtifactState`, `AbstractFile`, `LocatedFile`, etc. at [semantic-flow-core-ontology.ttl:33](../ontology/semantic-flow-core-ontology.ttl#L33) through [semantic-flow-core-ontology.ttl:100](../ontology/semantic-flow-core-ontology.ttl#L100).
 
 2. Mesh role
 This is not “what kind of thing is it?” but “what job is it doing relative to a Knop?”
@@ -280,7 +280,7 @@ If you want, I can turn this into a concrete ontology recommendation next:
 
 Yes. For the `DigitalArtifact` lattice, “artifact facet” is better than “artifact kind.”
 
-That part of the ontology is already telling that story with `narrowerFacet` / `broaderFacet` at [semantic-flow-core-ontology.ttl:45](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/semantic-flow-core-ontology.ttl#L45). `AbstractArtifact`, `Flow`, `State`, `AbstractFile`, and `LocatedFile` are not really different “kinds” in the ordinary sense. They are different facets or granularity levels of a digital artifact.
+That part of the ontology is already telling that story with `narrowerFacet` / `broaderFacet` at [semantic-flow-core-ontology.ttl:45](../ontology/semantic-flow-core-ontology.ttl#L45). `AbstractArtifact`, `Flow`, `State`, `AbstractFile`, and `LocatedFile` are not really different “kinds” in the ordinary sense. They are different facets or granularity levels of a digital artifact.
 
 Where I’d still be careful is not to let “facet” swallow everything.
 
@@ -462,7 +462,7 @@ That leads to a pretty clean sparse model:
 - raw byte location matters:
   - add `LocatedFile`
 
-And importantly: supporting artifacts can also have facet structure without their own Knops. The ontology already says that for `KnopMetadataArtifact`, which is an `AbstractArtifact` with its own Flow/States model at [semantic-flow-core-ontology.ttl:390](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/semantic-flow-core-ontology.ttl#L390). So “has an ArtifactComplex” should not imply “has a Knop.”
+And importantly: supporting artifacts can also have facet structure without their own Knops. The ontology already says that for `KnopMetadataArtifact`, which is an `AbstractArtifact` with its own Flow/States model at [semantic-flow-core-ontology.ttl:390](../ontology/semantic-flow-core-ontology.ttl#L390). So “has an ArtifactComplex” should not imply “has a Knop.”
 
 This is also where filesystem sparseness and facet sparseness meet.
 
@@ -475,9 +475,9 @@ then path nesting cannot be the semantic backbone anymore.
 
 So I’d treat old layouts like `alice-bio/_knop/_meta/_flow/v1/...` as one possible serialization strategy, not the model itself.
 
-The ontology already hints at a collapsed form: `LocatedFile` “may also be treated as an `AbstractArtifact` in external/collapsed cases” at [semantic-flow-core-ontology.ttl:97](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/semantic-flow-core-ontology.ttl#L97). That is useful here. It suggests a sparse payload can start collapsed and be expanded later.
+The ontology already hints at a collapsed form: `LocatedFile` “may also be treated as an `AbstractArtifact` in external/collapsed cases” at [semantic-flow-core-ontology.ttl:97](../ontology/semantic-flow-core-ontology.ttl#L97). That is useful here. It suggests a sparse payload can start collapsed and be expanded later.
 
-The one place that still needs a decision is payload typing. Right now `PayloadArtifact` is modeled as an `AbstractArtifact` at [semantic-flow-core-ontology.ttl:355](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/semantic-flow-core-ontology.ttl#L355). If you want very sparse file integration, you probably need one of these:
+The one place that still needs a decision is payload typing. Right now `PayloadArtifact` is modeled as an `AbstractArtifact` at [semantic-flow-core-ontology.ttl:355](../ontology/semantic-flow-core-ontology.ttl#L355). If you want very sparse file integration, you probably need one of these:
 
 - allow a collapsed payload node to be both `PayloadArtifact` and `LocatedFile`
 - or broaden payload semantics so a Knop can point to a more weakly materialized artifact referent
@@ -499,7 +499,7 @@ Well, path nesting could be the semantic backbone for the ArtifactComplex. Remem
 
 I am now leaning to having only HistoricalStates, no WorkingState or CurrentState, only a workingLocatedFile (and optional other non-working LocatedFile) associated with the AbstractArtifact (which uses the identifier directly.
 
-Can you sketch out a markdown table in [wd.use-cases.alice-bio.md](/home/djradon/hub/semantic-flow/weave/documentation/notes/wd.use-cases.alice-bio.md)  that has headings "designator", "referent", and "classes", and fill it in for a simple mesh that has "alice" and "alice/bio" as the only "non-supporting" designators,
+Can you sketch out a markdown table in [[wd.use-cases.alice-bio]]  that has headings "designator", "referent", and "classes", and fill it in for a simple mesh that has "alice" and "alice/bio" as the only "non-supporting" designators,
 
 # gpt-5.4_2026-03-17_0027_10
 
@@ -515,7 +515,7 @@ The table is in place. I’m reading it once for consistency with your latest le
 
 # gpt-5.4_2026-03-17_0028_14
 
-I added the sketch table to [wd.use-cases.alice-bio.md](/home/djradon/hub/semantic-flow/weave/documentation/notes/wd.use-cases.alice-bio.md).
+I added the sketch table to [[wd.use-cases.alice-bio]].
 
 It currently assumes:
 - `alice/` denotes the person
@@ -548,7 +548,7 @@ I tightened one semantic wrinkle while reviewing: the `.ttl` rows are cleaner if
 
 # gpt-5.4_2026-03-17_0037_42
 
-Updated [wd.use-cases.alice-bio.md](/home/djradon/hub/semantic-flow/weave/documentation/notes/wd.use-cases.alice-bio.md) with:
+Updated [[wd.use-cases.alice-bio]] with:
 
 - `_mesh/`
 - `_mesh/.semantic-mesh-metadata.ttl`
@@ -577,8 +577,8 @@ I think your second idea is stronger:
 
 - `sflo:KnopMetadata` as an orthogonal role class
 - applicable to any `sflo:DigitalArtifact` facet
-- not a new facet in the `narrowerFacet` sense from [semantic-flow-core-ontology.ttl:45](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/semantic-flow-core-ontology.ttl#L45)
-- more like a cross-cutting role layered onto the existing artifact-facet lattice at [semantic-flow-core-ontology.ttl:92](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/semantic-flow-core-ontology.ttl#L92)
+- not a new facet in the `narrowerFacet` sense from [semantic-flow-core-ontology.ttl:45](../ontology/semantic-flow-core-ontology.ttl#L45)
+- more like a cross-cutting role layered onto the existing artifact-facet lattice at [semantic-flow-core-ontology.ttl:92](../ontology/semantic-flow-core-ontology.ttl#L92)
 
 So you could have:
 
@@ -594,7 +594,7 @@ Same pattern for inventory:
 - `sflo:MeshMetadata`
 - `sflo:MeshInventory`
 
-That is cleaner than the current artifact-specific classes at [semantic-flow-core-ontology.ttl:390](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/semantic-flow-core-ontology.ttl#L390), because it stops mixing:
+That is cleaner than the current artifact-specific classes at [semantic-flow-core-ontology.ttl:390](../ontology/semantic-flow-core-ontology.ttl#L390), because it stops mixing:
 - what facet this is
 - what role this artifact plays
 
@@ -644,7 +644,7 @@ I’m pressure-testing the `AbstractArtifact` vs `ArtifactFlow` split directly n
 
 # gpt-5.4_2026-03-17_0057_21
 
-I think you’re right: if we drop `WorkingState` and `CurrentState`, `ArtifactFlow` starts looking like mostly a wrapper. In the current ontology it mainly sits between `AbstractArtifact` and states at [semantic-flow-core-ontology.ttl:62](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/semantic-flow-core-ontology.ttl#L62), [semantic-flow-core-ontology.ttl:67](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/semantic-flow-core-ontology.ttl#L67), [semantic-flow-core-ontology.ttl:106](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/semantic-flow-core-ontology.ttl#L106), and [semantic-flow-core-ontology.ttl:135](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/semantic-flow-core-ontology.ttl#L135). If the new model is “artifact directly has historical states, plus a `workingLocatedFile` property,” I would collapse `ArtifactFlow` into `AbstractArtifact` unless we know we need more.
+I think you’re right: if we drop `WorkingState` and `CurrentState`, `ArtifactFlow` starts looking like mostly a wrapper. In the current ontology it mainly sits between `AbstractArtifact` and states at [semantic-flow-core-ontology.ttl:62](../ontology/semantic-flow-core-ontology.ttl#L62), [semantic-flow-core-ontology.ttl:67](../ontology/semantic-flow-core-ontology.ttl#L67), [semantic-flow-core-ontology.ttl:106](../ontology/semantic-flow-core-ontology.ttl#L106), and [semantic-flow-core-ontology.ttl:135](../ontology/semantic-flow-core-ontology.ttl#L135). If the new model is “artifact directly has historical states, plus a `workingLocatedFile` property,” I would collapse `ArtifactFlow` into `AbstractArtifact` unless we know we need more.
 
 The few cases where a separate diachronic identity could still earn its keep are pretty niche:
 - one abstract artifact with multiple independent history streams or release channels
@@ -694,7 +694,7 @@ The clean rule would be:
 - support and historical located files: conventionally path-fixed
 - working payload located file: may be host-anywhere
 
-In principle you could allow more rows to float later, but I would not generalize that until we have a real use case. If you want, I can add an `anywhere` column to [wd.use-cases.alice-bio.md](/home/djradon/hub/semantic-flow/weave/documentation/notes/wd.use-cases.alice-bio.md) with `yes/no` values using that rule.
+In principle you could allow more rows to float later, but I would not generalize that until we have a real use case. If you want, I can add an `anywhere` column to [[wd.use-cases.alice-bio]] with `yes/no` values using that rule.
 
 # djradon_2026-03-17_0128_09
 
@@ -704,7 +704,7 @@ OK, are we ready to update the ontology? Any open issues or questions?
 
 We’re ready for a first ontology pass, but not for a final freeze.
 
-I think the stable parts are clear enough to encode now in [semantic-flow-core-ontology.ttl:315](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/semantic-flow-core-ontology.ttl#L315), [semantic-flow-core-ontology.ttl:343](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/semantic-flow-core-ontology.ttl#L343), [semantic-flow-core-ontology.ttl:62](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/semantic-flow-core-ontology.ttl#L62), and [semantic-flow-core-ontology.ttl:67](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/semantic-flow-core-ontology.ttl#L67):
+I think the stable parts are clear enough to encode now in [semantic-flow-core-ontology.ttl:315](../ontology/semantic-flow-core-ontology.ttl#L315), [semantic-flow-core-ontology.ttl:343](../ontology/semantic-flow-core-ontology.ttl#L343), [semantic-flow-core-ontology.ttl:62](../ontology/semantic-flow-core-ontology.ttl#L62), and [semantic-flow-core-ontology.ttl:67](../ontology/semantic-flow-core-ontology.ttl#L67):
 
 - `Nomen` can go.
 - `Knop` is the 1-to-1 identifier handle.
@@ -715,10 +715,10 @@ I think the stable parts are clear enough to encode now in [semantic-flow-core-o
 
 The open questions I would still call out are:
 
-- `_mesh/` semantics: is `_mesh/` a first-class designator in core, and does `Mesh` directly host metadata/inventory, or are those just operational support files? This affects [semantic-flow-core-ontology.ttl:289](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/semantic-flow-core-ontology.ttl#L289), [semantic-flow-core-ontology.ttl:300](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/semantic-flow-core-ontology.ttl#L300), [semantic-flow-core-ontology.ttl:412](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/semantic-flow-core-ontology.ttl#L412), and [semantic-flow-core-ontology.ttl:445](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/semantic-flow-core-ontology.ttl#L445).
-- `ArtifactContainer`: if `Mesh` stops directly containing artifacts, this can probably go too at [semantic-flow-core-ontology.ttl:37](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/semantic-flow-core-ontology.ttl#L37). If `_mesh/` still directly hosts them, maybe not yet.
-- minimal payload shape: does an integrated payload always denote an `AbstractArtifact`, or can it stay collapsed longer? That affects `PayloadArtifact` at [semantic-flow-core-ontology.ttl:355](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/semantic-flow-core-ontology.ttl#L355).
-- metadata/inventory modeling: replace [semantic-flow-core-ontology.ttl:390](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/semantic-flow-core-ontology.ttl#L390) and friends with role classes like `KnopMetadata`/`KnopInventory`, or keep the current classes for one transitional pass?
+- `_mesh/` semantics: is `_mesh/` a first-class designator in core, and does `Mesh` directly host metadata/inventory, or are those just operational support files? This affects [semantic-flow-core-ontology.ttl:289](../ontology/semantic-flow-core-ontology.ttl#L289), [semantic-flow-core-ontology.ttl:300](../ontology/semantic-flow-core-ontology.ttl#L300), [semantic-flow-core-ontology.ttl:412](../ontology/semantic-flow-core-ontology.ttl#L412), and [semantic-flow-core-ontology.ttl:445](../ontology/semantic-flow-core-ontology.ttl#L445).
+- `ArtifactContainer`: if `Mesh` stops directly containing artifacts, this can probably go too at [semantic-flow-core-ontology.ttl:37](../ontology/semantic-flow-core-ontology.ttl#L37). If `_mesh/` still directly hosts them, maybe not yet.
+- minimal payload shape: does an integrated payload always denote an `AbstractArtifact`, or can it stay collapsed longer? That affects `PayloadArtifact` at [semantic-flow-core-ontology.ttl:355](../ontology/semantic-flow-core-ontology.ttl#L355).
+- metadata/inventory modeling: replace [semantic-flow-core-ontology.ttl:390](../ontology/semantic-flow-core-ontology.ttl#L390) and friends with role classes like `KnopMetadata`/`KnopInventory`, or keep the current classes for one transitional pass?
 - working file property details: name, domain, and cardinality. I’d lean toward a functional `hasWorkingLocatedFile` on `AbstractArtifact`.
 
 So my recommendation is: yes, start updating the ontology now, but do it as “pass 1” around the stable decisions, and leave `ArtifactContainer` plus `_mesh/` hosting semantics as an explicit decision point rather than silently baking in a guess.
@@ -735,7 +735,7 @@ Regarding open questions:
 
 3) replace with role classes
 
-4) hasWorkingLocatedFile is good. cardinality 0 or 1, but we'll express cardinality in [sflo-core-shacl.jsonld](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/sflo-core-shacl.jsonld) . You can update the SHACL too, but we can defer that if you want. domain is AbstractFile?
+4) hasWorkingLocatedFile is good. cardinality 0 or 1, but we'll express cardinality in [sflo-core-shacl.jsonld](../ontology/sflo-core-shacl.jsonld) . You can update the SHACL too, but we can defer that if you want. domain is AbstractFile?
 
 # gpt-5.4_2026-03-17_0141_43
 
@@ -747,7 +747,7 @@ That path fix is in. I’m answering the ontology questions against that correct
 
 # gpt-5.4_2026-03-17_0141_57
 
-Yes, that correction helps a lot. I updated [wd.use-cases.alice-bio.md](/home/djradon/hub/semantic-flow/weave/documentation/notes/wd.use-cases.alice-bio.md) so history now sits under `_knop`, and the historical located file is nested under its `AbstractFile` segment:
+Yes, that correction helps a lot. I updated [[wd.use-cases.alice-bio]] so history now sits under `_knop`, and the historical located file is nested under its `AbstractFile` segment:
 `alice/bio/_knop/_history/h1/bio-md/bio.md`.
 
 On your points:
@@ -858,7 +858,7 @@ The ontology and SHACL pass is coherent now. I’m doing a last status check so 
 
 # gpt-5.4_2026-03-17_0152_53
 
-Updated the ontology checkout at [semantic-flow-core-ontology.ttl](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/semantic-flow-core-ontology.ttl), the shapes at [sflo-core-shacl.jsonld](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/sflo-core-shacl.jsonld), and the example at [wd.use-cases.alice-bio.md](/home/djradon/hub/semantic-flow/weave/documentation/notes/wd.use-cases.alice-bio.md).
+Updated the ontology checkout at [semantic-flow-core-ontology.ttl](../ontology/semantic-flow-core-ontology.ttl), the shapes at [sflo-core-shacl.jsonld](../ontology/sflo-core-shacl.jsonld), and the example at [[wd.use-cases.alice-bio]].
 
 What changed:
 - `AbstractFile` became `FileExpression`, with `hasFileExpression` and `locatesFileExpression`.
@@ -878,7 +878,7 @@ What changed:
 - the Alice table now uses `FileExpression`, role classes, `_mesh`, and `_knop/_history/.../bio-md/bio.md`.
 
 Validation:
-- `python3 -m json.tool` passes for [sflo-core-shacl.jsonld](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/sflo-core-shacl.jsonld).
+- `python3 -m json.tool` passes for [sflo-core-shacl.jsonld](../ontology/sflo-core-shacl.jsonld).
 - a stale-term grep in the edited files came back clean for the old mesh/knop metadata names, `AbstractFile`, and the removed flow/current/working state terms.
 - I did not run an RDF/Turtle parser or a SHACL engine beyond that.
 
@@ -1087,11 +1087,11 @@ I’m doing one final stale-term grep for the old surface names so I can tell yo
 
 # gpt-5.4_2026-03-17_0209_35
 
-Renamed the manifestation layer to `ArtifactManifestation` and aligned the core artifact chain in [semantic-flow-core-ontology.ttl:59](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/semantic-flow-core-ontology.ttl#L59). The core now uses `AbstractArtifact -> HistoricalState -> ArtifactManifestation -> LocatedFile`, with `hasManifestation`, `locatesManifestation`, and `hasWorkingLocatedFile` in place at [semantic-flow-core-ontology.ttl:91](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/semantic-flow-core-ontology.ttl#L91). I also removed the remaining `Nomen` surface from the edited ontology/SHACL files and kept the Alice example in sync at [wd.use-cases.alice-bio.md:20](/home/djradon/hub/semantic-flow/weave/documentation/notes/wd.use-cases.alice-bio.md#L20).
+Renamed the manifestation layer to `ArtifactManifestation` and aligned the core artifact chain in [semantic-flow-core-ontology.ttl:59](../ontology/semantic-flow-core-ontology.ttl#L59). The core now uses `AbstractArtifact -> HistoricalState -> ArtifactManifestation -> LocatedFile`, with `hasManifestation`, `locatesManifestation`, and `hasWorkingLocatedFile` in place at [semantic-flow-core-ontology.ttl:91](../ontology/semantic-flow-core-ontology.ttl#L91). I also removed the remaining `Nomen` surface from the edited ontology/SHACL files and kept the Alice example in sync at [[wd.use-cases.alice-bio|wd.use-cases.alice-bio.md:20]].
 
-I continued with the next coherent cleanup step: `PayloadArtifact` is now treated as a role-bearing digital resource instead of “always an `AbstractArtifact`,” and a `Knop` no longer implies a payload by default at [semantic-flow-core-ontology.ttl:277](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/semantic-flow-core-ontology.ttl#L277). That let me relax SHACL so purely referential Knops like `alice/_knop/` are valid, while still limiting a Knop to at most one payload resource at [sflo-core-shacl.jsonld:206](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/sflo-core-shacl.jsonld#L206). I also made the manifestation shapes class-aware at [sflo-core-shacl.jsonld:106](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/sflo-core-shacl.jsonld#L106).
+I continued with the next coherent cleanup step: `PayloadArtifact` is now treated as a role-bearing digital resource instead of “always an `AbstractArtifact`,” and a `Knop` no longer implies a payload by default at [semantic-flow-core-ontology.ttl:277](../ontology/semantic-flow-core-ontology.ttl#L277). That let me relax SHACL so purely referential Knops like `alice/_knop/` are valid, while still limiting a Knop to at most one payload resource at [sflo-core-shacl.jsonld:206](../ontology/sflo-core-shacl.jsonld#L206). I also made the manifestation shapes class-aware at [sflo-core-shacl.jsonld:106](../ontology/sflo-core-shacl.jsonld#L106).
 
-Validation was limited but clean: `python3 -m json.tool` passes for [sflo-core-shacl.jsonld](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/sflo-core-shacl.jsonld), and a stale-term grep came back clean for `Nomen`, `AbstractFile`, `FileExpression`, `ArtifactFlow`, `WorkingState`, and the old metadata/inventory artifact class names. I couldn’t run a Turtle parser or full SHACL engine here.
+Validation was limited but clean: `python3 -m json.tool` passes for [sflo-core-shacl.jsonld](../ontology/sflo-core-shacl.jsonld), and a stale-term grep came back clean for `Nomen`, `AbstractFile`, `FileExpression`, `ArtifactFlow`, `WorkingState`, and the old metadata/inventory artifact class names. I couldn’t run a Turtle parser or full SHACL engine here.
 
 The main open questions I’d leave for the next pass are:
 - whether `ArtifactState` should stay as a superclass now that only `HistoricalState` is concrete
@@ -1118,7 +1118,7 @@ The ontology cleanup is in. I’m doing a quick consistency sweep so I can give 
 
 # gpt-5.4_2026-03-17_0213_24
 
-Removed `ArtifactState` from the ontology surface and made `HistoricalState` a direct `DigitalArtifact` subclass at [semantic-flow-core-ontology.ttl:62](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/semantic-flow-core-ontology.ttl#L62). I also made the inventory comments singular and dropped the sharding language at [semantic-flow-core-ontology.ttl:347](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/semantic-flow-core-ontology.ttl#L347). A quick grep came back clean for `ArtifactState`, `shard`, and `sharded` in the edited ontology/SHACL files.
+Removed `ArtifactState` from the ontology surface and made `HistoricalState` a direct `DigitalArtifact` subclass at [semantic-flow-core-ontology.ttl:62](../ontology/semantic-flow-core-ontology.ttl#L62). I also made the inventory comments singular and dropped the sharding language at [semantic-flow-core-ontology.ttl:347](../ontology/semantic-flow-core-ontology.ttl#L347). A quick grep came back clean for `ArtifactState`, `shard`, and `sharded` in the edited ontology/SHACL files.
 
 Suggested commit message:
 
@@ -1190,13 +1190,13 @@ The summary note is written. I’m giving it one quick read-through to make sure
 
 # gpt-5.4_2026-03-17_0716_40
 
-I filled in [summary.core.md](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/notes/summary.core.md#L9) as a compact LLM-oriented guide to the live core model: the `Mesh`/`Knop` mental model, the artifact facet chain `AbstractArtifact -> HistoricalState -> ArtifactManifestation -> LocatedFile`, sparse-working behavior, role classes, and a short “do not reintroduce” list for removed legacy terms. It now also points directly to the moved Alice example at [use-cases.alice-bio.md](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/notes/use-cases.alice-bio.md).
+I filled in [[summary.core|summary.core.md]] as a compact LLM-oriented guide to the live core model: the `Mesh`/`Knop` mental model, the artifact facet chain `AbstractArtifact -> HistoricalState -> ArtifactManifestation -> LocatedFile`, sparse-working behavior, role classes, and a short “do not reintroduce” list for removed legacy terms. It now also points directly to the moved Alice example at [[use-cases.alice-bio]].
 
-I didn’t run any validators since this was a docs-only change. One small note from git: both [summary.core.md](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/notes/summary.core.md) and [use-cases.alice-bio.md](/home/djradon/hub/semantic-flow/weave/dependencies/github.com/semantic-flow/ontology/notes/use-cases.alice-bio.md) are currently showing as untracked in the ontology repo.
+I didn’t run any validators since this was a docs-only change. One small note from git: both [[summary.core]] and [[use-cases.alice-bio]] are currently showing as untracked in the ontology repo.
 
 # djradon_2026-03-17_1312_04
 
-Are we done with [wd.task.2026.2026-03-13-picking-up-the-pieces.md](/home/djradon/hub/semantic-flow/weave/documentation/notes/wd.task.2026.2026-03-13-picking-up-the-pieces.md) ?
+Are we done with [[wd.task.2026.2026-03-13-picking-up-the-pieces]] ?
 
 # gpt-5.4_2026-03-17_1312_10
 
@@ -1206,17 +1206,17 @@ I’m checking the task note against what we actually finished so I can tell you
 
 Not quite.
 
-The core modeling work is mostly done, but [wd.task.2026.2026-03-13-picking-up-the-pieces.md:32](/home/djradon/hub/semantic-flow/weave/documentation/notes/wd.task.2026.2026-03-13-picking-up-the-pieces.md#L32) is not cleanly closeable yet in its current form.
+The core modeling work is mostly done, but [[wd.task.2026.2026-03-13-picking-up-the-pieces|wd.task.2026.2026-03-13-picking-up-the-pieces.md:32]] is not cleanly closeable yet in its current form.
 
 What’s effectively done:
-- `D/` and `D/_knop/` were settled at [wd.task.2026.2026-03-13-picking-up-the-pieces.md:34](/home/djradon/hub/semantic-flow/weave/documentation/notes/wd.task.2026.2026-03-13-picking-up-the-pieces.md#L34) and [wd.task.2026.2026-03-13-picking-up-the-pieces.md:35](/home/djradon/hub/semantic-flow/weave/documentation/notes/wd.task.2026.2026-03-13-picking-up-the-pieces.md#L35).
-- ontology deltas were drafted and applied, so [wd.task.2026.2026-03-13-picking-up-the-pieces.md:39](/home/djradon/hub/semantic-flow/weave/documentation/notes/wd.task.2026.2026-03-13-picking-up-the-pieces.md#L39) should now be checked off.
-- the reset/salvage question was answered in the recommendation section at [wd.task.2026.2026-03-13-picking-up-the-pieces.md:131](/home/djradon/hub/semantic-flow/weave/documentation/notes/wd.task.2026.2026-03-13-picking-up-the-pieces.md#L131), so [wd.task.2026.2026-03-13-picking-up-the-pieces.md:41](/home/djradon/hub/semantic-flow/weave/documentation/notes/wd.task.2026.2026-03-13-picking-up-the-pieces.md#L41) is effectively done too.
+- `D/` and `D/_knop/` were settled at [[wd.task.2026.2026-03-13-picking-up-the-pieces|wd.task.2026.2026-03-13-picking-up-the-pieces.md:34]] and [[wd.task.2026.2026-03-13-picking-up-the-pieces|wd.task.2026.2026-03-13-picking-up-the-pieces.md:35]].
+- ontology deltas were drafted and applied, so [[wd.task.2026.2026-03-13-picking-up-the-pieces|wd.task.2026.2026-03-13-picking-up-the-pieces.md:39]] should now be checked off.
+- the reset/salvage question was answered in the recommendation section at [[wd.task.2026.2026-03-13-picking-up-the-pieces|wd.task.2026.2026-03-13-picking-up-the-pieces.md:131]], so [[wd.task.2026.2026-03-13-picking-up-the-pieces|wd.task.2026.2026-03-13-picking-up-the-pieces.md:41]] is effectively done too.
 
 What is still actually open:
-- [wd.task.2026.2026-03-13-picking-up-the-pieces.md:40](/home/djradon/hub/semantic-flow/weave/documentation/notes/wd.task.2026.2026-03-13-picking-up-the-pieces.md#L40): core docs are only partially rewritten.
-- [wd.task.2026.2026-03-13-picking-up-the-pieces.md:42](/home/djradon/hub/semantic-flow/weave/documentation/notes/wd.task.2026.2026-03-13-picking-up-the-pieces.md#L42): we have not yet identified the minimum code worth carrying forward.
-- the note itself is a bit stale: [wd.task.2026.2026-03-13-picking-up-the-pieces.md:36](/home/djradon/hub/semantic-flow/weave/documentation/notes/wd.task.2026.2026-03-13-picking-up-the-pieces.md#L36), [wd.task.2026.2026-03-13-picking-up-the-pieces.md:37](/home/djradon/hub/semantic-flow/weave/documentation/notes/wd.task.2026.2026-03-13-picking-up-the-pieces.md#L37), and [wd.task.2026.2026-03-13-picking-up-the-pieces.md:38](/home/djradon/hub/semantic-flow/weave/documentation/notes/wd.task.2026.2026-03-13-picking-up-the-pieces.md#L38) reflect earlier branches of the discussion more than the current settled direction.
+- [[wd.task.2026.2026-03-13-picking-up-the-pieces|wd.task.2026.2026-03-13-picking-up-the-pieces.md:40]]: core docs are only partially rewritten.
+- [[wd.task.2026.2026-03-13-picking-up-the-pieces|wd.task.2026.2026-03-13-picking-up-the-pieces.md:42]]: we have not yet identified the minimum code worth carrying forward.
+- the note itself is a bit stale: [[wd.task.2026.2026-03-13-picking-up-the-pieces|wd.task.2026.2026-03-13-picking-up-the-pieces.md:36]], [[wd.task.2026.2026-03-13-picking-up-the-pieces|wd.task.2026.2026-03-13-picking-up-the-pieces.md:37]], and [[wd.task.2026.2026-03-13-picking-up-the-pieces|wd.task.2026.2026-03-13-picking-up-the-pieces.md:38]] reflect earlier branches of the discussion more than the current settled direction.
 - per repo guidance, I also would not close it before updating `[[wd.decision-log]]`.
 
 So my read is: the conceptual/ontology phase is basically complete, but the task note is not yet “done.” It wants one cleanup pass to mark resolved items correctly, cancel or rewrite stale ones, update the decision log, and either:

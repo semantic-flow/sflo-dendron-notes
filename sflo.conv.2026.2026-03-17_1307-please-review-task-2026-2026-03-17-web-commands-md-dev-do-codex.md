@@ -72,9 +72,9 @@ The focused suite is clean now: 34 passed, 0 failed. I’m marking the plan comp
 
 # gpt-5.4_2026-03-17_1310_25
 
-`New recording` now creates the file immediately and seeds markdown frontmatter through the existing writer path in [session_recording_actions.ts](/home/djradon/hub/spectacular-voyage/kato/apps/web/src/session_recording_actions.ts). The conversation body still starts with the next event, but the file is visible right away instead of just being “primed.”
+`New recording` now creates the file immediately and seeds markdown frontmatter through the existing writer path in [session_recording_actions.ts](../../../../../../spectacular-voyage/kato/apps/web/src/session_recording_actions.ts). The conversation body still starts with the next event, but the file is visible right away instead of just being “primed.”
 
-I also added coverage for the frontmatter-only write path in [recording-pipeline_test.ts](/home/djradon/hub/spectacular-voyage/kato/tests/recording-pipeline_test.ts) and updated the web action tests in [web-session-actions_test.ts](/home/djradon/hub/spectacular-voyage/kato/tests/web-session-actions_test.ts). One nuance: the file will always get frontmatter, but which extra kato ID fields appear is still driven by the workspace’s frontmatter settings. I updated the task note to match in [task.2026.2026-03-17-web-commands.md](/home/djradon/hub/spectacular-voyage/kato/dev-docs/notes/task.2026.2026-03-17-web-commands.md).
+I also added coverage for the frontmatter-only write path in [recording-pipeline_test.ts](../../../../../../spectacular-voyage/kato/tests/recording-pipeline_test.ts) and updated the web action tests in [web-session-actions_test.ts](../../../../../../spectacular-voyage/kato/tests/web-session-actions_test.ts). One nuance: the file will always get frontmatter, but which extra kato ID fields appear is still driven by the workspace’s frontmatter settings. I updated the task note to match in [[task.2026.2026-03-17-web-commands]].
 
 Verified with:
 ```bash
@@ -157,9 +157,9 @@ The code is green, and I’ve updated the task note to match the new scope. I’
 
 # gpt-5.4_2026-03-17_1325_58
 
-Implemented. The Sessions page now shows inline `[stop]` buttons next to each engaged recording and a `[stop all]` link next to the `Recordings` heading in [SessionsLive.tsx](/home/djradon/hub/spectacular-voyage/kato/apps/web/islands/SessionsLive.tsx). The route accepts the new stop actions in [sessions.tsx](/home/djradon/hub/spectacular-voyage/kato/apps/web/routes/sessions.tsx), and the mutation logic in [session_recording_actions.ts](/home/djradon/hub/spectacular-voyage/kato/apps/web/src/session_recording_actions.ts) stops either one targeted engaged output or all engaged outputs for the session.
+Implemented. The Sessions page now shows inline `[stop]` buttons next to each engaged recording and a `[stop all]` link next to the `Recordings` heading in [SessionsLive.tsx](../../../../../../spectacular-voyage/kato/apps/web/islands/SessionsLive.tsx). The route accepts the new stop actions in [sessions.tsx](../../../../../../spectacular-voyage/kato/apps/web/routes/sessions.tsx), and the mutation logic in [session_recording_actions.ts](../../../../../../spectacular-voyage/kato/apps/web/src/session_recording_actions.ts) stops either one targeted engaged output or all engaged outputs for the session.
 
-I also added focused tests for single-stop and stop-all in [web-session-actions_test.ts](/home/djradon/hub/spectacular-voyage/kato/tests/web-session-actions_test.ts) and updated [task.2026.2026-03-17-web-commands.md](/home/djradon/hub/spectacular-voyage/kato/dev-docs/notes/task.2026.2026-03-17-web-commands.md) so it no longer says the Sessions recordings are read-only. One small caveat: the inline `[stop]` only renders for recordings backed by persisted workspace metadata, which is the right constraint for this phase.
+I also added focused tests for single-stop and stop-all in [web-session-actions_test.ts](../../../../../../spectacular-voyage/kato/tests/web-session-actions_test.ts) and updated [[task.2026.2026-03-17-web-commands]] so it no longer says the Sessions recordings are read-only. One small caveat: the inline `[stop]` only renders for recordings backed by persisted workspace metadata, which is the right constraint for this phase.
 
 Verified with:
 ```bash
@@ -186,7 +186,7 @@ The styling change is in. I’m doing a quick format pass on the JSX file so we 
 
 # gpt-5.4_2026-03-17_1328_39
 
-Updated the Sessions stop controls styling in [SessionsLive.tsx](/home/djradon/hub/spectacular-voyage/kato/apps/web/islands/SessionsLive.tsx) and [styles.css](/home/djradon/hub/spectacular-voyage/kato/apps/web/assets/styles.css).
+Updated the Sessions stop controls styling in [SessionsLive.tsx](../../../../../../spectacular-voyage/kato/apps/web/islands/SessionsLive.tsx) and [styles.css](../../../../../../spectacular-voyage/kato/apps/web/assets/styles.css).
 
 `[stop all]` is now a bit smaller, and both `[stop all]` and `[stop]` use the danger red instead of the neutral inline-link color. I only did a formatting pass for this change, not a test run, since it’s CSS/markup-only.
 
@@ -204,7 +204,7 @@ I found the button component. I’m adding the tooltip strings in one helper so 
 
 # gpt-5.4_2026-03-17_1333_15
 
-Added. `New capture` and `New recording` now have `title` tooltips in [SessionsLive.tsx](/home/djradon/hub/spectacular-voyage/kato/apps/web/islands/SessionsLive.tsx) with the exact copy you gave.
+Added. `New capture` and `New recording` now have `title` tooltips in [SessionsLive.tsx](../../../../../../spectacular-voyage/kato/apps/web/islands/SessionsLive.tsx) with the exact copy you gave.
 
 I only ran `deno fmt` on that file since this was a tiny UI-copy change.
 
@@ -218,7 +218,7 @@ I would not jump to workspace names yet. The better next step is to stabilize an
 
 Recommended order:
 1. Do a quick browser smoke pass on `/sessions`.
-2. Update [release-notes.v0.2.8.md](/home/djradon/hub/spectacular-voyage/kato/dev-docs/notes/release-notes.v0.2.8.md) with the new Sessions controls.
+2. Update [[release-notes.v0.2.8]] with the new Sessions controls.
 3. Run `deno task ci`.
 4. Commit.
 

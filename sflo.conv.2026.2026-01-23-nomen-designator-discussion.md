@@ -2,7 +2,7 @@
 id: 87bgisstyy6tox2kcxhvtfk
 title: 2026 01 23 Nomen Designator Discussion
 desc: ''
-updated: 1769197317518
+updated: 1775334213847
 created: 1769197313125
 ---
 Skip to content
@@ -1531,7 +1531,7 @@ Have we considered any LiteralProxy other than IriDesignator? Maybe with Mesh? C
 
 I think we better clarify, at least for myself, the mesh root. 
 
-I was thinking the root folder/IRI of a mesh could be a Nomen. e.g., on disk, /home/djradon/repos/ontology/ would be a repo. The mesh root, semantically, would be "/", and the top-level Nomen (/_nomen/) would have a meshPath of "/" -- unfortunately, nowhere in there is the word "ontology". It's just kinda weird that the published (and absolute-local, ie. file:///) IRIs would include the word ontology, but nothing in the mesh. I think it's unavoidable.
+I was thinking the root folder/IRI of a mesh could be a Nomen. e.g., on disk, repos/ontology/ would be a repo. The mesh root, semantically, would be "/", and the top-level Nomen (/_nomen/) would have a meshPath of "/" -- unfortunately, nowhere in there is the word "ontology". It's just kinda weird that the published (and absolute-local, ie. file:///) IRIs would include the word ontology, but nothing in the mesh. I think it's unavoidable.
 
 Anyhow, the thing that defines a root Nomen is the presence of the _mesh and _knops folders (in addition to the _nomen folder that all nomen have, and the optional _assets folder that any AbstractResource can have).
 
@@ -1572,9 +1572,9 @@ So: keep sflo:hasDesignator and keep sflo:meshPath on sflo:IriDesignator. Add ot
 
 Right now you’re mixing:
 
-    Filesystem root of the mesh directory (e.g., /home/djradon/repos/ontology/)
+    Filesystem root of the mesh directory (e.g., repos/ontology/)
 
-    Deployment base IRI (e.g., file:///home/djradon/repos/ontology/ or https://…/ontology/)
+    Deployment base IRI (e.g., file://repos/ontology/ or https://…/ontology/)
 
     Mesh-internal root path token (what meshPath "/" means)
 
@@ -3236,7 +3236,7 @@ You’re right: a repo can be checked out into any folder name, and for file:// 
 Use cases and implications
 Use case 1: Local editing, no local server
 
-    You open RDF from file:///home/djradon/repos/ontology/…
+    You open RDF from file://repos/ontology/…
 
     If you rely on inferred base, the effective base includes …/ontology/ (or whatever the folder is named).
 

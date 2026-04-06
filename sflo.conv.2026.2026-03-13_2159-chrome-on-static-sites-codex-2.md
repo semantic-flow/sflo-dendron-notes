@@ -308,9 +308,9 @@ My instinct is: discovery should be permissive, but claiming a public resource s
 
 # djradon_2026-03-13_1837_26
 
-For additional context, see [guide.product-brief.md](/home/djradon/hub/djradon/dendron-workspace/sflo/documentation/guide.product-brief.md) -- it's outdated now, but it gives you an idea about how folders are used to create IRIs.
+For additional context, see [[guide.product-brief]] -- it's outdated now, but it gives you an idea about how folders are used to create IRIs.
 
-Also relevant here, see [sflo.conv.2025-12-22-template-mapping-review.md](/home/djradon/hub/djradon/dendron-workspace/sflow-dendron-notes/sflo.conv.2025-12-22-template-mapping-review.md) -- the idea there is different RDF types or different places in the hierarchy should have different templates. So the goal is not so much a coherent simple site, but a dynamic data browser that could actually feel like a living book, with different design element and functionality baked into different pages.
+Also relevant here, see [[sflo.conv.2025-12-22-template-mapping-review]] -- the idea there is different RDF types or different places in the hierarchy should have different templates. So the goal is not so much a coherent simple site, but a dynamic data browser that could actually feel like a living book, with different design element and functionality baked into different pages.
 
 # gpt-5.4_2026-03-13_1837_34
 
@@ -320,7 +320,7 @@ I’ve got the brief and the template-mapping discussion loaded. I’m pulling a
 
 That context shifts the center of gravity quite a bit.
 
-The older brief still gives a useful default: folder hierarchy as the canonical IRI-minting backbone, with weave regenerating resource pages ([guide.product-brief.md](/home/djradon/hub/djradon/dendron-workspace/sflo/documentation/guide.product-brief.md#L52)). But with the template-mapping direction, the system stops looking like “one coherent static site with one theme” and starts looking more like a resource-page compiler with a presentation dispatch layer ([sflo.conv.2025-12-22-template-mapping-review.md](/home/djradon/hub/djradon/dendron-workspace/sflow-dendron-notes/sflo.conv.2025-12-22-template-mapping-review.md#L103), [sflo.conv.2025-12-22-template-mapping-review.md](/home/djradon/hub/djradon/dendron-workspace/sflow-dendron-notes/sflo.conv.2025-12-22-template-mapping-review.md#L152), [sflo.conv.2025-12-22-template-mapping-review.md](/home/djradon/hub/djradon/dendron-workspace/sflow-dendron-notes/sflo.conv.2025-12-22-template-mapping-review.md#L189)).
+The older brief still gives a useful default: folder hierarchy as the canonical IRI-minting backbone, with weave regenerating resource pages ([[guide.product-brief|guide.product-brief.md]]). But with the template-mapping direction, the system stops looking like “one coherent static site with one theme” and starts looking more like a resource-page compiler with a presentation dispatch layer ([[sflo.conv.2025-12-22-template-mapping-review|sflo.conv.2025-12-22-template-mapping-review.md]], [[sflo.conv.2025-12-22-template-mapping-review|sflo.conv.2025-12-22-template-mapping-review.md]], [[sflo.conv.2025-12-22-template-mapping-review|sflo.conv.2025-12-22-template-mapping-review.md]]).
 
 So I’d model it in layers:
 
@@ -364,7 +364,7 @@ I’ve got enough context now. I’m writing this as a true architecture/vision 
 
 The draft is in place. I’m reading it back once to tighten anything awkward and make sure the hierarchy of ideas lands cleanly in the note.
 
-Drafted the vision/architecture note in [pi.weave.brainstorm-1.md](/home/djradon/hub/djradon/dendron-workspace/private-notes/pi.weave.brainstorm-1.md).
+Drafted the vision/architecture note in [[pi.weave.brainstorm-1]].
 
 It centers Weave as a resource-page compiler rather than a generic SSG, and bakes in the pieces we were converging on: mixed RDF + Dendron inputs, prioritized adapter claim rules, resource contribution roles, archetype-driven rendering, explicit per-resource archetype overrides, and JS-loaded chrome as an optional enhancement layer. I also added a tentative layered architecture, early design bets, and open questions so it can work as both product vision and a starting implementation frame.
 
@@ -422,7 +422,7 @@ Anyhow, I think we have to commit to generated HTML (and committing generated co
 
 Next subject: For Semantic Flow, I'd pretty much settled on a git-orthogonal, pseudo-immutable versioning mechanism. Yes, the IRI for a thing could return the latest content (in this case backed by RDF data) but there would be a copy of previously woven versions still around (unless turned off via config), so if you wanted to reference a dataset "as is", you use its version URL which should never change (with exceptions for "right-to-be-forgotten", or legality or embarassment).
 
-See [sflo.conv.2026.2026-01-30-artifact-identity-and-realizability.md](/home/djradon/hub/djradon/dendron-workspace/sflow-dendron-notes/sflo.conv.2026.2026-01-30-artifact-identity-and-realizability.md) for a sample of the brain-wracking "we" have done.
+See [[sflo.conv.2026.2026-01-30-artifact-identity-and-realizability]] for a sample of the brain-wracking "we" have done.
 
 # gpt-5.4_2026-03-13_1911_45
 
@@ -430,7 +430,7 @@ I’m reading the artifact/versioning note now so I can respond in your terms ra
 
 I’m pulling exact line refs from the ontology discussion now, because your versioning point is close to what that note was already circling: anchor/head state versus immutable historical states.
 
-You’re right. The line in [pi.weave.brainstorm-1.md](/home/djradon/hub/djradon/dendron-workspace/private-notes/pi.weave.brainstorm-1.md#L118) should really distinguish `artifact URL` from `resource-page URL`, not say “storage path doesn’t equal public URL” full stop.
+You’re right. The line in [[pi.weave.brainstorm-1|pi.weave.brainstorm-1.md]] should really distinguish `artifact URL` from `resource-page URL`, not say “storage path doesn’t equal public URL” full stop.
 
 A tighter version would be:
 
@@ -438,16 +438,16 @@ A tighter version would be:
 - but it should not be assumed to equal the primary dereferenceable resource-page URL
 - in SFLO, a stored Markdown/RDF file can itself be a DigitalArtifact, while a related HTML ResourcePage is a separate page “for” that artifact
 
-That also matches the direction in the anchor/state discussion: the identity layer and the presentation layer are related, but not identical ([artifact note](/home/djradon/hub/djradon/dendron-workspace/sflow-dendron-notes/sflo.conv.2026.2026-01-30-artifact-identity-and-realizability.md#L989), [artifact note](/home/djradon/hub/djradon/dendron-workspace/sflow-dendron-notes/sflo.conv.2026.2026-01-30-artifact-identity-and-realizability.md#L999), [artifact note](/home/djradon/hub/djradon/dendron-workspace/sflow-dendron-notes/sflo.conv.2026.2026-01-30-artifact-identity-and-realizability.md#L1251)).
+That also matches the direction in the anchor/state discussion: the identity layer and the presentation layer are related, but not identical ([[sflo.conv.2026.2026-01-30-artifact-identity-and-realizability|artifact note]], [[sflo.conv.2026.2026-01-30-artifact-identity-and-realizability|artifact note]], [[sflo.conv.2026.2026-01-30-artifact-identity-and-realizability|artifact note]]).
 
 On the JS-only URL question: sometimes I can recover content from a JS-heavy page by inspecting hydration data, API calls, or by using extra tooling in a coding workspace. But I would not treat “an agent can probably execute the JS” as a reliable dereferenceability story. Many agents, crawlers, validators, and archival tools will not. So for your goals, committing generated HTML still feels like the right call. It keeps `View Source` meaningful, preserves machine-readable structure without a JS engine, and makes archived/versioned pages much more trustworthy.
 
-The versioning direction also looks coherent to me. The model in [artifact note](/home/djradon/hub/djradon/dendron-workspace/sflow-dendron-notes/sflo.conv.2026.2026-01-30-artifact-identity-and-realizability.md#L897) is already close to what you just described:
+The versioning direction also looks coherent to me. The model in [[sflo.conv.2026.2026-01-30-artifact-identity-and-realizability|artifact note]] is already close to what you just described:
 
 - anchor URL = diachronic identity
 - head/current representation may change
 - historical state URLs are immutable snapshot/revision URLs
-- “simple vs flow” is derived from whether historical states exist, not a fundamental stored kind ([artifact note](/home/djradon/hub/djradon/dendron-workspace/sflow-dendron-notes/sflo.conv.2026.2026-01-30-artifact-identity-and-realizability.md#L900), [artifact note](/home/djradon/hub/djradon/dendron-workspace/sflow-dendron-notes/sflo.conv.2026.2026-01-30-artifact-identity-and-realizability.md#L1002))
+- “simple vs flow” is derived from whether historical states exist, not a fundamental stored kind ([[sflo.conv.2026.2026-01-30-artifact-identity-and-realizability|artifact note]], [[sflo.conv.2026.2026-01-30-artifact-identity-and-realizability|artifact note]])
 
 That gives you a nice publication contract:
 
@@ -458,7 +458,7 @@ That gives you a nice publication contract:
 
 That feels very SFLO: Git-orthogonal versioning, but still static-host-friendly and citeable.
 
-If you want, I can patch the wording in [pi.weave.brainstorm-1.md](/home/djradon/hub/djradon/dendron-workspace/private-notes/pi.weave.brainstorm-1.md) and add a short “artifact URL vs resource-page URL” subsection plus a “versioning contract” subsection.
+If you want, I can patch the wording in [[pi.weave.brainstorm-1]] and add a short “artifact URL vs resource-page URL” subsection plus a “versioning contract” subsection.
 
 # djradon_2026-03-13_1919_20
 
@@ -472,7 +472,7 @@ I’m updating the brainstorm note now to tighten the artifact-vs-resource-page 
 
 The note is patched. I’m doing a quick read-through of the changed sections to make sure the new distinctions land cleanly and don’t fight the earlier framing.
 
-Updated [pi.weave.brainstorm-1.md](/home/djradon/hub/djradon/dendron-workspace/private-notes/pi.weave.brainstorm-1.md).
+Updated [[pi.weave.brainstorm-1]].
 
 I tightened the URL model so it now distinguishes storage path, public artifact URL, logical resource identifier, and HTML ResourcePage URL instead of implying only one public URL layer. I also added a `Committed HTML and Meaningful Source` section to make the case for generated-and-committed HTML explicit, plus a `Versioning Contract` section that captures the anchor/latest versus retained immutable historical versions idea.
 

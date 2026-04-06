@@ -2,7 +2,7 @@
 id: 5z8vkgkcudi3sjcgj77ea3i
 title: 2025 07 03 Consistency and Readability
 desc: ''
-updated: 1766173416652
+updated: 1775334172484
 created: 1751595723055
 ---
 
@@ -259,7 +259,7 @@ Roo wants to read multiple files:
 
 Error
 Error reading file sflow-dendron-notes/sflow.concept.mesh.resource.node-handle.md:
-File not found: /home/djradon/hub/semantic-flow/sf-workspace/sflow-dendron-notes/sflow.concept.mesh.resource.node-handle.md
+File not found: sf-workspace/sflow-dendron-notes/sflow.concept.mesh.resource.node-handle.md
 
 
 

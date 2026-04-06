@@ -2,7 +2,7 @@
 id: yz76llpg1d96cn7jnh6tskm
 title: 2026 01 14 Namespace Model Clarification
 desc: ''
-updated: 1768760520014
+updated: 1775334213845
 created: 1768456755564
 ---
 Skip to content
@@ -884,7 +884,7 @@ If you want, I can rewrite your “namespace” doc section in this framing (inc
 You said:
 Yes, let's not collapse 1 and 2. Nomen can "support" absolute IRIs, when they are published. Regarding #3, even before deployment, the Nomen MUST have a filesystem context. Potentially it is more usefully viewed as a mesh context. In any case, a "root Nomen" is any Nomen that doesn't have a parent Nomen. 
 
-"Composition then becomes explicit and cheap" -- "you don’t need to physically nest folders" um, you DO. In the semantic flow, the published namespace reflects the filesystem. Filesystem should remain the (implicit) source of truth, but you might want to publish the _mesh structure for when filesystem structure isn't available. Nomen can't be moved without changing their identity. Knops can be moved, attached to different Nomen. But Nomen, in an import real (but abstract) sense, are fixed. and given length limitations of URLs, finite. All the possible Nomen are just the tokens "a", "aa", "ab" etc. Nomina need context to make them unique. But also, we can give them (enough) context without making them unique, e.g file://home/djradon/ns/alice is not unique, it's not a single address space, but it's adequate for local semantic web work.
+"Composition then becomes explicit and cheap" -- "you don’t need to physically nest folders" um, you DO. In the semantic flow, the published namespace reflects the filesystem. Filesystem should remain the (implicit) source of truth, but you might want to publish the _mesh structure for when filesystem structure isn't available. Nomen can't be moved without changing their identity. Knops can be moved, attached to different Nomen. But Nomen, in an import real (but abstract) sense, are fixed. and given length limitations of URLs, finite. All the possible Nomen are just the tokens "a", "aa", "ab" etc. Nomina need context to make them unique. But also, we can give them (enough) context without making them unique, e.g file:/ns/alice is not unique, it's not a single address space, but it's adequate for local semantic web work.
 ChatGPT said:
 
 Agreed on not collapsing (1) and (2). But your latest message introduces two new contradictions you need to resolve, otherwise your docs will be internally inconsistent.
@@ -1069,7 +1069,7 @@ By "“cannot be moved without changing identity,”" I meant you can't change a
 
 Where do you mean with "This is also where your “deployment assertions / inventory” belongs—not inside identifier-handles."
 
-I love where we're going here. But regarding 7.2, isn't file:///home/djradon/ns/ a namespace too? publishing not necessary? and in 7.3., _mesh doesn't need to be published, unless you consider "on disk" as published.
+I love where we're going here. But regarding 7.2, isn't file://ns/ a namespace too? publishing not necessary? and in 7.3., _mesh doesn't need to be published, unless you consider "on disk" as published.
 ChatGPT said:
 
 Good, that clarification resolves one of the big ambiguities. I’ll answer your two concrete questions first, then tighten the model so it stays coherent without over-formalizing meshes.
@@ -1142,7 +1142,7 @@ Identifier-handle	“This string is an identifier”
 Deployment inventory	“This Nomen occurrence has appeared here”
 
 If you keep that split, the system stays legible.
-3. Is file:///home/djradon/ns/ a namespace?
+3. Is file://ns/ a namespace?
 
 Yes — and this is an important point to state clearly.
 
@@ -1162,7 +1162,7 @@ It is simply:
 
 So:
 
-    file:///home/djradon/ns/ is a namespace
+    file://ns/ is a namespace
 
     https://djradon.github.io/ns/ is a namespace
 
